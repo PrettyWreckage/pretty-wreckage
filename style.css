@@ -1,6 +1,6 @@
 /* Body with diary background, warm overlay & subtle flicker */
 body {
-  background: url('diary-pen.jpg.png') no-repeat center center fixed;
+  background: url('image/diary-pen.jpg') no-repeat center center fixed;
   background-size: cover;
   background-blend-mode: multiply;
   color: #f4d9e3;
