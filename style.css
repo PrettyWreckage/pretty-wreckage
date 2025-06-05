@@ -1,130 +1,255 @@
-/* About Me Preview */
-.about-preview {
-  background-color: rgba(255, 192, 203, 0.1);
-  border-left: 4px solid #ffa7c4;
-  padding: 1.2rem 1.5rem;
-  margin-bottom: 2rem;
-  border-radius: 10px;
+/* Background with faded diary image and soft candlelight overlay */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Georgia', serif;
+  color: #f4d9e3;
+  background: url('diary-pen.jpg.png') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
 }
 
-.about-preview h2 {
-  margin-top: 0;
+/* Dark translucent overlay for warm candlelit vibe */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+/* Main container */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem 2.5rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 140, 100, 0.3);
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #ff7cae;
+  margin: 0;
+}
+
+.subtitle {
+  font-style: italic;
+  font-size: 1.2rem;
   color: #ffcde3;
 }
 
-.about-preview p {
-  font-size: 1rem;
-  color: #f8dce6;
+/* Intro */
+.intro {
+  background-color: rgba(44, 44, 44, 0.6);
+  padding: 1.5rem;
+  border-left: 5px solid #ff7cae;
+  margin-bottom: 2rem;
+  color: #f4d9e3;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
-/* Buttons Section */
-.actions {
+/* Navigation */
+.nav {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+  justify-content: space-around;
   margin-bottom: 2rem;
 }
 
-.button {
-  background-color: #ff7cae;
-  color: #1a1a1a;
-  padding: 0.7rem 1.5rem;
-  border-radius: 25px;
+.nav a {
+  color: #ffb6c1;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 0 10px rgba(255, 140, 180, 0.3);
-  transition: background-color 0.3s ease, transform 0.2s;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #ffa7c4;
+  text-decoration: underline;
+}
+
+/* About Preview */
+.about-preview {
+  background-color: rgba(44, 44, 44, 0.6);
+  padding: 1.5rem 1.8rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  color: #f4d9e3;
+  box-shadow: 0 0 10px rgba(255, 140, 140, 0.2);
+}
+
+.about-preview h2 {
+  color: #ffa7c4;
+  margin-top: 0;
+}
+
+/* Poem Preview */
+.poem-preview {
+  background-color: rgba(44, 44, 44, 0.6);
+  padding: 1.2rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  color: #f4d9e3;
+  box-shadow: 0 0 10px rgba(255, 140, 140, 0.2);
+}
+
+.poem-preview h2 {
+  color: #ffa7c4;
+  margin-top: 0;
+}
+
+.poem-line {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* Read More links */
+.read-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #ff88aa;
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: #ff5c8d;
+}
+
+/* Buttons */
+.button {
+  background-color: #ff7cae;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 1rem;
+  transition: background-color 0.3s ease;
+  display: inline-block;
 }
 
 .button:hover {
   background-color: #ff5c8d;
-  transform: scale(1.05);
 }
 
 .button.secondary {
-  background-color: transparent;
-  color: #ffcde3;
-  border: 2px solid #ff7cae;
+  background-color: #ffa7c4;
+  color: #333;
 }
 
 .button.secondary:hover {
-  background-color: rgba(255, 124, 174, 0.1);
+  background-color: #ff88aa;
 }
 
-/* Inspiration note */
+/* Actions Section */
+.actions {
+  margin-bottom: 2rem;
+}
+
+/* Inspiration Note */
 .inspiration {
-  background-color: rgba(255, 255, 255, 0.05);
-  border-left: 3px dashed #ffcde3;
+  background-color: rgba(44, 44, 44, 0.6);
   padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: #f4d9e3;
+  box-shadow: 0 0 10px rgba(255, 140, 140, 0.2);
   font-style: italic;
   margin-bottom: 2rem;
-  border-radius: 10px;
-  color: #f9dbe6;
 }
 
 /* Secret Rose Feature */
 .secret-rose {
-  position: relative;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
   width: 60px;
-  margin: 2rem auto;
+  height: 60px;
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.secret-rose:hover {
-  transform: scale(1.1);
+  z-index: 10;
 }
 
 .secret-rose img {
   width: 100%;
-  display: block;
+  height: auto;
+  transition: transform 0.3s ease;
 }
 
+.secret-rose:hover img {
+  transform: scale(1.1);
+}
+
+/* Butterfly decoration — optional, remove if no butterfly.png */
 .butterfly {
   position: absolute;
   top: -10px;
-  right: -10px;
-  width: 20px;
-  height: 20px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
   background: url('butterfly.png') no-repeat center center;
   background-size: contain;
-  animation: flutter 3s infinite ease-in-out;
+  animation: flutter 2s infinite ease-in-out;
+  pointer-events: none;
   opacity: 0.7;
 }
 
 @keyframes flutter {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-6px) rotate(5deg); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px) rotate(10deg);}
 }
 
-/* Secret Message Popup */
+/* Secret Popup */
 .secret-popup {
   display: none;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(30, 30, 30, 0.95);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 100, 150, 0.5);
-  z-index: 9999;
-  max-width: 90%;
-  width: 300px;
-  color: #ffcde3;
+  background: rgba(0,0,0,0.9);
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  color: #f4d9e3;
+  max-width: 320px;
+  z-index: 100;
+  box-shadow: 0 0 20px rgba(255, 140, 140, 0.7);
 }
 
-.secret-popup .popup-content {
+/* Popup Content */
+.popup-content {
   position: relative;
-  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.4;
 }
 
-.secret-popup .popup-content .close {
+/* Close Button */
+.close {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: 8px;
+  right: 12px;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #ff9dbf;
+  color: #ff7cae;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  color: #ffcde3;
+  margin-top: 3rem;
+  font-size: 0.9rem;
 }
