@@ -1,125 +1,130 @@
-/* Background with faded diary image and soft candlelight overlay */
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: 'Georgia', serif;
-  color: #f4d9e3;
-  background: url('diary-pen.jpg.png') no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
-}
-
-/* Dark translucent overlay for that warm candlelit vibe */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.55); /* Adjust opacity if needed */
-  z-index: 0;
-}
-
-/* Main content container with some transparency */
-.container {
-  position: relative;
-  z-index: 1;  /* Make sure content is above overlay */
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2rem 2.5rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 140, 100, 0.3);
-}
-
-/* Header styles */
-header {
-  text-align: center;
+/* About Me Preview */
+.about-preview {
+  background-color: rgba(255, 192, 203, 0.1);
+  border-left: 4px solid #ffa7c4;
+  padding: 1.2rem 1.5rem;
   margin-bottom: 2rem;
+  border-radius: 10px;
 }
 
-header h1 {
-  font-size: 3rem;
-  color: #ff7cae;
-  margin: 0;
-}
-
-.subtitle {
-  font-style: italic;
-  font-size: 1.2rem;
+.about-preview h2 {
+  margin-top: 0;
   color: #ffcde3;
 }
 
-/* Intro section styling */
-.intro {
-  background-color: rgba(44, 44, 44, 0.6);
-  padding: 1.5rem;
-  border-left: 5px solid #ff7cae;
-  margin-bottom: 2rem;
-  color: #f4d9e3;
-  font-size: 1.1rem;
-  line-height: 1.5;
+.about-preview p {
+  font-size: 1rem;
+  color: #f8dce6;
 }
 
-/* Navigation menu */
-.nav {
+/* Buttons Section */
+.actions {
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
   margin-bottom: 2rem;
 }
 
-.nav a {
-  color: #ffb6c1;
+.button {
+  background-color: #ff7cae;
+  color: #1a1a1a;
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
+  box-shadow: 0 0 10px rgba(255, 140, 180, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
-.nav a:hover {
-  color: #ffa7c4;
-  text-decoration: underline;
+.button:hover {
+  background-color: #ff5c8d;
+  transform: scale(1.05);
 }
 
-/* Poem preview box */
-.poem-preview {
-  background-color: rgba(44, 44, 44, 0.6);
-  padding: 1.2rem 1.5rem;
-  border-radius: 10px;
+.button.secondary {
+  background-color: transparent;
+  color: #ffcde3;
+  border: 2px solid #ff7cae;
+}
+
+.button.secondary:hover {
+  background-color: rgba(255, 124, 174, 0.1);
+}
+
+/* Inspiration note */
+.inspiration {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 3px dashed #ffcde3;
+  padding: 1rem 1.5rem;
+  font-style: italic;
   margin-bottom: 2rem;
-  color: #f4d9e3;
-  box-shadow: 0 0 10px rgba(255, 140, 140, 0.2);
+  border-radius: 10px;
+  color: #f9dbe6;
 }
 
-.poem-preview h2 {
-  color: #ffa7c4;
-  margin-top: 0;
+/* Secret Rose Feature */
+.secret-rose {
+  position: relative;
+  width: 60px;
+  margin: 2rem auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-.poem-line {
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.4;
+.secret-rose:hover {
+  transform: scale(1.1);
 }
 
-/* Read more link */
-.read-more {
-  display: inline-block;
-  margin-top: 0.5rem;
-  color: #ff88aa;
-  text-decoration: underline;
-  font-weight: 600;
-  transition: color 0.3s ease;
+.secret-rose img {
+  width: 100%;
+  display: block;
 }
 
-.read-more:hover {
-  color: #ff5c8d;
+.butterfly {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 20px;
+  height: 20px;
+  background: url('butterfly.png') no-repeat center center;
+  background-size: contain;
+  animation: flutter 3s infinite ease-in-out;
+  opacity: 0.7;
 }
 
-/* Footer */
-footer {
+@keyframes flutter {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(5deg); }
+}
+
+/* Secret Message Popup */
+.secret-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(30, 30, 30, 0.95);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 100, 150, 0.5);
+  z-index: 9999;
+  max-width: 90%;
+  width: 300px;
+  color: #ffcde3;
+}
+
+.secret-popup .popup-content {
+  position: relative;
   text-align: center;
-  font-size: 0.85rem;
-  color: #bbb;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  font-style: italic;
+}
+
+.secret-popup .popup-content .close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ff9dbf;
+}
