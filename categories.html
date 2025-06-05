@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Poem Categories | Pretty Wreckage</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: url('feather-quill.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4d9e3;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 4rem auto;
+      padding: 2rem 2.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: #ffa3c0;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.05em;
+    }
+
+    p.intro-text {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+      line-height: 1.5;
+      color: #fce7ee;
+    }
+
+    ul.category-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.3rem;
+    }
+
+    ul.category-list li {
+      background: rgba(255, 124, 174, 0.25);
+      border-radius: 10px;
+      padding: 1.3rem;
+      box-shadow: 0 0 15px rgba(255, 124, 174, 0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    ul.category-list li:hover {
+      background: rgba(255, 124, 174, 0.5);
+    }
+
+    ul.category-list li a {
+      color: #fff0f5;
+      font-weight: 600;
+      font-size: 1.15rem;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>This is my blood scattered over a webpage.</h1>
+    <p class="intro-text">
+      These are the shards of my soul, sorted by the stories they tell.
+    </p>
+    <ul class="category-list">
+      <li><a href="poems.html#healing">Healing in Fragments</a></li>
+      <li><a href="poems.html#longing">Echoes of Longing</a></li>
+      <li><a href="poems.html#hope">Whispers of Hope</a></li>
+      <li><a href="poems.html#shadows">Shadows of Love Lost</a></li>
+      <li><a href="poems.html#memories">Memories</a></li>
+      <li><a href="poems.html#becoming">Becoming Me</a></li>
+      <li><a href="poems.html#unsteady">Unsteady Ground</a></li>
+      <li><a href="poems.html#alone">Sexy But Alone</a></li>
+      <li><a href="poems.html#family">Family Drama</a></li>
+      <li><a href="poems.html#searching">Searching for You</a></li>
+      <li><a href="poems.html#scares">Happy Scares</a></li>
+      <li><a href="poems.html#rawtruth">Raw Truth</a></li>
+    </ul>
+  </div>
+</body>
+</html>
