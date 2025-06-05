@@ -1,4 +1,4 @@
-/* Background with faded diary image and soft candlelight overlay */
+/* Background with faded diary image and soft candlelight overlay */ 
 body {
   margin: 0;
   padding: 0;
@@ -125,114 +125,72 @@ footer {
   font-style: italic;
 }
 
-/* ===== New Homepage Section Additions ===== */
-
-/* About Me preview */
-.about-preview {
-  background-color: rgba(44, 44, 44, 0.6);
-  padding: 1.5rem;
-  border-left: 5px solid #ff7cae;
-  margin-bottom: 2rem;
-  color: #f4d9e3;
-  font-size: 1.1rem;
-  line-height: 1.5;
-}
-
-/* Inspirational note/post */
-.inspiration-note {
-  background-color: rgba(44, 44, 44, 0.5);
-  padding: 1rem 1.5rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  font-style: italic;
-  color: #f4d9e3;
-  font-size: 1rem;
-  text-align: center;
-}
-
-/* Buttons */
-button, .button-link {
-  background-color: #ff7cae;
-  color: #fff;
-  border: none;
-  border-radius: 30px;
-  padding: 0.6rem 1.8rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-  margin: 0.5rem 1rem 1.5rem 0;
-}
-
-button:hover, .button-link:hover {
-  background-color: #ff5c8d;
-}
-
 /* Secret Rose Feature */
 .secret-rose {
   position: fixed;
   bottom: 20px;
   right: 20px;
   width: 60px;
-  height: 90px;
+  height: 60px;
   cursor: pointer;
   z-index: 10;
   user-select: none;
 }
 
 .secret-rose img.rose {
-  width: 60px;
-  height: 90px;
+  width: 100%;
+  height: 100%;
   display: block;
+  transition: transform 0.4s ease;
+  transform-origin: center;
   position: relative;
-  z-index: 1;
+  z-index: 11;
 }
 
+/* Butterfly positioned over rose */
 .secret-rose img.butterfly {
   position: absolute;
-  top: 5px;
-  left: 15px;
+  top: -10px;
+  left: 10px;
   width: 30px;
   height: 30px;
   pointer-events: none;
-  animation: flutter 3s ease-in-out infinite;
-  transform-origin: center center;
-  z-index: 2;
-  opacity: 0.8;
+  animation: flutter 3s infinite ease-in-out;
+  z-index: 12;
+  opacity: 0.85;
 }
 
-/* Butterfly flutter animation */
 @keyframes flutter {
-  0%, 100% {
-    transform: rotate(0deg) translateY(0);
-  }
-  50% {
-    transform: rotate(15deg) translateY(-5px);
-  }
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  50% { transform: rotate(10deg) translateX(3px); }
 }
 
-/* Secret message popup */
-.secret-message {
+/* On hover rose wings flutter slightly */
+.secret-rose:hover img.rose {
+  transform: scale(1.05) rotate(-5deg);
+  filter: drop-shadow(0 0 5px #ff5c8d);
+}
+
+/* Pop-up container */
+.rose-popup {
   position: fixed;
-  bottom: 120px;
+  bottom: 90px;
   right: 20px;
-  background: rgba(0, 0, 0, 0.75);
-  color: #ff7cae;
-  padding: 1rem 1.5rem;
-  border-radius: 15px;
-  max-width: 250px;
+  max-width: 260px;
+  background: rgba(0,0,0,0.75);
+  color: #f4d9e3;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 0 20px rgba(255, 100, 150, 0.5);
   font-style: italic;
   font-size: 1rem;
-  box-shadow: 0 0 15px #ff7cae;
-  display: none;
-  z-index: 20;
   line-height: 1.4;
+  z-index: 20;
+  display: none;
   user-select: text;
 }
 
-/* Show the secret message when active */
-.secret-message.active {
+/* Show pop-up when active */
+.rose-popup.active {
   display: block;
 }
