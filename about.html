@@ -49,6 +49,26 @@
       font-style: italic;
       color: #fce7ee;
     }
+
+    .back-home-btn {
+      display: block;
+      margin: 2rem auto 0 auto;
+      padding: 0.6rem 1.4rem;
+      background-color: #ff7cae;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      font-family: 'Georgia', serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      width: max-content;
+    }
+
+    .back-home-btn:hover {
+      background-color: #ff5c8d;
+    }
   </style>
 </head>
 <body>
@@ -85,6 +105,8 @@
 
       ~ Pretty Wreckage
     </div>
+
+    <button class="back-home-btn" onclick="window.location.href='index.html'">Back to Home</button>
   </div>
 </body>
 </html>
