@@ -1,234 +1,186 @@
-/* Background with faded diary image and soft candlelight overlay */
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: 'Georgia', serif;
-  color: #f4d9e3;
-  background: url('diary-pen.jpg.png') no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
-}
+/* --- NEW HOMEPAGE SECTIONS --- */
 
-/* Dark translucent overlay for that warm candlelit vibe */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.55);
-  z-index: 0;
-}
-
-/* Main content container with some transparency */
-.container {
-  position: relative;
-  z-index: 1;  /* Make sure content is above overlay */
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 2rem 2.5rem;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 140, 100, 0.3);
-}
-
-/* Header styles */
-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-header h1 {
-  font-size: 3rem;
-  color: #ff7cae;
-  margin: 0;
-}
-
-.subtitle {
-  font-style: italic;
-  font-size: 1.2rem;
-  color: #ffcde3;
-}
-
-/* Intro section styling */
-.intro {
+/* About Me preview */
+.about-me-preview {
   background-color: rgba(44, 44, 44, 0.6);
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   border-left: 5px solid #ff7cae;
   margin-bottom: 2rem;
   color: #f4d9e3;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.5;
-}
-
-/* Navigation menu */
-.nav {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 2rem;
-}
-
-.nav a {
-  color: #ffb6c1;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-}
-
-.nav a:hover {
-  color: #ffa7c4;
-  text-decoration: underline;
-}
-
-/* About preview */
-.about-preview {
-  background-color: rgba(44, 44, 44, 0.6);
-  padding: 1.5rem;
   border-radius: 10px;
-  margin-bottom: 2rem;
-  color: #f4d9e3;
-  box-shadow: 0 0 10px rgba(255, 140, 140, 0.2);
 }
 
-/* Poem preview box */
-.poem-preview {
-  background-color: rgba(44, 44, 44, 0.6);
-  padding: 1.2rem 1.5rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  color: #f4d9e3;
-  box-shadow: 0 0 10px rgba(255, 140, 140, 0.2);
-}
-
-.poem-preview h2 {
-  color: #ffa7c4;
+.about-me-preview h2 {
+  color: #ff7cae;
   margin-top: 0;
+  margin-bottom: 0.8rem;
 }
 
-.poem-line {
-  font-style: italic;
-  font-size: 1.1rem;
-  line-height: 1.4;
-}
-
-/* Actions buttons */
-.actions {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.button {
-  background-color: #ff7cae;
+.about-me-preview .button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  background: #ff7cae;
   color: #fff;
-  padding: 0.7rem 1.4rem;
-  border: none;
+  font-weight: 600;
   border-radius: 25px;
-  font-weight: bold;
   text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
-  background-color: #ff5c8d;
+.about-me-preview .button:hover {
+  background: #ffa7c4;
 }
 
-.button.secondary {
-  background-color: #ffa7c4;
-  color: #000;
-}
-
-.button.secondary:hover {
-  background-color: #ff88aa;
-}
-
-/* Inspiration Note */
-.inspiration {
-  font-style: italic;
-  text-align: center;
-  color: #f4d9e3;
+/* Inspirational Note */
+.inspirational-note {
+  background-color: rgba(55, 55, 55, 0.6);
+  padding: 1.5rem 2rem;
   margin-bottom: 2rem;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #f8d5df;
+  border-radius: 10px;
+}
+
+.inspirational-note .button {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.5rem 1.2rem;
+  background: #ff8cb3;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.inspirational-note .button:hover {
+  background: #ffa7c4;
+}
+
+/* Request Poem & Poetry Library Buttons */
+.request-poem, .poetry-library {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.big-button {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  background: #ff7cae;
+  color: white;
+  font-weight: 700;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(255, 124, 174, 0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.big-button:hover {
+  background: #ffa7c4;
+  box-shadow: 0 6px 14px rgba(255, 124, 174, 0.8);
 }
 
 /* Secret Rose Feature */
 .secret-rose {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  z-index: 10;
-  filter: drop-shadow(0 0 3px rgba(255, 124, 174, 0.6));
-}
-
-.secret-rose img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-.butterfly {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 40px;
-  height: 40px;
-  background: url('butterfly.png') no-repeat center center;
-  background-size: contain;
-  pointer-events: none;
-  animation: flutter 3s infinite ease-in-out;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.secret-rose:hover .butterfly {
-  opacity: 1;
-}
-
-/* Butterfly flutter animation */
-@keyframes flutter {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-5px) rotate(10deg); }
-}
-
-/* Secret message popup */
-.secret-popup {
-  display: none;
-  position: fixed;
-  bottom: 100px;
-  right: 30px;
-  background: rgba(0,0,0,0.85);
-  color: #ffcde3;
-  padding: 1.5rem;
-  border-radius: 12px;
-  max-width: 300px;
-  box-shadow: 0 0 15px #ff7cae;
-  z-index: 20;
-}
-
-.popup-content {
+  text-align: center;
+  margin: 3rem 0 2rem 0;
   position: relative;
 }
 
-.close {
-  position: absolute;
-  top: 6px;
-  right: 10px;
-  font-size: 1.4rem;
+/* Rose Container */
+.rose-container {
+  display: inline-block;
   cursor: pointer;
-  color: #ff7cae;
+  position: relative;
+  width: 80px;
+  height: 100px;
+  margin: 0 auto;
+  /* Rose color - soft red/pink */
+  background: radial-gradient(circle at center, #ff4d6d 40%, #b3002d 90%);
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+  box-shadow: 0 0 15px rgba(255, 77, 109, 0.6);
+  transition: box-shadow 0.3s ease;
+  z-index: 10;
 }
 
-footer {
-  text-align: center;
-  font-size: 0.85rem;
-  color: #bbb;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+/* Butterfly wings */
+.butterfly-wings {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 140px;
+  height: 80px;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 40px 70px at 30% 50%, rgba(0,0,0,0.05) 10%, transparent 70%),
+    radial-gradient(ellipse 40px 70px at 70% 50%, rgba(0,0,0,0.05) 10%, transparent 70%);
+  opacity: 0.6;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.05));
+  animation: flutter 3s ease-in-out infinite;
+  border-radius: 50% 50% 50% 50% / 60% 60% 60% 60%;
+  z-index: 5;
+  transition: opacity 0.3s ease;
+}
+
+/* Flutter animation for wings */
+@keyframes flutter {
+  0%, 100% {
+    transform: translateX(-50%) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-50%) rotate(10deg);
+    opacity: 0.8;
+  }
+}
+
+/* On hover, wings flutter stronger */
+.rose-container:hover + .butterfly-wings,
+.rose-container:hover .butterfly-wings {
+  animation-duration: 1.5s;
+  opacity: 1;
+}
+
+/* Secret message popup */
+.secret-message {
+  display: none;
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 250px;
+  padding: 1rem 1.5rem;
+  background-color: rgba(44, 44, 44, 0.85);
+  color: #ff7cae;
   font-style: italic;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 124, 174, 0.7);
+  z-index: 20;
+  pointer-events: auto;
+  user-select: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Show the secret message */
+.secret-message[aria-hidden="false"] {
+  display: block;
+  opacity: 1;
+}
+
+/* Accessibility: hide message if aria-hidden true */
+.secret-message[aria-hidden="true"] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Button shared styles */
+.button {
+  cursor: pointer;
+  user-select: none;
 }
