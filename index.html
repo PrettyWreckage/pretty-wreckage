@@ -19,50 +19,21 @@
     </section>
 
     <nav class="nav">
-      <a href="#">About</a>
-      <a href="#">Poems</a>
-      <a href="#">Request a Poem</a>
-      <a href="#">Archive</a>
+      <a href="about.html">About</a>
+      <a href="poems.html">Poems</a>
+      <a href="request.html">Request a Poem</a>
+      <a href="archive.html">Archive</a>
     </nav>
 
     <section class="poem-preview">
       <h2>Latest Poem: “I Bleed Beautiful”</h2>
       <p class="poem-line">I'm bleeding — and no matter how hard I try to stop it, it keeps on bleeding...</p>
-      <a class="read-more" href="#">Read Full Poem →</a>
+      <a class="read-more" href="poems.html#i-bleed-beautiful">Read Full Poem →</a>
     </section>
     
     <footer>
       <p>© 2019 Pretty Wreckage</p>
     </footer>
   </div>
-
-  <!-- Secret Rose Feature -->
-  <div class="secret-rose" id="secretRose">
-    <img src="rose.png" alt="Secret Rose" class="rose" />
-    <img src="butterfly.png" alt="Black Butterfly" class="butterfly" />
-  </div>
-
-  <div class="rose-popup" id="rosePopup">
-    “If the universe won’t let us be,<br>
-    then know my heart remains yours,<br>
-    wild and free—<br>
-    without asking, without permission.”
-  </div>
-
-  <script>
-    const secretRose = document.getElementById('secretRose');
-    const rosePopup = document.getElementById('rosePopup');
-
-    secretRose.addEventListener('click', () => {
-      rosePopup.classList.toggle('active');
-    });
-
-    // Close pop-up if clicking outside the rose or pop-up
-    document.addEventListener('click', (e) => {
-      if (!secretRose.contains(e.target) && !rosePopup.contains(e.target)) {
-        rosePopup.classList.remove('active');
-      }
-    });
-  </script>
 </body>
 </html>
