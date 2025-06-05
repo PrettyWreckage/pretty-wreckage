@@ -13,9 +13,47 @@
       <p class="subtitle">Not Her Real Diary</p>
     </header>
 
-    <section class="intro">
-      <p>She writes in the quiet between heartbreak and healing.</p>
-      <p class="welcome">Please stay. Maybe we can find the way together, with words and poetry.</p>
+    <!-- About Me Preview -->
+    <section class="about-me-preview">
+      <h2>About Me</h2>
+      <p>I am a soul navigating heartbreak and healing through the written word. Here, I share pieces of my heart and hopes.</p>
+      <a href="#" class="button">Read More About Me</a>
+    </section>
+
+    <!-- Inspirational note leading to a specific poem -->
+    <section class="inspirational-note">
+      <p>“Sometimes the hardest battles are fought silently. This poem holds a whisper of hope.”</p>
+      <a href="#" class="button">Read “Whisper of Hope”</a>
+    </section>
+
+    <!-- Latest Featured Poem -->
+    <section class="poem-preview">
+      <h2>Latest Poem: “I Bleed Beautiful”</h2>
+      <p class="poem-line">I'm bleeding — and no matter how hard I try to stop it, it keeps on bleeding...</p>
+      <a class="read-more" href="#">Read Full Poem →</a>
+    </section>
+
+    <!-- Request a Poem Button -->
+    <section class="request-poem">
+      <a href="#" class="button big-button">Request a Poem</a>
+    </section>
+
+    <!-- Poetry Library (Archive) Button -->
+    <section class="poetry-library">
+      <a href="#" class="button big-button">Explore the Poetry Library</a>
+    </section>
+
+    <!-- Secret Rose Feature -->
+    <section class="secret-rose">
+      <div class="rose-container" title="Click for a secret message">
+        <!-- Rose with butterfly wings that flutter on hover -->
+        <div class="rose"></div>
+        <div class="butterfly-wings"></div>
+      </div>
+      <!-- Secret message popup hidden by default -->
+      <div class="secret-message" aria-hidden="true">
+        <p>If the Universe Doesn’t Allow Us</p>
+      </div>
     </section>
 
     <nav class="nav">
@@ -25,57 +63,26 @@
       <a href="#">Archive</a>
     </nav>
 
-    <!-- About Me Preview -->
-    <section class="about-preview">
-      <h2>About the Girl Behind the Wreckage</h2>
-      <p>Just a soul stitched with stardust and ink. Writing to survive, to heal, to remember. This isn’t her real diary... but it’s the closest she’s come to being seen.</p>
-      <a class="read-more" href="#">More About Me →</a>
-    </section>
-
-    <!-- Featured Poem -->
-    <section class="poem-preview">
-      <h2>Latest Poem: “I Bleed Beautiful”</h2>
-      <p class="poem-line">I'm bleeding — and no matter how hard I try to stop it, it keeps on bleeding...</p>
-      <a class="read-more" href="#">Read Full Poem →</a>
-    </section>
-
-    <!-- Request Button and Library Link -->
-    <section class="actions">
-      <a class="button" href="#">Request a Poem</a>
-      <a class="button secondary" href="#">Go to Poetry Library</a>
-    </section>
-
-    <!-- Inspiration Note -->
-    <section class="inspiration">
-      <p>💭 “Some poems are bandages. Others are blades.”</p>
-      <a class="read-more" href="#">Read the Poem that Inspired This →</a>
-    </section>
-
-    <!-- Secret Rose Feature -->
-    <div class="secret-rose" onclick="showSecretMessage()">
-      <img src="rose.png" alt="Secret Rose" />
-      <div class="butterfly"></div>
-    </div>
-
-    <div id="secretMessage" class="secret-popup">
-      <div class="popup-content">
-        <span class="close" onclick="hideSecretMessage()">&times;</span>
-        <p><em>“If the Universe Doesn’t Allow Us...”</em><br/>Then let me love you in poetry, in whispers, in ink — in the places no one else sees.</p>
-      </div>
-    </div>
-
     <footer>
-      <p>© 2025 Pretty Wreckage</p>
+      <p>© 2019 Pretty Wreckage</p>
     </footer>
   </div>
 
   <script>
-    function showSecretMessage() {
-      document.getElementById('secretMessage').style.display = 'block';
-    }
+    // Secret Rose popup toggle
+    const rose = document.querySelector('.rose-container');
+    const message = document.querySelector('.secret-message');
 
-    function hideSecretMessage() {
-      document.getElementById('secretMessage').style.display = 'none';
+    if (rose && message) {
+      rose.addEventListener('click', () => {
+        if (message.getAttribute('aria-hidden') === 'true') {
+          message.setAttribute('aria-hidden', 'false');
+          message.style.display = 'block';
+        } else {
+          message.setAttribute('aria-hidden', 'true');
+          message.style.display = 'none';
+        }
+      });
     }
   </script>
 </body>
