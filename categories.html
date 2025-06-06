@@ -1,10 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Poem Categories | Pretty Wreckage</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome for feather icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-vT7mPxXHlL4TCMP9E6acUnlLgMX9/FV3TfuTcYa7NyyQAmDbQD5M7OxvdcAvR2YmxKLk9r5uFbO/uhAcGdUItQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       margin: 0;
@@ -83,6 +85,28 @@
       display: block;
       cursor: pointer;
     }
+
+    .home-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 10px 20px;
+      background-color: #ff7cae;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-button i {
+      margin-right: 8px;
+    }
+
+    .home-button:hover {
+      background-color: #ff4a85;
+    }
   </style>
 </head>
 <body>
@@ -103,8 +127,12 @@
       <li><a href="poems.html#family">Tangled Roots</a></li>
       <li><a href="poems.html#searching">Searching</a></li>
       <li><a href="poems.html#scares">Happy Scares</a></li>
-      <li><a href="raw-truth.html">Raw Truth</a></li> <!-- Fixed link -->
+      <li><a href="raw-truth.html">Raw Truth</a></li>
     </ul>
+
+    <a href="index.html" class="home-button">
+      <i class="fas fa-feather-alt"></i>Back to Home
+    </a>
   </div>
 </body>
 </html>
