@@ -5,8 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Pretty Wreckage | Not Her Real Diary</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: url('rainy-window.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4d9e3;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 5rem auto;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255, 120, 160, 0.25);
+    }
+
+    header h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #ffa3c0;
+      margin-bottom: 0.2rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-style: italic;
+      color: #fce7ee;
+      margin-bottom: 2rem;
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .welcome {
+      font-style: italic;
+      color: #f4d9e3;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: #ff7cae;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ff7cae;
+      border-radius: 6px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .nav a:hover {
+      background-color: #ff7cae;
+      color: #000;
+    }
+
+    .poem-preview {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .poem-preview h2 {
+      font-size: 1.6rem;
+      color: #ffa3c0;
+      margin-bottom: 1rem;
+    }
+
+    .poem-line {
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #fce7ee;
+    }
+
+    .read-more {
+      color: #ff7cae;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+      color: #d3b8c4;
+    }
+
+    /* Decorative Images */
+    .rose {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      width: 100px;
+      opacity: 0.4;
+      z-index: 0;
+    }
+
+    .butterfly {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 80px;
+      opacity: 0.4;
+      z-index: 0;
+    }
+  </style>
 </head>
 <body>
+  <!-- Decorative Background Elements -->
+  <img src="rose.png" alt="rose" class="rose" />
+  <img src="butterfly.png" alt="butterfly" class="butterfly" />
+
   <div class="container">
     <header>
       <h1>Pretty Wreckage</h1>
@@ -30,7 +162,7 @@
       <p class="poem-line">I'm bleeding — and no matter how hard I try to stop it, it keeps on bleeding...</p>
       <a class="read-more" href="categories.html">Explore Bleeding Pages →</a>
     </section>
-    
+
     <footer>
       <p>© 2019 Pretty Wreckage</p>
     </footer>
