@@ -4,57 +4,70 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Raw Truth | Pretty Wreckage</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
-      padding: 3rem 2rem;
-      font-family: 'Georgia', serif;
-      background: url('feather-quill.jpg') no-repeat center center fixed;
-      background-size: cover;
+      padding: 2rem;
+      font-family: Georgia, serif;
+      background: #1a1a1a;
       color: #f4d9e3;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
       justify-content: center;
       align-items: center;
       text-align: center;
     }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: -1;
-    }
     .poem-container {
       max-width: 700px;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.6);
       padding: 2rem 2.5rem;
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
-      white-space: pre-line;
-      line-height: 1.3;
-      font-size: 1.15rem;
-      margin-bottom: 2rem;
+      overflow-y: auto;
+      max-height: 70vh;
+      position: relative;
     }
-    button {
-      padding: 10px 25px;
-      background-color: #ff7cae;
-      color: white;
+    .poem {
+      white-space: pre-line;
+      line-height: 1.4;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+    .toggle-btn {
+      background: #ff7cae;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      color: white;
+      padding: 0.5rem 1.3rem;
       font-size: 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      margin-bottom: 2rem;
       transition: background-color 0.3s ease;
     }
-    button:hover {
-      background-color: #ff4a85;
+    .toggle-btn:hover {
+      background: #ff5395;
+    }
+    .back-button {
+      background: #f48fb1;
+      color: #1a1a1a;
+      padding: 0.8rem 1.6rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 25px;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(255, 124, 174, 0.5);
+      transition: background-color 0.3s ease;
+    }
+    .back-button:hover {
+      background: #ec407a;
+      color: #fff;
     }
   </style>
 </head>
 <body>
   <div class="poem-container">
+    <div id="poem" class="poem">
 I’m all kinds of shattered
 a tangle of jagged edges and silent screams,
 lost in the ruins of my restless mind,
@@ -100,10 +113,40 @@ Because I’m still here,
 still broken, still aching
 still searching, still hoping,
 still waiting for you.
+    </div>
+
+    <button id="toggleButton" class="toggle-btn">Read less</button>
   </div>
 
-  <div>
-    <button onclick="window.location.href='category.html'">Back to the Bleeding Pages</button>
-  </div>
+  <a href="category.html" class="back-button">Back to the Bleeding Pages</a>
+
+  <script>
+    const poem = document.getElementById('poem');
+    const btn = document.getElementById('toggleButton');
+
+    // Initially show full poem - no collapse needed, but if you want to collapse:
+    // For now, let's keep it full and toggle line height as example
+
+    let expanded = true;
+
+    btn.addEventListener('click', () => {
+      if (expanded) {
+        poem.style.maxHeight = '10em';
+        poem.style.overflow = 'hidden';
+        btn.textContent = 'Read more';
+      } else {
+        poem.style.maxHeight = 'none';
+        poem.style.overflow = 'visible';
+        btn.textContent = 'Read less';
+      }
+      expanded = !expanded;
+    });
+
+    // On page load, start collapsed:
+    poem.style.maxHeight = '10em';
+    poem.style.overflow = 'hidden';
+    btn.textContent = 'Read more';
+    expanded = false;
+  </script>
 </body>
 </html>
