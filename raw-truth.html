@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Raw Truth | Pretty Wreckage</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
@@ -47,12 +46,14 @@
       line-height: 1.3;
       font-size: 1.15rem;
       margin-bottom: 2.5rem;
-      position: relative;
+      text-align: left;
     }
-    #poem-text-1, #poem-text-2 {
+    #poem-text-1,
+    #poem-text-2 {
       max-height: 10em;
       overflow: hidden;
       transition: max-height 0.4s ease;
+      white-space: pre-wrap;
     }
     button, .back-button {
       padding: 10px 25px;
@@ -70,23 +71,71 @@
     button:hover, .back-button:hover {
       background-color: #ff4a85;
     }
-    .likes {
+    .comments-section {
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
       font-size: 0.9rem;
-      margin-top: 0.8rem;
-      color: #fbcfe8;
-    }
-    .comments {
-      margin-top: 1.5rem;
-      text-align: left;
     }
     .comment {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0;
     }
-    .comment strong {
-      color: #ffd6f0;
+    .comment .name {
+      font-weight: bold;
+      color: #ffd1e3;
+    }
+    .comment .text {
+      margin-left: 0.5rem;
+      color: #f4d9e3;
+    }
+    form {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    input[type="text"], textarea {
+      flex: 1 1 200px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 50px;
+    }
+    .like-section {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f4d9e3;
+      justify-content: center;
+    }
+    .like-button {
+      background-color: #ff4a85;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      line-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .like-button:hover {
+      background-color: #ff7cae;
     }
   </style>
 </head>
@@ -98,7 +147,7 @@
     Mood: Sadness, Longing, Vulnerability.
   </div>
 
-  <div class="poem-container poem-section">
+  <div class="poem-container poem-section" id="poem1-container">
     <pre id="poem-text-1">
 I’m all kinds of shattered
 a tangle of jagged edges and silent screams,
@@ -147,11 +196,20 @@ still searching, still hoping,
 still waiting for you.
     </pre>
     <button onclick="togglePoem('poem-text-1', this)">Read More</button>
-    <div class="likes">162,492 likes</div>
-    <div class="comments">
-      <div class="comment"><strong>@SoulSeeker</strong>: I felt this in my bones. Thank you for putting my pain into words.</div>
-      <div class="comment"><strong>@WoundedHeart</strong>: Cried reading this. You’re not alone.</div>
-      <div class="comment"><strong>@MidnightMoth</strong>: This is the most beautiful ache I’ve read.</div>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem1" title="Like this poem">❤️</button>
+      <span id="like-count-poem1">0</span> Likes
+    </div>
+
+    <div class="comments-section" id="comments-poem1">
+      <h3>Comments</h3>
+      <div id="comments-list-poem1"></div>
+      <form id="comment-form-poem1">
+        <input type="text" id="name-poem1" placeholder="Your name" required />
+        <textarea id="comment-text-poem1" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
     </div>
   </div>
 
@@ -161,7 +219,7 @@ still waiting for you.
     Mood: Fearful, Conflicted, Tender and pleading
   </div>
 
-  <div class="poem-container poem-section">
+  <div class="poem-container poem-section" id="poem2-container">
     <pre id="poem-text-2">
 I flinch when things go right,
 as if safety is a thief in the night.
@@ -194,25 +252,31 @@ For behind the scars and all my fears,
 is a heart that’s longing just to be near.
     </pre>
     <button onclick="togglePoem('poem-text-2', this)">Read More</button>
-    <div class="likes">102,114 likes</div>
-    <div class="comments">
-      <div class="comment"><strong>@FadingPetals</strong>: My heart wasn’t ready for this.</div>
-      <div class="comment"><strong>@Safewords</strong>: This is exactly how I push people away… thank you for writing it.</div>
-      <div class="comment"><strong>@AlwaysAlone</strong>: I didn’t know how to say this myself. I feel seen.</div>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem2" title="Like this poem">❤️</button>
+      <span id="like-count-poem2">0</span> Likes
+    </div>
+
+    <div class="comments-section" id="comments-poem2">
+      <h3>Comments</h3>
+      <div id="comments-list-poem2"></div>
+      <form id="comment-form-poem2">
+        <input type="text" id="name-poem2" placeholder="Your name" required />
+        <textarea id="comment-text-poem2" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
     </div>
   </div>
 
   <a href="categories.html" class="back-button">Back to the Bleeding Pages</a>
 
-  <script>
-    function togglePoem(id, button) {
-      const poem = document.getElementById(id);
-      const expanded = poem.style.maxHeight === '1000em';
-      poem.style.maxHeight = expanded ? '10em' : '1000em';
-      button.textContent = expanded ? 'Read More' : 'Collapse';
-    }
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
-    // Initialize Firebase
+  <script>
+    // Your Firebase config from earlier:
     const firebaseConfig = {
       apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
       authDomain: "pretty-wreckage-9c673.firebaseapp.com",
@@ -222,11 +286,141 @@ is a heart that’s longing just to be near.
       appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
       measurementId: "G-EBH6K5923F"
     };
+
+    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Toggle poem read more/collapse
+    function togglePoem(id, button) {
+      const poem = document.getElementById(id);
+      const expanded = poem.style.maxHeight === '1000em';
+      poem.style.maxHeight = expanded ? '10em' : '1000em';
+      button.textContent = expanded ? 'Read More' : 'Collapse';
+    }
+
+    // --- LIKES LOGIC ---
+    function updateLikeCount(poemId, count) {
+      document.getElementById('like-count-' + poemId).textContent = count;
+    }
+
+    // Listen for likes changes and update UI
+    function listenForLikes(poemId) {
+      db.collection('likes').doc(poemId).onSnapshot(doc => {
+        if(doc.exists) {
+          updateLikeCount(poemId, doc.data().count);
+        } else {
+          // If doc doesn't exist, create it with 0 likes
+          db.collection('likes').doc(poemId).set({count: 0});
+          updateLikeCount(poemId, 0);
+        }
+      });
+    }
+
+    // Increment like count on click
+    function likePoem(poemId) {
+      const likeRef = db.collection('likes').doc(poemId);
+      db.runTransaction(transaction => {
+        return transaction.get(likeRef).then(doc => {
+          if(!doc.exists) {
+            transaction.set(likeRef, {count: 1});
+            return 1;
+          }
+          const newCount = (doc.data().count || 0) + 1;
+          transaction.update(likeRef, {count: newCount});
+          return newCount;
+        });
+      }).catch(err => {
+        console.error("Failed to increment like: ", err);
+      });
+    }
+
+    // Attach like button listeners
+    document.querySelectorAll('.like-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const poemId = btn.getAttribute('data-poem');
+        likePoem(poemId);
+      });
+    });
+
+    // Listen for likes on both poems
+    listenForLikes('poem1');
+    listenForLikes('poem2');
+
+    // --- COMMENTS LOGIC ---
+    function renderComments(poemId, comments) {
+      const list = document.getElementById('comments-list-' + poemId);
+      list.innerHTML = '';
+      if (comments.length === 0) {
+        list.textContent = 'No comments yet. Be the first to comment!';
+        return;
+      }
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.classList.add('comment');
+        div.innerHTML = `<span class="name">${escapeHTML(comment.name)}</span>: <span class="text">${escapeHTML(comment.text)}</span>`;
+        list.appendChild(div);
+      });
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    // Listen for comments real-time updates
+    function listenForComments(poemId) {
+      db.collection('comments')
+        .where('poemId', '==', poemId)
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+          const comments = [];
+          snapshot.forEach(doc => {
+            comments.push(doc.data());
+          });
+          renderComments(poemId, comments);
+        });
+    }
+
+    // Add new comment
+    function addComment(poemId, name, text) {
+      return db.collection('comments').add({
+        poemId: poemId,
+        name: name,
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+
+    // Setup form submit handlers
+    ['poem1', 'poem2'].forEach(poemId => {
+      const form = document.getElementById('comment-form-' + poemId);
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name-' + poemId);
+        const commentInput = document.getElementById('comment-text-' + poemId);
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        if(name && comment) {
+          addComment(poemId, name, comment).then(() => {
+            nameInput.value = '';
+            commentInput.value = '';
+          }).catch(err => {
+            alert('Error posting comment: ' + err.message);
+          });
+        }
+      });
+      listenForComments(poemId);
+    });
+
   </script>
-
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-analytics.js"></script>
-
 </body>
 </html>
