@@ -8,100 +8,108 @@
   <style>
     body {
       margin: 0;
-      padding: 2rem;
+      padding: 0 1.5rem;
       font-family: 'Georgia', serif;
       background: url('feather-quill.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #f4d9e3;
+      color: #fce7ee;
       min-height: 100vh;
       position: relative;
     }
+
     body::before {
       content: "";
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.7);
       z-index: 0;
     }
+
     .container {
       position: relative;
-      z-index: 1;
-      max-width: 700px;
-      margin: auto;
-      background: rgba(0, 0, 0, 0.4);
+      max-width: 650px;
+      margin: 4rem auto;
+      padding: 2rem 2.5rem;
+      background: rgba(0, 0, 0, 0.5);
       border-radius: 15px;
-      box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
-      padding: 2rem 3rem;
-      line-height: 1.6;
+      box-shadow: 0 0 25px rgba(255, 124, 174, 0.4);
+      z-index: 1;
+      text-align: left;
     }
+
     h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
       color: #ffa3c0;
-      font-style: italic;
       font-weight: 600;
+      font-style: italic;
       letter-spacing: 0.05em;
       text-align: center;
-      margin-bottom: 2rem;
-      font-size: 2.5rem;
     }
-    pre.poem {
-      white-space: pre-wrap; /* preserve line breaks */
-      font-size: 1.15rem;
+
+    .poem-text {
+      white-space: pre-wrap;
+      font-family: Georgia, serif;
       color: #fce7ee;
-      font-style: normal;
-      font-family: 'Georgia', serif;
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+
+    .poem-text p {
+      margin-bottom: 1.4rem;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Still Searching, Still Unbroken</h1>
-    <pre class="poem">
-I’m all kinds of shattered
-a tangle of jagged edges and silent screams,
-lost in the ruins of my restless mind,
-chasing shadows that slip through my dreams.
+    <div class="poem-text">
+      <p>I’m all kinds of shattered<br>
+      a tangle of jagged edges and silent screams,<br>
+      lost in the ruins of my restless mind,<br>
+      chasing shadows that slip through my dreams.</p>
 
-I’m a storm no one dares to face,
-a dark, pulling tide beneath calm seas,
-a broken song on endless repeat,
-haunted by the quiet of empty keys.
+      <p>I’m a storm no one dares to face,<br>
+      a dark, pulling tide beneath calm seas,<br>
+      a broken song on endless repeat,<br>
+      haunted by the quiet of empty keys.</p>
 
-I walk through halls of memories,
-where laughter echoes and love once lived,
-now just whispers in the cold air,
-ghosts of a past I can’t forgive.
+      <p>I walk through halls of memories,<br>
+      where laughter echoes and love once lived,<br>
+      now just whispers in the cold air,<br>
+      ghosts of a past I can’t forgive.</p>
 
-Yet somewhere in this endless ache,
-beneath the rubble and the pain,
-I hold a flicker of fragile hope,
-a light that calls me through the rain.
+      <p>Yet somewhere in this endless ache,<br>
+      beneath the rubble and the pain,<br>
+      I hold a flicker of fragile hope,<br>
+      a light that calls me through the rain.</p>
 
-I’m still searching
-for a soul just as lost as mine,
-one who won’t run when darkness screams,
-who sees the cracks and still lets light shine.
+      <p>I’m still searching<br>
+      for a soul just as lost as mine,<br>
+      one who won’t run when darkness screams,<br>
+      who sees the cracks and still lets light shine.</p>
 
-Someone who understands the silence,
-who hears the screams beneath the calm,
-who won’t demand I be fixed or whole,
-but loves me perfectly broken and scarred.
+      <p>Someone who understands the silence,<br>
+      who hears the screams beneath the calm,<br>
+      who won’t demand I be fixed or whole,<br>
+      but loves me perfectly broken and scarred.</p>
 
-Because maybe in this endless night,
-two fractured hearts can find their spark
-not to mend what’s torn apart,
-but to hold the fractures close,
-and find grace inside the scars.
+      <p>Because maybe in this endless night,<br>
+      two fractured hearts can find their spark<br>
+      not to mend what’s torn apart,<br>
+      but to hold the fractures close,<br>
+      and find grace inside the scars.</p>
 
-I don’t know your name,
-or if you even roam
-but if you’re out there,
-please don’t be afraid to come home.
+      <p>I don’t know your name,<br>
+      or if you even roam<br>
+      but if you’re out there,<br>
+      please don’t be afraid to come home.</p>
 
-Because I’m still here,
-still broken, still aching
-still searching, still hoping,
-still waiting for you.
-    </pre>
+      <p>Because I’m still here,<br>
+      still broken, still aching<br>
+      still searching, still hoping,<br>
+      still waiting for you.</p>
+    </div>
   </div>
 </body>
 </html>
