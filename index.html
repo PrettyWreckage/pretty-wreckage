@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -114,30 +114,81 @@
       color: #d3b8c4;
     }
 
-    /* Decorative Images */
-    .rose {
+    /* Decorative Rose & Butterfly */
+    .secret-rose {
       position: fixed;
       bottom: 10px;
-      left: 10px;
-      width: 100px;
-      opacity: 0.4;
-      z-index: 0;
+      right: 10px;
+      z-index: 10;
+      cursor: pointer;
     }
 
-    .butterfly {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 80px;
+    .secret-rose .rose {
+      width: 100px;
       opacity: 0.4;
-      z-index: 0;
+      display: block;
+    }
+
+    .secret-rose .butterfly {
+      position: absolute;
+      width: 80px;
+      top: -20px;
+      left: 10px;
+      opacity: 0.8;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .secret-rose .butterfly:hover {
+      animation: flutter 0.6s ease-in-out infinite;
+    }
+
+    @keyframes flutter {
+      0%   { transform: rotate(0deg) translateY(0); }
+      25%  { transform: rotate(10deg) translateY(-2px); }
+      50%  { transform: rotate(-10deg) translateY(2px); }
+      75%  { transform: rotate(10deg) translateY(-2px); }
+      100% { transform: rotate(0deg) translateY(0); }
+    }
+
+    .rose-popup {
+      position: fixed;
+      bottom: 110px;
+      right: 20px;
+      background-color: rgba(255, 255, 255, 0.92);
+      color: #d4006e;
+      padding: 14px 20px;
+      border-radius: 12px;
+      font-style: italic;
+      font-size: 0.95rem;
+      display: none;
+      z-index: 11;
+      box-shadow: 0 0 10px rgba(255, 100, 150, 0.3);
+      max-width: 250px;
+    }
+
+    .rose-popup.active {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <!-- Decorative Background Elements -->
-  <img src="rose.png" alt="rose" class="rose" />
-  <img src="butterfly.png" alt="butterfly" class="butterfly" />
+  <!-- Decorative Elements with Sound -->
+  <div class="secret-rose" onclick="togglePopup()" role="button" aria-expanded="false">
+    <img src="rose.png" alt="rose" class="rose" />
+    <img src="butterfly.png" alt="butterfly" class="butterfly" onmouseover="playSound()" />
+  </div>
+
+  <div class="rose-popup" id="rosePopup">
+    If the universe won’t let us be,<br>
+    then know my heart remains yours,<br>
+    wild and free,<br>
+    without asking, without permission...
+  </div>
+
+  <audio id="hoverSound" preload="auto">
+    <source src="magic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <div class="container">
     <header>
@@ -167,5 +218,21 @@
       <p>© 2019 Pretty Wreckage</p>
     </footer>
   </div>
+
+  <script>
+    function togglePopup() {
+      const popup = document.getElementById('rosePopup');
+      popup.classList.toggle('active');
+
+      const btn = document.querySelector('.secret-rose');
+      btn.setAttribute('aria-expanded', popup.classList.contains('active'));
+    }
+
+    function playSound() {
+      const sound = document.getElementById("hoverSound");
+      sound.currentTime = 0; // restart if hovered again
+      sound.play();
+    }
+  </script>
 </body>
 </html>
