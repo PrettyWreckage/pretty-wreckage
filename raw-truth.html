@@ -14,9 +14,13 @@
       color: #fce7ee;
       height: 100vh;
       display: flex;
-      justify-content: center; /* horizontal center */
-      align-items: center;     /* vertical center */
+      flex-direction: column;
+      justify-content: center; /* vertical center */
+      align-items: center;     /* horizontal center */
       position: relative;
+      text-align: center;
+      padding: 2rem;
+      box-sizing: border-box;
     }
 
     body::before {
@@ -30,65 +34,85 @@
     .container {
       max-width: 700px;
       background: rgba(0, 0, 0, 0.45);
-      padding: 2rem 2.5rem;
+      padding: 1.5rem 2rem;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
       color: #fce7ee;
       font-style: italic;
-      margin: 0;
-      line-height: 1.4;
-      white-space: pre-wrap; /* keeps line breaks from poem text */
-      text-align: center;
+      line-height: 1.25; /* tighter lines */
+      white-space: pre-wrap; /* preserve line breaks */
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .back-button {
+      background-color: #ff7cae;
+      border: none;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      font-size: 1.1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(255, 124, 174, 0.5);
+      transition: background-color 0.3s ease;
+      font-family: Georgia, serif;
+      font-style: normal;
+    }
+
+    .back-button:hover {
+      background-color: #ff5c8f;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    I’m all kinds of shattered
-    a tangle of jagged edges and silent screams,
-    lost in the ruins of my restless mind,
-    chasing shadows that slip through my dreams.
+I’m all kinds of shattered
+a tangle of jagged edges and silent screams,
+lost in the ruins of my restless mind,
+chasing shadows that slip through my dreams.
 
-    I’m a storm no one dares to face,
-    a dark, pulling tide beneath calm seas,
-    a broken song on endless repeat,
-    haunted by the quiet of empty keys.
+I’m a storm no one dares to face,
+a dark, pulling tide beneath calm seas,
+a broken song on endless repeat,
+haunted by the quiet of empty keys.
 
-    I walk through halls of memories,
-    where laughter echoes and love once lived,
-    now just whispers in the cold air,
-    ghosts of a past I can’t forgive.
+I walk through halls of memories,
+where laughter echoes and love once lived,
+now just whispers in the cold air,
+ghosts of a past I can’t forgive.
 
-    Yet somewhere in this endless ache,
-    beneath the rubble and the pain,
-    I hold a flicker of fragile hope,
-    a light that calls me through the rain.
+Yet somewhere in this endless ache,
+beneath the rubble and the pain,
+I hold a flicker of fragile hope,
+a light that calls me through the rain.
 
-    I’m still searching
-    for a soul just as lost as mine,
-    one who won’t run when darkness screams,
-    who sees the cracks and still lets light shine.
+I’m still searching
+for a soul just as lost as mine,
+one who won’t run when darkness screams,
+who sees the cracks and still lets light shine.
 
-    Someone who understands the silence,
-    who hears the screams beneath the calm,
-    who won’t demand I be fixed or whole,
-    but loves me perfectly broken and scarred.
+Someone who understands the silence,
+who hears the screams beneath the calm,
+who won’t demand I be fixed or whole,
+but loves me perfectly broken and scarred.
 
-    Because maybe in this endless night,
-    two fractured hearts can find their spark
-    not to mend what’s torn apart,
-    but to hold the fractures close,
-    and find grace inside the scars.
+Because maybe in this endless night,
+two fractured hearts can find their spark
+not to mend what’s torn apart,
+but to hold the fractures close,
+and find grace inside the scars.
 
-    I don’t know your name,
-    or if you even roam
-    but if you’re out there,
-    please don’t be afraid to come home.
+I don’t know your name,
+or if you even roam
+but if you’re out there,
+please don’t be afraid to come home.
 
-    Because I’m still here,
-    still broken, still aching
-    still searching, still hoping,
-    still waiting for you.
+Because I’m still here,
+still broken, still aching
+still searching, still hoping,
+still waiting for you.
   </div>
+  <a href="category.html" class="back-button">Back to The Bleeding Pages</a>
 </body>
 </html>
