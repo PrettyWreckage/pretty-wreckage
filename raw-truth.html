@@ -7,20 +7,18 @@
   <style>
     body {
       margin: 0;
-      padding: 0;
+      padding: 2rem;
       font-family: Georgia, serif;
       background: url('feather-quill.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fce7ee;
-      height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* vertical center */
-      align-items: center;     /* horizontal center */
+      align-items: center; /* centers horizontally */
       position: relative;
       text-align: center;
-      padding: 2rem;
       box-sizing: border-box;
+      /* no fixed height or vertical centering so scrolling works */
     }
 
     body::before {
@@ -39,34 +37,50 @@
       box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
       color: #fce7ee;
       font-style: italic;
-      line-height: 1.25; /* tighter lines */
-      white-space: pre-wrap; /* preserve line breaks */
+      line-height: 1.25;
+      white-space: pre-wrap;
       margin-bottom: 1.5rem;
       font-size: 1.1rem;
     }
 
-    .back-button {
-      background-color: #ff7cae;
-      border: none;
-      color: white;
-      padding: 0.7rem 1.5rem;
-      font-size: 1.1rem;
-      border-radius: 25px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(255, 124, 174, 0.5);
-      transition: background-color 0.3s ease;
-      font-family: Georgia, serif;
+    .poem-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      color: #ffa3c0;
       font-style: normal;
     }
 
-    .back-button:hover {
-      background-color: #ff5c8f;
+    .poem-date {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+      color: #ffb6c1cc;
+    }
+
+    button.back-button {
+      background: #ff7cae;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 25px;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-family: Georgia, serif;
+      margin-bottom: 2rem;
+    }
+
+    button.back-button:hover {
+      background: #ff4c80;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <div class="poem-title">Still Searching, Still Unbroken</div>
+    <div class="poem-date">2019-01-28</div>
+    <div>
 I’m all kinds of shattered
 a tangle of jagged edges and silent screams,
 lost in the ruins of my restless mind,
@@ -112,7 +126,9 @@ Because I’m still here,
 still broken, still aching
 still searching, still hoping,
 still waiting for you.
+    </div>
   </div>
-  <a href="category.html" class="back-button">Back to The Bleeding Pages</a>
+
+  <button class="back-button" onclick="window.location.href='category.html'">Back to the Bleeding Pages</button>
 </body>
 </html>
