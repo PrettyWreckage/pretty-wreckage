@@ -14,11 +14,7 @@
       background-size: cover;
       color: #f4d9e3;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      text-align: center;
+      overflow-y: auto;
     }
     body::before {
       content: "";
@@ -27,16 +23,6 @@
       background: rgba(0, 0, 0, 0.6);
       z-index: -1;
     }
-    h1 {
-      margin-bottom: 0.5rem;
-      font-size: 2rem;
-    }
-    .meta {
-      margin-bottom: 1.5rem;
-      font-size: 0.95rem;
-      font-style: italic;
-      color: #fbd6e0;
-    }
     .poem-container {
       max-width: 700px;
       background: rgba(0, 0, 0, 0.5);
@@ -44,16 +30,21 @@
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
       white-space: pre-line;
-      line-height: 1.3;
+      line-height: 1.4;
       font-size: 1.15rem;
-      margin-bottom: 1rem;
+      margin: 2rem auto;
     }
-    #poem-text {
-      max-height: 10em;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+    .poem-title {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
     }
-    button, .back-button {
+    .poem-meta {
+      font-size: 0.9rem;
+      color: #ffd9e6;
+      margin-bottom: 1.5rem;
+    }
+    button {
       padding: 10px 25px;
       background-color: #ff7cae;
       color: white;
@@ -62,93 +53,101 @@
       cursor: pointer;
       font-size: 1rem;
       transition: background-color 0.3s ease;
-      margin: 0.5rem;
-      text-decoration: none;
-      display: inline-block;
+      display: block;
+      margin: 3rem auto;
     }
-    button:hover, .back-button:hover {
+    button:hover {
       background-color: #ff4a85;
     }
   </style>
 </head>
 <body>
 
-  <h1>Still Searching, Still Unbroken.</h1>
-  <div class="meta">
-    Date: 2019-01-28<br>
-    Mood: Sadness, Longing, Vulnerability.
+  <div class="poem-container">
+    <div class="poem-title">Still Searching, Still Unbroken</div>
+    <div class="poem-meta">Date: 2019-01-28 | Mood: You decide what fits best</div>
+    I’m all kinds of shattered  
+    a tangle of jagged edges and silent screams,  
+    lost in the ruins of my restless mind,  
+    chasing shadows that slip through my dreams.  
+
+    I’m a storm no one dares to face,  
+    a dark, pulling tide beneath calm seas,  
+    a broken song on endless repeat,  
+    haunted by the quiet of empty keys.  
+
+    I walk through halls of memories,  
+    where laughter echoes and love once lived,  
+    now just whispers in the cold air,  
+    ghosts of a past I can’t forgive.  
+
+    Yet somewhere in this endless ache,  
+    beneath the rubble and the pain,  
+    I hold a flicker of fragile hope,  
+    a light that calls me through the rain.  
+
+    I’m still searching  
+    for a soul just as lost as mine,  
+    one who won’t run when darkness screams,  
+    who sees the cracks and still lets light shine.  
+
+    Someone who understands the silence,  
+    who hears the screams beneath the calm,  
+    who won’t demand I be fixed or whole,  
+    but loves me perfectly broken and scarred.  
+
+    Because maybe in this endless night,  
+    two fractured hearts can find their spark  
+    not to mend what’s torn apart,  
+    but to hold the fractures close,  
+    and find grace inside the scars.  
+
+    I don’t know your name,  
+    or if you even roam  
+    but if you’re out there,  
+    please don’t be afraid to come home.  
+
+    Because I’m still here,  
+    still broken, still aching  
+    still searching, still hoping,  
+    still waiting for you.  
   </div>
 
-  <div class="poem-container" id="poem">
-    <pre id="poem-text">
-I’m all kinds of shattered
-a tangle of jagged edges and silent screams,
-lost in the ruins of my restless mind,
-chasing shadows that slip through my dreams.
+  <div class="poem-container">
+    <div class="poem-title">Fragile Echoes</div>
+    <div class="poem-meta">Date: 2019-01-29 | Mood: Tender vulnerability</div>
+    I flinch when things go right,  
+    as if safety is a thief in the night.  
+    When love knocks soft upon my door,  
+    I deadbolt fast and say, "No more."  
 
-I’m a storm no one dares to face,
-a dark, pulling tide beneath calm seas,
-a broken song on endless repeat,
-haunted by the quiet of empty keys.
+    I shatter delicate dreams before they grow,  
+    because somewhere deep, I’ve come to know,  
+    I’m not worthy of petals that bloom just for me,  
+    so I burn the garden before it can be free.  
 
-I walk through halls of memories,
-where laughter echoes and love once lived,
-now just whispers in the cold air,
-ghosts of a past I can’t forgive.
+    Don’t ask me why I run away,  
+    from warmth, from light, from the brightest day.  
+    I flee from kindness like it’s a guise,  
+    a trap disguised in gentle lies.  
 
-Yet somewhere in this endless ache,
-beneath the rubble and the pain,
-I hold a flicker of fragile hope,
-a light that calls me through the rain.
+    I say I want someone to stay,  
+    but when they linger, I push away,  
+    handing them reasons, one by one,  
+    to leave the battle I’ve never won.  
 
-I’m still searching
-for a soul just as lost as mine,
-one who won’t run when darkness screams,
-who sees the cracks and still lets light shine.
+    And still beneath the rubble, beneath the fight,  
+    beneath the walls I build at night,  
+    there’s a whispered plea, soft and low,  
+    for someone to see me, and never go.  
 
-Someone who understands the silence,
-who hears the screams beneath the calm,
-who won’t demand I be fixed or whole,
-but loves me perfectly broken and scarred.
-
-Because maybe in this endless night,
-two fractured hearts can find their spark
-not to mend what’s torn apart,
-but to hold the fractures close,
-and find grace inside the scars.
-
-I don’t know your name,
-or if you even roam
-but if you’re out there,
-please don’t be afraid to come home.
-
-Because I’m still here,
-still broken, still aching
-still searching, still hoping,
-still waiting for you.
-    </pre>
-    <button id="toggle-btn">Read More</button>
+    So if you hear this fragile call,  
+    please don’t turn your back and walk away at all.  
+    For behind the scars and all my fears,  
+    is a heart that’s longing just to be near.  
   </div>
 
-  <a href="categories.html" class="back-button">Back to the Bleeding Pages</a>
-
-  <script>
-    const poemText = document.getElementById('poem-text');
-    const toggleBtn = document.getElementById('toggle-btn');
-    let expanded = false;
-
-    toggleBtn.addEventListener('click', () => {
-      if (!expanded) {
-        poemText.style.maxHeight = '1000em';
-        toggleBtn.textContent = 'Collapse';
-        expanded = true;
-      } else {
-        poemText.style.maxHeight = '10em';
-        toggleBtn.textContent = 'Read More';
-        expanded = false;
-      }
-    });
-  </script>
+  <button onclick="window.location.href='categories.html'">Back to the Bleeding Pages</button>
 
 </body>
 </html>
