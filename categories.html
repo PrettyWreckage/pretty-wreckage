@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Poem Categories | Pretty Wreckage</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Font Awesome for feather icon -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-vT7mPxXHlL4TCMP9E6acUnlLgMX9/FV3TfuTcYa7NyyQAmDbQD5M7OxvdcAvR2YmxKLk9r5uFbO/uhAcGdUItQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Font Awesome CDN for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-rOA1p0mz7JMs+X3aG0aV5C7C9PjDfF3b0RtvY58RRo+4tbGp9JsvCj1zKwWZk0b2eP1a1X5L7yW/eQvPp6+Z2g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     body {
       margin: 0;
@@ -87,25 +93,26 @@
     }
 
     .home-button {
-      display: inline-block;
       margin-top: 2rem;
-      padding: 10px 20px;
+      display: inline-block;
+      padding: 10px 25px;
       background-color: #ff7cae;
       color: white;
-      border: none;
       border-radius: 8px;
       text-decoration: none;
       font-size: 1rem;
-      font-weight: bold;
+      font-weight: 600;
+      box-shadow: 0 0 10px rgba(255, 124, 174, 0.7);
       transition: background-color 0.3s ease;
-    }
-
-    .home-button i {
-      margin-right: 8px;
     }
 
     .home-button:hover {
       background-color: #ff4a85;
+    }
+
+    .home-button i {
+      margin-right: 8px;
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -131,7 +138,7 @@
     </ul>
 
     <a href="index.html" class="home-button">
-      <i class="fas fa-feather-alt"></i>Back to Home
+      <i class="fa-solid fa-feather"></i> Back to Home
     </a>
   </div>
 </body>
