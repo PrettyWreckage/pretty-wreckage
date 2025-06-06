@@ -400,27 +400,29 @@ is a heart that’s longing just to be near.
       });
     }
 
-    // Setup form submit handlers
-    ['poem1', 'poem2'].forEach(poemId => {
-      const form = document.getElementById('comment-form-' + poemId);
-      form.addEventListener('submit', e => {
+        // Setup comment form listeners
+    function setupCommentForm(poemId) {
+      const form = document.getElementById(`comment-form-${poemId}`);
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const nameInput = document.getElementById('name-' + poemId);
-        const commentInput = document.getElementById('comment-text-' + poemId);
-        const name = nameInput.value.trim();
-        const comment = commentInput.value.trim();
-        if(name && comment) {
-          addComment(poemId, name, comment).then(() => {
-            nameInput.value = '';
-            commentInput.value = '';
-          }).catch(err => {
-            alert('Error posting comment: ' + err.message);
-          });
+        const name = document.getElementById(`name-${poemId}`).value.trim();
+        const text = document.getElementById(`comment-text-${poemId}`).value.trim();
+        if (name && text) {
+          try {
+            await addComment(poemId, name, text);
+            form.reset();
+          } catch (err) {
+            console.error('Error posting comment:', err);
+          }
         }
       });
-      listenForComments(poemId);
-    });
+    }
 
+    // Initialize comment listeners and forms for each poem
+    ['poem1', 'poem2'].forEach(poemId => {
+      listenForComments(poemId);
+      setupCommentForm(poemId);
+    });
   </script>
 </body>
 </html>
