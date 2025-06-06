@@ -1,10 +1,9 @@
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pretty Wreckage | Not Her Real Diary</title>
-  <link rel="stylesheet" href="style.css" />
   <style>
     body {
       margin: 0;
@@ -175,7 +174,7 @@
   <!-- Decorative Elements with Sound -->
   <div class="secret-rose" onclick="togglePopup()" role="button" aria-expanded="false">
     <img src="rose.png" alt="rose" class="rose" />
-    <img src="butterfly.png" alt="butterfly" class="butterfly" onmouseover="playSound()" />
+    <img src="butterfly.png" alt="butterfly" class="butterfly" />
   </div>
 
   <div class="rose-popup" id="rosePopup">
@@ -186,7 +185,7 @@
   </div>
 
   <audio id="hoverSound" preload="auto">
-    <source src="magic.mp3" type="audio/mpeg">
+    <source src="magic.mp3" type="audio/mpeg" />
     Your browser does not support the audio element.
   </audio>
 
@@ -220,15 +219,14 @@
   </div>
 
   <script>
-    // Audio unlock flag
     let audioUnlocked = false;
 
-    // Unlock audio on first user click anywhere
+    // Unlock audio on first user click anywhere on page
     function unlockAudio() {
       if (!audioUnlocked) {
         const sound = document.getElementById("hoverSound");
         sound.play().then(() => {
-          sound.pause(); // pause immediately, just to unlock audio
+          sound.pause();
           sound.currentTime = 0;
           audioUnlocked = true;
           console.log("Audio unlocked");
@@ -238,10 +236,17 @@
         document.removeEventListener('click', unlockAudio);
       }
     }
-
     document.addEventListener('click', unlockAudio);
 
-    function playSound() {
+    // Play sound on rose click (toggle popup)
+    function togglePopup() {
+      const popup = document.getElementById('rosePopup');
+      popup.classList.toggle('active');
+
+      const btn = document.querySelector('.secret-rose');
+      btn.setAttribute('aria-expanded', popup.classList.contains('active'));
+
+      // Play sound if unlocked
       if (audioUnlocked) {
         const sound = document.getElementById("hoverSound");
         sound.currentTime = 0;
@@ -249,14 +254,6 @@
       } else {
         console.log("Audio not unlocked yet.");
       }
-    }
-
-    function togglePopup() {
-      const popup = document.getElementById('rosePopup');
-      popup.classList.toggle('active');
-
-      const btn = document.querySelector('.secret-rose');
-      btn.setAttribute('aria-expanded', popup.classList.contains('active'));
     }
   </script>
 </body>
