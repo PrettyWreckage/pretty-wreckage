@@ -400,61 +400,27 @@ is a heart that’s longing just to be near.
       });
     }
 
-        // Setup comment form listeners
-function setupCommentForms() {
-  ['poem1', 'poem2'].forEach(poemId => {
-    const form = document.getElementById('comment-form-' + poemId);
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = document.getElementById('name-' + poemId).value.trim();
-      const text = document.getElementById('comment-text-' + poemId).value.trim();
-      if (name && text) {
-        addComment(poemId, name, text).then(() => {
-          form.reset();
-        }).catch(err => {
-          console.error("Error adding comment: ", err);
-        });
-      }
-    });
-  });
-}
-
-setupCommentForms();
-listenForComments('poem1');
-listenForComments('poem2');
-
-    // Initialize comment listeners and forms for each poem
+    // Setup form submit handlers
     ['poem1', 'poem2'].forEach(poemId => {
-      listenForComments(poemId);
-      setupCommentForm(poemId);
-    });
-  </script>
-  <script>
-  // ... (All your previous code)
-
-  // Setup comment form listeners
-  function setupCommentForm(poemId) {
-    const form = document.getElementById(`comment-form-${poemId}`);
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const name = document.getElementById(`name-${poemId}`).value.trim();
-      const text = document.getElementById(`comment-text-${poemId}`).value.trim();
-
-      if (!name || !text) return;
-
-      addComment(poemId, name, text).then(() => {
-        form.reset();
-      }).catch(err => {
-        console.error("Failed to add comment:", err);
+      const form = document.getElementById('comment-form-' + poemId);
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name-' + poemId);
+        const commentInput = document.getElementById('comment-text-' + poemId);
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        if(name && comment) {
+          addComment(poemId, name, comment).then(() => {
+            nameInput.value = '';
+            commentInput.value = '';
+          }).catch(err => {
+            alert('Error posting comment: ' + err.message);
+          });
+        }
       });
+      listenForComments(poemId);
     });
-  }
 
-  // Listen for comments and setup form for each poem
-  ['poem1', 'poem2'].forEach(poemId => {
-    listenForComments(poemId);
-    setupCommentForm(poemId);
-  });
-</script>
+  </script>
 </body>
 </html>
