@@ -220,18 +220,43 @@
   </div>
 
   <script>
+    // Audio unlock flag
+    let audioUnlocked = false;
+
+    // Unlock audio on first user click anywhere
+    function unlockAudio() {
+      if (!audioUnlocked) {
+        const sound = document.getElementById("hoverSound");
+        sound.play().then(() => {
+          sound.pause(); // pause immediately, just to unlock audio
+          sound.currentTime = 0;
+          audioUnlocked = true;
+          console.log("Audio unlocked");
+        }).catch((error) => {
+          console.warn("Audio unlock failed:", error);
+        });
+        document.removeEventListener('click', unlockAudio);
+      }
+    }
+
+    document.addEventListener('click', unlockAudio);
+
+    function playSound() {
+      if (audioUnlocked) {
+        const sound = document.getElementById("hoverSound");
+        sound.currentTime = 0;
+        sound.play();
+      } else {
+        console.log("Audio not unlocked yet.");
+      }
+    }
+
     function togglePopup() {
       const popup = document.getElementById('rosePopup');
       popup.classList.toggle('active');
 
       const btn = document.querySelector('.secret-rose');
       btn.setAttribute('aria-expanded', popup.classList.contains('active'));
-    }
-
-    function playSound() {
-      const sound = document.getElementById("hoverSound");
-      sound.currentTime = 0; // restart if hovered again
-      sound.play();
     }
   </script>
 </body>
