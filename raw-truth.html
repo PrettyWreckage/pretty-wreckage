@@ -137,13 +137,6 @@
     .like-button:hover {
       background-color: #ff7cae;
     }
-    .comments-note {
-      margin-top: 0.6rem;
-      font-size: 0.85rem;
-      font-style: italic;
-      color: #fbd6e0;
-      text-align: center;
-    }
   </style>
 </head>
 <body>
@@ -217,9 +210,6 @@ still waiting for you.
         <textarea id="comment-text-poem1" placeholder="Your comment" required></textarea>
         <button type="submit">Post Comment</button>
       </form>
-      <div class="comments-note">
-        My beautiful broken souls, comments are hidden from public view to protect privacy and for emotional well-being. Only I can see them.
-      </div>
     </div>
   </div>
 
@@ -276,107 +266,161 @@ is a heart that’s longing just to be near.
         <textarea id="comment-text-poem2" placeholder="Your comment" required></textarea>
         <button type="submit">Post Comment</button>
       </form>
-      <div class="comments-note">
-        My beautiful broken souls, comments are hidden from public view to protect privacy and for emotional well-being. Only I can see them.
-      </div>
     </div>
   </div>
 
-<script>
-  // Toggle poem expansion
-  function togglePoem(poemId, btn) {
-    const poem = document.getElementById(poemId);
-    if (poem.style.maxHeight && poem.style.maxHeight !== "10em") {
-      poem.style.maxHeight = "10em";
-      btn.textContent = "Read More";
-    } else {
-      poem.style.maxHeight = poem.scrollHeight + "px";
-      btn.textContent = "Read Less";
+  <a href="categories.html" class="back-button">Back to the Bleeding Pages</a>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Your Firebase config from earlier:
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
+      authDomain: "pretty-wreckage-9c673.firebaseapp.com",
+      projectId: "pretty-wreckage-9c673",
+      storageBucket: "pretty-wreckage-9c673.firebasestorage.app",
+      messagingSenderId: "983710612507",
+      appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
+      measurementId: "G-EBH6K5923F"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Toggle poem read more/collapse
+    function togglePoem(id, button) {
+      const poem = document.getElementById(id);
+      const expanded = poem.style.maxHeight === '1000em';
+      poem.style.maxHeight = expanded ? '10em' : '1000em';
+      button.textContent = expanded ? 'Read More' : 'Collapse';
     }
-  }
 
-  // Like counts stored in localStorage
-  function loadLikes(poem) {
-    return parseInt(localStorage.getItem('likes_' + poem)) || 0;
-  }
-  function saveLikes(poem, count) {
-    localStorage.setItem('likes_' + poem, count);
-  }
-
-  document.querySelectorAll('.like-button').forEach(button => {
-    const poem = button.getAttribute('data-poem');
-    const countSpan = document.getElementById('like-count-' + poem);
-    let likes = loadLikes(poem);
-    countSpan.textContent = likes;
-
-    button.addEventListener('click', () => {
-      likes++;
-      saveLikes(poem, likes);
-      countSpan.textContent = likes;
-      button.disabled = true; // prevent multiple likes per session
-    });
-  });
-
-  // Comments storage and display using localStorage
-
-  function loadComments(poem) {
-    const commentsJSON = localStorage.getItem('comments_' + poem);
-    if (!commentsJSON) return [];
-    try {
-      return JSON.parse(commentsJSON);
-    } catch {
-      return [];
+    // --- LIKES LOGIC ---
+    function updateLikeCount(poemId, count) {
+      document.getElementById('like-count-' + poemId).textContent = count;
     }
-  }
 
-  function saveComments(poem, comments) {
-    localStorage.setItem('comments_' + poem, JSON.stringify(comments));
-  }
+    // Listen for likes changes and update UI
+    function listenForLikes(poemId) {
+      db.collection('likes').doc(poemId).onSnapshot(doc => {
+        if(doc.exists) {
+          updateLikeCount(poemId, doc.data().count);
+        } else {
+          // If doc doesn't exist, create it with 0 likes
+          db.collection('likes').doc(poemId).set({count: 0});
+          updateLikeCount(poemId, 0);
+        }
+      });
+    }
 
-  function renderComments(poem) {
-    const comments = loadComments(poem);
-    const commentsList = document.getElementById('comments-list-' + poem);
-    commentsList.innerHTML = '';
-    comments.forEach(c => {
-      const div = document.createElement('div');
-      div.className = 'comment';
-      div.innerHTML = `<span class="name">${escapeHTML(c.name)}</span>: <span class="text">${escapeHTML(c.text)}</span>`;
-      commentsList.appendChild(div);
+    // Increment like count on click
+    function likePoem(poemId) {
+      const likeRef = db.collection('likes').doc(poemId);
+      db.runTransaction(transaction => {
+        return transaction.get(likeRef).then(doc => {
+          if(!doc.exists) {
+            transaction.set(likeRef, {count: 1});
+            return 1;
+          }
+          const newCount = (doc.data().count || 0) + 1;
+          transaction.update(likeRef, {count: newCount});
+          return newCount;
+        });
+      }).catch(err => {
+        console.error("Failed to increment like: ", err);
+      });
+    }
+
+    // Attach like button listeners
+    document.querySelectorAll('.like-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const poemId = btn.getAttribute('data-poem');
+        likePoem(poemId);
+      });
     });
-  }
 
-  // Simple HTML escaping to prevent injection
-  function escapeHTML(str) {
-    return str.replace(/[&<>"']/g, function (match) {
-      return ({
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#39;'
-      })[match];
-    });
-  }
+    // Listen for likes on both poems
+    listenForLikes('poem1');
+    listenForLikes('poem2');
 
-  ['poem1', 'poem2'].forEach(poem => {
-    renderComments(poem);
-    const form = document.getElementById('comment-form-' + poem);
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const nameInput = document.getElementById('name-' + poem);
-      const commentInput = document.getElementById('comment-text-' + poem);
-      const name = nameInput.value.trim();
-      const text = commentInput.value.trim();
-      if (name && text) {
-        const comments = loadComments(poem);
-        comments.push({name, text});
-        saveComments(poem, comments);
-        renderComments(poem);
-        form.reset();
+    // --- COMMENTS LOGIC ---
+    function renderComments(poemId, comments) {
+      const list = document.getElementById('comments-list-' + poemId);
+      list.innerHTML = '';
+      if (comments.length === 0) {
+        list.textContent = 'No comments yet. Be the first to comment!';
+        return;
       }
-    });
-  });
-</script>
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.classList.add('comment');
+        div.innerHTML = `<span class="name">${escapeHTML(comment.name)}</span>: <span class="text">${escapeHTML(comment.text)}</span>`;
+        list.appendChild(div);
+      });
+    }
 
+    // Escape HTML to prevent XSS
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    // Listen for comments real-time updates
+    function listenForComments(poemId) {
+      db.collection('comments')
+        .where('poemId', '==', poemId)
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+          const comments = [];
+          snapshot.forEach(doc => {
+            comments.push(doc.data());
+          });
+          renderComments(poemId, comments);
+        });
+    }
+
+    // Add new comment
+    function addComment(poemId, name, text) {
+      return db.collection('comments').add({
+        poemId: poemId,
+        name: name,
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+
+    // Setup form submit handlers
+    ['poem1', 'poem2'].forEach(poemId => {
+      const form = document.getElementById('comment-form-' + poemId);
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name-' + poemId);
+        const commentInput = document.getElementById('comment-text-' + poemId);
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        if(name && comment) {
+          addComment(poemId, name, comment).then(() => {
+            nameInput.value = '';
+            commentInput.value = '';
+          }).catch(err => {
+            alert('Error posting comment: ' + err.message);
+          });
+        }
+      });
+      listenForComments(poemId);
+    });
+
+  </script>
 </body>
 </html>
