@@ -1,0 +1,1938 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Scares | Pretty Wreckage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 3rem 2rem;
+      font-family: 'Georgia', serif;
+      background: url('happy-scares.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4d9e3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+    .meta {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #fbd6e0;
+    }
+    .poem-container {
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
+      white-space: pre-line;
+      line-height: 1.3;
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+    #poem-text-34,
+    #poem-text-35,
+    #poem-text-36,
+    #poem-text-37,
+    #poem-text-38,
+    #poem-text-39,
+    #poem-text-40,
+    #poem-text-41,
+    #poem-text-42,
+    #poem-text-43,
+    #poem-text-44,
+    #poem-text-45,
+    #poem-text-46,
+    #poem-text-47,
+    #poem-text-48,
+    #poem-text-49,
+    #poem-text-50,
+    #poem-text-51,
+    #poem-text-52,
+    #poem-text-53,
+    #poem-text-54,
+    #poem-text-55,
+    #poem-text-56,
+    #poem-text-57,
+    #poem-text-58 {
+      max-height: 10em;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      white-space: pre-wrap;
+    }
+    button, .back-button {
+      padding: 10px 25px;
+      background-color: #ff7cae;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin: 0.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button:hover, .back-button:hover {
+      background-color: #ff4a85;
+    }
+    .comments-section {
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .comment {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0;
+    }
+    .comment .name {
+      font-weight: bold;
+      color: #ffd1e3;
+    }
+    .comment .text {
+      margin-left: 0.5rem;
+      color: #f4d9e3;
+    }
+    form {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    input[type="text"], textarea {
+      flex: 1 1 200px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 50px;
+    }
+    .like-section {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f4d9e3;
+      justify-content: center;
+    }
+    .like-button {
+      background-color: #ff4a85;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      line-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .like-button:hover {
+      background-color: #ff7cae;
+    }
+    .intro-message {
+      max-width: 700px;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      line-height: 1.5;
+      font-size: 1.05rem;
+      color: #fbd6e0;
+    }
+    .intro-message .signature {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      font-style: normal;
+      color: #f4d9e3;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .intro-message .signature strong {
+      font-family: 'Georgia', serif;
+      letter-spacing: 0.5px;
+    }
+    .signature-line {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro-message">
+    <p>
+      These poems were born in darkness, carved from pain, and stitched with hope.<br>
+      They are not polished. They are not quiet.<br>
+      They are my raw feelings, from heart, mind, and body, finally given a voice.
+    </p>
+    <p class="signature">
+      <span class="signature-line">from the wreckage, I rise<br>With love xoxo,</span>
+      <strong>Pretty Wreckage</strong>
+    </p>
+  </div>
+
+  <h1>I’m Happy, And That’s the Scariest Part</h1>
+<div class="meta">
+  Date: 2025-06-08<br>
+  Mood: Terrifying Beauty Of Being Okay
+</div>
+
+<div class="poem-container poem-section" id="poem58-container">
+  <pre id="poem-text-58">
+I’m happy now, can you believe?
+No storm clouds pacing up the hall.
+The ache is quieter these days,
+and nothing’s waiting for me to fall.
+
+But I’m not completely there just yet,
+my joy still comes with quiet terms.
+It hinges on the plans I’ve made,
+the bridges built, the dreams I’ve earned.
+
+The future holds its breath with me,
+I pray the stars will guide me through.
+Because I am happy, yes, it’s true,
+but I want that happiness with you.
+
+Some nights I close my eyes and see
+your arms, my home, soft, strong, and wide.
+The place where all the noise will hush,
+and I’ll no longer need to hide.
+
+I'm scared, I won’t pretend I'm not.
+My joy still trembles, half, complete.
+But I have hope, and that’s a start,
+a steady pulse beneath my feet.
+
+So maybe I can smile for now,
+not fully whole, but halfway there.
+And soon, if fate is kind to me,
+I’ll be forever in your care.
+
+Wrapped in your arms, I won’t pretend,
+I’ll finally let my heart unbend.
+And I’ll be happy, truly so,
+not just in pieces, not alone......
+  </pre>
+  <button onclick="togglePoem('poem-text-58', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem58" title="Like this poem">❤️</button>
+    <span id="like-count-poem58">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem58">
+    <h3>Comments</h3>
+    <div id="comments-list-poem58"></div>
+    <form id="comment-form-poem58">
+      <input type="text" id="name-poem58" placeholder="Your name" required />
+      <textarea id="comment-text-poem58" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>This Smile Isn’t a Warning Sign</h1>
+<div class="meta">
+  Date: 2025-06-04<br>
+  Mood: The Soft Anxiety Of Getting Better
+</div>
+
+<div class="poem-container poem-section" id="poem57-container">
+  <pre id="poem-text-57">
+I smile more lately and no one died.
+No shoe dropped, no storms arrived.
+I laugh without a hidden ache,
+no one left, no one betrayed.
+
+But still my heart beats out of sync,
+like joy might turn on me and blink.
+Like if I trust this light too soon,
+I'll find myself alone by noon.
+
+I search the corners of the sky
+for proof this isn’t just a lie.
+Can peace be real without a price?
+Can I feel safe and still survive?
+
+But maybe this time, things are kind.
+Maybe it’s not a warning sign.
+Maybe I’m allowed to feel,
+and not prepare for things to steal.
+
+I wear this smile like borrowed silk,
+still learning that I’m not to blame.
+That sometimes, joy is not a trap,
+it’s just my soul calling my name.
+  </pre>
+  <button onclick="togglePoem('poem-text-57', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem57" title="Like this poem">❤️</button>
+    <span id="like-count-poem57">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem57">
+    <h3>Comments</h3>
+    <div id="comments-list-poem57"></div>
+    <form id="comment-form-poem57">
+      <input type="text" id="name-poem57" placeholder="Your name" required />
+      <textarea id="comment-text-poem57" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>My Inner Alarm Still Goes Off</h1>
+<div class="meta">
+  Date: 2025-05-25<br>
+  Mood: Alert, On Edge, Wired For Survival
+</div>
+
+<div class="poem-container poem-section" id="poem56-container">
+  <pre id="poem-text-56">
+It’s quiet now, but I don’t trust it.
+Peace feels loud when you’ve known pain.
+My chest still tightens without reason,
+like thunder's whispering again.
+
+My hands still shake at harmless noises,
+my eyes still scan the room for threat.
+Even love feels like a warning,
+like a promise I’ll regret.
+
+The war is over, so they say,
+but trauma didn’t get the memo.
+It lingers like a ghost in mirrors,
+haunting every calm I know.
+
+My smile returns, but half-hearted.
+My laugh is laced with clenched control.
+I wish my nervous system knew
+I’m no longer in that role.
+
+But even joy can trigger tears,
+and kindness makes me brace to bleed.
+I’m healing, yes, but every breath
+reminds me what I used to need.
+  </pre>
+  <button onclick="togglePoem('poem-text-56', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem56" title="Like this poem">❤️</button>
+    <span id="like-count-poem56">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem56">
+    <h3>Comments</h3>
+    <div id="comments-list-poem56"></div>
+    <form id="comment-form-poem56">
+      <input type="text" id="name-poem56" placeholder="Your name" required />
+      <textarea id="comment-text-poem56" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Forgot How to Dream</h1>
+<div class="meta">
+  Date: 2025-05-21<br>
+  Mood: Tender, Doubtful
+</div>
+
+<div class="poem-container poem-section" id="poem55-container">
+  <pre id="poem-text-55">
+I used to dream in shades of gray,
+where futures faded into night.
+Where stars were just too far away
+and wishes died before they’d light.
+
+Now hope taps gently at my door,
+with hands too soft, too kind, too clean.
+And suddenly I’m scared of more,
+because more was never part of me.
+
+What if I build and it breaks again?
+What if I leap and lose the sky?
+My scars remember how it felt
+to reach too far and ask “but why?”
+
+I forgot how to dream without flinching.
+How to hope without a plan to fall.
+Now even joy feels like a gamble,
+a baited breath before the call.
+
+I tiptoe through this brighter world,
+a stranger in my own soft skin,
+because I forgot that dreams could live,
+and not just die before they begin.
+  </pre>
+  <button onclick="togglePoem('poem-text-55', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem55" title="Like this poem">❤️</button>
+    <span id="like-count-poem55">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem55">
+    <h3>Comments</h3>
+    <div id="comments-list-poem55"></div>
+    <form id="comment-form-poem55">
+      <input type="text" id="name-poem55" placeholder="Your name" required />
+      <textarea id="comment-text-poem55" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>This Joy Feels Like a Lie</h1>
+<div class="meta">
+  Date: 2025-05-20<br>
+  Mood: Hope Held At arm’s Length
+</div>
+
+<div class="poem-container poem-section" id="poem54-container">
+  <pre id="poem-text-54">
+I laughed today, and it felt wrong,
+like I’d stolen joy from someone else.
+My smile cracked like borrowed glass,
+too fragile to trust myself.
+
+This happiness—it doesn’t fit.
+It wears me like a costume does.
+I twirl in light that used to burn
+and question what this feeling was.
+
+Is this real? Or just a scene
+before the credits bleed with grief?
+I hold it like it might explode,
+this tender, trembling disbelief.
+
+I’ve made a home inside the dark,
+a nest of numb, a quiet ache.
+So now the warmth just makes me sweat,
+like peace is some mistake.
+
+I don't know how to dance in this,
+don’t know the rhythm joy requires.
+My bones are built from breaking points,
+my hope from funeral fires.
+
+So if I wince when good things stay,
+or blink too long at sky so blue,
+it's not because I want the storm...
+I’m just still healing from what I knew.
+  </pre>
+  <button onclick="togglePoem('poem-text-54', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem54" title="Like this poem">❤️</button>
+    <span id="like-count-poem54">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem54">
+    <h3>Comments</h3>
+    <div id="comments-list-poem54"></div>
+    <form id="comment-form-poem54">
+      <input type="text" id="name-poem54" placeholder="Your name" required />
+      <textarea id="comment-text-poem54" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I’m Waiting for the Twist</h1>
+<div class="meta">
+  Date: 2025-05-18<br>
+  Mood: Suspicion Draped In Softness
+</div>
+
+<div class="poem-container poem-section" id="poem53-container">
+  <pre id="poem-text-53">
+I’m smiling, but with eyes half-closed,
+as if joy might detonate.
+I tiptoe through these peaceful days,
+waiting for fate to retaliate.
+
+Because nothing good stays good for long,
+at least, not in my script.
+I’ve learned that soft can turn to sharp,
+that kindness often flips.
+
+I flinch at compliments like threats,
+brace for silence after laughs.
+Because love has always come with terms,
+and healing's shadow never lasts.
+
+So here I stand in borrowed light,
+paranoid and barely whole,
+half-expecting life to shift
+and leave another aching hole.
+
+The plot twist always finds its time,
+the fall comes after grace.
+I’m scared of how serene this feels,
+like the calm before disgrace.
+
+So don’t mind if I can’t lean in,
+or trust what’s given free.
+I’ve survived too many storylines
+where “happy” came with fee
+  </pre>
+  <button onclick="togglePoem('poem-text-53', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem53" title="Like this poem">❤️</button>
+    <span id="like-count-poem53">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem53">
+    <h3>Comments</h3>
+    <div id="comments-list-poem53"></div>
+    <form id="comment-form-poem53">
+      <input type="text" id="name-poem53" placeholder="Your name" required />
+      <textarea id="comment-text-poem53" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+
+<h1>He Said He Loved Me, and I Couldn’t Breathe</h1>
+<div class="meta">
+  Date: 2025-05-15<br>
+  Mood: Tender Fear
+</div>
+
+<div class="poem-container poem-section" id="poem52-container">
+  <pre id="poem-text-52">
+He said it softly, like a prayer,
+as if love could fix what wasn’t there.
+But my lungs forgot their every role,
+his words wrapped tightly 'round my soul.
+
+“I love you.”
+Three bombs, not blooms.
+The echo filled the empty rooms
+where all the ghosts I used to know
+rose up and whispered,
+“He’ll let go.”
+
+I smiled, but it was just my skin.
+Inside, the panic crawled back in.
+Love never lingered, not for me.
+It always asked a quiet fee.
+
+Be soft. Be small. Don’t ask too much.
+Be grateful just to feel his touch.
+And if he leaves, don’t cry, don’t scream,
+just say you knew it was a dream.
+
+I want to believe him,
+I swear I do.
+But every time I try,
+my heart just cry.
+
+Because being loved means being seen,
+and being seen means being left,
+at least in all of my life's stories
+where love was just theft.
+
+So I stood there silent,
+smiling through dread.
+Wishing I could say " i love you" back,
+but choking instead.
+  </pre>
+  <button onclick="togglePoem('poem-text-52', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem52" title="Like this poem">❤️</button>
+    <span id="like-count-poem52">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem52">
+    <h3>Comments</h3>
+    <div id="comments-list-poem52"></div>
+    <form id="comment-form-poem52">
+      <input type="text" id="name-poem52" placeholder="Your name" required />
+      <textarea id="comment-text-poem52" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Healing Hurts Too</h1>
+<div class="meta">
+  (Because growth feels like losing who you were, trauma and all)<br>
+  Date: 2025-05-03<br>
+  Mood: Aching Metamorphosis
+</div>
+
+<div class="poem-container poem-section" id="poem51-container">
+  <pre id="poem-text-51">
+They said it would feel like sunrise,
+like flowers blooming through the pain.
+But healing’s been a quiet war,
+a shedding skin I can’t regain.
+
+I miss the girl who flinched at touch,
+who trusted no one, not even me.
+I hate that I still mourn the cage,
+because at least I knew the key.
+
+The light feels foreign on my face,
+and laughter cuts me deep and wide,
+not because it hurts to smile,
+but because I’ve lived so long inside.
+
+Inside the ache, the dark, the dread,
+where numbness wrapped me like a shield.
+And now they ask me to be brave,
+to feel the wounds I never healed.
+
+Growth feels like betrayal now,
+like I’m abandoning the girl
+who kept me breathing through the fire
+while the rest of them burned my world.
+
+So don’t call it beautiful just yet.
+Healing is a kind of grief.
+It’s saying goodbye to every scar
+that once helped me believe in relief.
+
+I’m getting better. Yes, it’s true.
+But oh, how it hurts
+to lose the you
+that got you through.
+  </pre>
+  <button onclick="togglePoem('poem-text-51', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem51" title="Like this poem">❤️</button>
+    <span id="like-count-poem51">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem51">
+    <h3>Comments</h3>
+    <div id="comments-list-poem51"></div>
+    <form id="comment-form-poem51">
+      <input type="text" id="name-poem51" placeholder="Your name" required />
+      <textarea id="comment-text-poem51" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Woke Up Without Dread</h1>
+  <div class="meta">
+    Date: 2025-05-01<br>
+    Mood: Eerie Calm
+  </div>
+
+  <div class="poem-container poem-section" id="poem50-container">
+    <pre id="poem-text-50">
+The morning came soft,
+without ache in my chest.
+No weight on my bones,
+no fear stealing rest.
+
+It should've felt healing,
+this absence of gloom.
+But quiet like this
+can swallow a room.
+
+No panic, no pressure,
+just breath in the air,
+yet peace made me shiver
+like ghosts lingered there.
+
+Was this what they meant
+when they spoke about light?
+Because all I could see
+was the shape of the night.
+
+The war paused, I think,
+but the silence was sharp.
+Like waiting for thunder
+with hands on my heart.
+
+I woke up okay,
+no tears, no scream.
+But it scared me to death
+What that stillness could mean...
+
+that maybe I'm healing,
+or maybe I'm numb.
+I’m not sure which version
+of me I’ve become
+
+
+    </pre>
+    <button onclick="togglePoem('poem-text-50', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem50" title="Like this poem">❤️</button>
+      <span id="like-count-poem50">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem50">
+      <h3>Comments</h3>
+      <div id="comments-list-poem50"></div>
+      <form id="comment-form-poem50">
+        <input type="text" id="name-poem50" placeholder="Your name" required />
+        <textarea id="comment-text-poem50" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <!-- PRIVACY NOTICE ADDED -->
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>I Missed the Chaos</h1>
+  <div class="meta">
+    Date: 2025-04-21<br>
+    Mood: Addiction To The Ache
+  </div>
+
+  <div class="poem-container poem-section" id="poem49-container">
+    <pre id="poem-text-49">
+I hated the screaming,
+the mess and the fights,
+but somehow in silence,
+my chest doesn't feel right.
+
+The stillness is foreign,
+too empty, too wide,
+like standing in sunlight
+with nowhere to hide.
+
+I miss the tension,
+the slam of a door,
+not because it was good,
+but I knew what it’s for.
+
+Now quiet feels cruel,
+like I’m lost in a play,
+where everyone smiles,
+but I’ve got nothing to say.
+
+Peace never loved me,
+it kept me on edge.
+So I built my home
+on a pain-soaked ledge.
+
+And now that it's calm,
+I itch for the storm,
+because love without hurt
+just doesn't feel warm.
+
+I crave what broke me,
+not because it’s right.
+But because it's familiar,
+and silence? It bites
+
+
+    </pre>
+    <button onclick="togglePoem('poem-text-49', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem49" title="Like this poem">❤️</button>
+      <span id="like-count-poem49">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem49">
+      <h3>Comments</h3>
+      <div id="comments-list-poem49"></div>
+      <form id="comment-form-poem49">
+        <input type="text" id="name-poem49" placeholder="Your name" required />
+        <textarea id="comment-text-poem49" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <!-- PRIVACY NOTICE ADDED -->
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>I’m Not Used to Things Going Right</h1>
+  <div class="meta">
+    Date: 2025-04-13<br>
+    Mood: Suspicion Wrapped in Softness
+  </div>
+
+  <div class="poem-container poem-section" id="poem48-container">
+    <pre id="poem-text-48">
+“I’m Not Used to Things Going Right”
+And when they do, it’s suspicious.
+
+They say I should be smiling now,
+the rain has passed, the sun knows how
+to warm these bones, to heal my skin,
+but peace feels like a stranger in.
+
+I flinch at ease, I wait for breaks,
+count heartbeats like I’m dodging fakes.
+When nothing's wrong, I search the air,
+convinced that pain still lingers there.
+
+This calm? It’s staged, it’s not real life.
+Where’s the blow, the wound, the knife?
+I’ve danced too long with grief and fear,
+joy feels like danger drawing near.
+
+I don’t know how to just exhale,
+when every soft breeze hides a gale.
+Even in love, I hold my breath,
+because every good has felt like death.
+
+So if you see me tense at light,
+don’t ask me why I fear what’s right.
+My heart’s been trained by endless fights,
+I’ve never trusted gentle nights.
+
+
+    </pre>
+    <button onclick="togglePoem('poem-text-48', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem48" title="Like this poem">❤️</button>
+      <span id="like-count-poem48">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem48">
+      <h3>Comments</h3>
+      <div id="comments-list-poem48"></div>
+      <form id="comment-form-poem48">
+        <input type="text" id="name-poem48" placeholder="Your name" required />
+        <textarea id="comment-text-poem48" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <!-- PRIVACY NOTICE ADDED -->
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>He Made Me Laugh, So I Wanted to Run</h1>
+  <div class="meta">
+    (For the ones who were told to “calm down” instead of “what’s wrong?”)<br>
+    Date: 2025-04-10<br>
+    Mood: The Heat Of Unexpected Warmth
+  </div>
+
+  <div class="poem-container poem-section" id="poem47-container">
+    <pre id="poem-text-47">
+His laughter broke the ice around me,
+a spark that burned too close, too free.
+His warmth a flame I wasn’t ready to hold,
+reminding me how my nights have been so cold.
+
+I wanted to reach, I wanted to stay,
+but fear told me to turn away.
+Because kindness felt like a trap,
+a door too wide, a sudden gap.
+
+He made me laugh, so I wanted to run,
+from light I’d never learned from.
+I’m scared to trust what feels so true,
+because warmth reminds me what I never knew.
+
+So I step back, I close the door,
+even when my heart aches for more.
+The warmth he gives is scary and new,
+and so, I run from what’s good and true.
+
+
+    </pre>
+    <button onclick="togglePoem('poem-text-47', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem47" title="Like this poem">❤️</button>
+      <span id="like-count-poem47">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem47">
+      <h3>Comments</h3>
+      <div id="comments-list-poem47"></div>
+      <form id="comment-form-poem47">
+        <input type="text" id="name-poem47" placeholder="Your name" required />
+        <textarea id="comment-text-poem47" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <!-- PRIVACY NOTICE ADDED -->
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>I Feel Happy. Why Do I Want to Cry</h1>
+  <div class="meta">
+    Date: 2025-04-01<br>
+    Mood: Joy And Pain
+  </div>
+
+  <div class="poem-container poem-section" id="poem46-container">
+    <pre id="poem-text-46">
+The sun breaks through, the sky is clear,
+but underneath, the ache is near.
+I wear my smile, a borrowed light,
+while something in me fights the night.
+
+Joy cracks open wounds so deep,
+memories buried start to creep.
+I didn’t know those scars could bleed,
+but happiness wakes pain I didn’t need.
+
+I laugh, I glow, I dance, I sigh,
+yet tears still pool behind my eyes.
+For every smile that shows outside,
+a storm still rages deep inside.
+
+So don’t ask why I want to cry
+when all the world says I’m okay.
+Sometimes joy and grief collide,
+and healing walks a fragile way.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-46', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem46" title="Like this poem">❤️</button>
+      <span id="like-count-poem46">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem46">
+      <h3>Comments</h3>
+      <div id="comments-list-poem46"></div>
+      <form id="comment-form-poem46">
+        <input type="text" id="name-poem46" placeholder="Your name" required />
+        <textarea id="comment-text-poem46" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>I Keep Checking for Cracks</h1>
+  <div class="meta">
+    Date: 2025-03-28<br>
+    Mood:  Anxiety’s Restless Tremor
+  </div>
+
+  <div class="poem-container poem-section" id="poem45-container">
+    <pre id="poem-text-45">
+I live like walls might crumble,
+a house built on shifting sands.
+Every smile feels like a gamble,
+and peace slips right through my hands.
+
+I watch for signs, for tiny breaks,
+in moments bright, in love’s embrace.
+My heart’s a vault on constant guard,
+always bracing for the shards.
+
+The silence shakes, the quiet breaks,
+a storm inside that never waits.
+I check the cracks, again and again,
+prepared for when it all might end.
+
+Because hope feels like a fragile glass,
+and fear’s the shadow it can’t surpass.
+So I live in a state of quake,
+waiting for the next heartache.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-45', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem45" title="Like this poem">❤️</button>
+      <span id="like-count-poem45">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem45">
+      <h3>Comments</h3>
+      <div id="comments-list-poem45"></div>
+      <form id="comment-form-poem45">
+        <input type="text" id="name-poem45" placeholder="Your name" required />
+        <textarea id="comment-text-poem45" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>I Don’t Know How to Be Loved</h1>
+  <div class="meta">
+    Date: 2025-03-15<br>
+    Mood: Yearning And Fear
+  </div>
+
+  <div class="poem-container poem-section" id="poem44-container">
+    <pre id="poem-text-44">
+You reach for me with gentle hands,
+offering me what I don’t understand.
+A kindness strange, a touch so new,
+but I don’t know how to be loved by you.
+
+Your words fall soft like morning rain,
+but inside me, I feel the strain,
+like walls I built to guard my pain
+are trembling, breaking, will they remain?
+
+I want to lean, I want to fall,
+to open up and let you in my all,
+but the ghost of hurt still haunts my door,
+I don’t know love like I did before.
+
+You hold me close, but I pull away,
+scared to trust what you want to say.
+Your care is a language I can’t quite speak,
+a melody my heart’s too tired to seek.
+
+I’m learning slow what love can be,
+not a battle, not captivity,
+but a quiet place where souls can mend,
+a broken heart’s reluctant friend.
+
+So forgive me if I stumble, if I hide,
+if I can’t always stand by your side.
+I’m trying, love, to break the chain,
+to know how to be loved again.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-44', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem44" title="Like this poem">❤️</button>
+      <span id="like-count-poem44">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem44">
+      <h3>Comments</h3>
+      <div id="comments-list-poem44"></div>
+      <form id="comment-form-poem44">
+        <input type="text" id="name-poem44" placeholder="Your name" required />
+        <textarea id="comment-text-poem44" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>Is This What Safe Feels Like</h1>
+  <div class="meta">
+    Date: 2025-03-01<br>
+    Mood: Relief And Doubt
+  </div>
+
+  <div class="poem-container poem-section" id="poem43-container">
+    <pre id="poem-text-43">
+I step inside this quiet room,
+where silence hums a softer tune,
+but shadows crawl beneath the light,
+is this what safe feels like at night?
+
+The walls don’t scream, the floor won’t break,
+yet every breath feels like a stake,
+a question sharp as winter’s knife,
+is safety just unfamiliar life?
+
+I want to trust the calm I find,
+but fear is rooted in my mind,
+it whispers doubts I can’t dismiss,
+“this peace, my dear, is just a risk.”
+
+No screams to drown, no storms to fight,
+just empty space and fading light,
+and yet my heart beats wild and fast,
+as if this stillness cannot last.
+
+Is safety just a stranger’s face,
+a place that time has yet to grace?
+Or is it hope, disguised as fear,
+that maybe healing’s finally near?
+
+I watch my hands, they tremble slow,
+unsure if safe means let go,
+or if this calm will somehow break,
+and leave me shattered in its wake.
+
+But still I linger, soft and shy,
+beneath this quiet, uncertain sky,
+because maybe safe is what I’ll find,
+when fear and hope begin to bind.
+
+Is this what safe feels like? I ask,
+while wearing doubt like a heavy mask,
+and though my soul is slow to trust,
+I reach for peace, I must.
+
+
+    </pre>
+    <button onclick="togglePoem('poem-text-43', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem43" title="Like this poem">❤️</button>
+      <span id="like-count-poem43">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem43">
+      <h3>Comments</h3>
+      <div id="comments-list-poem43"></div>
+      <form id="comment-form-poem43">
+        <input type="text" id="name-poem43" placeholder="Your name" required />
+        <textarea id="comment-text-poem43" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>Joy Isn’t My Native Language</h1>
+  <div class="meta">
+    Date: 2025-02-19<br>
+    Mood: A tender stumble through unfamiliar light
+  </div>
+
+  <div class="poem-container poem-section" id="poem42-container">
+    <pre id="poem-text-42">
+I try to speak in colors bright,
+in laughter’s warm and gentle light,
+but words of joy slip through my hands,
+like grains of time in shifting sands.
+
+I’m fluent in the tongue of pain,
+of silent tears and midnight rain,
+but joy, a language strange and new,
+feels like a world I never knew.
+
+I stumble over simple smiles,
+can’t find the rhythm, miss the miles
+between my heart and open skies,
+where love and peace might softly rise.
+
+They say, “belong, just take your place,”
+but joy’s a dance I can’t embrace,
+because my soul’s still learning how
+to wear the light upon my brow.
+
+Yet sometimes in the quiet glow,
+a flicker of the joy I know,
+reminds me that the night will end,
+and broken hearts can learn to mend.
+
+So I keep trying, step by step,
+to learn the words my heart has kept,
+because joy might not be native tongue,
+but it’s a song still yet unsung.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-42', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem42" title="Like this poem">❤️</button>
+      <span id="like-count-poem42">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem42">
+      <h3>Comments</h3>
+      <div id="comments-list-poem42"></div>
+      <form id="comment-form-poem42">
+        <input type="text" id="name-poem42" placeholder="Your name" required />
+        <textarea id="comment-text-poem42" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>Still I Carry Hope</h1>
+  <div class="meta">
+    Date: 2025-02-07<br>
+    Mood: Fragile strength through the storm
+  </div>
+
+  <div class="poem-container poem-section" id="poem41-container">
+    <pre id="poem-text-41">
+Through darkest nights and fiercest storms,
+when all seems lost and far from warm,
+I clutch a fragile, glowing thread,
+a whisper of the words unsaid.
+
+Hope, a candle flickering bright,
+against the backdrop of the night,
+a gentle force that pulls me through,
+when nothing else I know feels true.
+
+It’s not a roar or blazing fire,
+but quiet, steady, soft desire,
+to hold on just a little more,
+to find the peace worth fighting for.
+
+Though weary bones and aching heart,
+push me close to falling apart,
+I rise again with dawn’s first light,
+because inside still burns the fight.
+
+So I carry hope within my soul,
+a broken thing, but still made whole,
+a testament to what I’ve learned,
+that even shattered hearts can yearn.
+
+And in that yearning, strength is born,
+to face the dark and greet the morn,
+for hope’s the thread that weaves us through,
+and still I carry hope — anew.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-41', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem41" title="Like this poem">❤️</button>
+      <span id="like-count-poem41">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem41">
+      <h3>Comments</h3>
+      <div id="comments-list-poem41"></div>
+      <form id="comment-form-poem41">
+        <input type="text" id="name-poem41" placeholder="Your name" required />
+        <textarea id="comment-text-poem41" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>This Feels Like Borrowed Time</h1>
+  <div class="meta">
+    Date: 2025-01-30<br>
+    Mood: Hope And Dread Entwined
+  </div>
+
+  <div class="poem-container poem-section" id="poem40-container">
+    <pre id="poem-text-40">
+This feels like borrowed time,
+like holding sunlight in a cracked glass jar,
+knowing the light won’t last,
+that soon, the darkness will come back hard.
+
+I smile, but it’s a fragile thing,
+a fragile glass that’s bound to break,
+each laugh a borrowed song,
+each moment a step on a fragile lake.
+
+I watch the clock,
+hear the silent tick beneath my skin,
+wondering when the other shoe will drop,
+when this happiness will wear too thin.
+
+Because joy for me is a thief,
+stealing peace only to leave a wound,
+a reminder that all good things
+have endings hidden in the bloom.
+
+I want to trust this warmth,
+but shadows creep beneath my smile,
+a ghost whispering, “Not for long,”
+turning seconds into miles.
+
+So I hold tight,
+to the good that’s here,
+but brace my heart,
+for the pain I fear.
+
+This feels like borrowed time,
+but I’ll keep living
+in the moment’s light,
+even if it’s borrowed,
+even if it’s fleeting,
+because sometimes
+even borrowed time
+is enough to feel alive.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-40', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem40" title="Like this poem">❤️</button>
+      <span id="like-count-poem40">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem40">
+      <h3>Comments</h3>
+      <div id="comments-list-poem40"></div>
+      <form id="comment-form-poem40">
+        <input type="text" id="name-poem40" placeholder="Your name" required />
+        <textarea id="comment-text-poem40" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>When He’s Nice, I Brace Myself</h1>
+  <div class="meta">
+    Date: 2025-01-08<br>
+    Mood: Fagile Hope Wrapped In Guarded Skin
+  </div>
+
+  <div class="poem-container poem-section" id="poem39-container">
+    <pre id="poem-text-39">
+When he’s nice,
+I brace myself,
+like winter waiting for the first cold breath,
+like a heart that’s been cracked
+still expects the next jagged step.
+
+Because softness is foreign,
+like a language I forgot how to speak,
+and gentle words feel like traps,
+sweet honey hiding the sting beneath.
+
+I’m waiting for the silence that shouts,
+for the calm before the storm erupts,
+for love to flip, for kindness to break,
+for the ground beneath me to quake.
+
+I want to lean in, to let go,
+but my scars pull tight, whispering no,
+reminding me that edges cut deep,
+and promises can dissolve like snow.
+
+So when he’s nice,
+I hold my breath,
+waiting for the world to shift,
+for the shadow to stretch,
+for the ache to come back again.
+
+But maybe,
+just maybe,
+this softness isn’t a lie,
+maybe this time,
+I don’t have to hide.
+
+So I brace myself,
+but I also reach,
+for the love I never thought could teach
+a heart like mine to heal, to breathe.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-39', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem39" title="Like this poem">❤️</button>
+      <span id="like-count-poem39">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem39">
+      <h3>Comments</h3>
+      <div id="comments-list-poem39"></div>
+      <form id="comment-form-poem39">
+        <input type="text" id="name-poem39" placeholder="Your name" required />
+        <textarea id="comment-text-poem39" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>I Laughed, and Then I Panicked</h1>
+  <div class="meta">
+    Date: 2024-12-30<br>
+    Mood:  Bittersweet Chaos, Joy Tangled With Fear
+  </div>
+
+  <div class="poem-container poem-section" id="poem38-container">
+    <pre id="poem-text-38">
+I laughed,
+really laughed,
+the kind that shakes the ribs and forgets the weight.
+It cracked through my chest like dawn through a storm,
+and for a second,
+I swore I felt warm.
+
+But then,
+a shadow crept in through the light,
+like guilt had been waiting just out of sight.
+My breath caught halfway through the joy,
+I blinked, and I was a broken toy.
+
+Because how dare I feel okay?
+How dare I forget the price I pay?
+What if this is the calm before it breaks?
+What if happiness was one of fate’s mistakes?
+
+It felt like cheating on my grief,
+betraying the ache that shaped my belief.
+As if smiling meant I’d moved on,
+as if my wounds should all be gone.
+
+But they’re not.
+They never left.
+They just sleep in softer beds.
+And when I laughed, I woke them up,
+they clawed their way back into my head.
+
+I felt joy
+and then I panicked.
+Like dancing in a house that’s burning down.
+Like tasting sugar with a poisoned tongue.
+Like being praised for staying strong
+when you’re already unsung.
+
+It’s hard to feel light when you’ve lived in the dark,
+when love leaves bruises and memory barks.
+So joy feels foreign, a stranger I fear,
+because every smile
+feels like the next tear is near.
+
+And I wish it wasn’t this way.
+I wish I could let joy stay.
+But every time it knocks on my door,
+I open,
+and brace
+for war.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-38', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem38" title="Like this poem">❤️</button>
+      <span id="like-count-poem38">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem38">
+      <h3>Comments</h3>
+      <div id="comments-list-poem38"></div>
+      <form id="comment-form-poem38">
+        <input type="text" id="name-poem38" placeholder="Your name" required />
+        <textarea id="comment-text-poem38" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>Smiling Feels Like Lying</h1>
+  <div class="meta">
+    Date: 2024-12-24<br>
+    Mood:  Masking The Ache, Bittersweet
+  </div>
+
+  <div class="poem-container poem-section" id="poem37-container">
+    <pre id="poem-text-37">
+I smile like it’s stitched into place,
+like a costume I wear just to save face.
+A curve of the lips, rehearsed and clean,
+but God, you don’t know what it really means.
+
+It’s not joy, it’s not peace, it’s not light breaking through,
+it’s a reflex, a habit, a trick I still do.
+They say, “you’re glowing,” and I just nod,
+but inside, I’m begging a silent God.
+
+To not let me break mid-laugh, mid-breath,
+to hold me together while I’m faking death.
+Because every time I pretend I’m okay,
+a little bit more of me slips away.
+
+I’ve smiled at mirrors and hated their stare,
+wondered how nobody sees I’m not there.
+This grin? It’s armor, painted in gold,
+to hide all the stories I’ve never told.
+
+I laugh at the jokes, I nod at the cue,
+but I’m playing a version that isn’t true.
+It’s easier than saying “I’m falling apart,”
+easier than handing out pieces of heart.
+
+Because when I show pain, the room gets cold,
+so I smile instead—watch the lie unfold.
+I become what the world wants to see,
+a sunshine version of a storming me.
+
+But smiling feels like lying, it’s not real,
+when you’re too numb to actually feel.
+So if one day I forget how to pretend,
+just know I was tired
+of playing
+the friend.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-37', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem37" title="Like this poem">❤️</button>
+      <span id="like-count-poem37">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem37">
+      <h3>Comments</h3>
+      <div id="comments-list-poem37"></div>
+      <form id="comment-form-poem37">
+        <input type="text" id="name-poem37" placeholder="Your name" required />
+        <textarea id="comment-text-poem37" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>Don’t Make Me Hope Again</h1>
+  <div class="meta">
+    Date: 2024-08-10<br>
+    Mood:  Heart-clenched, Scared to Trust, Fragile and Yearning
+  </div>
+
+  <div class="poem-container poem-section" id="poem36-container">
+    <pre id="poem-text-36">
+Don’t hand me light like I’ve never been burned,
+like I don’t know how quickly the seasons can turn.
+Don’t whisper sweet futures I’m too scared to believe,
+don’t make me hope again only to grieve.
+
+I’ve carried heartbreak like a fragile stone,
+tossed it in rivers where no one’s known.
+Each promise, a fracture inside my chest,
+each “maybe” a wound that never lets rest.
+
+So don’t give me dawn if I’m waiting for night,
+don’t show me stars if I’m lost from the light.
+Because hope is a fragile, trembling thing,
+and I’m too tired to hear it sing.
+
+Don’t make me hope again,
+don’t light that spark,
+when I’m already lost
+in the dark.
+
+    </pre>
+    <button onclick="togglePoem('poem-text-36', this)">Read More</button>
+
+    <div class="like-section">
+      <button class="like-button" data-poem="poem36" title="Like this poem">❤️</button>
+      <span id="like-count-poem36">0</span> Likes
+    </div>
+
+     <div class="comments-section" id="comments-poem36">
+      <h3>Comments</h3>
+      <div id="comments-list-poem36"></div>
+      <form id="comment-form-poem36">
+        <input type="text" id="name-poem36" placeholder="Your name" required />
+        <textarea id="comment-text-poem36" placeholder="Your comment" required></textarea>
+        <button type="submit">Post Comment</button>
+      </form>
+      <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+        My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+      </p>
+    </div>
+  </div>
+
+<h1>I Don’t Trust Good Days</h1>
+<div class="meta">
+  Date: 2025-12-11<br>
+  Mood: Anxious Peace, Emotional Tension, Soft Paranoia
+</div>
+
+<div class="poem-container poem-section" id="poem35-container">
+  <pre id="poem-text-35">
+I flinch when the morning feels too still,
+when coffee tastes warm and time stands still.
+Because peace, to me, has always lied,
+a soft calm just before the tide.
+
+I don’t trust blue skies without a crack,
+or laughter that doesn’t feel like it’s holding back.
+I wait for the phone call, the slam of the door,
+the moment the quiet turns into war.
+
+You see me smile, but I’m checking the floor,
+for traps I’ve learned to expect and ignore.
+Because chaos raised me, taught me to breathe
+in storms that never gave me reprieve.
+
+So when it’s quiet, I listen too hard,
+for the screams I know are never far.
+And when things are good, I brace my spine,
+because I know good doesn’t mean it’s fine.
+
+It means the crash is on delay.
+It means life is setting up the play.
+A twisted joke I know too well,
+Heaven always comes before I’m thrown back to hell.
+
+Don’t tell me to “enjoy the light,”
+when I’ve lived so long in endless night.
+The dark taught me to watch my step,
+to hold my breath, to guard what’s left.
+
+Still… I wish I knew how to stay,
+how to rest in the warmth of a peaceful day.
+But my muscles twitch when nothing's wrong—
+like silence is just the start of the song.
+
+And it plays in my head like a warning bell,
+this might be heaven,
+but all I know is hell..
+  </pre>
+  <button onclick="togglePoem('poem-text-35', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem35" title="Like this poem">❤️</button>
+    <span id="like-count-poem35">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem35">
+    <h3>Comments</h3>
+    <div id="comments-list-poem35"></div>
+    <form id="comment-form-poem35">
+      <input type="text" id="name-poem35" placeholder="Your name" required />
+      <textarea id="comment-text-poem35" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Too Good to Be True</h1>
+<div class="meta">
+  Date: 2024-11-23<br>
+  Mood: Longing, Fragile hope, Quiet Fear
+</div>
+
+<div class="poem-container poem-section" id="poem34-container">
+  <pre id="poem-text-34">
+Sometimes I think joy wears a mask,
+A lie dressed up in light, a temporary task.
+Like love is a loan I’ll have to repay,
+And smiles are debts that’ll strip me one day.
+
+You hold me like I’m worth the sun,
+But my heart flinches, ready to run.
+Because every "I love you" feels like a dare,
+Like the calm before a storm I can’t prepare.
+
+I laugh, but I count the hours inside,
+Bracing for when the dream will slide.
+Like happiness is bait on a rusted hook,
+And I’m the fool who never read the book.
+
+Too many times, the good went grim,
+A slow collapse from edge to limb.
+So now I keep one foot on the floor,
+Even when I’m dancing, always unsure.
+
+You say you’ll stay, my stomach knots.
+I catalog every promise, connect the dots.
+Because peace never lasts in my story’s plot,
+It blooms, it bursts, then it rots.
+
+But still I hope, quietly, small,
+That this time, maybe I won’t fall.
+That maybe the good is actually real,
+And I won’t have to trade joy for steel.
+
+Still… I sleep with one eye open tight,
+Prepared to lose you in the night.
+Not because I want to—
+But because I’ve learned
+Too good to be true
+Is a lesson I've earned.
+  </pre>
+  <button onclick="togglePoem('poem-text-34', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem34" title="Like this poem">❤️</button>
+    <span id="like-count-poem34">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem34">
+    <h3>Comments</h3>
+    <div id="comments-list-poem34"></div>
+    <form id="comment-form-poem34">
+      <input type="text" id="name-poem34" placeholder="Your name" required />
+      <textarea id="comment-text-poem34" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+  
+  <a href="categories.html" class="back-button">Back to the Bleeding Pages</a>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Your Firebase config from earlier:
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
+      authDomain: "pretty-wreckage-9c673.firebaseapp.com",
+      projectId: "pretty-wreckage-9c673",
+      storageBucket: "pretty-wreckage-9c673.firebasestorage.app",
+      messagingSenderId: "983710612507",
+      appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
+      measurementId: "G-EBH6K5923F"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Toggle poem read more/collapse
+    function togglePoem(id, button) {
+      const poem = document.getElementById(id);
+      const expanded = poem.style.maxHeight === '1000em';
+      poem.style.maxHeight = expanded ? '10em' : '1000em';
+      button.textContent = expanded ? 'Read More' : 'Collapse';
+    }
+
+    // --- LIKES LOGIC ---
+    function updateLikeCount(poemId, count) {
+      document.getElementById('like-count-' + poemId).textContent = count;
+    }
+
+    // Listen for likes changes and update UI
+    function listenForLikes(poemId) {
+      db.collection('likes').doc(poemId).onSnapshot(doc => {
+        if(doc.exists) {
+          updateLikeCount(poemId, doc.data().count);
+        } else {
+          // If doc doesn't exist, create it with 0 likes
+          db.collection('likes').doc(poemId).set({count: 0});
+          updateLikeCount(poemId, 0);
+        }
+      });
+    }
+
+    // Increment like count on click
+    function likePoem(poemId) {
+      const likeRef = db.collection('likes').doc(poemId);
+      db.runTransaction(transaction => {
+        return transaction.get(likeRef).then(doc => {
+          if(!doc.exists) {
+            transaction.set(likeRef, {count: 1});
+            return 1;
+          }
+          const newCount = (doc.data().count || 0) + 1;
+          transaction.update(likeRef, {count: newCount});
+          return newCount;
+        });
+      }).catch(err => {
+        console.error("Failed to increment like: ", err);
+      });
+    }
+
+    // Attach like button listeners
+    document.querySelectorAll('.like-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const poemId = btn.getAttribute('data-poem');
+        likePoem(poemId);
+      });
+    });
+
+    // Listen for likes on all poems
+    listenForLikes('poem1');
+    listenForLikes('poem2');
+    listenForLikes('poem3');
+    listenForLikes('poem4');
+    listenForLikes('poem5');
+    listenForLikes('poem6');
+    listenForLikes('poem7');
+    listenForLikes('poem8');
+    listenForLikes('poem9');
+    listenForLikes('poem10');
+    listenForLikes('poem11');
+    listenForLikes('poem12');
+    listenForLikes('poem13');
+    listenForLikes('poem14');
+    listenForLikes('poem15');
+    listenForLikes('poem16');
+    listenForLikes('poem17');
+    listenForLikes('poem18');
+    listenForLikes('poem19');
+    listenForLikes('poem20');
+    listenForLikes('poem21');
+    listenForLikes('poem22');
+    listenForLikes('poem23');
+    listenForLikes('poem24');
+    listenForLikes('poem25');
+    listenForLikes('poem26');
+    listenForLikes('poem27');
+    listenForLikes('poem28');
+    listenForLikes('poem29');
+    listenForLikes('poem30');
+    listenForLikes('poem31');
+    
+    // --- COMMENTS LOGIC ---
+    function renderComments(poemId, comments) {
+      const list = document.getElementById('comments-list-' + poemId);
+      list.innerHTML = '';
+      if (comments.length === 0) {
+        list.textContent = 'No comments yet. Be the first to comment!';
+        return;
+      }
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.classList.add('comment');
+        div.innerHTML = `<span class="name">${escapeHTML(comment.name)}</span>: <span class="text">${escapeHTML(comment.text)}</span>`;
+        list.appendChild(div);
+      });
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    // Listen for comments real-time updates
+    function listenForComments(poemId) {
+      db.collection('comments')
+        .where('poemId', '==', poemId)
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+          const comments = [];
+          snapshot.forEach(doc => {
+            comments.push(doc.data());
+          });
+          renderComments(poemId, comments);
+        });
+    }
+
+    // Add new comment
+    function addComment(poemId, name, text) {
+      return db.collection('comments').add({
+        poemId: poemId,
+        name: name,
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+
+    // Setup form submit handlers
+    ['poem34', 'poem35', 'poem35', 'poem36', 'poem37', 'poem38', 'poem39', 'poem40', 'poem41', 'poem42', 'poem43', 'poem44', 'poem45', 'poem46', 'poem47', 'poem48', 'poem49', 'poem50', 'poem51', 'poem52', 'poem53', 'poem54', 'poem55', 'poem56', 'poem57', 'poem58'].forEach(poemId => {
+      const form = document.getElementById('comment-form-' + poemId);
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name-' + poemId);
+        const commentInput = document.getElementById('comment-text-' + poemId);
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        if(name && comment) {
+          addComment(poemId, name, comment).then(() => {
+            nameInput.value = '';
+            commentInput.value = '';
+          }).catch(err => {
+            alert('Error posting comment: ' + err.message);
+          });
+        }
+      });
+      listenForComments(poemId);
+    });
+
+  </script>
+</body>
+</html>
