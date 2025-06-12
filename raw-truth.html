@@ -2524,16 +2524,16 @@ within.
     <button onclick="togglePoem('poem-text-4', this)">Read More</button>
 
     <div class="like-section">
-      <button class="like-button" data-poem="poem4" title="Like this poem">❤️</button>
-      <span id="like-count-poem4">0</span> Likes
+      <button class="like-button" data-poem="poem101" title="Like this poem">❤️</button>
+      <span id="like-count-poem101">0</span> Likes
     </div>
 
-     <div class="comments-section" id="comments-poem4">
+     <div class="comments-section" id="comments-poem101">
       <h3>Comments</h3>
-      <div id="comments-list-poem4"></div>
-      <form id="comment-form-poem4">
-        <input type="text" id="name-poem4" placeholder="Your name" required />
-        <textarea id="comment-text-poem4" placeholder="Your comment" required></textarea>
+      <div id="comments-list-poem101"></div>
+      <form id="comment-form-poem101">
+        <input type="text" id="name-poem101" placeholder="Your name" required />
+        <textarea id="comment-text-poem101" placeholder="Your comment" required></textarea>
         <button type="submit">Post Comment</button>
       </form>
       <!-- PRIVACY NOTICE ADDED -->
@@ -2862,7 +2862,7 @@ still waiting for you.
     listenForLikes('poem1');
     listenForLikes('poem2');
     listenForLikes('poem3');
-    listenForLikes('poem4');
+    listenForLikes('poem101');
     listenForLikes('poem5');
     listenForLikes('poem6');
     listenForLikes('poem7');
@@ -2945,7 +2945,7 @@ still waiting for you.
     }
 
     // Setup form submit handlers
-    ['poem1', 'poem2', 'poem3', 'poem4', 'poem5', 'poem6', 'poem7', 'poem8', 'poem9', 'poem10', 'poem11', 'poem12', 'poem13', 'poem14', 'poem15', 'poem16', 'poem17', 'poem18', 'poem19', 'poem20', 'poem21', 'poem22', 'poem23', 'poem24', 'poem25', 'poem26', 'poem27', 'poem28', 'poem29', 'poem30', 'poem31'].forEach(poemId => {
+    ['poem1', 'poem2', 'poem3', 'poem101', 'poem5', 'poem6', 'poem7', 'poem8', 'poem9', 'poem10', 'poem11', 'poem12', 'poem13', 'poem14', 'poem15', 'poem16', 'poem17', 'poem18', 'poem19', 'poem20', 'poem21', 'poem22', 'poem23', 'poem24', 'poem25', 'poem26', 'poem27', 'poem28', 'poem29', 'poem30', 'poem31'].forEach(poemId => {
       const form = document.getElementById('comment-form-' + poemId);
       form.addEventListener('submit', e => {
         e.preventDefault();
