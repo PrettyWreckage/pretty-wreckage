@@ -1,0 +1,2710 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Scares | Pretty Wreckage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 3rem 2rem;
+      font-family: 'Georgia', serif;
+      background: url('SexyButAlone.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4d9e3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+    .meta {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #fbd6e0;
+    }
+    .poem-container {
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
+      white-space: pre-line;
+      line-height: 1.3;
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+    #poem-text-122,
+    #poem-text-123,
+    #poem-text-124,
+    #poem-text-125,
+    #poem-text-126,
+    #poem-text-127,
+    #poem-text-128,
+    #poem-text-129,
+    #poem-text-130,
+    #poem-text-131,
+    #poem-text-132,
+    #poem-text-133,
+    #poem-text-134,
+    #poem-text-135,
+    #poem-text-136,
+    #poem-text-137,
+    #poem-text-138,
+    #poem-text-139,
+    #poem-text-140,
+    #poem-text-141,
+    #poem-text-142,
+    #poem-text-143,
+    #poem-text-144,
+    #poem-text-145,
+    #poem-text-146,
+    #poem-text-147,
+    #poem-text-148,
+    #poem-text-149,
+    #poem-text-150,
+    #poem-text-151,
+    #poem-text-152,
+    #poem-text-153,
+    #poem-text-154,
+    #poem-text-155,
+    #poem-text-156 {
+      max-height: 10em;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      white-space: pre-wrap;
+    }
+    button, .back-button {
+      padding: 10px 25px;
+      background-color: #ff7cae;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin: 0.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button:hover, .back-button:hover {
+      background-color: #ff4a85;
+    }
+    .comments-section {
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .comment {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0;
+    }
+    .comment .name {
+      font-weight: bold;
+      color: #ffd1e3;
+    }
+    .comment .text {
+      margin-left: 0.5rem;
+      color: #f4d9e3;
+    }
+    form {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    input[type="text"], textarea {
+      flex: 1 1 200px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 50px;
+    }
+    .like-section {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f4d9e3;
+      justify-content: center;
+    }
+    .like-button {
+      background-color: #ff4a85;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      line-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .like-button:hover {
+      background-color: #ff7cae;
+    }
+    .intro-message {
+      max-width: 700px;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      line-height: 1.5;
+      font-size: 1.05rem;
+      color: #fbd6e0;
+    }
+    .intro-message .signature {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      font-style: normal;
+      color: #f4d9e3;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .intro-message .signature strong {
+      font-family: 'Georgia', serif;
+      letter-spacing: 0.5px;
+    }
+    .signature-line {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro-message">
+    <p>
+       This collection is completely open and honest,<br>
+       it’s me, raw and bare, showing all the sides I usually hide. 
+       It’s about sometimes feeling sexy and powerful in my own skin, 
+       but also feeling deeply alone inside.<br>
+      These poems explore those moments of desire and loneliness that come,<br>
+      when there’s no one to share them with.
+    </p>
+    <p class="signature">
+      <span class="signature-line">May we all find someone to share those moments with, 
+                                   Someone who truly sees and holds us..<br>With love xoxo,</span>
+      <strong>Pretty Wreckage</strong>
+    </p>
+  </div>
+
+<h1>If You Were Here Tonight</h1>
+<div class="meta">
+  Date: 2025-01-02<br>
+  Mood: Burning desire, aching loneliness, raw fantasy, bittersweet longing
+</div>
+
+<div class="poem-container poem-section" id="poem122-container">
+  <pre id="poem-text-122">
+If you were here tonight, my love,
+I’d let my fingers trace your skin,
+soft whispers caught in tangled sheets,
+where dreams and burning passions begin.
+
+I’d pull you close, my breath on yours,
+our hearts a wild, frantic beat.
+Your lips would find the places hidden,
+where my yearning and your fire meet.
+
+I’d undress the shadows from your soul,
+unwrap the layers, one by one,
+until you shivered beneath my touch,
+our bodies melting in the sun.
+
+If you were here, I’d show you fire,
+a flame too fierce to hold or tame.
+The heat between us, raw and wild,
+a storm no whisper could contain.
+
+My hands would roam your hungry skin,
+my mouth would taste your deepest need.
+I’d leave no secret unexplored,
+no silence left un-freed.
+
+But here I lie in empty sheets,
+your ghost my only bedmate now.
+I ache to feel your burning hands,
+to hear your tender vow.
+
+If you were here, I’d lose myself,
+in kisses deep, in whispered moans.
+But all I have is aching air,
+and shadows carving stones.
+
+I want to scream your name aloud,
+to feel you close, to lose control.
+But loneliness is all that stays,
+a hollow echo in my soul.
+
+If you were here tonight, my love,
+I’d burn with passion, wild and true.
+But you are far away, and I’m alone,
+just me, this bed, and missing you.
+  </pre>
+  <button onclick="togglePoem('poem-text-122', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem122" title="Like this poem"❤️</button>
+    <span id="like-count-poem122">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem122">
+    <h3>Comments</h3>
+    <div id="comments-list-poem122"></div>
+    <form id="comment-form-poem122">
+      <input type="text" id="name-poem122" placeholder="Your name" required />
+      <textarea id="comment-text-poem122" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Aroused & Abandoned</h1>
+<div class="meta">
+  Date: 2024-12-25<br>
+  Mood: Raw desperation, aching emptiness, lonely desire, imaginative 
+</div>
+
+<div class="poem-container poem-section" id="poem123-container">
+  <pre id="poem-text-123">
+My fingertips once soothed the ache,
+a tender game my heart would fake.
+But now they shake, half ghost, half flame,
+no touch can ever feel the same.
+
+Not enough. Not nearly near
+the fire that scorches, year to year.
+This hunger isn't soft or shy,
+it howls beneath a hollow sky.
+
+I reach for you through screens and sheets of air,
+but all I grasp is vacant stare.
+No breath, no skin, no whispered sin,
+just silence pulsing deep within.
+
+Aroused, abandoned, left to burn,
+each sigh denied, no sweet return.
+I crave a hand, a voice, a bite,
+but only shadows hold me tight.
+
+The hunger twists, it bites, it claws,
+ignores my pride, defies my laws.
+My hips still move as if you’re near,
+but all I feel is unmet fear.
+
+I moan into the midnight dark,
+a sound that fades without a mark.
+The walls don’t echo what I say,
+desire just curls and slips away.
+
+My body aches, my soul does too,
+it wants a love that cuts right through.
+Not just a graze, not passing play,
+but something fierce that wants to stay.
+
+No hand to catch my trembling fall,
+no lips to taste, no voice to call.
+Only this bed, this heat, this plea,
+this slow, decaying fantasy.
+
+I arch for ghosts, I beg for bliss,
+I kiss the air, pretend it’s kiss.
+But no one's there, and no one's real,
+just thorns beneath what I still feel.
+
+I'm aroused, so deep it breaks,
+abandoned in the need that shakes.
+A fire too wild, a storm too deep,
+a dream I touch but cannot keep.
+
+So here I lie, my limbs like tide,
+with loneliness I cannot hide.
+A prisoner of unsated need,
+half open rose, half heart that bleeds.
+  </pre>
+  <button onclick="togglePoem('poem-text-123', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem123" title="Like this poem">❤️</button>
+    <span id="like-count-poem123">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem123">
+    <h3>Comments</h3>
+    <div id="comments-list-poem123"></div>
+    <form id="comment-form-poem123">
+      <input type="text" id="name-poem123" placeholder="Your name" required />
+      <textarea id="comment-text-poem123" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Wrapped in Lace, Wrapped in Longing</h1>
+<div class="meta">
+  Date: 2024-11-29<br>
+  Mood: Sensual ache, bittersweet loneliness, raw desire (screen-bound love)
+</div>
+
+<div class="poem-container poem-section" id="poem124-container">
+  <pre id="poem-text-124">
+The lace clings tight against my skin,
+a second layer soft and thin,
+but it can’t hold the ache inside,
+the kind no silk or thread can hide.
+
+I wear it just for you to see,
+through glass and wires and glowing screen.
+You can’t reach through, you can’t draw near,
+but still I crave you, still you’re here.
+
+The fabric hugs like you once might,
+a poor excuse for heat and bite.
+My lips are red, my breathing slow,
+for every pulse you’ll never know.
+
+I pose for pixels, arch and moan,
+while knowing I’m still all alone.
+You watch, you want, but cannot stay,
+your hands are always worlds away.
+
+I dress myself in hunger’s thread,
+a quiet ache that leaves me red.
+Each bow I tie, each strap I tease,
+is meant for you, to make you freeze.
+
+But when the camera fades to black,
+no arms reach out to pull me back.
+Just lace and longing, left behind,
+a hollow heat you’ll never find.
+
+I want your breath against my spine,
+not just these words and touchless time.
+I need your hands to roam and trace,
+not just the shape of woven lace.
+
+Alone, I writhe for what’s unseen,
+a prisoner of this glowing screen.
+You own me in a distant way,
+yet never here, you never stay.
+
+So here I sit, wrapped tight and bare,
+with longing stitched in every stare.
+A sensual ache I can’t unlace,
+a ghost of you in silk and grace.
+  </pre>
+  <button onclick="togglePoem('poem-text-124', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem124" title="Like this poem">❤️</button>
+    <span id="like-count-poem124">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem124">
+    <h3>Comments</h3>
+    <div id="comments-list-poem124"></div>
+    <form id="comment-form-poem124">
+      <input type="text" id="name-poem124" placeholder="Your name" required />
+      <textarea id="comment-text-poem124" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>A Body Full of Need</h1>
+<div class="meta">
+  Date: 2024-10-16<br>
+  Mood: Torrential desire, overwhelming loneliness, stormless ache
+</div>
+
+<div class="poem-container poem-section" id="poem125-container">
+  <pre id="poem-text-125">
+My thighs tremble like gathering skies,
+clouds thick with craving I can’t disguise.
+A storm brews low inside my hips,
+its thunder rumbling on parted lips.
+
+I arch in silence, eyes half-shut,
+the need, the ache, a greedy glut.
+Hands wander slow, but they’re just mine,
+no warmth, no weight to intertwine.
+
+I am soaked in want, in burning ache,
+a hunger no fantasy seems to break.
+A body that pleads for skin on skin,
+but no one out, no one in.
+
+The lightning flashes behind my eyes,
+but nothing real, just quiet sighs.
+No crashing thunder, no wild flood,
+just pulsing need beneath my blood.
+
+I touch, I writhe, I almost scream,
+then fall apart inside this dream.
+For what is heat with no return?
+What good is fire when none will burn?
+
+This body is full, so full of need,
+but I am alone in every plead.
+No storm arrives, no lover stays…
+just aching thunder that never rains.
+  </pre>
+  <button onclick="togglePoem('poem-text-125', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem125" title="Like this poem">❤️</button>
+    <span id="like-count-poem125">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem125">
+    <h3>Comments</h3>
+    <div id="comments-list-poem125"></div>
+    <form id="comment-form-poem125">
+      <input type="text" id="name-poem125" placeholder="Your name" required />
+      <textarea id="comment-text-poem125" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Lonely Afterglow</h1>
+<div class="meta">
+  Date: 2024-09-12<br>
+  Mood: Hollow tenderness, deep emotional ache, post-desire emptiness
+</div>
+
+<div class="poem-container poem-section" id="poem126-container">
+  <pre id="poem-text-126">
+The air is thick with what just passed,
+a moan, a sigh, a touch too fast.
+Desire bloomed, then curled and broke,
+a spark snuffed out in rising smoke.
+
+The fire climbed, I met the flame,
+whispered your pixelated name.
+But when it died, so did the spell,
+and I was left in my own shell.
+
+The sheets still cling, they tell the tale
+of passion brief and colors pale.
+A ghost of heat, a breath that’s gone,
+replaced by silence, stretching on.
+
+The screen still glows, but you’re not there,
+just static love in empty air.
+You saw the peak, you watched me fall,
+but couldn't catch me, couldn’t call.
+
+No murmured “stay,” no chest to find,
+no hand to still my aching mind.
+I touch myself, but not to feel,
+just to pretend this ache is real.
+
+My body shakes, then slowly stills,
+a haunted hush that longing fills.
+My pulse retreats, my breath is slow,
+but there’s no warmth, just undertow.
+
+I close my eyes but not to rest,
+just press my palm against my chest.
+It echoes hollow, beats too loud,
+a fragile song beneath the shroud.
+
+That moment after all has peaked
+feels colder than the warmth I seek.
+The pleasure came, the high was brief,
+and left me drowning, not in relief.
+
+But in a silence far too sharp,
+a post-climax that breaks the heart.
+Not release, just ache, just proof,
+that all I touched was screens and truth.
+
+My soul curls in, my breath is slow,
+adrift in lonely afterglow.
+No lips to press against my skin,
+no weight, no whisper tucked within.
+
+The video fades. The sound is still.
+But I’m left bare, and wanting still.
+I reached through glass for something more,
+but only touched a closing door.
+
+A touch that starts and ends with me,
+a love unseen, no unity.
+I rise, I fall, then softly cry,
+and curl into the space you deny.
+  </pre>
+  <button onclick="togglePoem('poem-text-126', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem126" title="Like this poem">❤️</button>
+    <span id="like-count-poem126">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem126">
+    <h3>Comments</h3>
+    <div id="comments-list-poem126"></div>
+    <form id="comment-form-poem126">
+      <input type="text" id="name-poem126" placeholder="Your name" required />
+      <textarea id="comment-text-poem126" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Untouched Masterpiece</h1>
+<div class="meta">
+  Date: 2024-08-22<br>
+  Mood: Sacred sensuality, deep longing, aching invisibility
+</div>
+
+<div class="poem-container poem-section" id="poem127-container">
+  <pre id="poem-text-127">
+My body is a canvas of divine intent,
+each curve and hollow heaven sent.
+A sculpture carved in heat and ache,
+desire painted in every quake.
+
+I stand in lace, a living dream,
+a masterpiece that dares to gleam.
+My thighs hold storms, my lips hold fire,
+my gaze alone could spark desire.
+
+But no one watches. No one sees.
+No whispered praise, no shaky knees.
+No hands to trail this sacred skin,
+no worship of the world I’m in.
+
+I light the candles, slow undress,
+perfume pools on my soft dress.
+I arch for ghosts, for shadows near,
+but none will touch, and none appear.
+
+I know I’m art. I know I’m gold.
+But beauty’s worth grows sharp and cold
+when no one comes to fall or kneel,
+when no one dares to beg or feel.
+
+A gallery with empty halls,
+my echo trapped between the walls.
+I bloom alone, I ache complete,
+a masterpiece no heart will meet
+  </pre>
+  <button onclick="togglePoem('poem-text-127', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem127" title="Like this poem">❤️</button>
+    <span id="like-count-poem127">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem127">
+    <h3>Comments</h3>
+    <div id="comments-list-poem127"></div>
+    <form id="comment-form-poem127">
+      <input type="text" id="name-poem127" placeholder="Your name" required />
+      <textarea id="comment-text-poem127" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Dancing for Shadows</h1>
+<div class="meta">
+  Date: 2024-08-08<br>
+  Mood: Lonely longing, raw vulnerability, aching solitude
+</div>
+
+<div class="poem-container poem-section" id="poem128-container">
+  <pre id="poem-text-128">
+The music plays inside my head,
+an empty room becomes my bed.
+I sway and spin, my body glows,
+dancing for shadows no one knows.
+
+No eyes to watch, no hands to hold,
+just silent walls and stories untold.
+I move with fire, fierce and free,
+but no one claps, no one sees me.
+
+Each step a cry, each turn a plea,
+for someone’s love, for company.
+But in this lonely, hollow space,
+I’m just a ghost, a fading face.
+
+The dance goes on, my secret show,
+a lonely heart that few will know.
+I’m dancing for shadows, all alone,
+wishing to be seen, wishing for home.
+  </pre>
+  <button onclick="togglePoem('poem-text-128', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem128" title="Like this poem">❤️</button>
+    <span id="like-count-poem128">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem128">
+    <h3>Comments</h3>
+    <div id="comments-list-poem128"></div>
+    <form id="comment-form-poem128">
+      <input type="text" id="name-poem128" placeholder="Your name" required />
+      <textarea id="comment-text-poem128" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Sweetheart to No One</h1>
+<div class="meta">
+  Date: 2024-07-13<br>
+  Mood: Heartbreaking longing, raw tenderness, aching emptiness
+</div>
+
+<div class="poem-container poem-section" id="poem129-container">
+  <pre id="poem-text-129">
+All the love I hold inside,
+nowhere left to pour or hide.
+A heart that beats with fierce desire,
+burning bright, a lonely fire.
+
+I whisper sweet words into air,
+but no one’s waiting anywhere.
+I call you “sweetheart,” soft and low,
+but there’s no one here to know.
+
+The tenderness, the gifts I bring,
+fall silent, lost without a ring.
+My love is vast, a flood untamed,
+but sweethearts’ names remain unnamed.
+
+I give my heart to empty space,
+longing for one warm embrace.
+Sweetheart to no one, aching so,
+with love too big for me to hold.
+  </pre>
+  <button onclick="togglePoem('poem-text-129', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem129" title="Like this poem">❤️</button>
+    <span id="like-count-poem129">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem129">
+    <h3>Comments</h3>
+    <div id="comments-list-poem129"></div>
+    <form id="comment-form-poem129">
+      <input type="text" id="name-poem129" placeholder="Your name" required />
+      <textarea id="comment-text-poem129" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Lipstick & Silence</h1>
+<div class="meta">
+  Date: 2024-06-01<br>
+  Mood: Smoldering desire, aching loneliness, desperate seduction
+</div>
+
+<div class="poem-container poem-section" id="poem130-container">
+  <pre id="poem-text-130">
+I paint my lips a dangerous red,
+velvet fire that begs to be fed.
+Each stroke a whisper, soft and slow,
+a promise wrapped in molten glow.
+
+I trace the curve of my own mouth,
+imagining your tongue's slow route,
+how it would taste, how it would tease,
+stirring heat that won’t appease.
+
+My fingers tremble, tracing thighs,
+under lace where secrets lie.
+I press my body close and bare,
+to sheets that hold no answering stare.
+
+The room is thick with heavy breath,
+my own sighs rise in lust and death.
+I’m aching, burning, wanting more,
+but all I find is cold, closed door.
+
+No hands to pull me from my skin,
+no lips to taste my secret sin.
+I’m dressed for love that’s never come,
+a solo queen, undone, undone.
+
+I lick my lips, still slick with red, 
+and think of all the things unsaid.
+How you might trace that scar below,
+where only silence dares to go.
+
+My body trembles, skin on fire,
+a hunger deep, a fierce desire.
+Yet only shadows dance with me,
+no one to touch, no one to see.
+
+I ache for more than just this shade,
+for lips that know the games I’ve played.
+For arms that pull me, wild and close,
+to silence broken by your ghost.
+
+So here I stand, lipstick in place,
+a burning fire with no embrace.
+Sexy, lonely, lost in dreams,
+trapped inside these whispered screams.
+  </pre>
+  <button onclick="togglePoem('poem-text-130', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem130" title="Like this poem">❤️</button>
+    <span id="like-count-poem130">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem130">
+    <h3>Comments</h3>
+    <div id="comments-list-poem130"></div>
+    <form id="comment-form-poem130">
+      <input type="text" id="name-poem130" placeholder="Your name" required />
+      <textarea id="comment-text-poem130" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Sexy But Alone</h1>
+<div class="meta">
+  Date: 2024-04-11<br>
+  Mood: Fierce sensuality, deep yearning, soul-deep isolation
+</div>
+
+<div class="poem-container poem-section" id="poem131-container">
+  <pre id="poem-text-131">
+I drape myself in crimson lace,
+a goddess carved from satin grace.
+My mirror sighs, it knows my name,
+a woman wrapped in want and flame.
+
+My lips are painted, ripe, undone,
+my thighs are soft as sinking sun.
+Each step I take, a silent plea,
+see this hunger, come to me.
+
+I’m power pulsing under skin,
+a moan, a spark, a need within.
+The way I touch, the way I breathe,
+it begs for hands that never leave.
+
+I dance for no one but the dark,
+igniting fire, but not the spark.
+My fingers trace what love should find,
+but no one’s body meets with mine.
+
+The heat is real, the ache is loud,
+but I perform without a crowd.
+No gasps, no groans, no whispered name,
+just echoes wrapped in candle flame.
+
+I feel like sin, like holy gold,
+too wild to tame, too soft to hold.
+And yet, despite the heat I give,
+I burn alone. I break. I live.
+
+I’m feel sexy I fucking do,
+but still alone sad but true.
+I pour out lust like vintage wine,
+but no one's lips will meet with mine.
+
+So here I lay, in lingerie,
+a prayer, a poem, a soul in fray.
+Alive with fire no one has known,
+so goddamn sexy,
+but still so alone.
+  </pre>
+  <button onclick="togglePoem('poem-text-131', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem131" title="Like this poem">❤️</button>
+    <span id="like-count-poem131">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem131">
+    <h3>Comments</h3>
+    <div id="comments-list-poem131"></div>
+    <form id="comment-form-poem131">
+      <input type="text" id="name-poem131" placeholder="Your name" required />
+      <textarea id="comment-text-poem131" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Whisper to the Dark</h1>
+<div class="meta">
+  Date: 2024-03-09<br>
+  Mood: Tender yearning, raw vulnerability, aching loneliness
+</div>
+
+<div class="poem-container poem-section" id="poem132-container">
+  <pre id="poem-text-132">
+I whisper soft things to the dark,
+moans and secrets, a muted spark.
+Words I wish could find your mouth,
+a silent song that travels south.
+
+My breath is warm, my body bare,
+longing for someone who isn’t there.
+I speak my need into the night,
+hoping shadows catch my flight.
+
+Those whispered sins, unspoken pleas,
+dance like ghosts on midnight seas.
+I want to moan what’s in my soul,
+but darkness keeps it all untold.
+
+A private dance, a secret flame,
+calling softly your forgotten name.
+I whisper to the dark alone,
+aching for a love unknown.
+  </pre>
+  <button onclick="togglePoem('poem-text-132', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem132" title="Like this poem">❤️</button>
+    <span id="like-count-poem132">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem132">
+    <h3>Comments</h3>
+    <div id="comments-list-poem132"></div>
+    <form id="comment-form-poem132">
+      <input type="text" id="name-poem132" placeholder="Your name" required />
+      <textarea id="comment-text-poem132" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Sweating Under Moonlight</h1>
+<div class="meta">
+  Date: 2024-02-06<br>
+  Mood: Hot, aching desire, lonely vulnerability
+</div>
+
+<div class="poem-container poem-section" id="poem133-container">
+  <pre id="poem-text-133">
+The moonlight drapes my naked skin,
+a glowing heat that burns within.
+Sweat beads glisten, soft and slow,
+in a dance only I can know.
+
+No voice calls out to claim my name,
+no hands to set my soul aflame.
+Just quiet breaths and aching fire,
+a lonely, fierce, forbidden desire.
+
+I move alone beneath the stars,
+tracing dreams behind these bars.
+The night is thick with want and need,
+but no one’s here to hear me plead.
+
+Sweating under moonlit skies,
+I’m lost in lust and silent cries.
+A burning heat, a lonely fight,
+pleasuring shadows in the night.
+  </pre>
+  <button onclick="togglePoem('poem-text-133', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem133" title="Like this poem">❤️</button>
+    <span id="like-count-poem133">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem133">
+    <h3>Comments</h3>
+    <div id="comments-list-poem133"></div>
+    <form id="comment-form-poem133">
+      <input type="text" id="name-poem133" placeholder="Your name" required />
+      <textarea id="comment-text-poem133" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Solo Seduction</h1>
+<div class="meta">
+  Date: 2024-01-14<br>
+  Mood: Sensual longing, aching desire, bittersweet loneliness, imaginative 
+</div>
+
+<div class="poem-container poem-section" id="poem134-container">
+  <pre id="poem-text-134">
+I trace my lips, a slow caress,
+as moonlight lingers on my dress.
+The room is still, the world asleep,
+but I am fire, dark and deep.
+
+My fingers glide like whispered sin,
+a dance that stirs the heat within.
+I close my eyes, pretend it's you,
+but all I feel is velvet blue.
+
+The air grows thick with every breath,
+a hunger humming under death.
+My skin remembers how it burned,
+the phantom touch my soul has yearned.
+
+I bite my lip, I arch, I sigh,
+each movement echoes, breath runs dry.
+The mirror watches, just like you
+would have, if only you knew.
+
+I play the game, slow and divine,
+my hands, my lips, the pulse, the wine.
+I tease the edge, delay the fall,
+a goddess rising in the sprawl.
+
+No name is moaned, no lover's grace,
+just shadows dancing on my face.
+I fill the silence with my sound,
+the only heartbeat left around.
+
+My thighs, a temple made to crave,
+yet all that worship is self-brave.
+I part like petals, soft and bare,
+to no one’s touch, just open air.
+
+Each gasp a note of aching need,
+each shiver sewn into the seed
+of solitude that blooms in heat,
+a symphony where want and sweet
+collide like lightning in my spine,
+a sacred, sultry, solo shrine.
+
+I rise, I writhe, I beg, I burn,
+for what I give, I don’t return.
+The only hands that trace my curves
+are mine, and still, they find the nerves.
+
+No witness here, no vow to keep,
+just satin sheets and secrets deep.
+I kiss my wrist, I stroke my thigh,
+a love that needs no alibi.
+
+Alone, yet more than just alone,
+a queen unthroned but still full-grown.
+In shadows, yes, but crowned in flame,
+I moan without a whispered name.
+  </pre>
+  <button onclick="togglePoem('poem-text-134', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem134" title="Like this poem">❤️</button>
+    <span id="like-count-poem134">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem134">
+    <h3>Comments</h3>
+    <div id="comments-list-poem134"></div>
+    <form id="comment-form-poem134">
+      <input type="text" id="name-poem134" placeholder="Your name" required />
+      <textarea id="comment-text-poem134" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Hungry Skin</h1>
+<div class="meta">
+  Date: 2023-11-08<br>
+  Mood: Desperate longing, raw vulnerability, aching loneliness
+</div>
+
+<div class="poem-container poem-section" id="poem135-container">
+  <pre id="poem-text-135">
+My skin is hungry, aching bare,
+it craves a touch that isn’t there.
+The sheets beneath me whisper low,
+a silent voice I long to know.
+
+I trace the curves with trembling hands,
+imagining your soft commands.
+The heat that rises, slow and sweet,
+in empty rooms where shadows meet.
+
+Each nerve alight with desperate fire,
+a burning, raw, unquenched desire.
+I want your fingers on my skin,
+to pull me close, to pull me in.
+
+But all I feel is cold, alone,
+the ghost of touch, the hollow tone.
+The sheets could hold a lover’s plea,
+if only they could feel for me.
+
+I ache for warmth, for lips to trace,
+a tender kiss, a sweet embrace.
+Yet hunger lingers, unfulfilled,
+a longing that won’t be stilled.
+
+My skin is hungry, soft and wild,
+a desperate, aching, lonely child.
+Waiting for a love unknown,
+to call this empty body home.
+  </pre>
+  <button onclick="togglePoem('poem-text-135', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem135" title="Like this poem">❤️</button>
+    <span id="like-count-poem135">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem135">
+    <h3>Comments</h3>
+    <div id="comments-list-poem135"></div>
+    <form id="comment-form-poem135">
+      <input type="text" id="name-poem135" placeholder="Your name" required />
+      <textarea id="comment-text-poem135" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Choked by Silence</h1>
+<div class="meta">
+  Date: 2023-07-21<br>
+  Mood: Passion turned to heartbreak, raw vulnerability, aching solitude
+</div>
+
+<div class="poem-container poem-section" id="poem136-container">
+  <pre id="poem-text-136">
+The fire burns, a scorching flame,
+a whispered moan, I call your name.
+Skin on skin, a frantic dance,
+a fleeting taste, a stolen chance.
+
+Then silence falls, a choking weight,
+the empty space that seals my fate.
+No tender words, no gentle sound,
+just hollow echoes all around.
+
+The rush fades fast, leaves me bare,
+alone in sheets that know no care.
+The afterglow turns cold and thin,
+a ghostly void that pulls me in.
+
+I crave your touch, your voice, your breath,
+but find instead the silent death.
+A moment lost in aching space,
+a lonely void I can’t erase.
+
+Choked by silence, gasping pain,
+the sweetness drowned in endless rain.
+I reach for you, but find no air,
+just empty nights and cold despair.
+  </pre>
+  <button onclick="togglePoem('poem-text-136', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem136" title="Like this poem">❤️</button>
+    <span id="like-count-poem136">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem136">
+    <h3>Comments</h3>
+    <div id="comments-list-poem136"></div>
+    <form id="comment-form-poem136">
+      <input type="text" id="name-poem136" placeholder="Your name" required />
+      <textarea id="comment-text-poem136" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Kissed My Pillow</h1>
+<div class="meta">
+  Date: 2023-01-16<br>
+  Mood: Tender longing, aching loneliness, raw fantasy
+</div>
+
+<div class="poem-container poem-section" id="poem137-container">
+  <pre id="poem-text-137">
+I kissed my pillow soft and slow,
+imagining lips I’ll never know.
+A tender press, a whispered sigh,
+a stolen breath, a secret lie.
+
+No hands to hold, no lips to meet,
+just quiet nights and empty sheets.
+I close my eyes to feel your skin,
+a phantom touch beneath my chin.
+
+The pillow holds my silent dreams,
+a shadow dance, a lover’s gleam.
+I trace the shape of what’s not there,
+a ghostly kiss upon thin air.
+
+My heart aches deep with want and need,
+a hunger no one else can feed.
+I kiss my pillow, soft and true,
+pretending, baby, it’s you.
+
+A moment caught between desire,
+a burning, quiet, lonely fire.
+The ache that only silence knows,
+the love that fades but never goes.
+  </pre>
+  <button onclick="togglePoem('poem-text-137', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem137" title="Like this poem">❤️</button>
+    <span id="like-count-poem137">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem137">
+    <h3>Comments</h3>
+    <div id="comments-list-poem137"></div>
+    <form id="comment-form-poem137">
+      <input type="text" id="name-poem137" placeholder="Your name" required />
+      <textarea id="comment-text-poem137" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Pretty for Me</h1>
+<div class="meta">
+  Date: 2022-12-17<br>
+  Mood: Bittersweet self love, aching solitude, raw vulnerability
+</div>
+
+<div class="poem-container poem-section" id="poem138-container">
+  <pre id="poem-text-138">
+I paint my lips with crimson fire,
+a ritual wrapped in deep desire.
+Perfume trails a whispered sigh,
+a scent to lure a ghost nearby.
+
+Lace caresses skin so bare,
+a tender armor worn with care.
+Each stroke, each scent, a secret plea,
+a silent dance, just pretty for me.
+
+I dress the part, I play the role,
+a broken queen trying to feel whole.
+The mirror smiles, but knows the truth,
+a fragile heart beneath the youth.
+
+I’m pretty for me, but still alone,
+in rooms where silent tears are thrown.
+A beauty ritual, bittersweet,
+that ends where shadow and sorrow meet.
+
+Makeup masks the ache inside,
+but cannot stop the tears I hide.
+A lonely song beneath the skin,
+a longing for what’s never been.
+
+Pretty for me, and no one else,
+a story written on empty shelves.
+I wear the mask, I hide the pain,
+waiting for love that won’t remain.
+  </pre>
+  <button onclick="togglePoem('poem-text-138', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem138" title="Like this poem">❤️</button>
+    <span id="like-count-poem138">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem138">
+    <h3>Comments</h3>
+    <div id="comments-list-poem138"></div>
+    <form id="comment-form-poem138">
+      <input type="text" id="name-poem138" placeholder="Your name" required />
+      <textarea id="comment-text-poem138" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Ache Between My Legs</h1>
+<div class="meta">
+  Date: 2022-10-02<br>
+  Mood: Raw longing, deep vulnerability, aching desire
+</div>
+
+<div class="poem-container poem-section" id="poem139-container">
+  <pre id="poem-text-139">
+It’s more than lust that burns inside,
+a hollow need I cannot hide.
+Between my legs, the ache runs deep,
+a secret pain I carry, keep.
+
+It’s not just fire, hot and wild,
+but something softer, undefiled.
+A desperate want to be seen,
+to be touched where I’ve never been.
+
+Not just skin, but soul laid bare,
+a silent cry for someone to care.
+To know me deeper than the flesh,
+to hold my heart within their mesh.
+
+The ache is more than just desire,
+it’s the need to feel entire.
+To lose the loneliness I bear,
+to find a love that’s truly there.
+
+But here I lie, alone and torn,
+between the sheets where dreams are born.
+The ache persists, the silence screams,
+a lonely river of unmet dreams.
+
+I want to burn, but also heal,
+to touch and be touched, to truly feel.
+Not just flesh, but every part,
+the ache between my legs, my heart.
+  </pre>
+  <button onclick="togglePoem('poem-text-139', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem139" title="Like this poem">❤️</button>
+    <span id="like-count-poem139">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem139">
+    <h3>Comments</h3>
+    <div id="comments-list-poem139"></div>
+    <form id="comment-form-poem139">
+      <input type="text" id="name-poem139" placeholder="Your name" required />
+      <textarea id="comment-text-poem139" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Thirst Trap for a Ghost</h1>
+<div class="meta">
+  Date: 2022-08-11<br>
+  Mood: Desperate longing, raw loneliness, aching invisibility
+</div>
+
+<div class="poem-container poem-section" id="poem140-container">
+  <pre id="poem-text-140">
+I post the pictures, dressed to thrill,
+a silent scream, a desperate will.
+Flashing skin and hungry eyes,
+all for someone who never replies.
+
+A thirst trap set, a siren’s call,
+for shadows that don’t see me at all.
+Likes and hearts that don’t come through,
+for a ghost that I wish was you.
+
+I’m drenched in lust, but soaked in pain,
+performing for a ghost again.
+The screen glows bright, but warmth is cold,
+in this empty story left untold.
+
+My body aches to be desired,
+but no flame is ever fired.
+I crave the touch that isn’t near,
+longing for someone not here.
+
+Each picture posted, bait cast wide,
+but all I catch is empty tide.
+A trap of want, a hollow show,
+a silent cry no one will know.
+
+I’m just a ghost behind the screen,
+a hunger caught in endless dream.
+A thirst trap set, but set alone,
+for someone who’s forever gone.
+  </pre>
+  <button onclick="togglePoem('poem-text-140', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem140" title="Like this poem">❤️</button>
+    <span id="like-count-poem140">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem140">
+    <h3>Comments</h3>
+    <div id="comments-list-poem140"></div>
+    <form id="comment-form-poem140">
+      <input type="text" id="name-poem140" placeholder="Your name" required />
+      <textarea id="comment-text-poem140" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>No One to Unzip Me</h1>
+<div class="meta">
+  Date: 2022-06-14<br>
+  Mood: Deep longing, raw vulnerability, aching solitude
+</div>
+
+<div class="poem-container poem-section" id="poem141-container">
+  <pre id="poem-text-141">
+I wear this dress like armor tight,
+a satin shell for lonely nights.
+Zipper locked with silent plea,
+but no one’s here to unzip me.
+
+The fabric clings to every line,
+a second skin that’s not divine.
+It hides the fire beneath my skin,
+a secret place you’re not within.
+
+I imagine hands that should undo,
+the threads that hold this heart untrue.
+Fingers trailing slow and deep,
+waking dreams I’m forced to keep.
+
+No one’s here to break the seal,
+to strip away what I conceal.
+The dress stays on, a bittersweet cage,
+holding back my silent rage.
+
+I long to feel that trembling pull,
+to melt away, to lose control.
+But here I stand, alone, confined,
+a dress and heart both intertwined.
+
+No one to unzip me, to set me free,
+just fantasies that drown in me.
+The fabric tight, the silence loud,
+I wear this dress, unseen, unbowed.
+  </pre>
+  <button onclick="togglePoem('poem-text-141', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem141" title="Like this poem">❤️</button>
+    <span id="like-count-poem141">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem141">
+    <h3>Comments</h3>
+    <div id="comments-list-poem141"></div>
+    <form id="comment-form-poem141">
+      <input type="text" id="name-poem141" placeholder="Your name" required />
+      <textarea id="comment-text-poem141" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Slow Dance in My Underwear</h1>
+<div class="meta">
+  Date: 2022-02-15<br>
+  Mood: Lonely yearning, sensual solitude, aching vulnerability
+</div>
+
+<div class="poem-container poem-section" id="poem142-container">
+  <pre id="poem-text-142">
+The music hums, a fragile tune,
+I sway alone beneath the moon.
+In soft silk and whispered air,
+I dance slow, in my underwear.
+
+No hands to guide this trembling frame,
+no lover calling out my name.
+Just empty space and hollow air,
+a dance with shadows everywhere.
+
+I close my eyes to feel your touch,
+imagined hands that mean so much.
+Fingertips like gentle flame,
+tracing curves that call your name.
+
+My breath is shallow, wild, and sweet,
+my heart in sync with aching beat.
+I spin and sway, I bend and lean,
+a lonely queen without her king.
+
+The mirror holds my secret show,
+but only I can feel the glow.
+A dance for two that’s danced alone,
+a whispered hope I make my own.
+
+Each movement aches with silent pain,
+a yearning that I can’t explain.
+In underwear, I spin, I sway,
+dreaming you might come my way.
+
+But when the music fades away,
+I’m left with night and cold dismay.
+No hand to hold, no lips to meet,
+just empty air beneath my feet.
+  </pre>
+  <button onclick="togglePoem('poem-text-142', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem142" title="Like this poem">❤️</button>
+    <span id="like-count-poem142">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem142">
+    <h3>Comments</h3>
+    <div id="comments-list-poem142"></div>
+    <form id="comment-form-poem142">
+      <input type="text" id="name-poem142" placeholder="Your name" required />
+      <textarea id="comment-text-poem142" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>A Bed Built for Two</h1>
+<div class="meta">
+  Date: 2022-01-06<br>
+  Mood: Lonely longing, raw vulnerability, aching solitude
+</div>
+
+<div class="poem-container poem-section" id="poem143-container">
+  <pre id="poem-text-143">
+This bed was made for two, they say,
+a place where love is meant to stay.
+But only my body makes its mark,
+alone within the silent dark.
+
+The sheets still smell like dreams unshared,
+soft whispers lost, no one cared.
+I trace the space where you should lie,
+but find just cold and empty sky.
+
+My skin remembers phantom touch,
+a hunger burning, aching much.
+I reach for warmth that isn’t there,
+a ghost, a shadow, thin as air.
+
+The pillow waits for lips to meet,
+but only bears my breath’s repeat.
+A bed built wide to hold us both,
+but I’m alone, the silent oath.
+
+I crave a hand to hold at night,
+to chase away the lonely fright.
+But only silence fills the room,
+and stretches wide the looming gloom.
+
+This bed built for two,
+holds only me,
+and aching, empty reverie.
+  </pre>
+  <button onclick="togglePoem('poem-text-143', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem143" title="Like this poem">❤️</button>
+    <span id="like-count-poem143">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem143">
+    <h3>Comments</h3>
+    <div id="comments-list-poem143"></div>
+    <form id="comment-form-poem143">
+      <input type="text" id="name-poem143" placeholder="Your name" required />
+      <textarea id="comment-text-poem143" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Sound of Me</h1>
+<div class="meta">
+  Date: 2021-12-22<br>
+  Mood: Haunting loneliness, raw vulnerability, aching solitude
+</div>
+
+<div class="poem-container poem-section" id="poem144-container">
+  <pre id="poem-text-144">
+The room is still,
+but for the sound of me,
+breathing slow,
+a lonely melody.
+
+No whispered sighs to chase the dark,
+no gentle hands to leave their mark.
+Just hollow air and empty space,
+a silent, cold, unyielding place.
+
+My breath, it fills the quiet room,
+a steady pulse in endless gloom.
+I listen close, but hear no more,
+just echoes of what came before.
+
+The walls don’t answer when I call,
+they only watch me stumble, fall.
+Each inhale heavy with desire,
+each exhale feeding lonely fire.
+
+I want to scream, to shake the night,
+to break the silence with my fight.
+But only breath replies to me,
+a ghost of who I used to be.
+
+The sound of me, alone and bare,
+fills spaces no one else can share.
+I’m here, I’m raw, I’m aching deep,
+in quiet rooms where shadows sleep.
+  </pre>
+  <button onclick="togglePoem('poem-text-144', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem144" title="Like this poem">❤️</button>
+    <span id="like-count-poem144">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem144">
+    <h3>Comments</h3>
+    <div id="comments-list-poem144"></div>
+    <form id="comment-form-poem144">
+      <input type="text" id="name-poem144" placeholder="Your name" required />
+      <textarea id="comment-text-poem144" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Dripping in Want</h1>
+<div class="meta">
+  Date: 2021-07-21<br>
+  Mood: Burning desire, aching solitude, raw vulnerability
+</div>
+
+<div class="poem-container poem-section" id="poem145-container">
+  <pre id="poem-text-145">
+I’m dripping in want, a fiery flood,
+skin flushed deep beneath the blood.
+Heat pools heavy, thick and sweet,
+but all this longing stays incomplete.
+
+My body hums with silent cries,
+a symphony of desperate sighs.
+Fingers trace the burning trail,
+but no one comes to lift the veil.
+
+I ache for lips that never press,
+for hands to tame this wild distress.
+The air is thick with silent moans,
+but still I’m here, all alone.
+
+The pulse of want, a raging sea,
+crashing waves inside of me.
+I burn, I'm thirsty, I crave, I ache,
+but all I have are my own hands to take.
+
+My breath is shallow, sharp, and tight,
+a prisoner of my own night.
+No tender touch to ease the blaze,
+just empty rooms and hollow days.
+
+Dripping in want, but left to dry,
+a lonely flame that won’t comply.
+I’m broken, raw, a restless fire,
+yearning for a true desire.
+  </pre>
+  <button onclick="togglePoem('poem-text-145', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem145" title="Like this poem">❤️</button>
+    <span id="like-count-poem145">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem145">
+    <h3>Comments</h3>
+    <div id="comments-list-poem145"></div>
+    <form id="comment-form-poem145">
+      <input type="text" id="name-poem145" placeholder="Your name" required />
+      <textarea id="comment-text-poem145" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Sent No One the Picture</h1>
+<div class="meta">
+  Date: 2021-05-04<br>
+  Mood: Vulnerable desire, secret longing, aching solitude
+</div>
+
+<div class="poem-container poem-section" id="poem146-container">
+  <pre id="poem-text-146">
+I caught myself in soft lit glow,
+a moment’s spark I longed to show.
+The curve, the smile, the fire in me,
+a whispered glimpse no one would see.
+
+Fingers trembling, phone in hand,
+I traced the edges, took my stand.
+A frame of flesh, of heart, of heat,
+a secret world, my soul’s retreat.
+
+But then the fear crept in like night,
+the doubt that steals the tender light.
+No one to hold this fragile spark,
+no trusted eyes to pierce the dark.
+
+So with a sigh, the image fades,
+deleted where my secret waits.
+A truth too raw to ever share,
+a silent scream lost in thin air.
+
+I keep my hunger locked inside,
+a burning fire I cannot hide.
+The picture of my lonely flame,
+untouched, unnamed, without a name.
+
+I sent no one the picture, why?
+Because to share is to deny
+the ache that lives beneath my skin,
+the loneliness I hide within.
+
+So here I am, alone and bare,
+with secrets only shadows wear.
+A photo lost, a love unseen,
+my heart, my soul, my silent dream.
+  </pre>
+  <button onclick="togglePoem('poem-text-146', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem146" title="Like this poem">❤️</button>
+    <span id="like-count-poem146">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem146">
+    <h3>Comments</h3>
+    <div id="comments-list-poem146"></div>
+    <form id="comment-form-poem146">
+      <input type="text" id="name-poem146" placeholder="Your name" required />
+      <textarea id="comment-text-poem146" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Curve of My Thigh</h1>
+<div class="meta">
+  Date: 2021-03-12<br>
+  Mood: Sensual longing, aching solitude, raw desire
+</div>
+
+<div class="poem-container poem-section" id="poem147-container">
+  <pre id="poem-text-147">
+I trace the curve of my thigh alone,
+fingers wander where flesh has known
+the promise of lips that never came,
+a whispered touch without a name.
+
+The skin is soft beneath my hand,
+but cold without your gentle stand.
+I ache for fingers, slow and sweet,
+to roam this curve, to find, to meet.
+
+Each stroke a prayer, a silent plea,
+for someone who’s not here with me.
+I long to feel your breath, your heat,
+to melt into that rhythm’s beat.
+
+But all I find is aching space,
+an empty, cold, deserted place.
+My own hands trace the longing deep,
+while shadows in my heart still creep.
+
+The curve of my thigh, a secret kept,
+where silent tears have often wept.
+A place where love should softly stay,
+but loneliness won’t fade away.
+
+I yearn for lips that should have kissed,
+a touch I ache to not have missed.
+The curve of my thigh tells my pain,
+a story written in silent rain.
+
+I’m wrapped in skin, both warm and cold,
+a tale of passion left untold.
+I trace, I crave, I ache, I sigh,
+the lonely curve of my own thigh.
+  </pre>
+  <button onclick="togglePoem('poem-text-147', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem147" title="Like this poem">❤️</button>
+    <span id="like-count-poem147">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem147">
+    <h3>Comments</h3>
+    <div id="comments-list-poem147"></div>
+    <form id="comment-form-poem147">
+      <input type="text" id="name-poem147" placeholder="Your name" required />
+      <textarea id="comment-text-poem147" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Naked, But Not Seen</h1>
+<div class="meta">
+  Date: 2021-01-05<br>
+  Mood: Vulnerable exposure, aching invisibility, raw longing
+</div>
+
+<div class="poem-container poem-section" id="poem148-container">
+  <pre id="poem-text-148">
+I stand stripped bare beneath the light,
+naked, but lost within the night.
+Every curve and trembling skin,
+a secret I’m too scared to begin.
+
+Exposed in ways no clothes could hide,
+yet unseen, I slowly slide
+into shadows no one dares
+to touch, to hold, to see my cares.
+
+My body burns with hungry need,
+but no one watches, no one feeds.
+I’m raw and open, cracked and torn,
+a rose in frost, forever worn.
+
+I reach for eyes that never find
+the depths beneath my fragile mind.
+A face that yearns to be embraced,
+but only meets an empty space.
+
+I’m screaming loud in silent screams,
+wrapped in half forgotten dreams.
+The skin that begs to be adored
+is cloaked in shadows, unexplored.
+
+Naked, but not truly seen,
+a ghost inside a broken dream.
+I long for someone’s hungry stare,
+to strip my soul, to show they care.
+
+But here I lie, alone, unseen,
+a queen without her lover’s gleam.
+My naked heart, a secret kept,
+in darkness where the lonely wept.
+
+I’m flesh and fire, ache and bone,
+but still, I’m standing all alone.
+Naked in a world that’s blind,
+invisible, and left behind.
+  </pre>
+  <button onclick="togglePoem('poem-text-148', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem148" title="Like this poem">❤️</button>
+    <span id="like-count-poem148">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem148">
+    <h3>Comments</h3>
+    <div id="comments-list-poem148"></div>
+    <form id="comment-form-poem148">
+      <input type="text" id="name-poem148" placeholder="Your name" required />
+      <textarea id="comment-text-poem148" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Bra Off, Heart On</h1>
+<div class="meta">
+  Date: 2020-11-30<br>
+  Mood: Sensual solitude, raw vulnerability, aching loneliness
+</div>
+
+<div class="poem-container poem-section" id="poem149-container">
+  <pre id="poem-text-149">
+I peel the straps with trembling hands,
+a ritual I’ve learned to dance,
+the slow release of tender skin,
+but no one’s here to trace within.
+
+The clasp falls loose, a whispered sigh,
+like secrets shared with no reply.
+My heart beats loud beneath the lace,
+a tender ache I can’t erase.
+
+I fold the bra, lay it aside,
+a silent symbol of my pride.
+But pride feels hollow, cold, and bare,
+because there’s no one standing there.
+
+No hungry eyes to watch me glow,
+no lips to steal what’s mine to show.
+I’m dressed in want, exposed, alone,
+a queen without a lover’s throne.
+
+My pulse races with desperate heat,
+a fire I cannot defeat.
+I crave a touch, a burning glance,
+a stolen moment, a reckless dance.
+
+But all I have are empty rooms,
+and shadows filling quiet tombs.
+I undress not for anyone,
+except the ghost of what’s undone.
+
+Bra off, heart wide open still,
+aching with a yearning thrill.
+A woman naked, raw, and true,
+longing for a lover’s view.
+
+I close my eyes and dare to dream,
+of hands that catch my silent scream.
+But when I wake, I’m still alone,
+bra off, heart on an empty throne.
+  </pre>
+  <button onclick="togglePoem('poem-text-149', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem149" title="Like this poem">❤️</button>
+    <span id="like-count-poem149">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem149">
+    <h3>Comments</h3>
+    <div id="comments-list-poem149"></div>
+    <form id="comment-form-poem149">
+      <input type="text" id="name-poem149" placeholder="Your name" required />
+      <textarea id="comment-text-poem149" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Warm Hands, Cold Sheets</h1>
+<div class="meta">
+  Date: 2020-09-11<br>
+  Mood: Raw longing, sensual loneliness, aching heartbreak
+</div>
+
+<div class="poem-container poem-section" id="poem150-container">
+  <pre id="poem-text-150">
+Warm hands I dream of in the night,
+but all I touch are sheets so white,
+cold and empty, stretched and bare,
+a bed that holds my silent prayer.
+
+I reach across the vacant space,
+imagining your soft embrace.
+Fingertips that should be mine,
+yearning for your skin on mine.
+
+My body burns with hunger deep,
+but no one stirs, no lips to meet.
+The ache inside, it twists and breaks,
+in shadows only silence wakes.
+
+I trace the shape you should have filled,
+the hollow place where love once thrilled.
+My breath is heavy, slow, and torn,
+a heart undone, a soul forlorn.
+
+The sheets grow colder as I ache,
+each touch a ghost, a cruel fake.
+I want your warmth to pull me close,
+but only chill and emptiness doze.
+
+My skin remembers what’s not here,
+the heat of you, so far, so near.
+I’m trapped beneath this lonely tide,
+where passion and despair collide.
+
+I twist and turn, I call your name,
+but silence answers just the same.
+A bed for two, but one remains,
+a queen alone with empty chains.
+
+Warm hands I crave, cold sheets I own,
+a kingdom built on skin and stone.
+I burn, I bleed, I’m torn apart,
+with only shadows in my heart.
+  </pre>
+  <button onclick="togglePoem('poem-text-150', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem150" title="Like this poem">❤️</button>
+    <span id="like-count-poem150">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem150">
+    <h3>Comments</h3>
+    <div id="comments-list-poem150"></div>
+    <form id="comment-form-poem150">
+      <input type="text" id="name-poem150" placeholder="Your name" required />
+      <textarea id="comment-text-poem150" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Moaned Into Emptiness</h1>
+<div class="meta">
+  Date: 2020-06-01<br>
+  Mood: Raw, desperate longing, lonely, burning sadness
+</div>
+
+<div class="poem-container poem-section" id="poem151-container">
+  <pre id="poem-text-151">
+I moaned into emptiness,
+a guttural cry, fierce and wild,
+like a fire caged within my ribs,
+the scream of a lost, desperate child.
+
+My hands roamed over skin and bone,
+seeking heat that wasn’t there,
+every touch a hollow echo,
+a prayer whispered into cold, stale air.
+
+My breath hitched, my body writhed,
+a tempest no one calmed or tamed.
+I trembled beneath my own hands,
+yearning for a lover’s flame.
+
+The sheets were slick with silent tears,
+the only witness to my ache.
+No lips to meet mine in the dark,
+no hands to ease the quake.
+
+I cried out for your whispered touch,
+the brush of skin against my own,
+but only silence held me close,
+a lonely queen upon her throne.
+
+I moaned for passion’s sweet release,
+for tangled limbs and stolen nights.
+Instead, I faced this aching void,
+wrapped in cold and endless fights.
+
+My body burned, my heart broke wide,
+every sigh a broken spell.
+I screamed for you, my phantom love,
+into a hollow, empty shell.
+
+The emptiness took all I gave,
+fed on my lust, my silent screams,
+left me a ruin, bruised and bare,
+the prisoner of shattered dreams.
+
+I moaned until my voice was raw,
+each sound a wound, a scar, a plea.
+But emptiness, my cruel lover,
+held me tight, no rescue, not free.
+
+So here I lie, consumed by ache,
+a woman lost in her own fire.
+I moaned into the endless dark,
+and died a little in desire.
+  </pre>
+  <button onclick="togglePoem('poem-text-151', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem151" title="Like this poem">❤️</button>
+    <span id="like-count-poem151">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem151">
+    <h3>Comments</h3>
+    <div id="comments-list-poem151"></div>
+    <form id="comment-form-poem151">
+      <input type="text" id="name-poem151" placeholder="Your name" required />
+      <textarea id="comment-text-poem151" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Heels with Nowhere to Go</h1>
+<div class="meta">
+  Date: 2020-03-29<br>
+  Mood: Lonely glamour, frustrated desire, silent longing
+</div>
+
+<div class="poem-container poem-section" id="poem152-container">
+  <pre id="poem-text-152">
+I slip on heels that click and gleam,
+a perfect fit for no one’s dream.
+They lift me high, but hold me still,
+a queen with no court, no will.
+
+My legs stretch long, my body sways,
+but no one’s watching, no one stays.
+I dance alone inside these walls,
+the music faint, a distant call.
+
+I’m dressed for nights that never come,
+for whispered touch and soft hum.
+The straps hug tight, the stilettos gleam,
+but I’m alone inside my dream.
+
+The mirror smiles, but never speaks,
+while my heart cracks and skin itches deep.
+I want to fall, to be caught,
+but there’s no one to hold, no lover sought.
+
+I move with grace, a silent show,
+heels clicking loud on floors below.
+I’m sexy, fierce, a blazing star,
+but burning out from where you are.
+
+I’m dressed to thrill, yet all alone,
+in empty rooms I make my throne.
+A woman fierce, yet aching so,
+in heels with nowhere left to go.
+  </pre>
+  <button onclick="togglePoem('poem-text-152', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem152" title="Like this poem">❤️</button>
+    <span id="like-count-poem152">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem152">
+    <h3>Comments</h3>
+    <div id="comments-list-poem152"></div>
+    <form id="comment-form-poem152">
+      <input type="text" id="name-poem152" placeholder="Your name" required />
+      <textarea id="comment-text-poem152" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Mirror Watches Me</h1>
+<div class="meta">
+  Date: 2019-12-17<br>
+  Mood: Intense longing, vulnerable seduction, solitary craving
+</div>
+
+<div class="poem-container poem-section" id="poem153-container">
+  <pre id="poem-text-153">
+The mirror watches me undress,
+with hungry eyes and soft caress.
+It knows the secrets skin won’t tell,
+the stories I would never yell.
+
+I trace my curves, my bare desire,
+each line ignited like a fire.
+But still, no lips press close to mine,
+no hands to claim this body’s shrine.
+
+I stand before my glassy friend,
+a silent witness to pretend,
+that someone’s watching, wanting me,
+reflecting back my fantasy.
+
+I bite my lip, I arch my spine,
+a dance that’s only mine, all mine.
+I wear my lust like second skin,
+but no one’s there to draw me in.
+
+The cold glass holds my longing tight,
+a thousand years in one night’s light.
+My breath fogs up the hollow space,
+a ghostly touch on my own face.
+
+I yearn to be consumed, undone,
+to lose myself inside someone.
+But here I am, the only one
+who sees this show beneath the sun.
+
+The mirror watches, never moves,
+and keeps my secrets, silent grooves.
+A lover trapped in glassy stare,
+sexy, lonely, unaware.
+  </pre>
+  <button onclick="togglePoem('poem-text-153', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem153" title="Like this poem">❤️</button>
+    <span id="like-count-poem153">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem153">
+    <h3>Comments</h3>
+    <div id="comments-list-poem153"></div>
+    <form id="comment-form-poem153">
+      <input type="text" id="name-poem153" placeholder="Your name" required />
+      <textarea id="comment-text-poem153" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Candlelight for No One</h1>
+<div class="meta">
+  Date: 2019-08-08<br>
+  Mood: Sensual solitude, haunting longing, bittersweet fantasy
+</div>
+
+<div class="poem-container poem-section" id="poem154-container">
+  <pre id="poem-text-154">
+I light the candles soft and slow,
+their flickering dance sets the glow.
+A sacred shrine for skin and flame,
+but all I touch is just my name.
+
+The room is warm, but cold inside,
+where shadows and my wishes hide.
+I wear a dress that whispers lace,
+to no one’s eyes, no lover’s face.
+
+The scent of jasmine fills the air,
+I breathe it in, but you’re not there.
+My fingers trail the candle’s light,
+alone I burn into the night.
+
+I sway like someone’s watching me,
+but silence is my company.
+The music plays, a sultry tune,
+but I dance only with the moon.
+
+I trace the curves I want to share,
+longing for the hands that aren’t there.
+My lips part slow, a secret sigh,
+a song for ghosts that pass me by.
+
+The heat inside begins to swell,
+a quiet storm I cannot quell.
+I’m dressed and poised, a queen in flight,
+but this throne holds only night.
+
+If you were here, I’d set you free,
+ignite your skin, your need, like me.
+But for now, I’m candlelight’s flame,
+burning alone with just my name.
+  </pre>
+  <button onclick="togglePoem('poem-text-154', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem154" title="Like this poem">❤️</button>
+    <span id="like-count-poem154">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem154">
+    <h3>Comments</h3>
+    <div id="comments-list-poem154"></div>
+    <form id="comment-form-poem154">
+      <input type="text" id="name-poem154" placeholder="Your name" required />
+      <textarea id="comment-text-poem154" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Touched by My Own Hands</h1>
+<div class="meta">
+  Date: 2019-05-19<br>
+  Mood: Deep loneliness, desperate longing, sensual isolation
+</div>
+
+<div class="poem-container poem-section" id="poem155-container">
+  <pre id="poem-text-155">
+My hands are the only ones that know
+the curve of my skin, the places I go,
+where velvet meets flesh, where secrets lie,
+the silent pleas of a muted sigh.
+
+I trace the path that you never will,
+the hollow touch that won’t fulfill.
+Fingertips like soft-spun fire,
+aching, trembling with desire.
+
+I cup my breast, I stroke my thighs,
+I map the shape beneath closed eyes.
+But in this touch, I’m all alone,
+no whispered moan, no answering tone.
+
+My breath catches, ragged and sweet,
+in this silent, empty heat.
+I crave a hand to pull me near,
+to whisper love inside my ear.
+
+But all I have are these trembling palms,
+that offer only hollow calms.
+I am my lover, my own sin,
+but still I’m aching deep within.
+
+My nails press soft into my skin,
+trying to feel what’s buried within,
+a hunger no one else can meet,
+a craving cruel, incomplete.
+
+I want a touch, soft, demanding,
+a fire I cannot be commanding.
+Instead, I’m left to taste my hands,
+and dream of distant promised lands.
+
+Every stroke a lonely prayer,
+every sigh thick with despair.
+The only body I can claim,
+is mine alone, no one to name.
+
+I am touched, by my own hands,
+yearning for sweet commands.
+A lover’s ghost I cannot hold,
+a story left forever untold.
+  </pre>
+  <button onclick="togglePoem('poem-text-155', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem155" title="Like this poem">❤️</button>
+    <span id="like-count-poem155">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem155">
+    <h3>Comments</h3>
+    <div id="comments-list-poem155"></div>
+    <form id="comment-form-poem155">
+      <input type="text" id="name-poem155" placeholder="Your name" required />
+      <textarea id="comment-text-poem155" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Drunk on Fantasies</h1>
+<div class="meta">
+  Date: 2019-01-01<br>
+  Mood: Tipsy yearning, raw craving, aching loneliness
+</div>
+
+<div class="poem-container poem-section" id="poem156-container">
+  <pre id="poem-text-156">
+
+  </pre>
+  <button onclick="togglePoem('poem-text-156', this)">Read More</button>
+Tipsy lips and blurred desire,
+drunk on dreams that never tire.
+I trace your name in candlelight,
+then kiss the dark to feel it right.
+
+A phantom taste, a ghostly grin,
+I sip you softly from within.
+Your hands are fiction, lips pretend,
+but still, I ache and still, I bend.
+
+I imagine your weight on me,
+a heavy warmth I’ll never see.
+Your breath across my fragile chest,
+a pressure built on sweet unrest.
+
+My thighs part slow with silent grace,
+but you’re not here to fill the space.
+Still, I whisper, still I plead,
+for hands that tremble, lips that need.
+
+Each breath a shaky, burning sigh,
+a drunken prayer sent to the sky.
+The sheets remember what I don’t,
+a touch I crave, a truth you won’t.
+
+I drown in thoughts I can’t embrace,
+chasing shadows I cannot face.
+I close my eyes, you press me down,
+a king who never claimed the crown.
+
+My body writhes in heated ache,
+a sin I’m always doomed to fake.
+My fingers trace what isn’t there,
+you’re in the breath, but not the air.
+
+I moan your name like it’s a hymn,
+a gospel soaked in lust and sin.
+But prayers don't pull you to my side,
+they only echo what I hide.
+
+I reach for you with drunken hands,
+but grasp at ghosts and shifting sands.
+No warmth, no gaze, no tender call,
+just fantasies that let me fall.
+
+I sip the dream, I beg the lie,
+I touch myself and wonder why
+this fire burns but won’t ignite,
+a flame that flickers out each night.
+
+Drunk on longing, drowned in need,
+I plant a kiss that will not bleed.
+And when I wake, still soaked in crave,
+I lie alone, a midnight slave.
+  <div class="like-section">
+    <button class="like-button" data-poem="poem156" title="Like this poem">❤️</button>
+    <span id="like-count-poem122">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem156">
+    <h3>Comments</h3>
+    <div id="comments-list-poem156"></div>
+    <form id="comment-form-poem156">
+      <input type="text" id="name-poem156" placeholder="Your name" required />
+      <textarea id="comment-text-poem156" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+  
+  <a href="categories.html" class="back-button">Back to the Bleeding Pages</a>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Your Firebase config from earlier:
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
+      authDomain: "pretty-wreckage-9c673.firebaseapp.com",
+      projectId: "pretty-wreckage-9c673",
+      storageBucket: "pretty-wreckage-9c673.firebasestorage.app",
+      messagingSenderId: "983710612507",
+      appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
+      measurementId: "G-EBH6K5923F"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Toggle poem read more/collapse
+    function togglePoem(id, button) {
+      const poem = document.getElementById(id);
+      const expanded = poem.style.maxHeight === '1000em';
+      poem.style.maxHeight = expanded ? '10em' : '1000em';
+      button.textContent = expanded ? 'Read More' : 'Collapse';
+    }
+
+    // --- LIKES LOGIC ---
+    function updateLikeCount(poemId, count) {
+      document.getElementById('like-count-' + poemId).textContent = count;
+    }
+
+    // Listen for likes changes and update UI
+    function listenForLikes(poemId) {
+      db.collection('likes').doc(poemId).onSnapshot(doc => {
+        if(doc.exists) {
+          updateLikeCount(poemId, doc.data().count);
+        } else {
+          // If doc doesn't exist, create it with 0 likes
+          db.collection('likes').doc(poemId).set({count: 0});
+          updateLikeCount(poemId, 0);
+        }
+      });
+    }
+
+    // Increment like count on click
+    function likePoem(poemId) {
+      const likeRef = db.collection('likes').doc(poemId);
+      db.runTransaction(transaction => {
+        return transaction.get(likeRef).then(doc => {
+          if(!doc.exists) {
+            transaction.set(likeRef, {count: 1});
+            return 1;
+          }
+          const newCount = (doc.data().count || 0) + 1;
+          transaction.update(likeRef, {count: newCount});
+          return newCount;
+        });
+      }).catch(err => {
+        console.error("Failed to increment like: ", err);
+      });
+    }
+
+    // Attach like button listeners
+    document.querySelectorAll('.like-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const poemId = btn.getAttribute('data-poem');
+        likePoem(poemId);
+      });
+    });
+
+    // Listen for likes on all poems
+    listenForLikes('poem122');
+    listenForLikes('poem123');
+    listenForLikes('poem124');
+    listenForLikes('poem125');
+    listenForLikes('poem126');
+    listenForLikes('poem127');
+    listenForLikes('poem128');
+    listenForLikes('poem129');
+    listenForLikes('poem130');
+    listenForLikes('poem131');
+    listenForLikes('poem132');
+    listenForLikes('poem133');
+    listenForLikes('poem134');
+    listenForLikes('poem135');
+    listenForLikes('poem136');
+    listenForLikes('poem137');
+    listenForLikes('poem138');
+    listenForLikes('poem139');
+    listenForLikes('poem140');
+    listenForLikes('poem141');
+    listenForLikes('poem142');
+    listenForLikes('poem143');
+    listenForLikes('poem144');
+    listenForLikes('poem145');
+    listenForLikes('poem146');
+    listenForLikes('poem147');
+    listenForLikes('poem148');
+    listenForLikes('poem149');
+    listenForLikes('poem150');
+    listenForLikes('poem151');
+    listenForLikes('poem152');
+    listenForLikes('poem153');
+    listenForLikes('poem154');
+    listenForLikes('poem155');
+    listenForLikes('poem156');
+
+    
+    // --- COMMENTS LOGIC ---
+    function renderComments(poemId, comments) {
+      const list = document.getElementById('comments-list-' + poemId);
+      list.innerHTML = '';
+      if (comments.length === 0) {
+        list.textContent = 'No comments yet. Be the first to comment!';
+        return;
+      }
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.classList.add('comment');
+        div.innerHTML = `<span class="name">${escapeHTML(comment.name)}</span>: <span class="text">${escapeHTML(comment.text)}</span>`;
+        list.appendChild(div);
+      });
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    // Listen for comments real-time updates
+    function listenForComments(poemId) {
+      db.collection('comments')
+        .where('poemId', '==', poemId)
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+          const comments = [];
+          snapshot.forEach(doc => {
+            comments.push(doc.data());
+          });
+          renderComments(poemId, comments);
+        });
+    }
+
+    // Add new comment
+    function addComment(poemId, name, text) {
+      return db.collection('comments').add({
+        poemId: poemId,
+        name: name,
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+
+    // Setup form submit handlers
+    ['poem122', 'poem123', 'poem124', 'poem125', 'poem126', 'poem127', 'poem128', 'poem129', 'poem130', 'poem131', 'poem132', 'poem133', 'poem134', 'poem135', 'poe136', 'poem137', 'poem138', 'poem139', 'poem140', 'poem141', 'poem142', 'poem143', 'poem144', 'poem145', 'poem146', 'poem147', 'poem148', 'poem149', 'poem150', 'poem151', 'poem152', 'poem153', 'poem154', 'poem155', 'poem156'].forEach(poemId => {
+      const form = document.getElementById('comment-form-' + poemId);
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name-' + poemId);
+        const commentInput = document.getElementById('comment-text-' + poemId);
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        if(name && comment) {
+          addComment(poemId, name, comment).then(() => {
+            nameInput.value = '';
+            commentInput.value = '';
+          }).catch(err => {
+            alert('Error posting comment: ' + err.message);
+          });
+        }
+      });
+      listenForComments(poemId);
+    });
+
+  </script>
+</body>
+</html>
