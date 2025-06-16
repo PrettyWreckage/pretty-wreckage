@@ -1,0 +1,1655 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Scares | Pretty Wreckage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 3rem 2rem;
+      font-family: 'Georgia', serif;
+      background: url('TangledRoots.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4d9e3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+    .meta {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #fbd6e0;
+    }
+    .poem-container {
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
+      white-space: pre-line;
+      line-height: 1.3;
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+    #poem-text-121,
+    #poem-text-120,
+    #poem-text-119,
+    #poem-text-118,
+    #poem-text-117,
+    #poem-text-116,
+    #poem-text-115,
+    #poem-text-114,
+    #poem-text-113,
+    #poem-text-112,
+    #poem-text-111,
+    #poem-text-110,
+    #poem-text-109,
+    #poem-text-108,
+    #poem-text-107,
+    #poem-text-106,
+    #poem-text-105,
+    #poem-text-104,
+    #poem-text-103,
+    #poem-text-102 {
+      max-height: 10em;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      white-space: pre-wrap;
+    }
+    button, .back-button {
+      padding: 10px 25px;
+      background-color: #ff7cae;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin: 0.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button:hover, .back-button:hover {
+      background-color: #ff4a85;
+    }
+    .comments-section {
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .comment {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0;
+    }
+    .comment .name {
+      font-weight: bold;
+      color: #ffd1e3;
+    }
+    .comment .text {
+      margin-left: 0.5rem;
+      color: #f4d9e3;
+    }
+    form {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    input[type="text"], textarea {
+      flex: 1 1 200px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 50px;
+    }
+    .like-section {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f4d9e3;
+      justify-content: center;
+    }
+    .like-button {
+      background-color: #ff4a85;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      line-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .like-button:hover {
+      background-color: #ff7cae;
+    }
+    .intro-message {
+      max-width: 700px;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      line-height: 1.5;
+      font-size: 1.05rem;
+      color: #fbd6e0;
+    }
+    .intro-message .signature {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      font-style: normal;
+      color: #f4d9e3;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .intro-message .signature strong {
+      font-family: 'Georgia', serif;
+      letter-spacing: 0.5px;
+    }
+    .signature-line {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro-message">
+    <p>
+       These poems is a journey through the dark, tangled places inside me,<br>
+       where pain clings like stubborn vines, and breaking free feels impossible. 
+       It’s about the wounds i carry, the battles within, and the weight of roots 
+       that refuse to loosen.<br>
+      These poems speak to the aching heart that fights and fractures.<br>
+      But still yearns for release.
+    </p>
+    <p class="signature">
+      <span class="signature-line">May we all someday break the chains that bind us to rotten roots..<br>With love xoxo,</span>
+      <strong>Pretty Wreckage</strong>
+    </p>
+  </div>
+
+  <h1>Left Inside the Roots</h1>
+<div class="meta">
+  Date: 2024-09-02<br>
+  Mood: Abandonment, emptiness, emotional suffocation
+</div>
+
+<div class="poem-container poem-section" id="poem121-container">
+  <pre id="poem-text-121">
+They walked away and left me here,
+still trapped beneath the choking ground,
+their promises like smoke and fear,
+dissolved to dust without a sound.
+
+They said they’d stay, but always lied,
+their hands slipped free while mine were tied,
+I screamed for help, but none replied,
+just hollow echoes where tears cried.
+
+The roots around me tighten still,
+a noose that squeezes, cold and deep,
+their fingers grasp with quiet will,
+and steal the breath I try to keep.
+
+Each inhalation turns to pain,
+each heartbeat pounds against despair,
+a rhythm wrought in loss and chain,
+a song of silence, thickened air.
+
+I’m not alive, but not yet gone,
+a ghost within this hollow place,
+forgotten in the twilight dawn,
+erased without a single trace.
+
+The darkness clings like tangled vines,
+the weight of all I could not hold,
+a prison built with cruel designs,
+where hope grows weak, and dreams grow cold.
+
+Yet somewhere deep beneath this pain,
+a whisper stirs, a fragile flame,
+a spark that dares to rise again,
+to break these roots and call my name.
+
+But now I wait, still bound, alone,
+within this garden made of grief,
+a soul that’s lost its path, its home,
+and prays for just one sweet relief.
+  </pre>
+  <button onclick="togglePoem('poem-text-121', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem121" title="Like this poem"❤️</button>
+    <span id="like-count-poem121">6587</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem121">
+    <h3>Comments</h3>
+    <div id="comments-list-poem121"></div>
+    <form id="comment-form-poem121">
+      <input type="text" id="name-poem121" placeholder="Your name" required />
+      <textarea id="comment-text-poem121" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Am Breaking</h1>
+<div class="meta">
+  Date: 2024-06-13<br>
+  Mood: Completely shattered, begging for release, irreversible collapse
+</div>
+
+<div class="poem-container poem-section" id="poem120-container">
+  <pre id="poem-text-120">
+I am breaking,
+not softly, not gently,
+but with sharp cracks that echo inside.
+The pieces fall like shattered glass,
+and I am too tired to even hide.
+
+They want me whole,
+but strip me thinner
+with every smile I’m forced to wear.
+I’m bleeding through invisible wounds
+while they pretend I’m still repair.
+
+There’s nothing left but echoes now,
+of who I was, or tried to be.
+The roots have wrapped around my bones,
+and drained the very breath from me.
+
+I am breaking,
+please don’t tell me
+to hold on for one more day.
+Let me fall where silence waits,
+let me drift, and fade away.
+  </pre>
+  <button onclick="togglePoem('poem-text-120', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem120" title="Like this poem">❤️</button>
+    <span id="like-count-poem120">11447</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem120">
+    <h3>Comments</h3>
+    <div id="comments-list-poem120"></div>
+    <form id="comment-form-poem120">
+      <input type="text" id="name-poem120" placeholder="Your name" required />
+      <textarea id="comment-text-poem120" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Weight No One Sees</h1>
+<div class="meta">
+  Date: 2024-01-19<br>
+  Mood: Suffocating, exhaustion
+</div>
+
+<div class="poem-container poem-section" id="poem119-container">
+  <pre id="poem-text-119">
+I carry what no eyes can see,
+a weight beneath my every breath.
+It presses in, it owns my chest,
+a slow and quiet kind of death.
+
+No one sees the breaking lines,
+the way my ribs collapse inside.
+I smile through storms I cannot name,
+while pieces of me twist and hide.
+
+I hold their burdens like my own,
+collecting wounds they’ll never feel.
+They say I’m strong, but they don’t know
+how long I've screamed beneath the steel.
+
+If they could hear the weight I bear,
+perhaps they'd finally let me fall.
+But they just hand me more to hold,
+until I’m nothing left at all.
+  </pre>
+  <button onclick="togglePoem('poem-text-119', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem119" title="Like this poem">❤️</button>
+    <span id="like-count-poem119">8655</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem119">
+    <h3>Comments</h3>
+    <div id="comments-list-poem119"></div>
+    <form id="comment-form-poem119">
+      <input type="text" id="name-poem119" placeholder="Your name" required />
+      <textarea id="comment-text-poem119" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Becoming the Weeds</h1>
+<div class="meta">
+  Date: 2023-12-12<br>
+  Mood: Despair, surrendering
+</div>
+
+<div class="poem-container poem-section" id="poem118-container">
+  <pre id="poem-text-118">
+I used to dream of flowers,
+petals soft beneath the rain.
+But now I grow like bitter weeds,
+twisting in my silent pain.
+
+The garden I once hoped would bloom
+is wild with vines that choke my breath.
+No roses rise, no tulips dance,
+just weeds that wrap me close to death.
+
+Their thorns are part of who I am,
+sharp reminders I can’t sever.
+I'm not a bloom, I’m only rot,
+lost in roots that break forever.
+
+I tried to rise, I tried to shine,
+but all I’ve grown are crooked seeds,
+and now I’m tangled in myself,
+becoming nothing but the weeds.
+  </pre>
+  <button onclick="togglePoem('poem-text-118', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem118" title="Like this poem">❤️</button>
+    <span id="like-count-poem118">113622</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem118">
+    <h3>Comments</h3>
+    <div id="comments-list-poem118"></div>
+    <form id="comment-form-poem118">
+      <input type="text" id="name-poem118" placeholder="Your name" required />
+      <textarea id="comment-text-poem118" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Roots Won’t Let Me Go</h1>
+<div class="meta">
+  Date: 2023-09-12<br>
+  Mood: Hopelessness, spiraling
+</div>
+
+<div class="poem-container poem-section" id="poem117-container">
+  <pre id="poem-text-117">
+I pulled,
+and pulled,
+until my hands were raw,
+my fingers bleeding on the threads
+of everything I never saw.
+
+But the roots—they held.
+Tighter with each desperate cry.
+Every time I tried to break,
+they only wrapped me deeper, why?
+
+I screamed into an empty sky,
+begging earth to set me free.
+But the ground just swallowed my reply,
+and the roots laughed quietly at me.
+
+I thought if I just tried enough,
+if I just fought a little more,
+they'd finally loosen,
+finally break,
+but still, I'm tangled to my core.
+  </pre>
+  <button onclick="togglePoem('poem-text-117', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem117" title="Like this poem">❤️</button>
+    <span id="like-count-poem117">1137</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem117">
+    <h3>Comments</h3>
+    <div id="comments-list-poem117"></div>
+    <form id="comment-form-poem117">
+      <input type="text" id="name-poem117" placeholder="Your name" required />
+      <textarea id="comment-text-poem117" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Breaking Point</h1>
+<div class="meta">
+  Date: 2023-03-29<br>
+  Mood: Utter heartbreak, feeling beyond broken, final collapse
+</div>
+
+<div class="poem-container poem-section" id="poem116-container">
+  <pre id="poem-text-116">
+I am broken in too many places,
+splintered like glass beneath heavy feet,
+shards reflecting long lost faces,
+pieces of me I cannot meet.
+
+I wear a mask of hollowed eyes,
+a painted calm to hide the war,
+while underneath, my silence cries,
+begging not to break once more.
+
+Every time I try to rise,
+the weight returns like ruthless waves,
+their voices echo through my skies,
+their needs, the chains my spirit gave.
+
+I’ve bled for hands that turned away,
+poured my breath into their storms,
+stitched their wounds while mine decayed,
+reshaping shadows into forms.
+
+I’ve held their hearts while losing mine,
+traded light for whispered grace,
+but now my stars refuse to shine,
+and emptiness has found its place.
+
+I am broken, please believe me,
+more than cracks, I'm hollowed through,
+there’s nothing left to hold or give me,
+no more strength to cling or prove.
+
+Let me fall, or kindly free me,
+unbind these chains I cannot fight,
+for I don’t know how long completely
+I can survive without my light.
+
+Each breath is thinner than the last,
+each heartbeat slower in my chest,
+I stand inside my shattered past,
+desperate just to finally rest.
+  </pre>
+  <button onclick="togglePoem('poem-text-116', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem116" title="Like this poem">❤️</button>
+    <span id="like-count-poem116">25846</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem116">
+    <h3>Comments</h3>
+    <div id="comments-list-poem116"></div>
+    <form id="comment-form-poem116">
+      <input type="text" id="name-poem116" placeholder="Your name" required />
+      <textarea id="comment-text-poem116" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Let Me Out</h1>
+<div class="meta">
+  Date: 2022-09-17<br>
+  Mood: Desperation to escape, overwhelmed
+</div>
+
+<div class="poem-container poem-section" id="poem115-container">
+  <pre id="poem-text-115">
+Let me out,
+this place is closing in.
+The air grows thinner with each breath,
+as shadows seep beneath my skin.
+
+The walls press inward, drawing tight,
+each heartbeat echoes sharp and thin,
+like distant thunder in the night,
+a storm that rages deep within.
+
+I press my palms against the glass,
+my fingertips trace lines of strain,
+but every crack that spiders past
+etches sorrow into pain.
+
+I scream for mercy as they break,
+as fractures bloom like haunted trees,
+but silence swallows all I make,
+my cries dissolve like whispered pleas.
+
+I cannot mend what isn’t mine,
+I cannot heal what they won’t see,
+I’ve carried weight across their line,
+I’ve bled my love endlessly.
+
+My spine is bowed, my shoulders torn,
+from years of holding what they dropped,
+a hollow well where hope was born,
+but drained as promises all stopped.
+
+Please,
+before the dark devours my spark,
+before I fade into this hole,
+before I'm swallowed by the dark,
+unchain the fragments of my soul.
+
+Open the door,
+or let me fall,
+let me slip into the black,
+release me from this endless crawl,
+or never ask for my way back.
+
+For all I wanted was to breathe,
+to feel the sky beneath my wings,
+but now I ache, and softly plead,
+just let me go from everything.
+  </pre>
+  <button onclick="togglePoem('poem-text-115', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem115" title="Like this poem">❤️</button>
+    <span id="like-count-poem115">9926</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem115">
+    <h3>Comments</h3>
+    <div id="comments-list-poem115"></div>
+    <form id="comment-form-poem115">
+      <input type="text" id="name-poem115" placeholder="Your name" required />
+      <textarea id="comment-text-poem115" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Tied My Own Chains</h1>
+<div class="meta">
+  Date: 2022-02-02<br>
+  Mood: Self-blame, heartbreak
+</div>
+
+<div class="poem-container poem-section" id="poem114-container">
+  <pre id="poem-text-114">
+I tied my own chains long ago,
+with threads of guilt I couldn’t see,
+whispers curling soft and low:
+"This is love. This burden’s me."
+
+I told myself, “This is my due,”
+as silent ropes encased my skin,
+and in their pull, I misconstrued
+devotion as the weight within.
+
+I let the needs of everyone
+become my purpose, steal my breath,
+their broken pieces, one by one,
+I held until there was no rest.
+
+I planted gardens for their peace,
+watered wounds I didn’t bleed,
+tended pain that wouldn't cease,
+while mine grew wild beneath their need.
+
+And so I wove my quiet death,
+thread by thread, and tear by tear,
+until my soul was starved of breath,
+but still I whispered, “I am here.”
+
+It wasn’t you who tied me down,
+nor them who sealed this silent fate.
+It was my hands, my softest crown,
+that chose to bow beneath the weight.
+
+I wrapped my heart in silent chains,
+believing love meant breaking me,
+mistaking sacrifice for gain,
+confusing bondage with loyalty.
+
+Now tangled in regret’s embrace,
+I stare at knots I cannot sever,
+a prisoner lost in my own grace,
+a cage I built, and filled, forever.
+
+Yet in the stillness, faint and thin,
+a whisper stirs within my chest:
+"You can unbind what lies within,
+release yourself, and find your rest."
+  </pre>
+  <button onclick="togglePoem('poem-text-114', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem114" title="Like this poem">❤️</button>
+    <span id="like-count-poem114">2142</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem114">
+    <h3>Comments</h3>
+    <div id="comments-list-poem114"></div>
+    <form id="comment-form-poem114">
+      <input type="text" id="name-poem114" placeholder="Your name" required />
+      <textarea id="comment-text-poem114" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Left at Sea</h1>
+<div class="meta">
+  Date: 2021-10-01<br>
+  Mood: Hopelessness, suffocation
+</div>
+
+<div class="poem-container poem-section" id="poem113-container">
+  <pre id="poem-text-113">
+They locked the door and threw the key
+into an ocean dark and wide,
+where shadows whisper endlessly,
+and hope itself has learned to hide.
+
+I scream, but silence wraps me tight,
+no voice returns across the black.
+The stars refuse to lend their light;
+there’s no one left to pull me back.
+
+The water rises in my chest,
+its weight like stones beneath my skin,
+the lives I carried, all confessed,
+now drag me deeper from within.
+
+I held their hearts, their wounds, their pain,
+their shattered hopes, their haunted cries,
+I stood like shelter in their rain,
+and dried their tears beneath my skies.
+
+But with each soul I tried to save,
+a piece of me was torn away,
+and now I float, a hollow grave,
+where light and breath no longer stay.
+
+They leaned on me, I bore it all,
+became their strength when they had none,
+but now I feel the endless fall,
+my fight exhausted, hope undone.
+
+They left me here, my hands bound tight,
+upon a sea not meant for me,
+no rescue ship, no distant light,
+just endless waves and memory.
+
+The sky grows pale, the stars recede,
+my name dissolves in whispered foam,
+I fade beneath what none could see,
+forgotten, lost, adrift, alone.
+  </pre>
+  <button onclick="togglePoem('poem-text-113', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem113" title="Like this poem">❤️</button>
+    <span id="like-count-poem113">88801</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem113">
+    <h3>Comments</h3>
+    <div id="comments-list-poem113"></div>
+    <form id="comment-form-poem113">
+      <input type="text" id="name-poem113" placeholder="Your name" required />
+      <textarea id="comment-text-poem113" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Please Set Me Free</h1>
+<div class="meta">
+  Date: 2021-08-07<br>
+  Mood: Desperation, pleading, emotional exhaustion
+</div>
+
+<div class="poem-container poem-section" id="poem112-container">
+  <pre id="poem-text-112">
+Please,
+if you ever loved me,
+let me go.
+Don’t clutch my wings in shattered hands,
+don’t chain me where no light can flow.
+
+You say it’s love to keep me near,
+to bind my flight beneath your sky,
+but every whisper sharp with fear
+becomes the reason why I cry.
+
+Every breath inside this cage
+scrapes my ribs like rusted wire,
+I am burning in your quiet rage,
+consumed beneath unspoken fire.
+
+You cradle me with broken palms,
+yet hold me tight in silent screams,
+you drown me softly with your qualms,
+and steal the color from my dreams.
+
+I cannot carry what you lost,
+nor wear your grief like borrowed skin,
+the price was high, I count the cost,
+and feel the war you keep within.
+
+My voice is cracking through the night,
+my soul, collapsing at your gate,
+I’m begging you beneath this fight:
+don’t call this mercy, this is fate.
+
+Set me free, please,
+release the weight that crushes bone,
+don’t call your chains a gift to me,
+when all I crave is air alone.
+
+Love is not this heavy stone,
+not hands that clutch until they bleed,
+if you ever loved me, truly known,
+you'd see my flight is what I need.
+
+Let me rise beyond your grief,
+beyond the shadows you defend,
+for only then can hearts find peace,
+in letting go, we sometimes mend.
+  </pre>
+  <button onclick="togglePoem('poem-text-112', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem112" title="Like this poem">❤️</button>
+    <span id="like-count-poem112">13599</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem112">
+    <h3>Comments</h3>
+    <div id="comments-list-poem112"></div>
+    <form id="comment-form-poem112">
+      <input type="text" id="name-poem112" placeholder="Your name" required />
+      <textarea id="comment-text-poem112" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Breaking Ground</h1>
+<div class="meta">
+  Date: 2021-04-21<br>
+  Mood: Hopeful rebellion, fierce love, tender defiance
+</div>
+
+<div class="poem-container poem-section" id="poem111-container">
+  <pre id="poem-text-111">
+I dug my fingers in the dirt,
+my nails torn raw, my skin worn thin,
+refusing still to taste the hurt,
+or let you see me break within.
+
+Though every breath was edged with pain,
+and shadows clawed to pull me down,
+I kindled embers through the rain,
+and wore my courage like a crown.
+
+Your tangled roots reached for my soul,
+twisting tight around my spine,
+whispers tried to take control,
+but this heart will not resign.
+
+I’ve danced through nights of hollow cries,
+through silent wars you’ll never see,
+but in the darkness, stars still rise,
+and light remains inside of me.
+
+With every tear, with every scar,
+I plant my seeds beneath the ache,
+a wildflower blooming far,
+in soil that only strength can break.
+
+I break the ground, I break the chains,
+I rise from wounds you left behind,
+through storms and sorrow, loss and rains,
+my roots grow fierce, untamed, aligned.
+
+I stand where once I thought I’d fall,
+a garden wild, alive, reborn,
+no longer caged, no longer small,
+but fierce, and soft, and battle-worn.
+
+You tried to bury all I am,
+but planted me instead,
+and now I bloom where flames began,
+with petals bright where ashes bled.
+  </pre>
+  <button onclick="togglePoem('poem-text-111', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem111" title="Like this poem">❤️</button>
+    <span id="like-count-poem111">17822</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem111">
+    <h3>Comments</h3>
+    <div id="comments-list-poem111"></div>
+    <form id="comment-form-poem111">
+      <input type="text" id="name-poem111" placeholder="Your name" required />
+      <textarea id="comment-text-poem111" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Burning Roots</h1>
+<div class="meta">
+  Date: 2020-11-29<br>
+  Mood: Anguish, betrayal, fiery release
+</div>
+
+<div class="poem-container poem-section" id="poem110-container">
+  <pre id="poem-text-110">
+The fire crept beneath the soil,
+where once my tender garden grew,
+where every seed, through years of toil,
+had dreamed beneath the morning dew.
+
+You lit the match with careless hands,
+with eyes that never saw my tears,
+igniting lies like shifting sands,
+erasing all our fragile years.
+
+The flames, they danced through roots and leaves,
+devouring dreams in crimson waves,
+the wind howled through my hollowed grief,
+as love collapsed into its grave.
+
+You watched the blaze with distant eyes,
+unmoved by all that turned to dust,
+while I knelt under blackened skies,
+still reaching for a dying trust.
+
+My world, once vibrant, rich, and green,
+now stood in shadows, torn apart,
+its beauty lost to what had been,
+a graveyard for my broken heart.
+
+But even as the embers sighed,
+a lesson whispered through the flame:
+to lose, to break, to burn, to cry,
+is not the end, it bears my name.
+
+For fire teaches hearts to burn,
+to shed the weight of what decays,
+to break, to bend, and yet return,
+and bloom again in different ways.
+
+Beneath the ash, beneath the pain,
+new roots will curl through blackened ground,
+and with the storms, and with the rain,
+a stronger soul will rise unbound.
+
+So I will rise from scorched remains,
+though all was torn, though all was lost,
+my wings will stretch through smoke and chains,
+a phoenix shaped by every cost.
+
+In wildfire’s breath, I find my grace,
+reborn beyond what flames consume,
+for even ruin leaves a trace,
+a place where I may bloom.
+  </pre>
+  <button onclick="togglePoem('poem-text-110', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem110" title="Like this poem">❤️</button>
+    <span id="like-count-poem110">6698</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem110">
+    <h3>Comments</h3>
+    <div id="comments-list-poem110"></div>
+    <form id="comment-form-poem110">
+      <input type="text" id="name-poem110" placeholder="Your name" required />
+      <textarea id="comment-text-poem110" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Roots That Bind</h1>
+<div class="meta">
+  Date: 2020-09-02<br>
+  Mood: Resignation, quiet strength, acceptance
+</div>
+
+<div class="poem-container poem-section" id="poem109-container">
+  <pre id="poem-text-109">
+There’s comfort in the tangled roots,
+though they confine and cling,
+like lullabies sung in bitter truths,
+or the ache that time can bring.
+
+I learned to live with heavy chains,
+to wear my scars with grace,
+to find the peace inside the pains,
+and in that, find my place.
+
+The roots that bind me to the past
+are threads of who I am,
+a twisted story, built to last,
+my grief, my strength, my plan.
+
+So here I stand, both bruised and whole,
+a garden fierce and wild,
+with tangled roots that shape my soul,
+and make me still a child.
+  </pre>
+  <button onclick="togglePoem('poem-text-109', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem109" title="Like this poem">❤️</button>
+    <span id="like-count-poem109">10065</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem109">
+    <h3>Comments</h3>
+    <div id="comments-list-poem109"></div>
+    <form id="comment-form-poem109">
+      <input type="text" id="name-poem109" placeholder="Your name" required />
+      <textarea id="comment-text-poem109" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Knots of Us</h1>
+<div class="meta">
+  Date: 2020-06-11<br>
+  Mood: Conflicted love, yearning, bittersweet surrender
+</div>
+
+<div class="poem-container poem-section" id="poem108-container">
+  <pre id="poem-text-108">
+We tied our hearts in reckless knots,
+with trembling hands and blinded eyes,
+entangled threads that time forgot,
+beneath the aching, bitter skies.
+
+Bound in passion, raw and wild,
+we chased a flame too fierce to hold,
+two souls both tender and defiled,
+lost in stories left untold.
+
+In love that neither heals nor rots,
+but lingers like a haunting tune,
+a melody that softly mocks,
+beneath the hollow, distant moon.
+
+You pull me close, then push away,
+your touch a spark, your breath a storm,
+a dance where shadows twist and sway,
+in patterns neither soft nor warm.
+
+I’m lost within the shades of gray,
+where right and wrong dissolve to dust,
+where night devours the edge of day,
+and love becomes a fragile trust.
+
+Your silence screams inside my veins,
+a choir of ghosts I cannot flee,
+your absence hums like steady rain,
+that drowns the deepest part of me.
+
+I wander through our shattered maze,
+each memory sharp, each promise bruised,
+still craving you through endless haze,
+forever torn, forever used.
+
+Yet still I linger in these chains,
+the prison built by both our hands,
+a paradox of love and pain,
+that neither one can understand.
+
+Maybe someday these knots will break,
+like dawn that melts the stubborn frost,
+or slowly loosen, soft and late,
+restoring all we nearly lost.
+
+Until that day, I’ll stay awake,
+a captive of what once could be,
+drowning in the ache we make,
+and tethered to your ghost of me.
+  </pre>
+  <button onclick="togglePoem('poem-text-108', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem108" title="Like this poem">❤️</button>
+    <span id="like-count-poem108">16548</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem108">
+    <h3>Comments</h3>
+    <div id="comments-list-poem108"></div>
+    <form id="comment-form-poem108">
+      <input type="text" id="name-poem108" placeholder="Your name" required />
+      <textarea id="comment-text-poem108" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Whispers in the Dark</h1>
+<div class="meta">
+  Date: 2020-03-01<br>
+  Mood: Silent sorrow, longing, quiet desperation
+</div>
+
+<div class="poem-container poem-section" id="poem107-container">
+  <pre id="poem-text-107">
+In the stillness of the night,
+when even the stubborn stars refuse to shine,
+I sit beneath the hollow sky,
+where silence wraps around my spine.
+
+I hear your voice, a fragile light,
+like distant winds that softly moan,
+a ghost that drifts through shattered time,
+where once we stood, now I'm alone.
+
+You left your shadows in my room,
+etched upon the walls like scars,
+they move with me through every gloom,
+like silent echoes of who we are.
+
+The air still holds your whispered breath,
+like phantom fingers on my skin,
+a dance between life, love, and death,
+where once your heartbeat lived within.
+
+I trace the shape of empty space,
+where your hand would fit in mine,
+and though I search your absent face,
+only tears respond in kind.
+
+I reach for what I cannot touch,
+the warmth that slipped like sand through glass,
+the tenderness I miss too much,
+each moment lost that cannot pass.
+
+The nights are long, the mornings cold,
+the days a blur of quiet ache,
+the story that we left untold,
+a song my shattered heart still makes.
+
+But even in this endless dark,
+beneath the weight of what remains,
+a tiny flame ignites a spark,
+and softly calls your name through chains.
+
+Hope tiptoes through my broken chest,
+a fragile thread I dare not break,
+it whispers that beyond this test,
+someday, your soul I'll once more take.
+
+Until that day, I hold you near,
+inside the cracks where light gets through,
+my love, my loss, my constant tear,
+forevermore, I wait for you.
+  </pre>
+  <button onclick="togglePoem('poem-text-107', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem107" title="Like this poem">❤️</button>
+    <span id="like-count-poem107">21360</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem107">
+    <h3>Comments</h3>
+    <div id="comments-list-poem107"></div>
+    <form id="comment-form-poem107">
+      <input type="text" id="name-poem107" placeholder="Your name" required />
+      <textarea id="comment-text-poem107" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Tangled, But Still Alive</h1>
+<div class="meta">
+  Date: 2020-01-19<br>
+  Mood: Resilience, bittersweet victory, soft power
+</div>
+
+<div class="poem-container poem-section" id="poem106-container">
+  <pre id="poem-text-106">
+My roots are tangled in the earth,
+a mess of sorrow, grief, and thread,
+the echoes of my broken birth,
+the ghosts of all you left unsaid.
+
+You tried to hold me with your fears,
+to shape me in your empty mold.
+You fed me silence, blame, and tears,
+and called me fragile, weak, and cold.
+
+But even roots that twist and bind
+cannot suppress the will to grow.
+I searched for light, for love, for something kind,
+for something softer I could know.
+
+Now see me rise through tangled ground,
+my leaves like hands that catch the sun.
+You lost me where your shame was bound,
+but I have only just begun.
+
+Your roots may stay beneath my feet,
+but they no longer own my sky.
+I’m tangled, yes, but still complete.
+I live. I bloom. I breathe. I fly.
+  </pre>
+  <button onclick="togglePoem('poem-text-106', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem106" title="Like this poem">❤️</button>
+    <span id="like-count-poem106">5004</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem106">
+    <h3>Comments</h3>
+    <div id="comments-list-poem106"></div>
+    <form id="comment-form-poem106">
+      <input type="text" id="name-poem106" placeholder="Your name" required />
+      <textarea id="comment-text-poem106" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Garden You Never Watered</h1>
+<div class="meta">
+  Date: 2019-12-06<br>
+  Mood: Lonely growth, bittersweet independence
+</div>
+
+<div class="poem-container poem-section" id="poem105-container">
+  <pre id="poem-text-105">
+I bloomed beneath your blinded gaze,
+in quiet corners, out of sight.
+You never saw my dawns, my praise,
+you only named my failing light.
+
+I watered wounds with hidden tears,
+sang songs to roots you never fed,
+and in my loneliest of years,
+I learned to rise where hope had bled.
+
+You measured me by wilted leaves,
+you scolded storms I couldn’t tame,
+but never saw the breath that breathes
+beneath the weight of your own shame.
+
+You missed the colors in my veins,
+the gentle petals I unfurled,
+while you were counting all my stains,
+I was creating my own world.
+
+And now my blossoms stretch and bend,
+beyond the reach of bitter hands.
+This garden grew without your end,
+I am the bloom you’ll never understand
+  </pre>
+  <button onclick="togglePoem('poem-text-105', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem105" title="Like this poem">❤️</button>
+    <span id="like-count-poem105">22691</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem105">
+    <h3>Comments</h3>
+    <div id="comments-list-poem105"></div>
+    <form id="comment-form-poem105">
+      <input type="text" id="name-poem105" placeholder="Your name" required />
+      <textarea id="comment-text-poem105" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Roots That Bleed</h1>
+<div class="meta">
+  Date: 2019-09-03<br>
+  Mood: Raw pain, grief, self-preservation
+</div>
+
+<div class="poem-container poem-section" id="poem104-container">
+  <pre id="poem-text-104">
+You planted me in poisoned ground,
+then blamed my leaves for turning pale.
+You never heard the silent sound
+of dreams that withered, small and frail.
+
+Your words were thorns dressed up as care,
+your love, a vine that pulled me tight.
+You pruned my joy, stripped me bare,
+and dimmed my soul to steal my light.
+
+Yet still my heart kept reaching out,
+my petals strained toward distant skies.
+While you sowed shadows, fear, and doubt,
+my spirit learned to still arise.
+
+Now I unearth each buried pain,
+I tear the roots that made me bleed.
+With trembling hands I break the chain
+and plant my freedom like a seed.
+
+The soil still bears the scars you left,
+but in its cracks, new life is grown,
+a garden not of wounds bereft,
+but blooms I dared to call my own.
+  </pre>
+  <button onclick="togglePoem('poem-text-104', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem104" title="Like this poem">❤️</button>
+    <span id="like-count-poem104">9851</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem104">
+    <h3>Comments</h3>
+    <div id="comments-list-poem104"></div>
+    <form id="comment-form-poem104">
+      <input type="text" id="name-poem104" placeholder="Your name" required />
+      <textarea id="comment-text-poem104" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Inherited Chains</h1>
+<div class="meta">
+  Date: 2019-05-13<br>
+  Mood:  Breaking free, reclaiming identity
+</div>
+
+<div class="poem-container poem-section" id="poem103-container">
+  <pre id="poem-text-103">
+You draped your sorrow 'round my neck,
+a heavy chain of tarnished gold,
+and called it love, a cruel, sharp wreck,
+a legacy I can't uphold.
+
+You spoke of duty, blood, and name,
+and stitched my heart into your grief.
+You taught me love should feel like shame,
+like silent wounds that find no relief.
+
+But I am not your vessel, no.
+I am not built to bear your fall.
+Your pain was planted long ago,
+but it does not define me all.
+
+I break the links, I free my breath,
+I rise from guilt’s unholy flame,
+your hands may build my past in death,
+but they won’t write my future’s name.
+
+Let loyalty dissolve like mist,
+let obligation lose its hold.
+I’ll write my life with gentler fists
+and bloom from soil you left cold.
+  </pre>
+  <button onclick="togglePoem('poem-text-103', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem103" title="Like this poem">❤️</button>
+    <span id="like-count-poem103">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem103">
+    <h3>Comments</h3>
+    <div id="comments-list-poem103"></div>
+    <form id="comment-form-poem103">
+      <input type="text" id="name-poem103" placeholder="Your name" required />
+      <textarea id="comment-text-poem103" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Weight Beneath My Skin</h1>
+<div class="meta">
+  Date: 2019-01-23<br>
+  Mood: Emotional healing, bittersweet courage
+</div>
+
+<div class="poem-container poem-section" id="poem102-container">
+  <pre id="poem-text-102">
+I carry scars beneath my smile,
+old echoes stitched in crooked thread,
+where voices tangled, loud and vile,
+built homes of shame inside my head.
+
+The roots run deep beneath my skin,
+each one a whisper from the past,
+a bitter seed that settled in
+and grew where light was fading fast.
+
+I wore their guilt like second skin,
+believed their stories as my own,
+but now I trace the hurt within
+and plant a garden all my own.
+
+For every lie that they confessed,
+for every chain they tried to bind,
+I trade their weight for gentler rest,
+untangling threads they left behind.
+
+Though roots remain beneath the ground,
+above, my branches start to sway,
+toward softer winds, a sweeter sound,
+where dawn will melt the night away.
+  </pre>
+  <button onclick="togglePoem('poem-text-102', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem102" title="Like this poem">❤️</button>
+    <span id="like-count-poem102">11203</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem102">
+    <h3>Comments</h3>
+    <div id="comments-list-poem102"></div>
+    <form id="comment-form-poem102">
+      <input type="text" id="name-poem102" placeholder="Your name" required />
+      <textarea id="comment-text-poem102" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+  
+  <a href="categories.html" class="back-button">Back to the Bleeding Pages</a>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Your Firebase config from earlier:
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
+      authDomain: "pretty-wreckage-9c673.firebaseapp.com",
+      projectId: "pretty-wreckage-9c673",
+      storageBucket: "pretty-wreckage-9c673.firebasestorage.app",
+      messagingSenderId: "983710612507",
+      appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
+      measurementId: "G-EBH6K5923F"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Toggle poem read more/collapse
+    function togglePoem(id, button) {
+      const poem = document.getElementById(id);
+      const expanded = poem.style.maxHeight === '1000em';
+      poem.style.maxHeight = expanded ? '10em' : '1000em';
+      button.textContent = expanded ? 'Read More' : 'Collapse';
+    }
+
+    // --- LIKES LOGIC ---
+    function updateLikeCount(poemId, count) {
+      document.getElementById('like-count-' + poemId).textContent = count;
+    }
+
+    // Listen for likes changes and update UI
+    function listenForLikes(poemId) {
+      db.collection('likes').doc(poemId).onSnapshot(doc => {
+        if(doc.exists) {
+          updateLikeCount(poemId, doc.data().count);
+        } else {
+          // If doc doesn't exist, create it with 0 likes
+          db.collection('likes').doc(poemId).set({count: 0});
+          updateLikeCount(poemId, 0);
+        }
+      });
+    }
+
+    // Increment like count on click
+    function likePoem(poemId) {
+      const likeRef = db.collection('likes').doc(poemId);
+      db.runTransaction(transaction => {
+        return transaction.get(likeRef).then(doc => {
+          if(!doc.exists) {
+            transaction.set(likeRef, {count: 1});
+            return 1;
+          }
+          const newCount = (doc.data().count || 0) + 1;
+          transaction.update(likeRef, {count: newCount});
+          return newCount;
+        });
+      }).catch(err => {
+        console.error("Failed to increment like: ", err);
+      });
+    }
+
+    // Attach like button listeners
+    document.querySelectorAll('.like-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const poemId = btn.getAttribute('data-poem');
+        likePoem(poemId);
+      });
+    });
+
+    // Listen for likes on all poems
+    listenForLikes('poem121');
+    listenForLikes('poem120');
+    listenForLikes('poem119');
+    listenForLikes('poem118');
+    listenForLikes('poem117');
+    listenForLikes('poem116');
+    listenForLikes('poem115');
+    listenForLikes('poem114');
+    listenForLikes('poem113');
+    listenForLikes('poem112');
+    listenForLikes('poem111');
+    listenForLikes('poem110');
+    listenForLikes('poem109');
+    listenForLikes('poem108');
+    listenForLikes('poem107');
+    listenForLikes('poem106');
+    listenForLikes('poem105');
+    listenForLikes('poem104');
+    listenForLikes('poem103');
+    listenForLikes('poem102');
+    
+    // --- COMMENTS LOGIC ---
+    function renderComments(poemId, comments) {
+      const list = document.getElementById('comments-list-' + poemId);
+      list.innerHTML = '';
+      if (comments.length === 0) {
+        list.textContent = 'No comments yet. Be the first to comment!';
+        return;
+      }
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.classList.add('comment');
+        div.innerHTML = `<span class="name">${escapeHTML(comment.name)}</span>: <span class="text">${escapeHTML(comment.text)}</span>`;
+        list.appendChild(div);
+      });
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    // Listen for comments real-time updates
+    function listenForComments(poemId) {
+      db.collection('comments')
+        .where('poemId', '==', poemId)
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+          const comments = [];
+          snapshot.forEach(doc => {
+            comments.push(doc.data());
+          });
+          renderComments(poemId, comments);
+        });
+    }
+
+    // Add new comment
+    function addComment(poemId, name, text) {
+      return db.collection('comments').add({
+        poemId: poemId,
+        name: name,
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+
+    // Setup form submit handlers
+    ['poem121', 'poem120', 'poem119', 'poem118', 'poem117', 'poem116', 'poem115', 'poem114', 'poem113', 'poem112', 'poem111', 'poem110', 'poem109', 'poem108', 'poe107', 'poem106', 'poem105', 'poem104', 'poem103', 'poem102'].forEach(poemId => {
+      const form = document.getElementById('comment-form-' + poemId);
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name-' + poemId);
+        const commentInput = document.getElementById('comment-text-' + poemId);
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        if(name && comment) {
+          addComment(poemId, name, comment).then(() => {
+            nameInput.value = '';
+            commentInput.value = '';
+          }).catch(err => {
+            alert('Error posting comment: ' + err.message);
+          });
+        }
+      });
+      listenForComments(poemId);
+    });
+
+  </script>
+</body>
+</html>
