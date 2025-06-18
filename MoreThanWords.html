@@ -1,0 +1,5035 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Scares | Pretty Wreckage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 3rem 2rem;
+      font-family: 'Georgia', serif;
+      background: url('MoreThanWords.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4d9e3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+    .meta {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #fbd6e0;
+    }
+    .poem-container {
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
+      white-space: pre-line;
+      line-height: 1.3;
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+    #poem-text-260,
+    #poem-text-259,
+    #poem-text-258,
+    #poem-text-257,
+    #poem-text-256,
+    #poem-text-255,
+    #poem-text-254,
+    #poem-text-253,
+    #poem-text-252,
+    #poem-text-251,
+    #poem-text-250,
+    #poem-text-249,
+    #poem-text-248,
+    #poem-text-247,
+    #poem-text-246,
+    #poem-text-245,
+    #poem-text-244,
+    #poem-text-243,
+    #poem-text-242,
+    #poem-text-241,
+    #poem-text-240,
+    #poem-text-239,
+    #poem-text-238,
+    #poem-text-237,
+    #poem-text-236,
+    #poem-text-235,
+    #poem-text-234,
+    #poem-text-233,
+    #poem-text-232,
+    #poem-text-231,
+    #poem-text-230,
+    #poem-text-229,
+    #poem-text-228,
+    #poem-text-227,
+    #poem-text-226,
+    #poem-text-225,
+    #poem-text-224,
+    #poem-text-223,
+    #poem-text-222,
+    #poem-text-221,
+    #poem-text-220,
+    #poem-text-219,
+    #poem-text-218,
+    #poem-text-217,
+    #poem-text-216,
+    #poem-text-215,
+    #poem-text-214,
+    #poem-text-213,
+    #poem-text-212,
+    #poem-text-211,
+    #poem-text-210,
+    #poem-text-209,
+    #poem-text-208,
+    #poem-text-207,
+    #poem-text-206,
+    #poem-text-205,
+    #poem-text-204,
+    #poem-text-203,
+    #poem-text-202 {
+      max-height: 10em;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      white-space: pre-wrap;
+    }
+    button, .back-button {
+      padding: 10px 25px;
+      background-color: #ff7cae;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin: 0.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button:hover, .back-button:hover {
+      background-color: #ff4a85;
+    }
+    .comments-section {
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .comment {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0;
+    }
+    .comment .name {
+      font-weight: bold;
+      color: #ffd1e3;
+    }
+    .comment .text {
+      margin-left: 0.5rem;
+      color: #f4d9e3;
+    }
+    form {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    input[type="text"], textarea {
+      flex: 1 1 200px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 50px;
+    }
+    .like-section {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f4d9e3;
+      justify-content: center;
+    }
+    .like-button {
+      background-color: #ff4a85;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      line-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .like-button:hover {
+      background-color: #ff7cae;
+    }
+    .intro-message {
+      max-width: 700px;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      line-height: 1.5;
+      font-size: 1.05rem;
+      color: #fbd6e0;
+    }
+    .intro-message .signature {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      font-style: normal;
+      color: #f4d9e3;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .intro-message .signature strong {
+      font-family: 'Georgia', serif;
+      letter-spacing: 0.5px;
+    }
+    .signature-line {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro-message">
+    <p>
+       Some loves are spoken. Some are felt.
+       Some are imagined... and some, beyond true.,<br>
+       Ours was all of the above, woven into years of silent longing,
+       heard in the pauses, breathed in the space between replies.,<br>
+       This is where whispers became poems, and aching turned into light.
+       a place where love didn't need to be loud to be real.
+       More Than Words... because what we felt said everything.<br>
+    </p>
+    <p class="signature">
+      <span class="signature-line">May you too, someday, find the soulmate 
+                                   who hears your silence..<br>With love xoxo,</span>
+      <strong>Pretty Wreckage</strong>
+    </p>
+  </div>
+
+  <h1>Whispers Beyond Words</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: tender, romantic, heartfelt
+</div>
+
+<div class="poem-container poem-section" id="poem260-container"> 
+  <pre id="poem-text-260"> 
+In the quiet moments when words fall shy,  
+our hearts speak softly, no need to try.  
+A glance, a smile — the language we share,  
+tells stories of love beyond compare.  
+
+I remember the night you reached for my hand,  
+a touch so gentle, I could barely stand.  
+Not just a gesture, but a promise so true,  
+that no matter what, I belong here with you.  
+
+Through whispered dreams and silent sighs,  
+our souls dance beneath unspoken skies.  
+Every heartbeat writes a verse so pure,  
+a love that time cannot obscure.  
+
+No need for grand words or loud displays,  
+our love lives in the quietest ways.  
+In the spaces where shadows and light collide,  
+there's a universe where we both reside.  
+
+So hold me close, with eyes that say,  
+“I love you more each passing day.”  
+Because in this story only we know,  
+our love speaks loudest when it’s quiet and slow.  
+  </pre>
+  <button onclick="togglePoem('poem-text-260', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem260" title="Like this poem">❤️</button> 
+    <span id="like-count-poem260">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem260"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem260"></div> 
+    <form id="comment-form-poem260"> 
+      <input type="text" id="name-poem260" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem260" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>you are safe</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: relieved, tender, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem259-container"> 
+  <pre id="poem-text-259"> 
+you are safe—  
+safe in the quiet halls of care,  
+in the gentle hands that hold you now,  
+after the storm of surgery’s shadow  
+has passed,  
+and you breathe in slow, steady rhythms  
+that remind me you’re still here,  
+still fighting, still mine.  
+
+i imagine you resting—  
+soft sheets, warm blankets,  
+whispers of healing  
+and the promise of return,  
+the thought of you planning to come back,  
+already dreaming of the day  
+when our hands will meet again,  
+when your eyes will hold mine  
+like the sun holds the morning.  
+
+love grows in waiting,  
+in every silent moment between us,  
+in the hope that blooms quietly  
+like a secret garden inside my heart—  
+because no distance, no pain, no time  
+can dim the light you’ve sparked  
+within me.  
+
+i love you—  
+more than words can weave,  
+more than the miles that stretch between us,  
+more than the fears i hold when the night is long  
+and the silence loud.  
+
+your strength is a melody,  
+soft but unbreakable,  
+and in this place of healing,  
+i send you all my warmth,  
+all my prayers,  
+all my love wrapped gently  
+around your soul.  
+
+soon,  
+you’ll come back to me—  
+and i’ll be waiting,  
+open-armed, open-hearted,  
+ready to hold you  
+like the whole world depends on it—  
+because with you safe,  
+i am whole.  
+
+you are safe,  
+and loved,  
+and already home  
+in my heart’s quiet refuge.  
+  </pre>
+  <button onclick="togglePoem('poem-text-259', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem259" title="Like this poem">❤️</button> 
+    <span id="like-count-poem259">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem259"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem259"></div> 
+    <form id="comment-form-poem259"> 
+      <input type="text" id="name-poem259" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem259" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>not just words true worries</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: anxious, fearful, loving
+</div>
+
+<div class="poem-container poem-section" id="poem258-container"> 
+  <pre id="poem-text-258"> 
+you went in for your surgery—  
+and silence swallowed the seconds,  
+no message, no call,  
+just a hollow space  
+where your voice should be.  
+
+my heart’s a storm,  
+racing without reason,  
+panicked breaths clutching air,  
+i can’t lose you, not like this,  
+not when you mean everything.  
+
+each tick of the clock  
+feels like a thunderclap,  
+each moment stretched thin  
+between hope and dread,  
+between prayer and fear.  
+
+i replay every word you said,  
+every promise, every laugh—  
+a lifeline against the darkness  
+that threatens to drown me.  
+
+this isn’t just worry,  
+it’s a tempest of love,  
+a raw, aching truth  
+that i’m holding onto you  
+with every shattered piece of my soul.  
+
+you are more than skin and bones,  
+more than the sum of your fears—  
+you are the warmth in my night,  
+the steady pulse beneath my ribs,  
+the heartbeat i never want to lose.  
+
+i’m waiting,  
+on this side of the screen,  
+with trembling hands and hopeful eyes,  
+holding space for your safe return,  
+because my world  
+is incomplete without you here.  
+
+please come back—  
+your silence is louder than words,  
+and my love is louder than fear.  
+i’m here,  
+breathing you into every moment,  
+praying for your healing,  
+loving you beyond the distance,  
+beyond the waiting.  
+
+not just words—  
+true worries,  
+true love,  
+true heartbeats  
+that refuse to let go.  
+  </pre>
+  <button onclick="togglePoem('poem-text-258', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem258" title="Like this poem">❤️</button> 
+    <span id="like-count-poem258">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem258"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem258"></div> 
+    <form id="comment-form-poem258"> 
+      <input type="text" id="name-poem258" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem258" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>the emptiness after being full</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: lonely, heartache, longing
+</div>
+
+<div class="poem-container poem-section" id="poem257-container"> 
+  <pre id="poem-text-257"> 
+the emptiness after being full—  
+a hollow vastness,  
+where your laughter used to live,  
+where your touch once filled the air  
+with warmth and promise.  
+
+i am more alone now  
+than ever,  
+because 9000 miles stretch  
+between your heart and mine,  
+like an ocean too wide to cross  
+with just whispered dreams.  
+
+when you were here,  
+i was bursting with color—  
+the world felt alive,  
+each moment painted with your smile,  
+each breath seasoned  
+with your nearness.  
+
+but now,  
+the silence echoes louder,  
+and every room feels bigger,  
+every shadow deeper—  
+because you are gone,  
+and i am left holding  
+only memories that flicker  
+like distant stars.  
+
+the nights are colder now,  
+the sheets untouched by your warmth,  
+and my hands reach out  
+for a ghost that isn’t there.  
+
+how cruel is this space,  
+this distance that swallows us whole?  
+how does one hold onto love  
+when it’s folded across time zones,  
+hidden behind a screen,  
+in a voice call that ends too soon?  
+
+i try to fill this emptiness  
+with hope, with prayers,  
+with the promise that soon,  
+soon—  
+you will come back,  
+and the fullness will return.  
+
+until then,  
+i carry this ache,  
+this tender wound,  
+knowing that love  
+is not measured in miles,  
+but in the beating of two hearts  
+that refuse to forget  
+how full they once were—  
+and how empty now  
+without each other.  
+  </pre>
+  <button onclick="togglePoem('poem-text-257', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem257" title="Like this poem">❤️</button> 
+    <span id="like-count-poem257">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem257"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem257"></div> 
+    <form id="comment-form-poem257"> 
+      <input type="text" id="name-poem257" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem257" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>you are going back</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: aching, tender, heartbroken
+</div>
+
+<div class="poem-container poem-section" id="poem256-container"> 
+  <pre id="poem-text-256"> 
+you are going back—  
+leaving on a plane tonight,  
+sick and tired,  
+but still, you must fly.  
+
+and here i am,  
+silently dying inside,  
+a quiet storm  
+raging beneath my calm,  
+each heartbeat a reminder  
+that distance is a thief  
+stealing your warmth  
+right from my skin.  
+
+i watch the clock,  
+counting down the moments,  
+wishing time could pause,  
+wishing i could hold you  
+longer than the seconds allow.  
+
+your laughter still lingers  
+in the corners of this room,  
+your scent a ghost  
+that haunts my empty sheets—  
+and the space where you should be.  
+
+how can i say goodbye  
+when my soul refuses?  
+how do i breathe  
+without the promise  
+of your arms to catch me?  
+
+you fly away tonight—  
+but part of me flies with you,  
+tied to your every sigh,  
+every whispered goodbye  
+you don’t say out loud.  
+
+i am here,  
+waiting in the silence,  
+holding onto love  
+that spans the miles,  
+believing in the day  
+when distance will mean nothing,  
+and you’ll come home  
+to stay.  
+
+until then,  
+i hold this ache close,  
+a bittersweet reminder  
+that even when apart,  
+we are never truly alone—  
+because my heart travels with you,  
+always,  
+wherever you go.  
+  </pre>
+  <button onclick="togglePoem('poem-text-256', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem256" title="Like this poem">❤️</button> 
+    <span id="like-count-poem256">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem256"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem256"></div> 
+    <form id="comment-form-poem256"> 
+      <input type="text" id="name-poem256" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem256" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>falling deeper and deeper</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: tender, passionate, vulnerable
+</div>
+
+<div class="poem-container poem-section" id="poem255-container"> 
+  <pre id="poem-text-255"> 
+falling deeper and deeper—  
+like waves that never tire,  
+crashing softly  
+against the shores of my heart.  
+
+with every breath you take,  
+i sink further,  
+into the ocean  
+of all you are—  
+every smile, every glance,  
+every whispered word  
+carving me anew.  
+
+i fall deeper into the curve of your laugh,  
+the warmth of your hands,  
+the quiet strength  
+in your silence.  
+
+each piece of you—  
+the light and the shadows,  
+the dreams and the fears,  
+the gentle touch and the fierce love—  
+pulls me closer,  
+wraps me tighter,  
+makes me believe  
+in forever.  
+
+this is no shallow fall—  
+it is the kind of love  
+that pulls me under,  
+drowning in the beauty  
+of your soul,  
+losing myself  
+to find you.  
+
+with every moment shared,  
+with every heartbeat aligned,  
+i fall deeper,  
+deeper still,  
+into a love  
+that grows  
+beyond words,  
+beyond time,  
+beyond anything  
+i ever dared imagine.  
+
+and here i am—  
+falling deeper and deeper,  
+hopelessly, beautifully,  
+completely in love  
+with every piece of you.  
+  </pre>
+  <button onclick="togglePoem('poem-text-255', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem255" title="Like this poem">❤️</button> 
+    <span id="like-count-poem255">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem255"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem255"></div> 
+    <form id="comment-form-poem255"> 
+      <input type="text" id="name-poem255" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem255" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>i met you today</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: overwhelmed, tender, ecstatic
+</div>
+
+<div class="poem-container poem-section" id="poem254-container"> 
+  <pre id="poem-text-254"> 
+i met you today—  
+and oh, how the world shifted,  
+colors deepened,  
+air tasted sweeter,  
+and time slowed  
+to catch every trembling heartbeat.  
+
+Face to face,  
+you are even more handsome—  
+more real, more vivid  
+than any dream I dared to hold.  
+Your eyes,  
+like secret stars,  
+pulled me closer,  
+drew me in  
+until all I knew  
+was you.  
+
+Our lips met—  
+that first kiss,  
+a tender collision of nerves and love,  
+the brush of breath and longing,  
+the spark of a thousand suns  
+igniting my soul’s quiet flame.  
+
+I tasted you—  
+the sweetness of promises yet spoken,  
+the softness of a hope  
+finally alive,  
+and in that moment,  
+my soul whispered home.  
+
+Nervousness danced through me,  
+like shy petals opening to dawn,  
+yet beneath it,  
+a fierce, unbreakable truth—  
+that I have waited  
+for this,  
+for you,  
+for us.  
+
+Every touch was a sentence  
+in a love story  
+we had written in silence,  
+every glance a poem  
+etched into the space between us.  
+
+And now,  
+with trembling hands and steady heart,  
+I stand here—  
+no longer dreaming,  
+no longer waiting—  
+but holding you close,  
+feeling the warmth  
+of a love  
+that was always meant to be.  
+
+i met you today—  
+and my soul is finally home,  
+wrapped in the arms of the man  
+who has lived  
+in every breath I’ve ever taken.  
+  </pre>
+  <button onclick="togglePoem('poem-text-254', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem254" title="Like this poem">❤️</button> 
+    <span id="like-count-poem254">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem254"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem254"></div> 
+    <form id="comment-form-poem254"> 
+      <input type="text" id="name-poem254" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem254" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>you are coming to my state</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: excited, tender, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem253-container"> 
+  <pre id="poem-text-253"> 
+You are coming to my state—  
+the miles between us shrinking,  
+time folding in on itself,  
+as you travel closer,  
+closer to me.  
+
+At last,  
+I can almost feel your footsteps  
+on the ground I walk,  
+hear the whisper of your breath  
+carried on the wind,  
+a promise carried home.  
+
+I’m counting every moment,  
+each second pulsing like a drumbeat  
+in my chest,  
+the rhythm of anticipation,  
+the song of a heart set free.  
+
+To meet you—  
+to finally see the curves of your smile,  
+to catch the glint in your eyes  
+not through a screen,  
+but in real, breathtaking light.  
+
+To be in your arms—  
+warmth against warmth,  
+skin pressed to skin,  
+the quiet knowing that I am finally safe,  
+finally whole,  
+finally yours.  
+
+O, what an amazing dream—  
+to cross from fantasy to reality,  
+to step out from shadows  
+and into the glow of you,  
+the one who has lived  
+in every corner of my soul.  
+
+I imagine our first embrace,  
+how time will still,  
+how the world will hush,  
+how nothing else will matter  
+except the steady beat  
+of two hearts becoming one.  
+
+You are coming to my state—  
+and with you,  
+you bring every whispered hope,  
+every stolen sigh,  
+every promise made in silence  
+and held in trust.  
+
+I’ll be waiting,  
+with open arms and open heart,  
+ready to turn dreams  
+into the sweetest reality,  
+ready to finally say:  
+you are here,  
+and I am home.  
+  </pre>
+  <button onclick="togglePoem('poem-text-253', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem253" title="Like this poem">❤️</button> 
+    <span id="like-count-poem253">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem253"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem253"></div> 
+    <form id="comment-form-poem253"> 
+      <input type="text" id="name-poem253" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem253" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>talking about marriage</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: hopeful, dreamy, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem252-container"> 
+  <pre id="poem-text-252"> 
+We haven’t met,  
+not once, not yet —  
+only screens between us,  
+pixels and light,  
+our faces flickering in quiet rooms,  
+soft voices carried through wires,  
+whispers in the digital night.  
+
+Yet here we are,  
+talking about marriage,  
+about vows spoken in dreams,  
+about futures woven  
+in the spaces between our words,  
+a tapestry stitched  
+with hope and longing.  
+
+O, what an amazing dream —  
+to speak of forever  
+before ever touching hands,  
+to build a promise  
+from nothing but trust  
+and the warmth of hearts  
+that beat in tandem,  
+even miles apart.  
+
+I imagine the day  
+when screens fall silent,  
+when your eyes hold mine,  
+when laughter fills the air  
+and our voices mingle  
+without the hum of machines.  
+
+I see us standing there,  
+hands trembling,  
+hearts laid bare,  
+saying the words  
+we’ve already rehearsed  
+in endless late-night talks,  
+words heavier than any silence,  
+lighter than any fear.  
+
+It’s a dream, yes,  
+but one that feels real —  
+as real as the way your name  
+makes my soul flutter,  
+the way your smile  
+lives in my mind,  
+even when the screen goes dark.  
+
+Talking about marriage,  
+before meeting face to face —  
+it’s more than fantasy,  
+it’s faith, it’s courage,  
+it’s the purest kind of love,  
+born from distance,  
+made strong by hope,  
+waiting patiently  
+for the moment  
+we can say “I do”  
+not just in words,  
+but in the breathless truth  
+of finally being together.  
+
+So here’s to us,  
+to the dreamers who dare  
+to love unseen,  
+to build forever  
+on whispers and wishes,  
+to hearts that hold on  
+through every message,  
+every pause,  
+every promise  
+made across the miles.  
+
+I can’t wait for the day  
+when this dream  
+is no longer just words,  
+when you are not just a name,  
+but the home  
+I’ve always wanted —  
+the love I finally touch.  
+  </pre>
+  <button onclick="togglePoem('poem-text-252', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem252" title="Like this poem">❤️</button> 
+    <span id="like-count-poem252">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem252"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem252"></div> 
+    <form id="comment-form-poem252"> 
+      <input type="text" id="name-poem252" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem252" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>you said it back</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: overwhelmed, joyous, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem251-container"> 
+  <pre id="poem-text-251"> 
+You said it back —  
+those three words  
+that lit a thousand stars inside me,  
+finally  
+breaking the silence  
+I held so tightly  
+for so long.  
+
+You said you love me,  
+and my heart  
+— it swelled,  
+a river overflowing  
+with hope and relief,  
+almost full now,  
+finally breathing  
+the air it craved.  
+
+But oh,  
+how I still ache  
+to be by your side,  
+to feel your hand  
+reach out for mine,  
+to close the distance  
+that still hums  
+between our worlds.  
+
+Every whisper,  
+every shy smile,  
+every secret glance  
+now blooms  
+into something real,  
+something tender,  
+something  
+so achingly sweet  
+it hurts in the best way.  
+
+I hold onto your words  
+like a lifeline,  
+a promise carved in the night,  
+a beacon shining  
+in the darkest hours,  
+telling me  
+I’m not alone anymore.  
+
+Yet the wait remains —  
+to be close enough  
+to breathe you in,  
+to hear your heartbeat  
+in the quiet of the morning,  
+to finally belong  
+where you are.  
+
+Until then,  
+I’ll cradle your love  
+in the deepest part of me,  
+cherishing every echo  
+of your voice,  
+every flicker  
+of your light.  
+
+Because you said it back —  
+and in that moment,  
+my world shifted,  
+my soul found its rhythm,  
+and hope  
+became a flame  
+that will never die.  
+  </pre>
+  <button onclick="togglePoem('poem-text-251', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem251" title="Like this poem">❤️</button> 
+    <span id="like-count-poem251">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem251"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem251"></div> 
+    <form id="comment-form-poem251"> 
+      <input type="text" id="name-poem251" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem251" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>i told you how i felt</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: tender, confused, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem250-container"> 
+  <pre id="poem-text-250"> 
+I told you how I felt —  
+every trembling word,  
+every secret pulse that raced  
+when your name slipped through my lips.  
+
+But you acted strange,  
+like a closed book on a dusty shelf,  
+pages tightly shut,  
+heart hiding behind shadows  
+I couldn’t reach,  
+no matter how I tried.  
+
+I saw it in your silence,  
+a pause heavy with unspoken thoughts,  
+a distance growing between our words,  
+as if my truth  
+was a storm too wild,  
+too loud,  
+too much to hold.  
+
+I wanted to pull you close,  
+to break the quiet walls you built,  
+but your eyes —  
+they slipped away,  
+like a flicker of light  
+vanishing in the dark.  
+
+Was it fear?  
+Or something deeper,  
+something you couldn’t name?  
+
+Still, I hold on to the hope —  
+that beneath your quiet,  
+there’s a heart beating like mine,  
+wild and unsure,  
+waiting to be found.  
+
+So here I stand,  
+with all I dared to say,  
+wondering if one day  
+you’ll open that book,  
+and read my love  
+between the lines.  
+
+Until then,  
+I’ll carry this feeling,  
+soft and fierce —  
+a secret between us,  
+waiting for its moment  
+to bloom.  
+  </pre>
+  <button onclick="togglePoem('poem-text-250', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem250" title="Like this poem">❤️</button> 
+    <span id="like-count-poem250">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem250"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem250"></div> 
+    <form id="comment-form-poem250"> 
+      <input type="text" id="name-poem250" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem250" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Not just words</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: vulnerable, hopeful, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem249-container"> 
+  <pre id="poem-text-249"> 
+I want to tell you —  
+to spill every fragile feeling,  
+to lay bare the storm inside me,  
+but what if the words  
+aren’t enough to hold you?  
+
+What if the moment I breathe my truth,  
+you turn and walk away,  
+leaving echoes where your footsteps were,  
+and silence in the spaces I hoped to fill?  
+
+I want you to know —  
+this isn’t just a string of letters,  
+not just a poem stitched from my heart,  
+but a pulse that beats louder with your name,  
+a breath that catches at the thought of you.  
+
+Every word is a trembling hope,  
+a prayer wrapped in longing,  
+that maybe, just maybe,  
+you’ll see beyond the fear,  
+beyond the trembling lips,  
+and find the love waiting in the cracks  
+between my words.  
+
+I want to tell you —  
+that you’re more than a dream  
+or a whispered secret,  
+that you are the sun breaking through my clouds,  
+the warmth beneath my skin,  
+the reason my heart learns to dance again.  
+
+But still, the question lingers —  
+what if you run?  
+What if you fear the truth  
+and let it slip through your fingers,  
+like sand chasing the wind?  
+
+I would rather risk the fall,  
+the heartbreak of your absence,  
+than live forever with silence  
+and the weight of what could have been.  
+
+So here I stand,  
+words trembling on my tongue,  
+love wrapped in every syllable,  
+waiting for courage to meet your eyes,  
+hoping you won’t run —  
+but stay,  
+and hold me close in the place  
+where words become forever.  
+  </pre>
+  <button onclick="togglePoem('poem-text-249', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem249" title="Like this poem">❤️</button> 
+    <span id="like-count-poem249">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem249"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem249"></div> 
+    <form id="comment-form-poem249"> 
+      <input type="text" id="name-poem249" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem249" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>the pan sticked</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: playful, loving, tender
+</div>
+
+<div class="poem-container poem-section" id="poem248-container"> 
+  <pre id="poem-text-248"> 
+I joked once —  
+a silly chase,  
+a pan in hand,  
+laughing as I ran after you,  
+the yard our playground,  
+the sun our spotlight,  
+and that moment —  
+oh, it stuck.  
+
+Not just the joke,  
+but the way your laughter  
+mixed with mine,  
+soft, warm, like the summer breeze  
+that wraps around us,  
+making the world shrink  
+until it’s just you and me  
+and a playful echo  
+that never fades.  
+
+I remember the look in your eyes,  
+half surprise, half delight,  
+as you darted away,  
+pretending to fear the harmless chase,  
+but really, wanting the game  
+to last forever —  
+the way your smile chased me back,  
+faster than any sprint.  
+
+That pan wasn’t just a pan —  
+it was the spark of us,  
+the beginning of a story  
+written in laughter and light,  
+a moment where something simple  
+became something unforgettable.  
+
+I think about how jokes become memories,  
+how silly words turn sacred,  
+how a chase around a yard  
+can carry the weight of love  
+heavier than any whispered promise.  
+
+And now, every time I hear the word "pan,"  
+my heart skips,  
+because it’s not just a kitchen tool —  
+it’s a symbol of us,  
+of playful love,  
+of a bond that started  
+with a joke and stuck  
+like your hand in mine,  
+like your eyes in my soul,  
+like the way you always catch me —  
+whether with a pan or with your heart.  
+
+So yes, the pan sticked,  
+and so did you —  
+right here,  
+inside me,  
+where love and laughter  
+dance forever.  
+  </pre>
+  <button onclick="togglePoem('poem-text-248', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem248" title="Like this poem">❤️</button> 
+    <span id="like-count-poem248">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem248"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem248"></div> 
+    <form id="comment-form-poem248"> 
+      <input type="text" id="name-poem248" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem248" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Waiting for the Next Ping</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: eager, longing, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem247-container"> 
+  <pre id="poem-text-247"> 
+There’s a rhythm in my chest —  
+not from the clock ticking,  
+but from waiting,  
+waiting for the next ping,  
+that little sound that pulls me closer to you,  
+like a secret heartbeat only I can hear.  
+
+Each vibration on my screen,  
+each flicker of light—  
+it’s more than just a message,  
+it’s a spark,  
+a spark that lights the dark corners of my day,  
+reminding me you’re there,  
+somewhere,  
+thinking of me too.  
+
+I pace the silent rooms,  
+check my phone again,  
+hoping for that buzz,  
+that sign you’re reaching out,  
+connecting to my world through words,  
+through whispers typed and sent  
+across the space between us.  
+
+The wait is sweet torture —  
+an ache wrapped in excitement,  
+a dance of hope and fear  
+that I never want to end.  
+
+Because with every ping,  
+I feel a little less alone,  
+a little more understood,  
+as if your words are threads  
+weaving us closer,  
+stitching a tapestry of us  
+that no distance can unravel.  
+
+I imagine you typing,  
+wondering what you choose to say,  
+if you feel this too—  
+this longing that is soft and fierce,  
+this craving to know you deeper,  
+to be known by you in return.  
+
+And when the message finally comes,  
+my heart sings out loud,  
+a melody of joy and relief,  
+because for those moments,  
+you are here with me,  
+beyond screens and pixels,  
+real in my soul’s quiet space.  
+
+So I wait,  
+patient and hopeful,  
+for the next ping,  
+the next sign,  
+the next chance to hear your voice  
+in the language only we speak —  
+love in every letter,  
+desire in every word,  
+a connection more than words  
+could ever hold.  
+  </pre>
+  <button onclick="togglePoem('poem-text-247', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem247" title="Like this poem">❤️</button> 
+    <span id="like-count-poem247">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem247"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem247"></div> 
+    <form id="comment-form-poem247"> 
+      <input type="text" id="name-poem247" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem247" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>When Friendship Felt Like Falling</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: tender, conflicted, deeply romantic
+</div>
+
+<div class="poem-container poem-section" id="poem246-container"> 
+  <pre id="poem-text-246"> 
+It started with laughter,  
+Shared secrets in the quiet corners,  
+A bond stitched softly with words and smiles—  
+Friendship, pure and simple, or so I told myself.  
+
+But then the lines began to blur,  
+That gentle warmth became a fire,  
+A spark that caught the edges of my heart,  
+Flickering dangerously close to something more.  
+
+Each message, each glance,  
+Carried a weight I barely dared to carry,  
+A trembling hope wrapped in fear,  
+That this could be more than just friends.  
+
+I found myself lost in the spaces between,  
+Longing for your words like a silent prayer,  
+Feeling the pulse of something deeper,  
+Though I wasn’t sure what to call it.  
+
+Was it love?  
+Or just a trick of the heart,  
+Playing games with my soul,  
+Making me ache for a future not yet written?  
+
+I whispered your name in dreams,  
+Touched the thought of you in the quiet night,  
+Hoping you’d feel the same pull,  
+The same unspoken yearning inside.  
+
+But the fear held me back,  
+Afraid to cross that invisible line,  
+So I stayed in the safety of friendship,  
+While my heart silently fell,  
+Slowly, irrevocably,  
+Into you.  
+
+And maybe you felt it too—  
+That delicate tremble beneath the laughter,  
+That unspoken confession in our smiles,  
+Because sometimes love is born  
+When friendship feels like falling.  
+  </pre>
+  <button onclick="togglePoem('poem-text-246', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem246" title="Like this poem">❤️</button> 
+    <span id="like-count-poem246">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem246"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem246"></div> 
+    <form id="comment-form-poem246"> 
+      <input type="text" id="name-poem246" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem246" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>From Hello to Heartbeats</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: hopeful, tender, deeply romantic
+</div>
+
+<div class="poem-container poem-section" id="poem245-container"> 
+  <pre id="poem-text-245"> 
+From a simple “hello,”  
+A spark flickered in the quiet dark,  
+A gentle tap on the door of my heart,  
+Soft as a breath, light as a secret—  
+The beginning of something endless,  
+Unseen yet felt in every pulse.  
+
+Hello was just a word,  
+But in it, I heard a thousand unspoken stories,  
+A promise hidden beneath the syllables,  
+A warmth that wrapped around me like a whispered song,  
+Slowly sewing threads of longing  
+Into the fabric of my soul.  
+
+Every message after was a heartbeat,  
+A rhythm that grew louder with each exchange,  
+From timid words to playful teasing,  
+From shy smiles to dreams shared  
+In the silent space between texts,  
+Where our souls began to dance.  
+
+I traced your presence in every letter,  
+Felt the tremble behind your pauses,  
+Heard the music in your laughter,  
+Saw the light behind your eyes—  
+Though all I had were pixels and prose,  
+Your spirit reached through and touched me close.  
+
+Our connection wasn’t sudden,  
+But a slow bloom in a garden of hope,  
+Petal by petal, feeling by feeling,  
+Until hello became something sacred,  
+And the space between us  
+Filled with heartbeats,  
+Echoing the love we hadn’t yet named.  
+
+So from that first greeting,  
+To the moments when silence said it all,  
+I hold each memory tenderly,  
+A treasure woven from hello to heartbeats,  
+A journey of love  
+Written in the language of us.  
+  </pre>
+  <button onclick="togglePoem('poem-text-245', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem245" title="Like this poem">❤️</button> 
+    <span id="like-count-poem245">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem245"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem245"></div> 
+    <form id="comment-form-poem245"> 
+      <input type="text" id="name-poem245" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem245" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Messages Between Us, More Than Text</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: tender, longing, deeply romantic
+</div>
+
+<div class="poem-container poem-section" id="poem244-container"> 
+  <pre id="poem-text-244"> 
+Every message you sent was more than words—  
+Each emoji a heartbeat,  
+Every punctuation mark, a sigh held in space,  
+A language we crafted between the lines,  
+Silent signals only our souls could trace.  
+
+The smiley face wasn’t just a smile—  
+It was a soft promise in pixels,  
+A flicker of warmth in the cold glow of the screen,  
+A gentle touch across the digital divide,  
+A spark that set my heart on fire unseen.  
+
+The dots that lingered before your reply—  
+Were whispers, hesitations, secret confessions,  
+Breathing between letters,  
+Telling stories no voice could speak,  
+Of feelings growing in shadows, deep and meek.  
+
+I read your messages like sacred scripts,  
+Decoding love in every pause and space,  
+The subtle way you shaped your words,  
+Careful, tender, as if afraid to break  
+The fragile hope that bloomed with each take.  
+
+Between the lines, I found you—  
+Not just in what you wrote, but what you left unsaid,  
+A longing that echoed in silent gaps,  
+A truth too fragile for full light,  
+But alive in the quiet, pulsing night.  
+
+Our conversation was a dance,  
+A slow unfolding of hearts through typed touch,  
+Not just friends, never just words—  
+Something deeper, a secret song,  
+That made me ache, made me belong.  
+
+So every emoji, every comma, every pause,  
+Was a thread weaving us close,  
+A tapestry of feeling,  
+More than text, more than sound,  
+A love that in silence found its crown.  
+  </pre>
+  <button onclick="togglePoem('poem-text-244', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem244" title="Like this poem">❤️</button> 
+    <span id="like-count-poem244">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem244"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem244"></div> 
+    <form id="comment-form-poem244"> 
+      <input type="text" id="name-poem244" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem244" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>First Voice Call</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: nervous, enchanted, deeply romantic
+</div>
+
+<div class="poem-container poem-section" id="poem243-container"> 
+  <pre id="poem-text-243"> 
+You called for the first time—  
+A simple ring that made my heart jump,  
+A trembling breath caught in my throat,  
+As your voice poured through the line,  
+Soft, warm, like sunlight breaking dawn.  
+
+You spoke, and I listened—  
+Every word a melody, every pause a dance,  
+Your voice weaving into the fabric of my soul,  
+A thread of sound stitching us closer,  
+Binding two hearts miles apart but somehow near.  
+
+I got lost in you—  
+In the cadence, the timbre, the gentle rise and fall,  
+The way your laughter echoed like a secret song,  
+The silence between words filled with meaning,  
+A language only our souls seemed to understand.  
+
+Though it was just sound carried through wires,  
+It felt like touch, a tender brush on skin unseen,  
+A promise whispered through the electric night,  
+That somewhere out there, you were real,  
+And here I was—waiting, open, alive.  
+
+That first voice call—  
+More than a conversation, more than a hello,  
+It was a beginning, a spark, a breath held tight,  
+The moment when distance dissolved,  
+And your voice became the home my heart sought.  
+
+I replay it still—  
+That first time you spoke,  
+And I fell quietly, deeply, endlessly—  
+Lost in the way your voice matched mine,  
+A harmony no words could ever fully capture.  
+  </pre>
+  <button onclick="togglePoem('poem-text-243', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem243" title="Like this poem">❤️</button> 
+    <span id="like-count-poem243">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem243"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem243"></div> 
+    <form id="comment-form-poem243"> 
+      <input type="text" id="name-poem243" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem243" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Friends on Paper, More in My Heart</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: tender, hopeful, quietly yearning
+</div>
+
+<div class="poem-container poem-section" id="poem242-container"> 
+  <pre id="poem-text-242"> 
+We started as just words on a screen,  
+Friends on paper, yet more in my heart unseen.  
+Every message, a bridge built slow,  
+Connecting two souls who barely know.  
+
+Behind the laughter, behind the jokes,  
+Lie hidden longings and tender hopes.  
+Your smile unseen, but felt in my chest,  
+A quiet fire that never rests.  
+
+We share stories, secrets, and dreams,  
+More than just what texting seems.  
+Between the lines, a language new,  
+A dance of feelings, just me and you.  
+
+Each “how are you?” holds more than care,  
+A wish that someday you’ll be there.  
+Not just a friend in this vast space,  
+But the one who holds my heart’s embrace.  
+
+I catch myself dreaming of your face,  
+Imagining touch, soft and safe.  
+Though friendship’s the label we give today,  
+My heart quietly wishes for more to stay.  
+
+The smiles we hide behind these words,  
+Are the songs my silent heart has heard.  
+Friends on paper, but oh, can’t you see?  
+You’ve become so much more to me.  
+
+So here I am, with feelings deep,  
+Hoping our bond won’t just stay steep.  
+For now, we’re friends, but maybe one day,  
+This quiet longing will find its way.  
+  </pre>
+  <button onclick="togglePoem('poem-text-242', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem242" title="Like this poem">❤️</button> 
+    <span id="like-count-poem242">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem242"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem242"></div> 
+    <form id="comment-form-poem242"> 
+      <input type="text" id="name-poem242" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem242" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>You Replied Instantly, My World Shifted</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: excited, tender, electrifying
+</div>
+
+<div class="poem-container poem-section" id="poem241-container"> 
+  <pre id="poem-text-241"> 
+I gave you my number — a simple act,  
+A hopeful heartbeat, an unspoken pact.  
+Then, like lightning striking through my night,  
+You replied instantly — and the world felt right.  
+
+My phone lit up, a flash so bright,  
+Your words appeared and caught my sight.  
+In that moment, everything changed,  
+A secret thrill inside me, wild and strange.  
+
+No longer just a face behind a screen,  
+But a living pulse in my daily scene.  
+Your message danced on the edge of my mind,  
+A spark igniting, gentle and kind.  
+
+My heart did flips, my breath caught tight,  
+Wondering if you felt the same light.  
+The rush of knowing you wanted to hear,  
+Every word I whispered, every hope, every fear.  
+
+In the instant you typed back to me,  
+You unlocked a door no one else could see.  
+A quiet promise, a whispered “hello,”  
+A seed of something I long to know.  
+
+Now every moment feels charged and new,  
+The space between us, electric, true.  
+Your presence close, though miles apart,  
+The start of something that’s captured my heart.  
+
+I keep staring at the screen, waiting to see,  
+What next words will come, what you’ll say to me.  
+You replied instantly — my world shifted then,  
+And I’m falling slowly, again and again.  
+  </pre>
+  <button onclick="togglePoem('poem-text-241', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem241" title="Like this poem">❤️</button> 
+    <span id="like-count-poem241">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem241"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem241"></div> 
+    <form id="comment-form-poem241"> 
+      <input type="text" id="name-poem241" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem241" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Late Night Chats, Early Feelings</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: intimate, tender, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem240-container"> 
+  <pre id="poem-text-240"> 
+When the world falls silent, and stars softly gleam,  
+We find each other in the quiet, like a shared dream.  
+Words spill like whispers, delicate and slow,  
+In the hush of the night, where only we go.  
+
+Your voice unseen but felt so near,  
+Every message a melody only I hear.  
+Laughter dances between typed lines,  
+Our hearts weaving secrets in midnight’s confines.  
+
+The clock ticks softly, but time drifts away,  
+In these stolen hours, I wish you could stay.  
+Conversations bloom in the cool night air,  
+A fragile connection, tender and rare.  
+
+I tell you things I’d never say aloud,  
+Wrapped in the safety of night’s quiet shroud.  
+And in your words, I find a light,  
+Guiding me gently through the darkness of night.  
+
+Each sentence builds a bridge unseen,  
+Between two souls, where love might have been.  
+No promises made, no future planned,  
+Just two hearts reaching, hand in hand.  
+
+Late night chats, the start of a spark,  
+A glowing ember in the deepening dark.  
+And though dawn will chase the stars away,  
+These early feelings are here to stay.  
+
+So in the silence before the new day breaks,  
+I hold onto every word that your presence makes.  
+For in these quiet talks, so soft and true,  
+I’m falling slowly, quietly, for you.  
+  </pre>
+  <button onclick="togglePoem('poem-text-240', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem240" title="Like this poem">❤️</button> 
+    <span id="like-count-poem240">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem240"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem240"></div> 
+    <form id="comment-form-poem240"> 
+      <input type="text" id="name-poem240" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem240" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Typing Slowly, Heart Racing</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: nervous, hopeful, tender
+</div>
+
+<div class="poem-container poem-section" id="poem239-container"> 
+  <pre id="poem-text-239"> 
+Fingers hover, trembling, unsure,  
+Words like butterflies, fragile and pure.  
+Each letter weighed with quiet desire,  
+A spark within, a growing fire.  
+
+The cursor blinks, a steady beat,  
+Matching the pulse beneath my seat.  
+Typing slowly, heart in my throat,  
+Hoping my feelings won't come remote.  
+
+Do you feel it? That quiet ache,  
+The way my soul begins to wake?  
+With every tap, a secret plea—  
+Are you here, do you see me?  
+
+I wonder if your heart’s the same,  
+Beating wild beneath your name.  
+Are your fingers paused, hesitant too,  
+Crafting words that reach for truth?  
+
+This dance of letters, shy and sweet,  
+Where fear and hope nervously meet.  
+I send my heart across the screen,  
+A message wrapped in a trembling dream.  
+
+Though silent, these words scream inside,  
+The longing I can no longer hide.  
+Typing slowly, heart racing fast,  
+Praying this moment is not the last.  
+
+So here I am, my truth exposed,  
+In every word I’ve carefully composed.  
+And if you feel this flutter too,  
+Know my soul is reaching out for you.  
+  </pre>
+  <button onclick="togglePoem('poem-text-239', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem239" title="Like this poem">❤️</button> 
+    <span id="like-count-poem239">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem239"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem239"></div> 
+    <form id="comment-form-poem239"> 
+      <input type="text" id="name-poem239" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem239" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>First Words, Endless Whispers</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: tender, hopeful, intimate
+</div>
+
+<div class="poem-container poem-section" id="poem238-container"> 
+  <pre id="poem-text-238"> 
+The screen glowed softly in the quiet night,  
+Your first words landing gentle, light as flight.  
+Not just a hello — a key turned slow,  
+Unlocking whispers only hearts could know.  
+
+Each letter a brushstroke on a canvas bare,  
+Painting hopes and dreams in electric air.  
+What started small began to grow,  
+A seed of feeling only we could sow.  
+
+You didn’t just send a message, you sent a start,  
+A rhythm pulsing straight into my heart.  
+The laughter in your texts, the pauses between,  
+Spoke volumes in silence, in spaces unseen.  
+
+I hung on each word, each breath you took,  
+Falling deeper with every look.  
+Though miles kept us worlds apart,  
+Your voice was echoing inside my heart.  
+
+That first text was more than just a line,  
+It was the start of something quietly divine.  
+Endless whispers on the screen’s soft glow,  
+A secret garden where love could grow.  
+
+Now every message carries a spark,  
+A flame burning steady within the dark.  
+And though the words may simply seem,  
+They hold the weight of a shared dream.  
+  </pre>
+  <button onclick="togglePoem('poem-text-238', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem238" title="Like this poem">❤️</button> 
+    <span id="like-count-poem238">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem238"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem238"></div> 
+    <form id="comment-form-poem238"> 
+      <input type="text" id="name-poem238" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem238" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Gave You My Number, Hoping You’d Message</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: hopeful, nervous, tender
+</div>
+
+<div class="poem-container poem-section" id="poem237-container"> 
+  <pre id="poem-text-237"> 
+I held my breath, trembling in the quiet air,  
+Fingers poised above the keys, heart raw and bare.  
+A simple string of numbers, a leap into the unknown,  
+Sent with silent prayers that you’d pick up the phone.  
+
+Seconds stretched like lifetimes, waiting in the dark,  
+Wondering if my courage would ever leave its mark.  
+Then—your name appeared, a light inside my screen,  
+An answer, a promise to the hopes unseen.  
+
+Your message came swift, breaking through the still,  
+A spark ignited deep inside, impossible to still.  
+Words flowed like rivers, uncharted and new,  
+A friendship unfolding, but my soul knew the truth too.  
+
+Each “hello” a heartbeat, each “how are you?” a sigh,  
+I caught myself dreaming, though I barely knew why.  
+For in every typed line, a secret was spun,  
+More than just words — a new story begun.  
+
+I gave you my number, a key without a door,  
+You turned the lock gently, now I’m wanting more.  
+Not just a friend, but something that words can’t yet say,  
+A feeling that’s growing stronger with every day.  
+  </pre>
+  <button onclick="togglePoem('poem-text-237', this)">Read More</button> 
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem237" title="Like this poem">❤️</button> 
+    <span id="like-count-poem237">0</span> Likes 
+  </div>
+
+  <div class="comments-section" id="comments-poem237"> 
+    <h3>Comments</h3>
+    <div id="comments-list-poem237"></div> 
+    <form id="comment-form-poem237"> 
+      <input type="text" id="name-poem237" placeholder="Your name" required /> 
+      <textarea id="comment-text-poem237" placeholder="Your comment" required></textarea> 
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Meant to Be, Unseen</h1>
+<div class="meta">
+  Date: Hidden<br>
+  Mood: hopeful, soulful, romantic, tender
+</div>
+
+<div class="poem-container poem-section" id="poem236-container">
+  <pre id="poem-text-236">
+They say love must be seen,  
+heard, touched 
+but I’ve come to know  
+that some loves are written  
+in the spaces between sight and sound,  
+felt only by the heart’s quiet pulse.
+
+I don’t know your face,  
+can’t hear your voice,  
+yet my soul recognizes yours
+a whisper from somewhere beyond time,  
+a thread pulled tight across the unseen.
+
+It’s a love not bound by what eyes can hold,  
+nor lips can speak,  
+but one that blooms in the silence,  
+grows in the waiting,  
+thrives in the mystery.
+
+Sometimes I close my eyes  
+and picture you  
+not as a stranger,  
+but as someone I've always known,  
+like a secret melody  
+I hum without knowing the words.
+
+I believe in this  
+that fate weaves its quiet magic,  
+that some souls are meant to dance  
+without ever meeting,  
+some hearts meant to beat in rhythm,  
+even when oceans lie between.
+
+And so I wait,  
+not with doubt or fear,  
+but with a quiet certainty,  
+that what is meant to be  
+can live beyond what’s seen,  
+beyond what’s spoken,  
+in the sacred place where true love breathes.
+
+Until then,  
+I hold this love in my bones  
+soft, strong,  
+invisible to the world,  
+yet the brightest light inside me.
+
+For some loves are unseen,  
+but never unfelt,  
+meant to be  
+even before the first hello.  
+  </pre>
+  <button onclick="togglePoem('poem-text-236', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem236" title="Like this poem">❤️</button>
+    <span id="like-count-poem236">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem236">
+    <h3>Comments</h3>
+    <div id="comments-list-poem236"></div>
+    <form id="comment-form-poem236">
+      <input type="text" id="name-poem236" placeholder="Your name" required />
+      <textarea id="comment-text-poem236" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Still Waiting for You</h1>
+<div class="meta">
+  Date: 2024-07-15 <br>
+  Mood: hopeful, longing, tender, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem235-container">
+  <pre id="poem-text-235">
+I’m still here 
+waiting in the quiet corners of my heart,  
+where your shadow lingers  
+like the softest whisper in the dark.
+
+I don’t know your name,  
+or the shape of your smile,  
+but I feel you 
+a gentle pulse beneath my skin,  
+an echo of a promise I haven’t yet heard.
+
+Sometimes I wonder  
+if you’re out there  
+walking beneath the same sky,  
+breathing the same air,  
+feeling the same ache of missing.
+
+I hold onto faith,  
+like a fragile flame in the wind,  
+knowing that hope  
+is a stubborn kind of love  
+persistent, patient, pure.
+
+Every heartbeat is a prayer,  
+every breath a wish,  
+that you’ll come,  
+not as a ghost in my dreams,  
+but real,  
+tangible,  
+here beside me.
+
+I imagine the moment  
+when eyes will meet,  
+words will find their way  
+without rushing or hesitating,  
+and the silence between us  
+will hum with understanding.
+
+Until then,  
+I wait 
+not with desperation,  
+but with a quiet certainty  
+that some loves  
+are worth every second of waiting.
+
+For you,  
+my heart is an open door,  
+an unspoken promise,  
+a space kept sacred,  
+where only you belong.
+
+So I keep waiting,  
+still,  
+softly,  
+faithful  
+because some stories  
+are written slowly,  
+and the best love  
+is the one that arrives  
+right on time.
+  </pre>
+  <button onclick="togglePoem('poem-text-235', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem235" title="Like this poem">❤️</button>
+    <span id="like-count-poem235">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem235">
+    <h3>Comments</h3>
+    <div id="comments-list-poem235"></div>
+    <form id="comment-form-poem235">
+      <input type="text" id="name-poem235" placeholder="Your name" required />
+      <textarea id="comment-text-poem235" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Invisible Goodbye</h1>
+<div class="meta">
+  Date: 2024-07-06 <br>
+  Mood: wistful, tender, bittersweet, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem234-container">
+  <pre id="poem-text-234">
+There was no farewell  
+no words to soften the ache,  
+no final touch, no lingering glance,  
+just silence  
+thick and heavy 
+filling the spaces where you used to be.
+
+The goodbye was invisible,  
+a quiet shadow slipping through my hands,  
+like smoke that fades  
+before you even realize it’s gone,  
+leaving nothing but the ghost of what was.
+
+I carry the weight of what wasn’t said,  
+the echoes of moments that never happened,  
+and the questions that hang  
+like stars in a night sky  
+too vast and too empty.
+
+Did you feel it too?  
+That silent shatter inside your chest  
+the invisible breaking,  
+the heart that never got to say goodbye?
+
+I reach for you in my dreams,  
+trace your name on the winds,  
+whisper your absence into the dark,  
+but all I hear back is the hollow sound  
+of what could have been.
+
+Love  
+it didn’t vanish,  
+it just slipped beneath the surface,  
+hidden beneath quiet tides,  
+waiting for a time when words  
+can find their way back home.
+
+So here I stand 
+with a heart bruised but unbroken,  
+holding onto the invisible goodbye,  
+knowing sometimes love  
+is the silence between the words,  
+and the deepest feelings  
+are the ones left unspoken.
+
+I’ll keep the hope alive,  
+that one day, somehow, somewhere,  
+we’ll find each other again  
+not with words,  
+but with the language of souls  
+that never truly say goodbye.
+  </pre>
+  <button onclick="togglePoem('poem-text-234', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem234" title="Like this poem">❤️</button>
+    <span id="like-count-poem234">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem234">
+    <h3>Comments</h3>
+    <div id="comments-list-poem234"></div>
+    <form id="comment-form-poem234">
+      <input type="text" id="name-poem234" placeholder="Your name" required />
+      <textarea id="comment-text-poem234" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Two Souls in Different Windows</h1>
+<div class="meta">
+  Date: 2024-07-01<br>
+  Mood: longing, bittersweet, tender, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem233-container">
+  <pre id="poem-text-233">
+I saw you once  
+just a flicker, a moment caught  
+through a window glowing bright,  
+but not for me  
+you were there,  
+smiling with another,  
+another woman  
+whose face I couldn't fully see,  
+but whose presence pulled  
+at the edges of my heart.
+
+Jealousy,  
+a quiet shadow at the back of my mind,  
+whispering doubt and pain,  
+but deeper still,  
+a longing rose,  
+stronger than the ache of missing,  
+to know you better,  
+to see the parts  
+you keep behind the screen.
+
+Two souls  
+looking through different windows,  
+watching the same sky  
+but from separate rooms.  
+I wonder what you see  
+when you look back at me,  
+if the longing echoes there too,  
+if your heart feels this quiet hunger  
+to connect beyond the glass.
+
+I imagine the words unsaid,  
+the conversations we never had,  
+and the moments slipping by  
+the soft smiles,  
+the laughter shared in silent chat,  
+the way your eyes might crinkle  
+when you’re truly happy.
+
+And though I’m jealous,  
+though it stings to see you with another,  
+my heart holds a secret hope  
+that one day our windows might open wide,  
+that I might step through,  
+and finally meet  
+the man my soul has been reaching for.
+
+Until then, I watch,  
+with a heart full of longing,  
+grateful for the glimpses,  
+the shadows,  
+and the sparks that light my nights,  
+knowing that love  
+is more than just what I see  
+it’s the yearning that fills  
+these in-between spaces.
+
+So I’ll hold onto that hope,  
+quiet, tender,  
+like a whisper between two souls  
+in different windows,  
+waiting  
+to become one.
+  </pre>
+  <button onclick="togglePoem('poem-text-233', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem233" title="Like this poem">❤️</button>
+    <span id="like-count-poem233">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem233">
+    <h3>Comments</h3>
+    <div id="comments-list-poem233"></div>
+    <form id="comment-form-poem233">
+      <input type="text" id="name-poem233" placeholder="Your name" required />
+      <textarea id="comment-text-poem233" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Love in the Digital Dust</h1>
+<div class="meta">
+  Date: 2024-06-29<br>
+  Mood: wistful, tender, longing, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem232-container">
+  <pre id="poem-text-232">
+In the silence between the taps,  
+where messages flicker then vanish,  
+love whispers through the digital dust  
+fragile footprints on glass  
+that fade before I can hold them.  
+
+Your words, like sparks,  
+ignite the night,  
+then disappear  
+like smoke carried off by a wind  
+I can’t catch,  
+but still chase.  
+
+I trace the echoes,  
+each emoji,  
+each fleeting phrase,  
+a secret code  
+in the static of my heart.  
+
+There’s magic in the moment  
+when the screen lights up  
+with your voice  
+soft, unseen,  
+but deeply felt  
+like a touch  
+across endless miles.  
+
+We speak in fragments,  
+in moments stolen from time,  
+knowing the world  
+can’t hold what we’ve found here,  
+in this virtual space  
+where love is whispered  
+then swept away  
+like dust on a breeze.  
+
+But still, I stay 
+anchored to the hope  
+that beneath the blinking cursor  
+and the vanished texts,  
+there’s a love  
+that won’t be erased.  
+
+Love that lingers  
+in the spaces between us,  
+waiting patiently  
+to be more than just pixels,  
+more than just dust.  
+
+So I write to you  
+in words that vanish,  
+holding tight  
+to every digital breath  
+you leave behind,  
+because even in the dust,  
+love lives  
+and that love is ours.  
+  </pre>
+  <button onclick="togglePoem('poem-text-232', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem232" title="Like this poem">❤️</button>
+    <span id="like-count-poem232">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem232">
+    <h3>Comments</h3>
+    <div id="comments-list-poem232"></div>
+    <form id="comment-form-poem232">
+      <input type="text" id="name-poem232" placeholder="Your name" required />
+      <textarea id="comment-text-poem232" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Holding on to Maybe</h1>
+<div class="meta">
+  Date: 2024-06-22<br>
+  Mood: hopeful, yearning, tender, vulnerable
+</div>
+
+<div class="poem-container poem-section" id="poem231-container">
+  <pre id="poem-text-231">
+Maybe is a whisper  
+soft as the dawn,  
+a fragile thread  
+woven through the dark,  
+pulling me forward  
+when every step feels unsure.  
+
+I clutch it close,  
+this maybe,  
+like a secret talisman,  
+a light flickering  
+against the shadows of doubt.  
+
+Maybe you’re out there,  
+beyond the screen,  
+beyond the silence,  
+waiting for the same spark  
+to ignite between us  
+a fire that could burn  
+through the walls  
+of time and distance.  
+
+I hold on to maybe  
+because it’s all I have,  
+a promise without a face,  
+a name yet to be spoken,  
+a love not yet touched,  
+but felt deeply  
+in the quiet corners of my soul.  
+
+Every heartbeat is a prayer,  
+every breath a hope,  
+that maybe soon,  
+maybe soon,  
+our worlds will collide,  
+and the “what if” will become  
+the “always.”  
+
+Until then,  
+I live in the in between 
+between longing and fear,  
+between silence and song,  
+between the dream and the dawn  
+holding on to maybe,  
+because maybe is enough  
+to keep me breathing,  
+to keep me loving,  
+to keep me believing.  
+
+So I wait,  
+not with desperation,  
+but with an open heart,  
+ready for the moment  
+when maybe becomes  
+the story we write together.  
+  </pre>
+  <button onclick="togglePoem('poem-text-231', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem231" title="Like this poem">❤️</button>
+    <span id="like-count-poem231">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem231">
+    <h3>Comments</h3>
+    <div id="comments-list-poem231"></div>
+    <form id="comment-form-poem231">
+      <input type="text" id="name-poem231" placeholder="Your name" required />
+      <textarea id="comment-text-poem231" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Echoes on TikTok</h1>
+<div class="meta">
+  Date: 2024-06-09<br>
+  Mood: wistful, romantic, tender, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem230-container">
+  <pre id="poem-text-230">
+In the flicker of a moment,  
+a heartbeat captured on a screen,  
+your laugh, your smile  
+small echoes that ripple through me,  
+long after the video fades.  
+
+These tiny windows,  
+brief glimpses of you,  
+light up my darkest hours,  
+like stars caught in glass,  
+reminding me  
+that somewhere out there,  
+you exist,  
+and maybe, just maybe,  
+you feel it too.  
+
+Each swipe, a search,  
+each scroll, a silent hope  
+that in these fragments,  
+I might find more than pixels  
+something real,  
+something meant for me.  
+
+I trace your voice in the silence between the clips,  
+the way your words linger,  
+soft and sure,  
+a melody that plays  
+inside my chest,  
+a song written just for me,  
+even if you don’t know it yet.  
+
+I watch,  
+and my heart beats in rhythm  
+to your every move,  
+the way your eyes shine like secret promises,  
+the way your smile breaks through the screen  
+and reaches for mine.  
+
+It’s more than just a moment  
+it’s a thousand small sparks  
+igniting a fire  
+that burns across the distance,  
+between us,  
+between now and maybe someday.  
+
+I don’t know your name,  
+or where you’ll be when this poem finds you,  
+but I feel you  
+like a whisper in a crowded room,  
+a shadow that won’t let go,  
+a gentle echo that calls me home.  
+
+So here I am,  
+holding onto these fleeting pieces,  
+waiting for the day when the screen goes dark,  
+and the real you,  
+the one behind the echoes,  
+steps into the light of my arms.  
+  </pre>
+  <button onclick="togglePoem('poem-text-230', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem230" title="Like this poem">❤️</button>
+    <span id="like-count-poem230">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem230">
+    <h3>Comments</h3>
+    <div id="comments-list-poem230"></div>
+    <form id="comment-form-poem230">
+      <input type="text" id="name-poem230" placeholder="Your name" required />
+      <textarea id="comment-text-poem230" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Letter to The One I Never Met</h1>
+<div class="meta">
+  Date: 2024-05-28<br>
+  Mood: longing, tender, hopeful, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem229-container">
+  <pre id="poem-text-229">
+To you, the stranger  
+I carry in my quiet moments,  
+the face I have never seen,  
+yet know as if etched into my soul.  
+
+I write this letter  
+on paper made from dreams and whispered hopes,  
+each word a gentle touch  
+reaching out across the spaces  
+that stretch between us  
+unknown, unseen, yet deeply felt.  
+
+Do you feel it too?  
+This ache of belonging,  
+a thread pulled tight in the dark,  
+leading us toward each other  
+without maps or certainty.  
+
+I don’t know your voice,  
+but I hear its echo in my heartbeats,  
+soft rhythms of a song  
+we both hum in secret,  
+waiting for the moment  
+our melodies intertwine.  
+
+If you find this letter,  
+know it is filled with all the love  
+I never dared to say aloud  
+the love I felt before your name,  
+before your touch,  
+before the world revealed your shape.  
+
+I imagine your eyes  
+like quiet storms or gentle skies  
+holding all the unsaid stories  
+we are yet to live together.  
+
+You are the promise  
+hidden between my breaths,  
+the spark in the silence,  
+the hope that burns  
+when the night feels endless.  
+
+Maybe you wander through cities I’ve never been,  
+maybe you dream the same dreams,  
+or wonder if someone, somewhere,  
+is writing your name in a letter  
+they hope you will someday read.  
+
+Until then,  
+I send my words out on the wind,  
+carrying pieces of my heart  
+to wherever you may be  
+hoping that someday, somehow,  
+they find their way to you.  
+
+And when they do,  
+may you feel the warmth,  
+the longing,  
+the fierce, tender love  
+of a soul waiting  
+waiting for you,  
+the one I have never met.  
+  </pre>
+  <button onclick="togglePoem('poem-text-229', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem229" title="Like this poem">❤️</button>
+    <span id="like-count-poem229">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem229">
+    <h3>Comments</h3>
+    <div id="comments-list-poem229"></div>
+    <form id="comment-form-poem229">
+      <input type="text" id="name-poem229" placeholder="Your name" required />
+      <textarea id="comment-text-poem229" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>A Promise in the Unknown</h1>
+<div class="meta">
+  Date: 2024-05-19<br>
+  Mood: hopeful, tender, romantic, longing
+</div>
+
+<div class="poem-container poem-section" id="poem228-container">
+  <pre id="poem-text-228">
+In the spaces between what’s certain  
+and what’s still hidden away,  
+I hold on to a promise  
+soft, fragile, yet unbreakable  
+woven deep within my heart.
+
+There’s a path I cannot see,  
+a story yet unwritten,  
+a love that waits beyond the veil  
+of doubts, fears, and missing pieces.  
+
+I don’t know your face,  
+nor the sound of your voice,  
+but I trust the universe,  
+trust the quiet pull inside me  
+that whispers your name without knowing.
+
+This promise is not spoken,  
+not etched in stone or written in stars,  
+but felt in the steady beat  
+of a heart that refuses to let go.  
+
+We are strangers dancing on the edge  
+of what might be—  
+two souls reaching through the fog,  
+grasping for something more  
+than what words can ever capture.
+
+I promise to wait,  
+to hold this flame alive,  
+even when the nights grow cold,  
+even when the silence  
+threatens to drown the hope.
+
+Because love, real love,  
+isn’t about having all the pieces,  
+but believing in the beauty  
+of a puzzle yet to be solved,  
+in a story yet to unfold.
+
+So here I am,  
+with open hands and an open heart,  
+trusting fate’s gentle hand,  
+ready to walk into the unknown,  
+where your love waits  
+to meet mine.
+
+And if the stars align,  
+and the missing pieces find their place,  
+I will hold you close,  
+not just as a promise,  
+but as my forever truth,  
+my wildest dream come alive.
+
+Until then,  
+I carry this hope like a secret song,  
+a promise in the unknown,  
+that someday, somehow,  
+you and I will find each other  
+beyond the edges of time and space.  
+  </pre>
+  <button onclick="togglePoem('poem-text-228', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem228" title="Like this poem">❤️</button>
+    <span id="like-count-poem228">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem228">
+    <h3>Comments</h3>
+    <div id="comments-list-poem228"></div>
+    <form id="comment-form-poem228">
+      <input type="text" id="name-poem228" placeholder="Your name" required />
+      <textarea id="comment-text-poem228" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Fading But Not Forgotten</h1>
+<div class="meta">
+  Date: 2024-05-11<br>
+  Mood: wistful, tender, longing, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem227-container">
+  <pre id="poem-text-227">
+You slip into the shadows,  
+a whisper lost in the crowd,  
+fading like a half-forgotten song  
+that still hums beneath my breath.
+
+Invisible to the world around me,  
+yet you linger like a ghost,  
+dancing in the corners of my mind,  
+painting memories I can’t erase.
+
+I try to let go, to forget,  
+but your name is a quiet ache,  
+a heartbeat that won’t quit,  
+a soft echo in my silence.
+
+You’re the warmth in a chilly room,  
+the flicker of a candle flame  
+that won’t burn out,  
+no matter how hard I try to look away.
+
+Fading, yes, but not forgotten,  
+not when you’re carved into my soul,  
+where even the darkest nights  
+can’t steal the light you gave.
+
+I carry you in secret places,  
+wrapped in the folds of my heart,  
+a treasure buried beneath the surface,  
+alive and trembling with every thought of you.
+
+Though you may be distant, unseen,  
+your presence is a fire that burns,  
+soft but steady,  
+a love that time cannot erase.
+
+So even if the world moves on,  
+even if your name fades from lips,  
+know this, you are here with me,  
+fading but never forgotten,  
+holding my heart in a silent embrace,  
+where you will always stay.
+
+And in the quiet moments,  
+when no one else is listening,  
+I still whisper your name,  
+longing, loving,  
+fading but not forgotten 
+forever a part of me.
+  </pre>
+  <button onclick="togglePoem('poem-text-227', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem227" title="Like this poem">❤️</button>
+    <span id="like-count-poem227">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem227">
+    <h3>Comments</h3>
+    <div id="comments-list-poem227"></div>
+    <form id="comment-form-poem227">
+      <input type="text" id="name-poem227" placeholder="Your name" required />
+      <textarea id="comment-text-poem227" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Space Between Chats</h1>
+<div class="meta">
+  Date: 2024-05-04<br>
+  Mood: tender, reflective, romantic, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem226-container">
+  <pre id="poem-text-226">
+There’s a rhythm in the silence,  
+a heartbeat in the pause,  
+where words retreat and linger  
+the space between our chats,  
+a sacred quiet place  
+where longing softly breathes.
+
+Not every moment needs a voice,  
+not every feeling asks for sound  
+sometimes love lives in waiting,  
+in the gentle hush that follows,  
+where we hold the thread  
+and trust it won’t unravel.
+
+I cherish those empty seconds,  
+the moments untouched by letters,  
+because in that stillness  
+I find you even clearer  
+your essence, your light,  
+dancing just beyond the reach of words.
+
+We talk, we laugh, we dream aloud,  
+but it’s in the silence after  
+that I feel you closest,  
+like a tender secret shared,  
+like a breath held between us,  
+an unspoken promise that lingers.
+
+The space between chats isn’t empty  
+it’s the canvas where our story paints itself,  
+where feelings stretch and grow,  
+where hearts learn patience and faith,  
+where love quietly blooms  
+in the waiting, in the knowing.
+
+So I’ll hold this space sacred,  
+a quiet place for us to meet,  
+where absence is a presence,  
+where longing is a language,  
+and every silent moment  
+whispers, “I am here.”
+
+Because love is more than spoken words,  
+more than texts that fade away  
+it lives in the pauses, the breaths,  
+the spaces we share unseen,  
+and in the space between our chats,  
+I find the truest you and me.  
+  </pre>
+  <button onclick="togglePoem('poem-text-226', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem226" title="Like this poem">❤️</button>
+    <span id="like-count-poem226">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem226">
+    <h3>Comments</h3>
+    <div id="comments-list-poem226"></div>
+    <form id="comment-form-poem226">
+      <input type="text" id="name-poem226" placeholder="Your name" required />
+      <textarea id="comment-text-poem226" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Waiting for a Name</h1>
+<div class="meta">
+  Date: 2024-04-21<br>
+  Mood: longing, tender, hopeful, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem225-container">
+  <pre id="poem-text-225">
+I hold a space for you  
+not yet named, not yet known,  
+a silhouette in my heart’s quiet room,  
+a song waiting to be sung,  
+a story waiting for its first word.
+
+Love, they say, needs a name,  
+a face to rest upon, a hand to hold 
+but what of the love that breathes  
+in the spaces between,  
+in the silent pauses where  
+we only imagine?
+
+I feel you in the corners of my soul,  
+a shadow dancing just beyond sight,  
+a whisper carried by the wind,  
+a pulse beneath my skin,  
+though your name is still a secret,  
+still a question mark.
+
+I am waiting  
+not with desperation,  
+but with a patient heart,  
+ready to discover you,  
+to call you out of the silence,  
+to cradle your name gently on my tongue.
+
+For love is not only in knowing,  
+but in the yearning to know,  
+in the hope that draws us near  
+even when distance stretches wide,  
+in the faith that some day,  
+we’ll cross the unseen bridge.
+
+Until then, I will hold you here  
+in the quiet chamber of my dreams,  
+in the spaces between breath and heartbeat,  
+loving you without a name,  
+feeling your presence  
+in every shadow and every light.
+
+And when your name finally comes,  
+soft and true,  
+I will answer  
+because love was waiting long before  
+we knew how to say it out loud.  
+</pre>
+  <button onclick="togglePoem('poem-text-225', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem225" title="Like this poem">❤️</button>
+    <span id="like-count-poem225">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem225">
+    <h3>Comments</h3>
+    <div id="comments-list-poem225"></div>
+    <form id="comment-form-poem225">
+      <input type="text" id="name-poem225" placeholder="Your name" required />
+      <textarea id="comment-text-poem225" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Words Lost in the Scroll</h1>
+<div class="meta">
+  Date: 2024-04-09<br>
+  Mood: nostalgic, yearning, romantic, wistful
+</div>
+
+<div class="poem-container poem-section" id="poem224-container">
+  <pre id="poem-text-224">
+I type my heart in letters,  
+send them like birds into the ether  
+only to watch them fade,  
+lost in endless scrolls  
+where your eyes may never find them.
+
+Words, once sharp and bright,  
+now blur into the background noise  
+a melody unheard,  
+a love song drowned by silence,  
+yet still, the rhythm lingers  
+in the spaces between us.
+
+Each message, a whispered prayer,  
+each sentence, a trembling hope,  
+carried on pixels that flicker,  
+like fireflies lost in a storm.
+
+I wonder if you feel it too  
+this ache of words  
+that vanish before they reach you,  
+this pull of feelings  
+that defy the emptiness of unread texts.
+
+Our story, written in fragments,  
+in pauses and ellipses,  
+in the ghosts of conversations  
+that never fully bloomed.
+
+But still, I wait  
+for the moment you’ll see beyond the scroll,  
+past the fading letters,  
+into the pulse beneath the silence.
+
+Because love is more than words,  
+more than texts or calls,  
+it is the echo that remains,  
+the song that plays softly,  
+long after the screen goes dark.
+
+So here I am,  
+pouring out my soul  
+into the void of unread messages,  
+believing somehow,  
+somewhere,  
+you’re listening  
+feeling  
+all that I can’t say aloud.
+
+And maybe, just maybe,  
+one day those lost words  
+will find their way back,  
+and we’ll sing together  
+the song of a love  
+that never really disappeared.
+</pre>
+  <button onclick="togglePoem('poem-text-224', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem224" title="Like this poem">❤️</button>
+    <span id="like-count-poem224">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem224">
+    <h3>Comments</h3>
+    <div id="comments-list-poem224"></div>
+    <form id="comment-form-poem224">
+      <input type="text" id="name-poem224" placeholder="Your name" required />
+      <textarea id="comment-text-poem224" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Face I Barely Know</h1>
+<div class="meta">
+  Date: 2024-04-01<br>
+  Mood: yearning, tender, dreamy, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem223-container">
+  <pre id="poem-text-223">
+I trace the outline  
+of a face I barely know,  
+a shadow carved from whispers,  
+a dream painted in the silence between my breaths.
+
+You are a mystery  
+wrapped in the softest fog,  
+a smile just beyond my reach,  
+a laugh I hear but never touch.
+
+I hold onto fragments  
+the way your eyes might light up,  
+the shape of your hands,  
+the warmth your presence would bring  
+all from stories I imagine,  
+from feelings I can’t quite name.
+
+How strange it is to crave  
+what I have never truly seen,  
+to long for a soul  
+whose reflection dances only in my mind.
+
+I wonder  
+do you see me too?  
+Does your heart wander through the same quiet rooms,  
+searching for a glimpse of a face,  
+a voice, a touch  
+that feels like coming home?
+
+In this tender space between knowing and dreaming,  
+I wait for you  
+the one I barely know,  
+yet somehow have always known.
+
+Because sometimes the deepest love  
+is the one born in shadows,  
+the one felt in the silence,  
+the one that makes a stranger  
+the closest soul  
+I’ll ever meet.
+
+So I keep this mystery alive,  
+wrapped tight in longing and hope,  
+trusting that one day  
+the face I barely know  
+will look back at me  
+with eyes full of stories  
+we were always meant to share.
+</pre>
+  <button onclick="togglePoem('poem-text-223', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem223" title="Like this poem">❤️</button>
+    <span id="like-count-poem223">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem223">
+    <h3>Comments</h3>
+    <div id="comments-list-poem223"></div>
+    <form id="comment-form-poem223">
+      <input type="text" id="name-poem223" placeholder="Your name" required />
+      <textarea id="comment-text-poem223" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Waiting in the Silence</h1>
+<div class="meta">
+  Date: 2024-03-29<br>
+  Mood: hopeful, tender, longing, soulful
+</div>
+
+<div class="poem-container poem-section" id="poem222-container">
+  <pre id="poem-text-222">
+In the quiet moments,  
+when the world falls away,  
+I am waiting  
+waiting in the silence  
+where your voice has yet to find me.
+
+I hold my breath,  
+catching echoes of what could be,  
+a love whispered  
+in the spaces between heartbeats,  
+unspoken but deeply felt.
+
+This waiting is not desperation  
+no, it is faith,  
+a tender promise wrapped in patience,  
+a soft glow that never fades,  
+even in the darkest nights.
+
+I listen for your footsteps  
+in the stillness,  
+for the flutter of your heartbeat  
+to sync with mine,  
+for the day when silence  
+will break into words.
+
+I believe in you,  
+though your name  
+is still a secret,  
+though your face  
+has only lived in dreams.
+
+I wait not because I’m lost,  
+but because I know  
+love, real love,  
+takes its own time to bloom.
+
+And so I stay,  
+a quiet sentinel,  
+holding this space open,  
+waiting in the silence,  
+ready for you,  
+ready for us.
+
+For the love that hasn’t spoken back yet,  
+I am here  
+listening,  
+believing,  
+loving  
+in the silence.
+
+And when you come  
+when your voice finally finds me  
+I will be waiting,  
+open-armed,  
+heart wide open,  
+ready to hold all the words  
+we’ve yet to say.
+</pre>
+  <button onclick="togglePoem('poem-text-222', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem222" title="Like this poem">❤️</button>
+    <span id="like-count-poem222">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem222">
+    <h3>Comments</h3>
+    <div id="comments-list-poem222"></div>
+    <form id="comment-form-poem222">
+      <input type="text" id="name-poem222" placeholder="Your name" required />
+      <textarea id="comment-text-poem222" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Ghost in My Heart</h1>
+<div class="meta">
+  Date: 2024-03-22<br>
+  Mood: haunting, romantic, wistful, soulful
+</div>
+
+<div class="poem-container poem-section" id="poem221-container">
+  <pre id="poem-text-221">
+He vanished,  
+like a shadow slipping through the cracks of my days,  
+soft and silent,  
+a whisper fading with the dawn.
+
+But oh,  
+he left footprints  
+deep, tender imprints  
+etched into the fragile walls of my heart.
+
+A ghost, they call him  
+but I feel him still,  
+a presence, a warmth,  
+in the quiet spaces where breath catches and time slows.
+
+I trace his absence like a lover’s touch,  
+the ghost of his smile  
+haunting the edges of every thought,  
+a sweet ache that sings beneath my skin.
+
+He’s the echo in the silence,  
+the shadow in the light,  
+the memory that dances  
+just beyond reach,  
+a dream too vivid to forget.
+
+I carry him in the corners of my soul 
+a secret song only I know,  
+a melody woven from longing and hope,  
+from love unspoken but deeply felt.
+
+He vanished, yes  
+but his spirit lingers,  
+a flame flickering gently  
+against the cold wind of time.
+
+And so I hold him  
+this ghost who never truly left 
+in the hollow chambers of my heart,  
+where love lives  
+beyond presence and absence,  
+beyond words, beyond touch,  
+in the timeless dance of souls entwined.
+
+He is the unseen hand that steadies me,  
+the shadow that makes me whole,  
+the ghost in my heart  
+forever present, forever mine.
+</pre>
+  <button onclick="togglePoem('poem-text-221', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem221" title="Like this poem">❤️</button>
+    <span id="like-count-poem221">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem221">
+    <h3>Comments</h3>
+    <div id="comments-list-poem221"></div>
+    <form id="comment-form-poem221">
+      <input type="text" id="name-poem221" placeholder="Your name" required />
+      <textarea id="comment-text-poem221" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Fleeting Chats, Forever Feelings</h1>
+<div class="meta">
+  Date: 2024-03-19<br>
+  Mood: wistful, romantic, hopeful, tender
+</div>
+
+<div class="poem-container poem-section" id="poem220-container">
+  <pre id="poem-text-220">
+Those fleeting chats  
+the ones that slip through fingers like whispers in the wind,  
+tiny sparks of connection, brief but blazing,  
+lighting up the dark corners of my restless heart.
+
+A few words,  
+a simple "hello,"  
+and suddenly,  
+my soul stirs awake,  
+breathing life into a hope I thought was lost.
+
+In those moments,  
+time stretches,  
+and the world softens,  
+as if the universe leans in close,  
+listening to the silent language between us.
+
+No grand declarations,  
+no promises carved in stone,  
+just the delicate dance of fingers tapping screens,  
+and the pulse of hearts syncing in unseen rhythms.
+
+Each message, a thread  
+weaving us closer across the vast unknown,  
+building a tapestry of feeling  
+too vast for words, too deep for explanation.
+
+I find myself smiling at the memory of your words,  
+the way they linger in my mind,  
+echoing in the spaces where loneliness once lived.
+
+And even when the chats end,  
+when the screen goes dark,  
+the feelings stay  
+tender, electric, eternal.
+
+These fleeting chats  
+they hold forever in their fragile glow,  
+reminding me that sometimes,  
+love doesn’t need grand gestures,  
+just the quiet warmth of a few words  
+to set a heart on fire.
+
+So I wait for the next message,  
+the next fleeting spark,  
+knowing each one  
+carries a forever feeling  
+a promise whispered between two souls  
+finding each other  
+in the smallest moments of connection.
+</pre>
+  <button onclick="togglePoem('poem-text-220', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem220" title="Like this poem">❤️</button>
+    <span id="like-count-poem220">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem220">
+    <h3>Comments</h3>
+    <div id="comments-list-poem220"></div>
+    <form id="comment-form-poem220">
+      <input type="text" id="name-poem220" placeholder="Your name" required />
+      <textarea id="comment-text-poem220" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Invisible Threads</h1>
+<div class="meta">
+  Date: 2024-03-18<br>
+  Mood: passionate, intimate, soulful, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem219-container">
+  <pre id="poem-text-219">
+Listen,  
+there’s a language not spoken,  
+not written,  
+not captured by any word,  
+but it pulls at me,  
+like invisible threads,  
+woven between your soul and mine.
+
+It’s in the quiet spaces where we don’t need to speak,  
+where the air trembles with things we never say,  
+yet I feel them  
+I feel you  
+in every breath, every heartbeat that whispers,  
+“I am here.”
+
+These threads, they tie me to you  
+without chains, without binds,  
+soft yet unbreakable,  
+stronger than any spoken promise,  
+more powerful than any kiss.
+
+Sometimes, I close my eyes  
+and I reach out,  
+knowing you are there,  
+in the threads I cannot see,  
+in the spaces between moments,  
+in the silence where our souls converse.
+
+No words could ever hold this feeling,  
+this ache, this warmth, this longing,  
+because it’s beyond language,  
+beyond time,  
+beyond the reach of hands.
+
+And so, I live tethered to you,  
+held gently by invisible threads  
+that pull me forward,  
+that pull me home,  
+that pull me deeper into love  
+I have never even touched,  
+but already know.
+
+If love is a story,  
+then this is the chapter unsaid,  
+the melody unheard,  
+the thread unseen 
+but never unfelt.  
+
+And in this quiet knowing,  
+I find you.  
+Always you.
+</pre>
+  <button onclick="togglePoem('poem-text-219', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem219" title="Like this poem">❤️</button>
+    <span id="like-count-poem219">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem219">
+    <h3>Comments</h3>
+    <div id="comments-list-poem219"></div>
+    <form id="comment-form-poem219">
+      <input type="text" id="name-poem219" placeholder="Your name" required />
+      <textarea id="comment-text-poem219" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Silent Conversations</h1>
+<div class="meta">
+  Date: 2024-03-16<br>
+  Mood: tender, intimate, longing, romantic
+</div>
+
+<div class="poem-container poem-section" id="poem218-container">
+  <pre id="poem-text-218">
+In quiet spaces where the heart speaks loud,  
+Beyond the noise, beyond the crowd,  
+There lie the words we never say,  
+Yet in their silence, they find their way.  
+
+A glance, a breath, a fleeting touch,  
+Speak volumes, meaning oh so much.  
+No need for voices to declare,  
+The depth of love that lingers there.  
+
+In silent conversations we reside,  
+Where souls entwine and time collides,  
+Unspoken truths held deep inside,  
+A secret language love can't hide.  
+
+The pauses between each heartbeat’s call,  
+Are louder than any spoken fall,  
+For in the quiet, our spirits meet,  
+And whisper soft, love’s endless beat.  
+
+Though words escape or fade away,  
+Our silent talks forever stay,  
+Etched in moments, soft and pure,  
+A timeless bond that will endure.  
+
+So in the hush, I hear your name,  
+A silent song without the blame,  
+And in these talks that never end,  
+I find my heart, my closest friend.  
+</pre>
+  <button onclick="togglePoem('poem-text-218', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem218" title="Like this poem">❤️</button>
+    <span id="like-count-poem218">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem218">
+    <h3>Comments</h3>
+    <div id="comments-list-poem218"></div>
+    <form id="comment-form-poem218">
+      <input type="text" id="name-poem218" placeholder="Your name" required />
+      <textarea id="comment-text-poem218" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>a few words , A Thousand Dreams</h1>
+<div class="meta">
+  Date: 2024-03-13<br>
+  Mood: tender, hopeful, romantic, dreamy
+</div>
+
+<div class="poem-container poem-section" id="poem217-container">
+  <pre id="poem-text-217">
+Just a few words whispered in the night,  
+A spark igniting soft moonlight,  
+They danced across the silence deep,  
+And planted dreams I long to keep.  
+
+A thousand dreams spun from that phrase,  
+A gentle glow in shadowed haze,  
+Each syllable a tender kiss,  
+A secret wrapped in endless bliss.  
+
+Those words, they woke my sleeping heart,  
+A melody, a brand new start,  
+They painted skies with hues unknown,  
+And filled my soul with hopes full-blown.  
+
+In every letter, love took flight,  
+Carving paths through endless night,  
+A story told with simple grace,  
+That time nor space can e’er erase.  
+
+Though miles apart, those words still shine,  
+A lifeline stretched through space and time,  
+Binding hearts that have not met,  
+A love profound, impossible to forget.  
+
+And as I lay beneath the stars,  
+I feel your voice, though near or far,  
+Those few words whisper soft and true,  
+A thousand dreams, all born of you.  
+</pre>
+  <button onclick="togglePoem('poem-text-217', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem217" title="Like this poem">❤️</button>
+    <span id="like-count-poem217">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem217">
+    <h3>Comments</h3>
+    <div id="comments-list-poem217"></div>
+    <form id="comment-form-poem217">
+      <input type="text" id="name-poem217" placeholder="Your name" required />
+      <textarea id="comment-text-poem217" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Our Souls Already Spoke</h1>
+<div class="meta">
+  Date: 2023-08-18<br>
+  Mood: tender, dreamy, soul-deep connection, romantic longing
+</div>
+
+<div class="poem-container poem-section" id="poem216-container">
+  <pre id="poem-text-216">
+Before your eyes will ever meet mine,  
+Before our hands have touched in time,  
+Our souls already spoke, you see  
+Whispering truths meant just for me.  
+
+In silent realms where shadows dance,  
+We met before the world's expanse,  
+A language older than the stars,  
+A bond that’s written in our scars.  
+
+I dream of you in quiet nights,  
+Your voice a song of soft delights,  
+Though distance keeps us far apart,  
+You live inside my restless heart.  
+
+Our stories weaved in threads unseen,  
+In places where the soul has been,  
+A dance of light, a sacred space,  
+Where time dissolves, leaves not a trace.  
+
+I feel your touch though you’re not near,  
+A knowing presence, calm and clear,  
+Before we speak, before we meet,  
+Our souls have shared a secret beat.  
+
+And if I’m dreaming, let it be  
+For dreams like this set spirits free,  
+To touch a love beyond all time,  
+A silent, perfect, sacred rhyme.  
+
+So when your eyes do finally find mine,  
+Remember this, this love divine:  
+Our souls already spoke, they knew  
+A timeless dance between me and you.  
+</pre>
+  <button onclick="togglePoem('poem-text-216', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem216" title="Like this poem">❤️</button>
+    <span id="like-count-poem216">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem216">
+    <h3>Comments</h3>
+    <div id="comments-list-poem216"></div>
+    <form id="comment-form-poem216">
+      <input type="text" id="name-poem216" placeholder="Your name" required />
+      <textarea id="comment-text-poem216" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Somewhere, He’s Looking Too</h1>
+<div class="meta">
+  Date: 2022-06-16<br>
+  Mood: hopeful longing, tender connection, romantic yearning
+</div>
+
+<div class="poem-container poem-section" id="poem215-container">
+  <pre id="poem-text-215">
+I wonder if he feels it too,  
+This quiet pull that pulls me near,  
+A yearning heart that beats for someone  
+Who’s far away but somehow clear.  
+
+Somewhere beneath another sky,  
+He looks at stars, and thinks of me,  
+His eyes tracing dreams I’ve never told,  
+In hopes of what we’re meant to be.  
+
+He carries secrets in his smile,  
+That mirror every hope I hide,  
+And though we’ve never crossed our paths,  
+Our souls have walked side by side.  
+
+The whispers of an unseen thread,  
+Draw us close through time and space,  
+A silent promise, soft and sure,  
+That someday we will find our place.  
+
+He’s searching through the endless night,  
+Just like I search for his embrace,  
+Two hearts adrift but still aligned,  
+Two shadows seeking love’s true grace.  
+
+I’m not alone in this deep wish,  
+Not just my heart that’s reaching through,  
+For somewhere in this vast, wide world,  
+Somewhere, he’s looking too.  
+
+And in that thought, I find my peace,  
+A hope that keeps my spirit bright,  
+Because if he’s out there waiting,  
+Then maybe I’m his guiding light.  
+
+Until that day, I’ll hold him close,  
+In every breath, in every view,  
+And trust the stars will bring us home  
+Because somewhere, he’s looking too.  
+</pre>
+  <button onclick="togglePoem('poem-text-215', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem215" title="Like this poem">❤️</button>
+    <span id="like-count-poem215">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem215">
+    <h3>Comments</h3>
+    <div id="comments-list-poem215"></div>
+    <form id="comment-form-poem215">
+      <input type="text" id="name-poem215" placeholder="Your name" required />
+      <textarea id="comment-text-poem215" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Touched Without Touching</h1>
+<div class="meta">
+  Date: 2021-12-11<br>
+  Mood: tender longing, intimate, soul connection
+</div>
+
+<div class="poem-container poem-section" id="poem214-container">
+  <pre id="poem-text-214">
+I feel you in the quiet spaces,  
+Where fingers never truly meet,  
+In whispers of imagined touches,  
+Where longing and the unreal greet.  
+
+A brush of lips I never knew,  
+Yet burn upon my tender skin,  
+Your phantom hands that trace my soul,  
+A dance of feeling deep within.  
+
+No need for bodies pressed as one,  
+When souls can touch in silent ways,  
+In dreams where time dissolves and bends,  
+And night becomes a gentle haze.  
+
+I close my eyes and sense your breath,  
+A warmth that lingers through the air,  
+Though miles apart, I’m held so close,  
+By shadows only lovers share.  
+
+The ache of want, the sweet suspense,  
+A tenderness that knows no bound,  
+Your presence felt though not in flesh,  
+In every heartbeat’s whispered sound.  
+
+Though never touched, I’m touched so deep,  
+By love that’s born beyond the skin,  
+A sacred bond that words can’t name,  
+A fire kindled deep within.  
+
+So here I wait, in silent hope,  
+For someday when we’ll bridge the space,  
+Until that day, I’ll hold you close,  
+In dreams where time can’t erase.  
+</pre>
+  <button onclick="togglePoem('poem-text-214', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem214" title="Like this poem">❤️</button>
+    <span id="like-count-poem214">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem214">
+    <h3>Comments</h3>
+    <div id="comments-list-poem214"></div>
+    <form id="comment-form-poem214">
+      <input type="text" id="name-poem214" placeholder="Your name" required />
+      <textarea id="comment-text-poem214" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Waiting With My Heart Open</h1>
+<div class="meta">
+  Date: 2021-05-21<br>
+  Mood: patient longing, hopeful, tender love
+</div>
+
+<div class="poem-container poem-section" id="poem213-container">
+  <pre id="poem-text-213">
+I’m not here begging for your love,  
+No desperate calls into the night,  
+But patiently I hold this space,  
+With open arms, with gentle light.  
+
+Not pleading for a sign or word,  
+Nor chasing shadows down the hall,  
+Just standing steady, heart exposed,  
+Prepared to catch you if you fall.  
+
+I wait with quiet reverence,  
+A soft and steady flame that burns,  
+For someone yet unknown to me,  
+Whose coming my soul yearns and learns.  
+
+There’s power in this waiting still,  
+In every breath, in every sigh,  
+A strength that comes from knowing well,  
+That love arrives when stars align.  
+
+So here I stand, no fear, no rush,  
+With open heart and open eyes,  
+Ready for the love that’s true,  
+The kind that never fades or dies.  
+
+I’ll welcome you without a doubt,  
+With all my scars and all my dreams,  
+For in this waiting, I become,  
+More whole than I have ever been.  
+
+Not begging, not demanding more,  
+Just holding space, a sacred art,  
+For when you come, I’ll greet you soft,  
+With open hands and open heart.  
+</pre>
+  <button onclick="togglePoem('poem-text-213', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem213" title="Like this poem">❤️</button>
+    <span id="like-count-poem213">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem213">
+    <h3>Comments</h3>
+    <div id="comments-list-poem213"></div>
+    <form id="comment-form-poem213">
+      <input type="text" id="name-poem213" placeholder="Your name" required />
+      <textarea id="comment-text-poem213" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Love Letters to No One (Yet)</h1>
+<div class="meta">
+  Date: 2020-04-12<br>
+  Mood: hopeful, longing, tender love
+</div>
+
+<div class="poem-container poem-section" id="poem212-container">
+  <pre id="poem-text-212">
+I write these love letters to no one,  
+Pages full of hopes and dreams untold,  
+Words dripping with a thousand wishes,  
+Sent into the void, my heart unfolds.  
+
+Each line a whisper of longing,  
+Each verse a soft caress of fate,  
+For someone I have never touched,  
+But in my soul, I feel their weight.  
+
+I paint their face with tender strokes,  
+An image born from deep inside,  
+A stranger shaped by dreams and fire,  
+A love that time has yet to guide.  
+
+I write of kisses never given,  
+Of hands that might one day entwine,  
+Of laughter shared beneath the stars,  
+A love both fragile and divine.  
+
+Though empty pages hold my voice,  
+And silence answers every plea,  
+I trust the universe to carry  
+These letters where they’re meant to be.  
+
+For in the space between the lines,  
+Lives a hope so wild and true,  
+That one day, when paths align,  
+My heart will speak its words to you.  
+
+Until then, I’ll keep on writing,  
+To no one, yet to someone near,  
+A love letter to the future,  
+A promise whispered soft and clear.  
+
+So if you hear the quiet rustle,  
+Of pages turning in the night,  
+Know it’s my heart reaching out,  
+Waiting to find its light.  
+</pre>
+  <button onclick="togglePoem('poem-text-212', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem212" title="Like this poem">❤️</button>
+    <span id="like-count-poem212">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem212">
+    <h3>Comments</h3>
+    <div id="comments-list-poem212"></div>
+    <form id="comment-form-poem212">
+      <input type="text" id="name-poem212" placeholder="Your name" required />
+      <textarea id="comment-text-poem212" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>He Visits in My Sleep</h1>
+<div class="meta">
+  Date: 2020-06-08<br>
+  Mood: dreamy, tender, haunting love
+</div>
+
+<div class="poem-container poem-section" id="poem211-container">
+  <pre id="poem-text-211">
+He visits in my sleep,  
+Silent as the night’s soft breath,  
+A shadow moving through the dark,  
+No face to claim, yet so familiar.  
+
+He lingers in the spaces where dreams bloom,  
+Where time folds and hearts beat slow,  
+A presence felt in every sigh,  
+A warmth that wraps around my soul.  
+
+Though I cannot see his eyes,  
+Nor touch the shape of his embrace,  
+His love pours through the veil of night,  
+A quiet fire that sets me free.  
+
+He speaks in whispers only I can hear,  
+In the language of stars and moonlight,  
+A melody woven deep inside,  
+That wakes me softly at dawn’s first light.  
+
+In dreams, he holds me without words,  
+An intimacy beyond the day’s reach,  
+Where longing meets the endless sky,  
+And love is pure, unbound, and deep.  
+
+No face, no name, just the feeling,  
+That somewhere, somehow, he exists for me,  
+A stranger in the realm of sleep,  
+A secret kept beneath my skin.  
+
+He visits, stays, then fades away,  
+Leaving echoes in my waking mind,  
+A promise painted in shadows,  
+That love can be found in the unseen.  
+
+So I wait for night’s gentle call,  
+For the moment he returns to keep,  
+Because in dreams, he is mine  
+And I am his, when I sleep.  
+</pre>
+  <button onclick="togglePoem('poem-text-211', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem211" title="Like this poem">❤️</button>
+    <span id="like-count-poem211">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem211">
+    <h3>Comments</h3>
+    <div id="comments-list-poem211"></div>
+    <form id="comment-form-poem211">
+      <input type="text" id="name-poem211" placeholder="Your name" required />
+      <textarea id="comment-text-poem211" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Built From Wishes</h1>
+<div class="meta">
+  Date: 2020-02-10<br>
+  Mood: hopeful, yearning, tender longing
+</div>
+
+<div class="poem-container poem-section" id="poem210-container">
+  <pre id="poem-text-210">
+He is built from wishes,  
+Whispered soft beneath a midnight sky,  
+A sculpture shaped by hope’s gentle hands,  
+Carved from the longing that lives inside me.  
+
+Each breath I take breathes him into being,  
+A silhouette formed in dreams and desire,  
+Constructed from the flicker of flame,  
+That burns quietly in the chambers of my heart.  
+
+He is the echo of my deepest prayers,  
+A promise made in silence,  
+A man who walks between shadows and light,  
+With eyes that hold the secrets of forever.  
+
+I trace his outline in the spaces between stars,  
+Feeling the weight of what could be,  
+The sweetness of a love not yet spoken,  
+But felt like fire running beneath my skin.  
+
+He is built from the yearning of my soul,  
+Every heartbeat a brick in the fortress of dreams,  
+Held together by the threads of faith,  
+And the fierce hope that never lets go.  
+
+Though he lives only in the quiet corners of my mind,  
+He is real in every pulse of my being,  
+A man crafted from wishes and craving,  
+Waiting for the day he steps into the light.  
+
+Until then, I hold him close in my thoughts,  
+A love both fragile and fierce,  
+Built from nothing but longing and hope,  
+The sweetest dream I have ever known.  
+</pre>
+  <button onclick="togglePoem('poem-text-210', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem210" title="Like this poem">❤️</button>
+    <span id="like-count-poem210">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem210">
+    <h3>Comments</h3>
+    <div id="comments-list-poem210"></div>
+    <form id="comment-form-poem210">
+      <input type="text" id="name-poem210" placeholder="Your name" required />
+      <textarea id="comment-text-poem210" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Swear You Exist</h1>
+<div class="meta">
+  Date: 2019-11-15<br>
+  Mood: yearning, mystery, tender longing
+</div>
+
+<div class="poem-container poem-section" id="poem209-container">
+  <pre id="poem-text-209">
+I swear you exist  
+In the quiet hush of midnight hours,  
+When the world slips soft into shadows,  
+And my breath catches on the ghost of you.  
+
+I wake, gasping, heart pounding,  
+Like you just walked past me unseen,  
+A whisper on the skin,  
+An invisible touch that leaves me trembling.  
+
+The clock ticks loud, a rhythm of waiting,  
+Each second a beat of longing and doubt,  
+Yet I know you are real 
+Not just a dream my mind can’t escape.  
+
+You move between the spaces,  
+In the shimmer of moonlight through curtains,  
+In the scent of something familiar,  
+That stirs my soul before the dawn.  
+
+I reach out with empty hands,  
+Hoping to grasp the echo of your presence,  
+To feel the warmth of a touch  
+That I’ve never felt, yet crave so deeply.  
+
+Your name is a secret on my lips,  
+A prayer I cannot say aloud,  
+But it lingers in every sigh,  
+In every heartbeat that skips and falters.  
+
+I swear you exist  
+Because only real love leaves this mark,  
+This ache in the bones, this fire in the veins,  
+This yearning that won't let me go.  
+
+And though I have never seen your face,  
+Nor held your hand in mine,  
+I carry you with every breath,  
+A stranger who feels like home.  
+
+So if you are out there,  
+If you feel this pull too,  
+Know I am waiting in the silence,  
+For the moment our worlds finally collide.  
+</pre>
+  <button onclick="togglePoem('poem-text-209', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem209" title="Like this poem">❤️</button>
+    <span id="like-count-poem209">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem209">
+    <h3>Comments</h3>
+    <div id="comments-list-poem209"></div>
+    <form id="comment-form-poem209">
+      <input type="text" id="name-poem209" placeholder="Your name" required />
+      <textarea id="comment-text-poem209" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Echoes of a Man I Haven’t Met</h1>
+<div class="meta">
+  Date: 2019-10-22<br>
+  Mood: Longing, mystery, romantic yearning
+</div>
+
+<div class="poem-container poem-section" id="poem208-container">
+  <pre id="poem-text-208">
+He lingers in the quiet places  
+In breathless dawns and fading light,  
+A shadow cast upon my heart,  
+A whisper threading through the night.  
+
+I’ve never held his hand in mine,  
+Nor traced the lines upon his face,  
+Yet still his presence fills the air,  
+A ghost I cannot quite erase.  
+
+He’s in the song the wind composes,  
+In every sigh my soul can’t name,  
+A secret danced on unseen waves,  
+A fire burning without flame.  
+
+His laughter hides in crowded rooms,  
+His touch, a breeze I cannot feel,  
+But in the stillness of my dreams,  
+His arms become my only real.  
+
+A stranger stitched within my veins,  
+A story written out of time,  
+A man I’ve never seen or known,  
+Yet somehow call this heart of mine.  
+
+I wonder if he feels it too  
+This pull that draws our spirits near,  
+Or if I’m just a lone echo,  
+A voice he’s never meant to hear.  
+
+But still I wait in quiet hope,  
+For moments not yet lived or met,  
+For love that grows beyond the words,  
+Beyond the fears, the silent fret.  
+
+He lingers in the quiet places 
+The spaces where my heart is set,  
+And though I haven’t met this man,  
+I know I never will forget.
+</pre>
+  <button onclick="togglePoem('poem-text-208', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem208" title="Like this poem">❤️</button>
+    <span id="like-count-poem208">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem208">
+    <h3>Comments</h3>
+    <div id="comments-list-poem208"></div>
+    <form id="comment-form-poem208">
+      <input type="text" id="name-poem208" placeholder="Your name" required />
+      <textarea id="comment-text-poem208" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>I Loved You Before I Knew You</h1>
+<div class="meta">
+  Date: 2019-09-15<br>
+  Mood: Soul recognition, timeless love, deep longing
+</div>
+
+<div class="poem-container poem-section" id="poem207-container">
+  <pre id="poem-text-207">
+I loved you before I knew your name,  
+Before your face had found my gaze,  
+Before our worlds had ever touched,  
+Before my heart was set ablaze.  
+
+I felt you in the quiet spaces 
+In whispered winds and moonlit tides,  
+A presence woven through my dreams,  
+A light my soul could not disguise.  
+
+No stories told, no voices heard,  
+Yet still, your essence brushed my skin,  
+A ghost of love that called me close,  
+A fire born deep from within.  
+
+I walked through life with empty hands,  
+Unseen, untouched by something whole  
+Until the day my spirit spoke,  
+“I’ve loved you long before you know.”  
+
+It’s not the love that needs a face,  
+Or proof in kisses, touch, or time,  
+It’s the love that knows no boundaries,  
+That sings in silence, so divine.  
+
+I loved you in a past unknown,  
+Perhaps in lives I cannot name,  
+In cosmic dance, in whispered fate,  
+In endless cycles just the same.  
+
+So even if we never meet,  
+Or if you never know my heart,  
+I’ll carry you in every breath  
+A love that’s been there from the start.  
+
+I loved you before I knew your name,  
+And in that love, I find my home,  
+A sacred space where souls align  
+Two hearts that beat, forever known.
+</pre>
+  <button onclick="togglePoem('poem-text-207', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem207" title="Like this poem">❤️</button>
+    <span id="like-count-poem207">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem207">
+    <h3>Comments</h3>
+    <div id="comments-list-poem207"></div>
+    <form id="comment-form-poem207">
+      <input type="text" id="name-poem207" placeholder="Your name" required />
+      <textarea id="comment-text-poem207" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>More Than Skin, Less Than Time</h1>
+<div class="meta">
+  Date: 2019-08-20<br>
+  Mood: Timeless longing, soul-deep desire
+</div>
+
+<div class="poem-container poem-section" id="poem206-container">
+  <pre id="poem-text-206">
+I do not know the curve of you  
+The way your shoulder meets your neck,  
+Or how your laughter lifts the room,  
+Or where your freckles softly speck.  
+
+But something in me knows your fire,  
+The way your silence speaks in flame,  
+A pull that needs no maps or names  
+I feel you. I just can’t explain.  
+
+You live in places I can't see,  
+In sighs I’ve never fully sighed,  
+In poems I write with trembling hands  
+About a love I’ve never tried.  
+
+More than skin, this ache begins  
+A hunger not for touch alone,  
+But for the voice that fits my breath,  
+For eyes that feel like home.  
+
+We’re stitched together somewhere deep,  
+A thread that time forgot to cut,  
+I feel your heart behind my ribs,  
+And yet, we haven’t spoken… not once.  
+
+You are the reason stars exist,  
+The echo in my pulse each day,  
+The mirror to my missing piece,  
+The ghost I let my dreams replay.  
+
+No timeline can contain this spark,  
+It stretches far beyond the years  
+We’ve never met, and yet you hold  
+The shape of all my fears.  
+
+The way I ache to say your name  
+The way I know you, without face,  
+It’s more than fate or fantasy  
+It’s soul. It’s fire. It’s grace.  
+
+So if you’re real, or just a mist  
+Of longing wrapped in rhyme  
+Know this: I loved you long before  
+We crossed the lines of time.
+</pre>
+  <button onclick="togglePoem('poem-text-206', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem206" title="Like this poem">❤️</button>
+    <span id="like-count-poem206">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem206">
+    <h3>Comments</h3>
+    <div id="comments-list-poem206"></div>
+    <form id="comment-form-poem206">
+      <input type="text" id="name-poem206" placeholder="Your name" required />
+      <textarea id="comment-text-poem206" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Kisses I’ve Only Dreamed</h1>
+<div class="meta">
+  Date: 2019-07-12<br>
+  Mood: Dreamy longing, imagined intimacy
+</div>
+
+<div class="poem-container poem-section" id="poem205-container">
+  <pre id="poem-text-205">
+There are lips I’ve never tasted,  
+Yet they haunt my skin like heat.  
+Soft and slow and sacred,  
+Like the hush where dreamers meet.  
+
+He hasn’t held me in his arms,  
+But I’ve melted in his gaze,  
+In sleep, he finds me shivering  
+And wraps me in a blaze.  
+
+I’ve felt him at my collarbone,  
+His breath a whispered sigh,  
+A phantom kiss that lingers still  
+Beneath the moonlit sky.  
+
+No candlelit confession,  
+No footsteps on my floor,  
+Yet I can feel him pressing me  
+Against my bedroom door.  
+
+He loves me in my reverie,  
+In shadows spun with gold,  
+Where hands are bold but reverent,  
+And stories still unfold.  
+
+He doesn’t know my name just yet,  
+But something deep inside  
+Remembers every sacred kiss  
+Where waking love can’t hide.  
+
+Each night I close my heavy eyes,  
+He finds his way to me 
+A ghost of lips, a prayer in flesh,  
+A warm, imagined plea.  
+
+And when I wake, the room is still,  
+But fire fills my veins 
+From kisses I have only dreamed,  
+Yet somehow still remain.
+</pre>
+  <button onclick="togglePoem('poem-text-205', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem205" title="Like this poem">❤️</button>
+    <span id="like-count-poem205">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem205">
+    <h3>Comments</h3>
+    <div id="comments-list-poem205"></div>
+    <form id="comment-form-poem205">
+      <input type="text" id="name-poem205" placeholder="Your name" required />
+      <textarea id="comment-text-poem205" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>My Heart Knows His Name</h1>
+<div class="meta">
+  Date: 2019-06-08<br>
+  Mood: Soul-connected, romantic yearning
+</div>
+
+<div class="poem-container poem-section" id="poem204-container">
+  <pre id="poem-text-204">
+I’ve never heard him speak aloud,  
+But I know the hush beneath the sound.  
+A name not etched in ink or stone 
+Yet every beat calls him my own.  
+
+He hasn’t touched this trembling skin,  
+But somehow, he still lives within.  
+No photograph, no face to frame,  
+Still, my heart... it knows his name.  
+
+I see him in the morning hush,  
+In winds that hold a lover’s hush.  
+He’s in the songs I’ve never heard,  
+In every half-forgotten word.  
+
+He is the warmth I’ve never kissed,  
+The echo in the silent mist.  
+A flame that dances through my veins,  
+An ache that time cannot explain.  
+
+He walks the edges of my dreams,  
+In shadow-light and golden gleam.  
+Not here, not near, but never gone  
+He’s every dusk before the dawn.  
+
+I feel him in the empty space,  
+The one no other man could trace.  
+Where longing sits and dares to wait,  
+And hope keeps whispering, “He’s not late.”  
+
+Some souls are tied before hello,  
+Before the world begins to show.  
+And though his voice has yet to call,  
+My soul remembers through it all.  
+
+So when the world says love needs proof,  
+I smile in silence with my truth 
+For there are things no eyes can claim,  
+And still... my heart, it knows his name.
+</pre>
+  <button onclick="togglePoem('poem-text-204', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem204" title="Like this poem">❤️</button>
+    <span id="like-count-poem204">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem204">
+    <h3>Comments</h3>
+    <div id="comments-list-poem204"></div>
+    <form id="comment-form-poem204">
+      <input type="text" id="name-poem204" placeholder="Your name" required />
+      <textarea id="comment-text-poem204" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>If He’s Out There</h1>
+<div class="meta">
+  Date: 2019-05-04<br>
+  Mood: Hopeful yearning, romantic devotion
+</div>
+
+<div class="poem-container poem-section" id="poem203-container">
+  <pre id="poem-text-203">
+If he’s out there, let him dream tonight 
+Of someone who’s tracing his name in moonlight.  
+Let him feel the pull in his quiet chest,  
+The ache of love that won’t let him rest.  
+
+Let him pause where the stars burn low,  
+And wonder why his heartbeat’s slow.  
+May something in him softly stir,  
+Like he’s being whispered of by her.  
+
+I don’t know the shape of his hands,  
+Or how his smile feels when he stands  
+In morning light with messy hair  
+But I believe with all I am, he’s there.  
+
+I hope he knows someone believes,  
+In forever love, in gentle reprieves.  
+That someone’s out here, pure and true,  
+Pouring all her heart into skies so blue.  
+
+If he’s out there, may he sometimes write,  
+Even if it’s only in his mind at night—  
+Letters meant for no one yet,  
+Words he hasn’t spoken, tears he’s wept.  
+
+Let him be kind, let him be strong,  
+Let his soul hum with ancient song.  
+And if he’s lonely, let him know—  
+I’ve carved him places inside my soul.  
+
+Let him be someone who still believes,  
+Who carries hope in quiet eves.  
+Let him be soft, but scarred and brave,  
+The kind of man who still forgives and stays.  
+
+If he’s out there, may he feel me near,  
+In songs, in dreams, in the morning clear.  
+Though we’ve never met, I swear it’s real  
+The way his absence makes me feel.  
+
+So this is my prayer, disguised as verse,  
+A love that burns, a gentle thirst.  
+I’ll wait for him with a heart unclosed  
+If he’s out there… I’ll know, I’ll know.
+</pre>
+  <button onclick="togglePoem('poem-text-203', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem203" title="Like this poem">❤️</button>
+    <span id="like-count-poem203">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem203">
+    <h3>Comments</h3>
+    <div id="comments-list-poem203"></div>
+    <form id="comment-form-poem203">
+      <input type="text" id="name-poem203" placeholder="Your name" required />
+      <textarea id="comment-text-poem203" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>A Stranger My Soul Remembers</h1>
+<div class="meta">
+  Date: 2019-04-09<br>
+  Mood: Soulful longing, romantic ache
+</div>
+
+<div class="poem-container poem-section" id="poem202-container">
+  <pre id="poem-text-202">
+There’s a shadow in my daydreams, a whisper in the breeze,  
+A pulse beneath the silence, like leaves on ghostly trees.  
+I don’t know your voice, your laugh, your name
+But when I close my eyes, you’re always the same.  
+
+Not a face I’ve ever seen, not a hand I’ve ever touched,  
+But still, your absence lingers far too much.  
+You walk the halls of all my sleep,  
+Where the ache runs silent, wide, and deep.  
+
+You are the warmth I’ve never known,  
+Yet every night I sleep alone.  
+Still, I wake with your imprint near,  
+Like love once whispered in my ear.  
+
+No stories shared, no memories spun,  
+No evenings kissed by setting sun.  
+But my soul—oh God—it knows your flame,  
+It hums your rhythm, it calls your name.  
+
+Were you made from my wishes? My wounds? My art?  
+Or are you just the missing part?  
+A fragment lost in space and time,  
+Who never touched this world of mine?  
+
+Sometimes I feel you brush my skin  
+An echo, soft, that stirs within.  
+A laugh that rises, makes no sound,  
+A tether pulling underground.  
+
+And though I’ve searched the faces near,  
+None quite match the way you feel here.  
+Not just a dream, not just a lie,  
+You’re stitched into my lullaby.  
+
+So I write to you, this sacred ache,  
+In hopes the silence somehow breaks.  
+I don’t know you—but my soul swears true:  
+Wherever you are… I ache for you.
+</pre>
+  <button onclick="togglePoem('poem-text-202', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem202" title="Like this poem">❤️</button>
+    <span id="like-count-poem202">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem202">
+    <h3>Comments</h3>
+    <div id="comments-list-poem202"></div>
+    <form id="comment-form-poem202">
+      <input type="text" id="name-poem202" placeholder="Your name" required />
+      <textarea id="comment-text-poem202" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+  
+  <a href="categories.html" class="back-button">Back to the Bleeding Pages</a>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Your Firebase config from earlier:
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
+      authDomain: "pretty-wreckage-9c673.firebaseapp.com",
+      projectId: "pretty-wreckage-9c673",
+      storageBucket: "pretty-wreckage-9c673.firebasestorage.app",
+      messagingSenderId: "983710612507",
+      appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
+      measurementId: "G-EBH6K5923F"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Toggle poem read more/collapse
+    function togglePoem(id, button) {
+      const poem = document.getElementById(id);
+      const expanded = poem.style.maxHeight === '1000em';
+      poem.style.maxHeight = expanded ? '10em' : '1000em';
+      button.textContent = expanded ? 'Read More' : 'Collapse';
+    }
+
+    // --- LIKES LOGIC ---
+    function updateLikeCount(poemId, count) {
+      document.getElementById('like-count-' + poemId).textContent = count;
+    }
+
+    // Listen for likes changes and update UI
+    function listenForLikes(poemId) {
+      db.collection('likes').doc(poemId).onSnapshot(doc => {
+        if(doc.exists) {
+          updateLikeCount(poemId, doc.data().count);
+        } else {
+          // If doc doesn't exist, create it with 0 likes
+          db.collection('likes').doc(poemId).set({count: 0});
+          updateLikeCount(poemId, 0);
+        }
+      });
+    }
+
+    // Increment like count on click
+    function likePoem(poemId) {
+      const likeRef = db.collection('likes').doc(poemId);
+      db.runTransaction(transaction => {
+        return transaction.get(likeRef).then(doc => {
+          if(!doc.exists) {
+            transaction.set(likeRef, {count: 1});
+            return 1;
+          }
+          const newCount = (doc.data().count || 0) + 1;
+          transaction.update(likeRef, {count: newCount});
+          return newCount;
+        });
+      }).catch(err => {
+        console.error("Failed to increment like: ", err);
+      });
+    }
+
+    // Attach like button listeners
+    document.querySelectorAll('.like-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const poemId = btn.getAttribute('data-poem');
+        likePoem(poemId);
+      });
+    });
+
+    // Listen for likes on all poems
+    listenForLikes('poem260');
+    listenForLikes('poem259');
+    listenForLikes('poem258');
+    listenForLikes('poem257');
+    listenForLikes('poem256');
+    listenForLikes('poem255');
+    listenForLikes('poem254');
+    listenForLikes('poem253');
+    listenForLikes('poem252');
+    listenForLikes('poem251');
+    listenForLikes('poem250');
+    listenForLikes('poem249');
+    listenForLikes('poem248');
+    listenForLikes('poem247');
+    listenForLikes('poem246');
+    listenForLikes('poem245');
+    listenForLikes('poem244');
+    listenForLikes('poem243');
+    listenForLikes('poem242');
+    listenForLikes('poem241');
+    listenForLikes('poem240');
+    listenForLikes('poem239');
+    listenForLikes('poem238');
+    listenForLikes('poem237');
+    listenForLikes('poem236');
+    listenForLikes('poem235');
+    listenForLikes('poem234');
+    listenForLikes('poem233');
+    listenForLikes('poem232');
+    listenForLikes('poem231');
+    listenForLikes('poem230');
+    listenForLikes('poem229');
+    listenForLikes('poem228');
+    listenForLikes('poem227');
+    listenForLikes('poem226');
+    listenForLikes('poem225');
+    listenForLikes('poem224');
+    listenForLikes('poem223');
+    listenForLikes('poem222');
+    listenForLikes('poem221');
+    listenForLikes('poem220');
+    listenForLikes('poem219');
+    listenForLikes('poem218');
+    listenForLikes('poem217');
+    listenForLikes('poem216');
+    listenForLikes('poem215');
+    listenForLikes('poem214');
+    listenForLikes('poem213');
+    listenForLikes('poem212');
+    listenForLikes('poem211');
+    listenForLikes('poem210');
+    listenForLikes('poem209');
+    listenForLikes('poem208');
+    listenForLikes('poem207');
+    listenForLikes('poem206');
+    listenForLikes('poem205');
+    listenForLikes('poem204');
+    listenForLikes('poem203');
+    listenForLikes('poem202');
+    
+
+
+
+    
+    // --- COMMENTS LOGIC ---
+    function renderComments(poemId, comments) {
+      const list = document.getElementById('comments-list-' + poemId);
+      list.innerHTML = '';
+      if (comments.length === 0) {
+        list.textContent = 'No comments yet. Be the first to comment!';
+        return;
+      }
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.classList.add('comment');
+        div.innerHTML = `<span class="name">${escapeHTML(comment.name)}</span>: <span class="text">${escapeHTML(comment.text)}</span>`;
+        list.appendChild(div);
+      });
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    // Listen for comments real-time updates
+    function listenForComments(poemId) {
+      db.collection('comments')
+        .where('poemId', '==', poemId)
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+          const comments = [];
+          snapshot.forEach(doc => {
+            comments.push(doc.data());
+          });
+          renderComments(poemId, comments);
+        });
+    }
+
+    // Add new comment
+    function addComment(poemId, name, text) {
+      return db.collection('comments').add({
+        poemId: poemId,
+        name: name,
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+
+    // Setup form submit handlers
+    ['poem260', 'poem259', 'poem258', 'poem257', 'poem256', 'poem255', 'poem254', 'poem253', 'poem252','poem251', 'poem250', 'poem249', 'poem248', 'poem247', 'poem246', 'poem245', 'poem244', 'poem243','poem242', 'poem241', 'poem240', 'poem239', 'poem238', 'poem237', 'poem236', 'poem235', 'poem234', 'poem233', 'poem232', 'poem231', 'poem230', 'poem229', 'poem228', 'poem227', 'poem226', 'poem225', 'poem224', 'poem223', 'poem222', 'poem221', 'poem220', 'poem219', 'poem218', 'poem217',  'poem216', 'poem215', 'poem214', 'poem213', 'poem212', 'poem211', 'poem210', 'poem209', 'poem208', 'poem207', 'poem206', 'poem205', 'poem204', 'poem203', 'poem202'].forEach(poemId => {
+      const form = document.getElementById('comment-form-' + poemId);
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name-' + poemId);
+        const commentInput = document.getElementById('comment-text-' + poemId);
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        if(name && comment) {
+          addComment(poemId, name, comment).then(() => {
+            nameInput.value = '';
+            commentInput.value = '';
+          }).catch(err => {
+            alert('Error posting comment: ' + err.message);
+          });
+        }
+      });
+      listenForComments(poemId);
+    });
+
+  </script>
+</body>
+</html>
