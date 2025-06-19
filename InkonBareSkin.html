@@ -110,6 +110,7 @@
     #poem-text-322,
     #poem-text-323,
     #poem-text-324,
+    #poem-text-469,
     #poem-text-325 {
       max-height: 10em;
       overflow: hidden;
@@ -628,6 +629,110 @@ Your handprint is fading now.
       <button type="submit">Post Comment</button>
     </form>
     <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+  <h1>Soul and Bone</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: long, emotional, heartfelt, loving, powerful
+</div>
+
+<div class="poem-container poem-section" id="poem469-container">
+  <pre id="poem-text-469">
+It starts with your name,  
+Whispered low, like a flicker of flame.  
+Across my skin, your voice will crawl,  
+Soft as a sigh, yet it shakes it all.  
+
+Goosebumps  
+When you look at me like I’m more than just skin,  
+Like you see every chaos and still let me in.  
+My breath stills, my heart won’t lie,  
+I feel you in places words can’t describe.  
+
+It’s in the hush before we touch,  
+The way you linger, never rush.  
+You don’t need to speak to leave me undone,  
+Your silence holds me like the sun.  
+
+Goosebumps  
+When your fingers trace the parts I hide,  
+Not my body, love, my fears inside.  
+You press your lips to my every doubt,  
+And kiss them softly, all worn-out.  
+
+It’s in your laugh, your smirk, your stare,  
+The way you tuck my soul with care.  
+A thousand lifetimes wouldn’t be enough  
+To hold the way you make love feel rough…  
+And gentle,  
+And deep,  
+And true.  
+Like every tremble leads to you.  
+
+Goosebumps  
+Not from cold, but from fire.  
+From your hand on mine, your voice climbing higher.  
+You make my spine forget to behave,  
+With every word, my will, you cave.  
+
+And when you say my name slow,  
+My world forgets which way to go.  
+I’m floating, burning, caving in  
+Touched by your love beneath the skin.  
+
+It’s in the pauses between our breath,  
+The places we dance between life and death.  
+Where nothing’s spoken, but all is heard  
+Where even silence becomes a word.  
+
+Goosebumps  
+When you kiss my forehead just right,  
+And I suddenly forget every lonely night.  
+When your arms fold me like home,  
+And I no longer fear being alone.  
+
+It's in the way you say, “I'm here,”  
+And every dark thought disappears.  
+You don’t just hold me, you make me feel seen,  
+Like I’m someone worth every in-between.  
+
+Goosebumps  
+When you laugh at my worst joke,  
+When you trace the cracks but never poke.  
+You read the parts I thought I hid well,  
+And kiss the parts I didn’t want to tell.  
+
+And if I cry, you don’t flinch or flee  
+You breathe slow and stay with me.  
+You let the flood rise and hold your ground,  
+Like you're not scared of watching me drown.  
+
+Goosebumps  
+Not just on skin, but on soul and bone,  
+Because even in silence, I’m never alone.  
+You live in the places no one else knew…  
+The places only light up for you.  
+  </pre>
+  <button onclick="togglePoem('poem-text-469', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem469" title="Like this poem">❤️</button>
+    <span id="like-count-poem469">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem469">
+    <h3>Comments</h3>
+    <div id="comments-list-poem469"></div>
+    <form id="comment-form-poem469">
+      <input type="text" id="name-poem469" placeholder="Your name" required />
+      <textarea id="comment-text-poem469" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
     <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
       My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
     </p>
@@ -4382,6 +4487,7 @@ To find my strength, my stolen right.
     listenForLikes('poem323');
     listenForLikes('poem324');
     listenForLikes('poem325');
+    listenForLikes('poem469');
 
     
     // --- COMMENTS LOGIC ---
@@ -4438,7 +4544,7 @@ To find my strength, my stolen right.
     }
 
     // Setup form submit handlers
-    ['poem261', 'poem262', 'poem263', 'poem264', 'poem265', 'poem266', 'poem267', 'poem269', 'poem270', 'poem271', 'poem272', 'poem273', 'poem274', 'poem275', 'poem276', 'poem277', 'poem278', 'poem279', 'poem280', 'poem281', 'poem282', 'poem283', 'poem284', 'poem285', 'poem289', 'poem288', 'poem287', 'poem292', 'poem291', 'poem290', 'poem295', 'poem294', 'poem293', 'poem297', 'poem296', 'poem298', 'poem299', 'poem300', 'poem301', 'poem302', 'poem303', 'poem304', 'poem305', 'poem306', 'poem307', 'poem308', 'poem309', 'poem310', 'poem311', 'poem312', 'poem313', 'poem314', 'poem315', 'poem316', 'poem317', 'poem318', 'poem319', 'poem320', 'poem321', 'poem322', 'poem323', 'poem324', 'poem325']
+    ['poem261', 'poem262', 'poem263', 'poem264', 'poem265', 'poem266', 'poem267', 'poem269', 'poem270', 'poem271', 'poem272', 'poem273', 'poem274', 'poem275', 'poem276', 'poem277', 'poem278', 'poem279', 'poem280', 'poem281', 'poem282', 'poem283', 'poem284', 'poem285', 'poem289', 'poem288', 'poem287', 'poem292', 'poem291', 'poem290', 'poem295', 'poem294', 'poem293', 'poem297', 'poem296', 'poem298', 'poem299', 'poem300', 'poem301', 'poem302', 'poem303', 'poem304', 'poem305', 'poem306', 'poem307', 'poem308', 'poem309', 'poem310', 'poem311', 'poem312', 'poem313', 'poem314', 'poem315', 'poem316', 'poem317', 'poem318', 'poem319', 'poem320', 'poem321', 'poem322', 'poem323', 'poem324', 'poem325', 'poem469']
 .forEach(poemId => {
       const form = document.getElementById('comment-form-' + poemId);
       form.addEventListener('submit', e => {
