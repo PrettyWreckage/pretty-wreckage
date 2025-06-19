@@ -1,0 +1,3105 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Scares | Pretty Wreckage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 3rem 2rem;
+      font-family: 'Georgia', serif;
+      background: url('HeartFirst.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4d9e3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      text-align: center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+    .meta {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #fbd6e0;
+    }
+    .poem-container {
+      max-width: 700px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem 2.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 120, 160, 0.3);
+      white-space: pre-line;
+      line-height: 1.3;
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      text-align: left;
+    }
+    #poem-text-383,
+    #poem-text-384,
+    #poem-text-385,
+    #poem-text-386,
+    #poem-text-387,
+    #poem-text-388,
+    #poem-text-389,
+    #poem-text-390,
+    #poem-text-391,
+    #poem-text-392,
+    #poem-text-393,
+    #poem-text-394,
+    #poem-text-395,
+    #poem-text-396,
+    #poem-text-397,
+    #poem-text-398,
+    #poem-text-399,
+    #poem-text-400,
+    #poem-text-401,
+    #poem-text-402,
+    #poem-text-403,
+    #poem-text-404,
+    #poem-text-405,
+    #poem-text-406,
+    #poem-text-407,
+    #poem-text-408,
+    #poem-text-409,
+    #poem-text-410,
+    #poem-text-411,
+    #poem-text-412,
+    #poem-text-413,
+    #poem-text-414,
+    #poem-text-415,
+    #poem-text-416,
+    #poem-text-417,
+    #poem-text-418,
+    #poem-text-419,
+    #poem-text-420,
+    #poem-text-421,
+    #poem-text-422 {
+      max-height: 10em;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      white-space: pre-wrap;
+    }
+    button, .back-button {
+      padding: 10px 25px;
+      background-color: #ff7cae;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+      margin: 0.5rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+    button:hover, .back-button:hover {
+      background-color: #ff4a85;
+    }
+    .comments-section {
+      margin-top: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+    .comment {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.5rem 0;
+    }
+    .comment .name {
+      font-weight: bold;
+      color: #ffd1e3;
+    }
+    .comment .text {
+      margin-left: 0.5rem;
+      color: #f4d9e3;
+    }
+    form {
+      margin-top: 0.8rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    input[type="text"], textarea {
+      flex: 1 1 200px;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 50px;
+    }
+    .like-section {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #f4d9e3;
+      justify-content: center;
+    }
+    .like-button {
+      background-color: #ff4a85;
+      border: none;
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      font-size: 20px;
+      color: white;
+      cursor: pointer;
+      line-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+    .like-button:hover {
+      background-color: #ff7cae;
+    }
+    .intro-message {
+      max-width: 700px;
+      margin-bottom: 2rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      line-height: 1.5;
+      font-size: 1.05rem;
+      color: #fbd6e0;
+    }
+    .intro-message .signature {
+      margin-top: 1.2rem;
+      font-size: 1rem;
+      font-style: normal;
+      color: #f4d9e3;
+      text-align: right;
+      line-height: 1.4;
+    }
+    .intro-message .signature strong {
+      font-family: 'Georgia', serif;
+      letter-spacing: 0.5px;
+    }
+    .signature-line {
+      font-size: 1.2rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro-message">
+    <p>
+       In love’s first fragile moments, the mind warns us to hold back,<br> 
+       to be cautious, to let go, But the heart, wild, fearless, relentless.
+       insists on staying, fighting, hoping.
+       This is where doubt dances with desire, where jealousy and tenderness collide,<br>
+       and where love feels both overwhelming and necessary
+       It’s messy, it’s beautiful, and it’s all heart.<br>
+    </p>
+    <p class="signature">
+      <span class="signature-line">May you always choose your heart first, 
+                                   no matter the storms.<br>With love xoxo,</span>
+      <strong>Pretty Wreckage</strong>
+    </p>
+  </div>
+
+<h1>Heart First, Always</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: loving, powerful, hopeful, brave
+</div>
+
+<div class="poem-container poem-section" id="poem383-container">
+  <pre id="poem-text-383">
+I choose heart first, always, no matter the fight,  
+Through darkest doubts and shadows of night,  
+When fear whispers lies, and silence screams loud,  
+Love is my compass, unbroken, unbowed.  
+
+No matter the battles that tear at the seams,  
+The fights that shake dreams and unravel our themes,  
+I walk through the fire, through storms that will blaze,  
+Because love is the power that brightens the haze.  
+
+When the world feels heavy and hope seems thin,  
+When voices of doubt try pulling me in,  
+I hold to the truth that beats in my chest,  
+That loving with courage is loving the best.  
+
+It’s not just a feeling, a fleeting glance,  
+But a fierce kind of grace that dares to dance,  
+With scars on its wings and strength in its song,  
+A force that reminds me where I belong.  
+
+So even when fears rise like tides to the shore,  
+And questions crash hard, shaking me to my core,  
+I stand tall and steady, with heart open wide,  
+Because love is the place where my soul can’t hide.  
+
+Heart first, always, through laughter and pain,  
+Through loss and through joy, sunshine and rain,  
+No matter what comes, what breaks or makes whole,  
+Love is the anchor, the fire, the goal.  
+
+So here I am, fearless, willing to give,  
+To live and to love, to truly forgive,  
+Because love leads the way through the darkest night,  
+And I choose heart first, always, with all of my might.  
+</pre>
+  <button onclick="togglePoem('poem-text-383', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem383" title="Like this poem">❤️</button>
+    <span id="like-count-poem383">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem383">
+    <h3>Comments</h3>
+    <div id="comments-list-poem383"></div>
+    <form id="comment-form-poem383">
+      <input type="text" id="name-poem383" placeholder="Your name" required />
+      <textarea id="comment-text-poem383" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Chaos That Feels Like Home</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: passionate, raw, loving, intense
+</div>
+
+<div class="poem-container poem-section" id="poem384-container">
+  <pre id="poem-text-384">
+The chaos that feels like home,  
+Where wild hearts wander, never alone,  
+A storm that rages with tender fire,  
+A love that burns with fierce desire.  
+
+In every clash, in every fight,  
+There’s something sacred in the night,  
+A rhythm pulsing through the pain,  
+A dance beneath the falling rain.  
+
+It’s messy, loud, and sometimes raw,  
+Yet in that chaos, I find the law,  
+The law of love that won’t let go,  
+A fierce embrace, both high and low.  
+
+When worlds collide and tempers flare,  
+I hold you close, I’m always there,  
+Because in the noise, the storm, the rush,  
+Is where I find my quiet hush.  
+
+This chaos is my wildest grace,  
+The only place I want to face,  
+The imperfect love that feels so true,  
+The beautiful madness found in you.  
+
+No calm could ever match this flame,  
+No silence ever sound the same,  
+For in the chaos, fierce and free,  
+Is where you live, and where I’ll be.  
+
+So let the world spin out of frame,  
+Let thunder roar and call your name,  
+For in this love, both wild and known,  
+I’ve found my heart, my soul, my home.  
+</pre>
+  <button onclick="togglePoem('poem-text-384', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem384" title="Like this poem">❤️</button>
+    <span id="like-count-poem384">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem384">
+    <h3>Comments</h3>
+    <div id="comments-list-poem384"></div>
+    <form id="comment-form-poem384">
+      <input type="text" id="name-poem384" placeholder="Your name" required />
+      <textarea id="comment-text-poem384" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Heart Over Headaches</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: forgiving, tender, strong, healing
+</div>
+
+<div class="poem-container poem-section" id="poem385-container">
+  <pre id="poem-text-385">
+I choose heart over headaches,  
+When the weight of words cuts deep,  
+When frustration burns like wildfire,  
+And silence is hard to keep.  
+
+I hold forgiveness like a lantern,  
+A light that softly glows,  
+Guiding me through storms of anger,  
+Where bitterness grows and flows.  
+
+Because love is not perfection,  
+Nor absence of pain or fight,  
+It’s choosing to heal the fractures,  
+To find peace in the night.  
+
+When tempers flare and shadows rise,  
+And storms cloud clearer skies,  
+I lean into grace, though weary,  
+With hope that never dies.  
+
+Forgiveness is my quiet battle,  
+A fight that feels so tough,  
+But stronger than all the headaches,  
+Is the power of love enough.  
+
+To let go of the grudges,  
+To soften where it aches,  
+To choose the heart’s loud beating,  
+Over every headache it makes.  
+
+For in that choice I find my freedom,  
+A healing gentle and true,  
+And in the space between the chaos,  
+I find my way back to you.  
+
+So when the world grows heavy,  
+And all I want is rest,  
+I crown my heart with forgiveness,  
+And give my soul its best.  
+</pre>
+  <button onclick="togglePoem('poem-text-385', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem385" title="Like this poem">❤️</button>
+    <span id="like-count-poem385">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem385">
+    <h3>Comments</h3>
+    <div id="comments-list-poem385"></div>
+    <form id="comment-form-poem385">
+      <input type="text" id="name-poem385" placeholder="Your name" required />
+      <textarea id="comment-text-poem385" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>When Love Feels Too Much</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: heavy, tender, resilient, heartfelt
+</div>
+
+<div class="poem-container poem-section" id="poem386-container">
+  <pre id="poem-text-386">
+When love feels too much to bear,  
+Like mountains resting on my care,  
+I carry all the weight, the storm,  
+Yet in my hands, you keep me warm.  
+
+The burden presses on my chest,  
+A fierce and unrelenting test,  
+But still I hold, I do not break,  
+For love is more than pain can take.  
+
+It’s every sleepless night I fight,  
+The silent tears that hide from light,  
+The heavy breath that won’t let go,  
+A river deep beneath the snow.  
+
+When doubts arise like crashing waves,  
+And fear tries locking all the caves,  
+I reach within, find steady ground,  
+Where love’s true pulse is always found.  
+
+Though sometimes overwhelmed and lost,  
+I pay the price, I bear the cost,  
+Because love asks for sacrifice,  
+A fragile flame, a steady vice.  
+
+So here I stand, though worn and torn,  
+With heart that aches but still is sworn,  
+To carry all, to hold you near,  
+Even when love feels too much, dear.  
+
+For in this weight, this heavy load,  
+Is where I find my truest road,  
+A path where strength and softness blend,  
+Where love begins, and never ends.  
+</pre>
+  <button onclick="togglePoem('poem-text-386', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem386" title="Like this poem">❤️</button>
+    <span id="like-count-poem386">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem386">
+    <h3>Comments</h3>
+    <div id="comments-list-poem386"></div>
+    <form id="comment-form-poem386">
+      <input type="text" id="name-poem386" placeholder="Your name" required />
+      <textarea id="comment-text-poem386" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Fires of Doubt, Flames of Desire</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: passionate, conflicted, intense, tender
+</div>
+
+<div class="poem-container poem-section" id="poem387-container">
+  <pre id="poem-text-387">
+Fires of doubt, flames of desire,  
+A heart caught dancing on a wire,  
+Burning bright yet trembling low,  
+In the space where fear and longing grow.  
+
+Passion surges, wild and free,  
+Yet whispers question what will be,  
+Insecurity’s shadow casts a veil,  
+A fragile heart begins to pale.  
+
+I reach for you through smoky haze,  
+Torn between hope and endless maze,  
+Desire’s fire ignites the night,  
+But doubt dims softly fading light.  
+
+Every touch is both a spark,  
+And a tremble deep within the dark,  
+Love’s fierce flame, a tender burn,  
+Where fear and yearning twist and turn.  
+
+I hold this blaze inside my chest,  
+A battle that will not find rest,  
+But in the fire’s crackling song,  
+I find a place where I belong.  
+
+For love is never simple or clear,  
+It’s made of doubt, desire, and fear,  
+A raging storm, a whispered prayer,  
+A flame that’s fragile, fierce, and rare.  
+
+So let the fires dance and sway,  
+Let flames of doubt not sweep away,  
+The burning truth that draws me near,  
+To you, my love, both doubt and dear.  
+</pre>
+  <button onclick="togglePoem('poem-text-387', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem387" title="Like this poem">❤️</button>
+    <span id="like-count-poem387">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem387">
+    <h3>Comments</h3>
+    <div id="comments-list-poem387"></div>
+    <form id="comment-form-poem387">
+      <input type="text" id="name-poem387" placeholder="Your name" required />
+      <textarea id="comment-text-poem387" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Risk of Heart First</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: vulnerable, brave, tender, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem388-container">
+  <pre id="poem-text-388">
+To open wide, to bare the soul,  
+Is to step beyond the safety's hold,  
+To walk a path without a net,  
+To risk the fall, the deep regret.  
+
+Heart first, I leap into the unknown,  
+Into the wild where seeds are sown,  
+Where every breath feels sharp and raw,  
+Where love demands I break the law.  
+
+The law of walls built thick and high,  
+That guard the pain, the whispered cry,  
+But love’s fierce flame, it calls me near,  
+To face the dark, to conquer fear.  
+
+I tremble as I take the dive,  
+To be alive, to feel, to strive,  
+Though wounds may come, and scars may stay,  
+The risk is worth what love might say.  
+
+For in the fall, in every bruise,  
+Are lessons only heart can choose,  
+To trust again, to dare believe,  
+That love can heal and not deceive.  
+
+So here I stand, no safety found,  
+But in your arms, my soul is bound,  
+To risk it all, to trust, to start,  
+With open hands and open heart.  
+
+Because to live is to let go,  
+To fall and rise, to learn and grow,  
+And though the risk may shake my core,  
+Heart first, always, forevermore.  
+  </pre>
+  <button onclick="togglePoem('poem-text-388', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem388" title="Like this poem">❤️</button>
+    <span id="like-count-poem388">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem388">
+    <h3>Comments</h3>
+    <div id="comments-list-poem388"></div>
+    <form id="comment-form-poem388">
+      <input type="text" id="name-poem388" placeholder="Your name" required />
+      <textarea id="comment-text-poem388" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Love’s Fragile Armor</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: tender, protective, vulnerable, powerful
+</div>
+
+<div class="poem-container poem-section" id="poem389-container">
+  <pre id="poem-text-389">
+Love’s fragile armor, woven thin,  
+A shield against the world’s harsh din,  
+Protecting what is soft and true,  
+The tender heart that beats for you.  
+
+It’s not made of iron, cold and hard,  
+But gentle strength, though battle-scarred,  
+A fragile force that still defends,  
+Though broken pieces try to mend.  
+
+Each layer holds a whispered vow,  
+To guard the heart, here and now,  
+To keep safe what’s precious inside,  
+Though sometimes fear and doubt collide.  
+
+This armor bends with every touch,  
+Yet holds firm when the world’s too much,  
+A paradox of strength and grace,  
+A tender fortress in its place.  
+
+I wear it not to keep you out,  
+But to protect what love’s about,  
+The vulnerability we share,  
+The sacred space beyond despair.  
+
+Though delicate, it stands so tall,  
+A testament through rise and fall,  
+To love that’s brave, that dares to fight,  
+To hold you close through darkest night.  
+
+So in this armor, soft and worn,  
+Lie battles lost and lessons born,  
+And in its fragile, shining light,  
+Love’s gentle power takes its flight.  
+  </pre>
+  <button onclick="togglePoem('poem-text-389', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem389" title="Like this poem">❤️</button>
+    <span id="like-count-poem389">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem389">
+    <h3>Comments</h3>
+    <div id="comments-list-poem389"></div>
+    <form id="comment-form-poem389">
+      <input type="text" id="name-poem389" placeholder="Your name" required />
+      <textarea id="comment-text-poem389" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Jealousy’s Silent Tears</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: raw, tender, conflicted, heartfelt
+</div>
+
+<div class="poem-container poem-section" id="poem390-container">
+  <pre id="poem-text-390">
+Jealousy’s silent tears fall slow,  
+A quiet river no one knows,  
+Beneath the fierce and guarding eyes,  
+A softer heart that softly cries.  
+
+It’s not the rage that steals the night,  
+But shadows veiled from outward sight,  
+A trembling soul that holds so tight,  
+To love, to fear, to endless fight.  
+
+Behind the walls of sharp defense,  
+Lies tender pain, a deep suspense,  
+The ache to keep what feels so dear,  
+Yet haunted by unspoken fear.  
+
+Jealousy wears a warrior’s face,  
+But underneath, a fragile place,  
+Where doubts whisper and doubts appear,  
+And silent tears fall without fear.  
+
+It’s longing wrapped in quiet grief,  
+A need for love beyond belief,  
+The ache to know, to hold, to stay,  
+Yet scared that love might slip away.  
+
+So when the fire of anger blazes,  
+Remember all those hidden phases,  
+The tears that no one ever sees,  
+The trembling heart beneath the breeze.  
+
+For jealousy’s silent tears are proof,  
+Of love that’s scared, aloof, yet truth,  
+That even in the fiercest fight,  
+Lies a heart that hopes for light.  
+
+And in those tears, so soft, so clear,  
+Lives the longing to hold you near,  
+A love both wild and quietly dear,  
+Jealousy’s silent tears, sincere.  
+  </pre>
+  <button onclick="togglePoem('poem-text-390', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem390" title="Like this poem">❤️</button>
+    <span id="like-count-poem390">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem390">
+    <h3>Comments</h3>
+    <div id="comments-list-poem390"></div>
+    <form id="comment-form-poem390">
+      <input type="text" id="name-poem390" placeholder="Your name" required />
+      <textarea id="comment-text-poem390" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Broken but Beating</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: resilient, tender, hopeful, real
+</div>
+
+<div class="poem-container poem-section" id="poem391-container">
+  <pre id="poem-text-391">
+Broken but beating, heart still alive,  
+Wounded and weathered, yet I survive,  
+Love imperfect, scarred by time,  
+But still it sings its ragged rhyme.  
+
+Fragments of trust, shattered and torn,  
+Still whisper hope with each new dawn,  
+A fragile flame that will not die,  
+Flickering strong beneath the sky.  
+
+Not flawless, never without pain,  
+Yet beating steady through the rain,  
+The cracks are where the light gets in,  
+Revealing strength beneath the skin.  
+
+Love, a battle, bruised and real,  
+Not just what hearts want to feel,  
+But all the mess and all the fight,  
+The endless dark, the searching light.  
+
+So here I stand, with all my flaws,  
+Embracing every jagged cause,  
+Because broken does not mean done,  
+My heart still races with the sun.  
+
+It beats for you, it beats for me,  
+For every hope we cannot see,  
+For imperfect love, for wounds that heal,  
+For every truth we dare to feel.  
+
+Broken but beating, this is my song,  
+A testament that we belong,  
+Alive in all our messy parts,  
+Love imperfect, beating hearts.  
+  </pre>
+  <button onclick="togglePoem('poem-text-391', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem391" title="Like this poem">❤️</button>
+    <span id="like-count-poem391">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem391">
+    <h3>Comments</h3>
+    <div id="comments-list-poem391"></div>
+    <form id="comment-form-poem391">
+      <input type="text" id="name-poem391" placeholder="Your name" required />
+      <textarea id="comment-text-poem391" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Doubt That Keeps Me Loving</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: tender, conflicted, hopeful, deep
+</div>
+
+<div class="poem-container poem-section" id="poem392-container">
+  <pre id="poem-text-392">
+The doubt that keeps me loving, sharp and real,  
+A restless whisper I can’t help but feel,  
+It carves its lines into my beating chest,  
+A fragile ache that never lets me rest.  
+
+Uncertainty’s shadow in every glance,  
+A trembling heart caught in love’s dance,  
+It twists and turns, it bends and breaks,  
+Yet deep inside, devotion wakes.  
+
+How strange to love through veils of fear,  
+To hold you close, yet never clear,  
+If what we have will hold or fade,  
+Or drift away like shadows made.  
+
+This doubt is not a poison cold,  
+But fire that keeps the embers bold,  
+It sharpens every breath I take,  
+Each moment precious, no mistake.  
+
+Because to love without a doubt,  
+Is to live a heart shut out,  
+But to embrace the unsure way,  
+Is to find strength in every day.  
+
+So here I stand, torn and true,  
+Loving the me, loving the you,  
+In every question, in every plea,  
+The doubt that keeps me loving fiercely.  
+
+It humbles me and lifts me high,  
+A sacred ache beneath the sky,  
+And through the fog, through night and day,  
+My love remains — come what may.  
+  </pre>
+  <button onclick="togglePoem('poem-text-392', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem392" title="Like this poem">❤️</button>
+    <span id="like-count-poem392">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem392">
+    <h3>Comments</h3>
+    <div id="comments-list-poem392"></div>
+    <form id="comment-form-poem392">
+      <input type="text" id="name-poem392" placeholder="Your name" required />
+      <textarea id="comment-text-poem392" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Heart Over Hurdles</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: determined, hopeful, loving, powerful
+</div>
+
+<div class="poem-container poem-section" id="poem393-container">
+  <pre id="poem-text-393">
+Heart over hurdles, every time,  
+When life throws stones, when mountains climb,  
+I choose to love despite the fall,  
+To rise again and give my all.  
+
+The road is rough, the path unclear,  
+Yet love remains my loudest cheer,  
+It whispers soft when doubts surround,  
+A steady pulse, a steady sound.  
+
+Obstacles may block my way,  
+But love ignites the darkest day,  
+It breaks the walls, it builds the bridge,  
+It lifts me up from any ridge.  
+
+When storms rage wild, when fears collide,  
+Love is the fire that won’t subside,  
+It gives me strength to stand and fight,  
+To hold you close, to hold on tight.  
+
+Each hurdle faced, each tear I shed,  
+Are lessons learned and fears outbred,  
+For love is not a fragile bloom,  
+But rooted deep, it can consume.  
+
+So when the world says turn away,  
+I walk toward you, come what may,  
+For love is choice, a sacred vow,  
+To stand with you here and now.  
+
+Heart over hurdles, bold and true,  
+I choose this love, I choose you,  
+No matter what the world may say,  
+Love finds a path, love finds a way.  
+  </pre>
+  <button onclick="togglePoem('poem-text-393', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem393" title="Like this poem">❤️</button>
+    <span id="like-count-poem393">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem393">
+    <h3>Comments</h3>
+    <div id="comments-list-poem393"></div>
+    <form id="comment-form-poem393">
+      <input type="text" id="name-poem393" placeholder="Your name" required />
+      <textarea id="comment-text-poem393" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Fighting for Us</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: passionate, raw, loving, determined
+</div>
+
+<div class="poem-container poem-section" id="poem394-container">
+  <pre id="poem-text-394">
+Fighting for us, when words collide,  
+When storms rage wild and hurt won’t hide,  
+Each clash a promise, fierce and true,  
+That no matter what, I’ll fight for you.  
+
+In the heat of every bitter night,  
+When shadows fall and block the light,  
+Our hearts still beat, though wounds may sting,  
+Love’s battle cry continues to ring.  
+
+We stumble, fall, but never break,  
+Each fight a chance, a choice we make,  
+To stay, to hold, to understand,  
+To reach for hope with trembling hands.  
+
+It’s not perfection that we seek,  
+But strength in moments when we’re weak,  
+In every tear and angry shout,  
+Love whispers softly, casting doubt out.  
+
+Fighting for us means standing tall,  
+Through every rise and every fall,  
+It means the pain, the tears, the scars,  
+Are just the proof of who we are.  
+
+Two souls entwined in fiery dance,  
+Risking all for one more chance,  
+To find the peace beyond the pain,  
+To love again, and love again.  
+
+So when the world tries to pull apart,  
+Know that you hold my fighting heart,  
+No battle fierce enough to sever,  
+The vow I make to fight forever.  
+  </pre>
+  <button onclick="togglePoem('poem-text-394', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem394" title="Like this poem">❤️</button>
+    <span id="like-count-poem394">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem394">
+    <h3>Comments</h3>
+    <div id="comments-list-poem394"></div>
+    <form id="comment-form-poem394">
+      <input type="text" id="name-poem394" placeholder="Your name" required />
+      <textarea id="comment-text-poem394" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Beautiful Struggle of Us</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: honest, tender, passionate, resilient
+</div>
+
+<div class="poem-container poem-section" id="poem395-container">
+  <pre id="poem-text-395">
+The beautiful struggle of us, raw and true,  
+Loving imperfect, but loving through,  
+Every flaw and every fight,  
+Every shadow, every light.  
+
+We are not perfect, never claimed,  
+But in this chaos, love’s untamed,  
+A dance of broken hearts that mend,  
+A story with no final end.  
+
+Through whispered doubts and tear-streaked nights,  
+Through tangled words and fading lights,  
+We hold on tight despite the scars,  
+Our love still reaching for the stars.  
+
+It’s messy, wild, and sometimes loud,  
+Yet in it all, we stand unbowed,  
+For every struggle shapes our grace,  
+And every fault makes sacred space.  
+
+We fall, we rise, again, again,  
+A circle drawn through joy and pain,  
+And in this imperfect give and take,  
+A masterpiece we choose to make.  
+
+The beautiful struggle of you and me,  
+Not always easy, but always free,  
+To love without apology,  
+To fight for fragile honesty.  
+
+So here we are, imperfect and bright,  
+Two souls entwined in endless night,  
+The beautiful struggle of our love’s dance,  
+A chance to fall, a chance to chance.  
+  </pre>
+  <button onclick="togglePoem('poem-text-395', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem395" title="Like this poem">❤️</button>
+    <span id="like-count-poem395">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem395">
+    <h3>Comments</h3>
+    <div id="comments-list-poem395"></div>
+    <form id="comment-form-poem395">
+      <input type="text" id="name-poem395" placeholder="Your name" required />
+      <textarea id="comment-text-poem395" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>When My Heart Breaks, It Still Beats for You</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: aching, resilient, devoted, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem396-container">
+  <pre id="poem-text-396">
+When my heart breaks, it still beats for you,  
+Through shattered dreams and skies of blue,  
+Even when the night feels cold and long,  
+Love’s stubborn pulse beats fierce and strong.  
+
+Pieces fall, but still I stand,  
+Holding on with trembling hands,  
+Each crack a story, every scar,  
+A testament to who we are.  
+
+The pain cuts deep, but so does hope,  
+A lifeline stretched, a fragile rope,  
+Between the past and what could be,  
+Love’s quiet fight inside of me.  
+
+Even in darkness, even in doubt,  
+My heart beats loud, refusing to bow out,  
+For love is not just joy or bliss,  
+It’s holding on when times feel amiss.  
+
+So though the breaking breaks me down,  
+I wear my pain like a royal crown,  
+Because through hurt, my heart still sees,  
+A future born from memories.  
+
+When my heart breaks, it still beats for you,  
+A vow unspoken, pure and true,  
+No matter what the world may do,  
+This love endures, forever new.  
+  </pre>
+  <button onclick="togglePoem('poem-text-396', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem396" title="Like this poem">❤️</button>
+    <span id="like-count-poem396">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem396">
+    <h3>Comments</h3>
+    <div id="comments-list-poem396"></div>
+    <form id="comment-form-poem396">
+      <input type="text" id="name-poem396" placeholder="Your name" required />
+      <textarea id="comment-text-poem396" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Jealous Eyes, Loving Hands</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: conflicted, tender, passionate, vulnerable
+</div>
+
+<div class="poem-container poem-section" id="poem397-container">
+  <pre id="poem-text-397">
+Jealous eyes that watch with fire’s flame,  
+Loving hands that speak your name,  
+Two worlds collide in every touch,  
+A paradox that hurts so much.  
+
+Desire burns with fierce delight,  
+Yet shadows whisper in the night,  
+Insecurity’s quiet cry,  
+Hidden deep where secrets lie.  
+
+Your gaze, a tempest wild and deep,  
+Where longing wakes and doubts do creep,  
+Fingers trace with tender care,  
+Yet underneath, a silent snare.  
+
+The ache of wanting, wanting more,  
+Afraid to lose what you adore,  
+Hands that hold, yet sometimes cling,  
+Jealousy’s bittersweet sting.  
+
+It’s love wrapped in a fragile shell,  
+A story only hearts can tell,  
+How passion’s fire and fear entwine,  
+A dance both cruel and divine.  
+
+But through the chaos, love still stands,  
+In jealous eyes and loving hands,  
+A fragile bond that’s born to grow,  
+Even when the fears still show.  
+
+So here we are, imperfect and true,  
+Navigating me and you,  
+Jealous eyes, loving hands combined,  
+A love that’s messy, raw, and kind.  
+  </pre>
+  <button onclick="togglePoem('poem-text-397', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem397" title="Like this poem">❤️</button>
+    <span id="like-count-poem397">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem397">
+    <h3>Comments</h3>
+    <div id="comments-list-poem397"></div>
+    <form id="comment-form-poem397">
+      <input type="text" id="name-poem397" placeholder="Your name" required />
+      <textarea id="comment-text-poem397" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Vulnerability of Holding On</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: brave, tender, emotional, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem398-container">
+  <pre id="poem-text-398">
+The vulnerability of holding on,  
+When all the light feels faint and gone,  
+The courage carved from deepest fear,  
+To love so loud when none can hear.  
+
+It’s trembling hands that won’t let go,  
+A fragile heart that dares to show,  
+That even when the world feels cold,  
+Love’s story still remains untold.  
+
+To hold on tight through storms that rage,  
+To write our truth on every page,  
+Though shadows whisper “walk away,”  
+We choose to fight, to love, to stay.  
+
+In every crack, in every tear,  
+There lies a strength so fierce, so clear,  
+The kind that blooms from broken ground,  
+Where hope and hurt are both unbound.  
+
+It takes a soul both brave and kind,  
+To hold the love that’s hard to find,  
+To trust the heart when doubts are near,  
+And face the pain without retreating fear.  
+
+The vulnerability of holding on,  
+Is the greatest strength that love has drawn,  
+A quiet roar, a steadfast flame,  
+That calls us gently by our name.  
+
+So here I stand, with open arms,  
+Embracing all your flaws and charms,  
+Knowing love’s a wild unknown,  
+But I am brave because I’m not alone.  
+  </pre>
+  <button onclick="togglePoem('poem-text-398', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem398" title="Like this poem">❤️</button>
+    <span id="like-count-poem398">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem398">
+    <h3>Comments</h3>
+    <div id="comments-list-poem398"></div>
+    <form id="comment-form-poem398">
+      <input type="text" id="name-poem398" placeholder="Your name" required />
+      <textarea id="comment-text-poem398" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Clashing Souls, Merging Hearts</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: intense, raw, loving, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem399-container">
+  <pre id="poem-text-399">
+Clashing souls in fiery storm,  
+Words like thunder, sharp and warm,  
+When tempers flare and voices rise,  
+We see the hurt behind the eyes.  
+
+Hearts collide in battle’s roar,  
+Yet reach for peace worth fighting for,  
+Though storms may rage and skies grow dark,  
+We find the light within the spark.  
+
+In every shout, a silent plea,  
+To understand, to let love be,  
+Though broken words may wound and sting,  
+Our souls still dance, our hearts still sing.  
+
+We clash, we break, we fall apart,  
+Yet heal again, two beating hearts,  
+Merging slowly, thread by thread,  
+Building bridges from what’s said.  
+
+It’s not perfection that we crave,  
+But honesty that helps us brave  
+The spaces where our fears reside,  
+And love that won’t be pushed aside.  
+
+So even when the night is long,  
+And we can’t find the right or wrong,  
+We hold on tight through every fight,  
+Two souls entwined in endless light.  
+
+Clashing souls but hearts that blend,  
+In love that fights to never end,  
+Through every storm, through every scar,  
+We find ourselves exactly where we are.  
+  </pre>
+  <button onclick="togglePoem('poem-text-399', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem399" title="Like this poem">❤️</button>
+    <span id="like-count-poem399">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem399">
+    <h3>Comments</h3>
+    <div id="comments-list-poem399"></div>
+    <form id="comment-form-poem399">
+      <input type="text" id="name-poem399" placeholder="Your name" required />
+      <textarea id="comment-text-poem399" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Love That Burns and Soothes</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: passionate, tender, intense, healing
+</div>
+
+<div class="poem-container poem-section" id="poem400-container">
+  <pre id="poem-text-400">
+Love that burns with fierce desire,  
+A blazing, wild and untamed fire,  
+It sears the skin, it scorches deep,  
+Yet cradles hearts in warmth to keep.  
+
+It stings like thorns beneath the rose,  
+Yet soothes the ache no one else knows,  
+A paradox of hurt and grace,  
+A tender touch in fiery space.  
+
+The flames consume, then gently fade,  
+Leaving embers that never jade,  
+A constant heat, a steady glow,  
+Where passion’s river loves to flow.  
+
+It’s pain and comfort intertwined,  
+A dance of hearts and souls aligned,  
+Sometimes it burns, sometimes it heals,  
+In every scar, a love that feels.  
+
+Love that shouts and whispers low,  
+In every high and every low,  
+It’s not just calm, it’s wild and raw,  
+A sacred wound, a silent awe.  
+
+So when the fire threatens to consume,  
+Remember how it lights the room,  
+For love that burns and soothes is true,  
+An endless flame between me and you.  
+  </pre>
+  <button onclick="togglePoem('poem-text-400', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem400" title="Like this poem">❤️</button>
+    <span id="like-count-poem400">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem400">
+    <h3>Comments</h3>
+    <div id="comments-list-poem400"></div>
+    <form id="comment-form-poem400">
+      <input type="text" id="name-poem400" placeholder="Your name" required />
+      <textarea id="comment-text-poem400" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Heart’s Uncharted Map</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: hopeful, searching, brave, tender
+</div>
+
+<div class="poem-container poem-section" id="poem401-container">
+  <pre id="poem-text-401">
+The heart’s uncharted map unfolds,  
+No compass here, no tales told,  
+Just whispered dreams and hopeful signs,  
+Tracing love through jagged lines.  
+
+No guide to show the winding way,  
+No promised dawn, no perfect day,  
+Just faith that lights the darkest night,  
+And courage born from purest light.  
+
+We wander through the unknown space,  
+With trembling steps and slow embrace,  
+Each moment marked by joy and fear,  
+Yet still we hold what’s most sincere.  
+
+The paths we take may twist and turn,  
+Through lessons hard and hearts that yearn,  
+But in the maze of doubt and hope,  
+Love is the thread that helps us cope.  
+
+No map can chart the soul’s true course,  
+No map can tame love’s mighty force,  
+It’s wild, it’s raw, it’s undefined,  
+A mystery etched within the mind.  
+
+So here we stand, unarmed, unplanned,  
+With hearts as guides, and open hands,  
+Trusting in the winds that blow,  
+To places only love can know.  
+
+The heart’s uncharted map we weave,  
+In every breath, in every leave,  
+A journey without end or start,  
+Led always by the fearless heart.  
+  </pre>
+  <button onclick="togglePoem('poem-text-401', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem401" title="Like this poem">❤️</button>
+    <span id="like-count-poem401">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem401">
+    <h3>Comments</h3>
+    <div id="comments-list-poem401"></div>
+    <form id="comment-form-poem401">
+      <input type="text" id="name-poem401" placeholder="Your name" required />
+      <textarea id="comment-text-poem401" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Doubt and Devotion</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: conflicted, passionate, heartfelt, introspective
+</div>
+
+<div class="poem-container poem-section" id="poem402-container">
+  <pre id="poem-text-402">
+Doubt and devotion, tangled tight,  
+Two sides dancing in fading light,  
+One whispers fear in quiet tone,  
+The other builds a sacred throne.  
+
+Doubt creeps in with shadowed eyes,  
+Tracing scars beneath the skies,  
+It questions love’s unsteady ground,  
+Echoes of what’s lost, not found.  
+
+Yet devotion, fierce and true,  
+Holds on tightly, breaks right through,  
+A steadfast flame against the night,  
+The voice that sings, “Hold on, fight.”  
+
+In every pause, in every tear,  
+Doubt and devotion both appear,  
+One makes the heart unsure, afraid,  
+The other crafts a love unfrayed.  
+
+They clash and blend, they push and pull,  
+In love’s vast sea, both dark and full,  
+Two forces in a single stream,  
+The nightmare and the sweetest dream.  
+
+Devotion plants the seed of trust,  
+While doubt reminds of earth and dust,  
+Together shaping what will last,  
+A love forged strong through shadows cast.  
+
+So here we stand, hearts intertwined,  
+In doubt’s cold grip, devotion’s kind,  
+Knowing love is never clean,  
+But richer where both have been.  
+
+Doubt and devotion, endless song,  
+The fragile place where lovers belong,  
+A story old as time and pain,  
+That love, through all, will still remain.  
+  </pre>
+  <button onclick="togglePoem('poem-text-402', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem402" title="Like this poem">❤️</button>
+    <span id="like-count-poem402">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem402">
+    <h3>Comments</h3>
+    <div id="comments-list-poem402"></div>
+    <form id="comment-form-poem402">
+      <input type="text" id="name-poem402" placeholder="Your name" required />
+      <textarea id="comment-text-poem402" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Jealousy’s Gift and Curse</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: raw, vulnerable, intense, conflicted
+</div>
+
+<div class="poem-container poem-section" id="poem403-container">
+  <pre id="poem-text-403">
+Jealousy’s gift, a blazing fire,  
+A secret ache, a fierce desire,  
+To hold you close, to keep you near,  
+Yet haunted by the whispered fear.  
+
+It curls around the tender heart,  
+A tangled web, a painful art,  
+A love that’s wrapped in chains of doubt,  
+The silent scream we can't shout out.  
+
+The curse of wanting all your light,  
+To be the one within your sight,  
+To guard your smile, your whispered dreams,  
+Even when it tears the seams.  
+
+It burns with pain, yet seeks to shield,  
+The love too fragile to be healed,  
+A double-edged and bitter blade,  
+Where trust and fear together wade.  
+
+But in the depths of jealousy’s hold,  
+There lies a longing pure and bold,  
+A testament to love’s true weight,  
+A heart that struggles to create.  
+
+So here I stand with trembling hands,  
+Trying hard to understand,  
+That jealousy, though harsh and fierce,  
+Is love’s imperfect way to pierce.  
+
+Jealousy’s gift, jealousy’s curse,  
+The blessing and the painful verse,  
+Of loving so completely whole,  
+That fear takes over heart and soul.  
+  </pre>
+  <button onclick="togglePoem('poem-text-403', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem403" title="Like this poem">❤️</button>
+    <span id="like-count-poem403">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem403">
+    <h3>Comments</h3>
+    <div id="comments-list-poem403"></div>
+    <form id="comment-form-poem403">
+      <input type="text" id="name-poem403" placeholder="Your name" required />
+      <textarea id="comment-text-poem403" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Unspoken Fights, Unbreakable Bonds</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: intense, resilient, loving, raw
+</div>
+
+<div class="poem-container poem-section" id="poem404-container">
+  <pre id="poem-text-404">
+In silence, storms quietly brew,  
+Unspoken fights between me and you,  
+Words held back, yet feelings loud,  
+Thunder roars beneath the cloud.  
+
+Tension weaves a fragile thread,  
+Ties that bind but leave hearts bled,  
+The weight of things left unsaid,  
+In the space where love is fed.  
+
+We clash in shadows, skirt the pain,  
+Yet hold the promise through the strain,  
+Though walls rise tall and voices fade,  
+Our bond remains, unafraid.  
+
+The battles fought without a word,  
+In glances sharp, in actions heard,  
+No need for shouting or for blame,  
+For love survives the quiet flame.  
+
+Through storms of silence, tears unshed,  
+We find the path where hearts are led,  
+To trust beyond the fight and fear,  
+To hold each other, always near.  
+
+Unspoken fights that test our soul,  
+That break but never make us whole,  
+Because within the fiercest fray,  
+Our love grows stronger every day.  
+
+So when the quiet battles rage,  
+Remember love’s enduring stage,  
+Unbreakable bonds that stand the test,  
+Of every fight, and every rest.  
+  </pre>
+  <button onclick="togglePoem('poem-text-404', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem404" title="Like this poem">❤️</button>
+    <span id="like-count-poem404">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem404">
+    <h3>Comments</h3>
+    <div id="comments-list-poem404"></div>
+    <form id="comment-form-poem404">
+      <input type="text" id="name-poem404" placeholder="Your name" required />
+      <textarea id="comment-text-poem404" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Between Love and Fear</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: vulnerable, courageous, passionate, reflective
+</div>
+
+<div class="poem-container poem-section" id="poem405-container">
+  <pre id="poem-text-405">
+Between love and fear I tread,  
+A fragile line where hearts are led,  
+By whispers soft and shadows near,  
+A dance that balances hope and fear.  
+
+My heart beats loud, a steady drum,  
+Yet doubt and longing both become  
+The tangled threads that weave my soul,  
+A story written without control.  
+
+Love calls me forward, fierce and bright,  
+A beacon cutting through the night,  
+But fear holds fast with icy hands,  
+Trying hard to shift the sands.  
+
+I walk this line with cautious grace,  
+Each step a leap into embrace,  
+Of all I want, and all I dread,  
+The silent words that go unsaid.  
+
+Between the joy and aching ache,  
+Between the give and what I take,  
+The risk of falling, standing tall,  
+Between the rise and inevitable fall.  
+
+Yet still I move, despite the weight,  
+For love is worth the fragile state,  
+Of walking where the heart is blind,  
+But trusting what it longs to find.  
+
+So here I stand, between the two,  
+Love’s fiery light, and fear’s cold hue,  
+And choose to let my heart lead on,  
+Until the fear is finally gone.  
+  </pre>
+  <button onclick="togglePoem('poem-text-405', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem405" title="Like this poem">❤️</button>
+    <span id="like-count-poem405">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem405">
+    <h3>Comments</h3>
+    <div id="comments-list-poem405"></div>
+    <form id="comment-form-poem405">
+      <input type="text" id="name-poem405" placeholder="Your name" required />
+      <textarea id="comment-text-poem405" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Heart’s Rebel Against Reason</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: rebellious, passionate, raw, determined
+</div>
+
+<div class="poem-container poem-section" id="poem406-container">
+  <pre id="poem-text-406">
+When love breaks chains and shatters walls,  
+The heart’s rebel loudly calls,  
+Defying logic’s cold command,  
+It burns with fire no mind can stand.  
+
+Reason whispers, “Stay away,”  
+But love insists it’s here to stay,  
+A wild force that won’t be tamed,  
+A reckless spark that won’t be blamed.  
+
+It breaks the rules that reason set,  
+In tangled webs of no regret,  
+Fierce and bold, it stakes its claim,  
+A fearless player in the game.  
+
+Against all odds, it stakes its ground,  
+In silent whispers, in roaring sound,  
+It fights for every breath, each beat,  
+Refusing ever to retreat.  
+
+Love’s rebel heart, untamed, unbound,  
+Knows no limits, makes no sound,  
+Except the pounding in the chest,  
+A wild soul that cannot rest.  
+
+It chooses pain, it chooses flight,  
+It chooses dark, it chooses light,  
+All for the chance to feel alive,  
+To risk the fall, to dare to dive.  
+
+So here I stand, with rebel heart,  
+Defying reason’s cautious art,  
+For love that breaks and love that frees,  
+Is love that’s strong beyond degrees.  
+
+Heart’s rebel against reason’s tide,  
+A fearless love that will not hide,  
+Because to live and love this way,  
+Is to seize the night, and own the day.  
+  </pre>
+  <button onclick="togglePoem('poem-text-406', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem406" title="Like this poem">❤️</button>
+    <span id="like-count-poem406">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem406">
+    <h3>Comments</h3>
+    <div id="comments-list-poem406"></div>
+    <form id="comment-form-poem406">
+      <input type="text" id="name-poem406" placeholder="Your name" required />
+      <textarea id="comment-text-poem406" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Falling Hard, Standing Strong</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: resilient, emotional, empowering, reflective
+</div>
+
+<div class="poem-container poem-section" id="poem407-container">
+  <pre id="poem-text-407">
+Falling hard into the night,  
+Shattered pieces out of sight,  
+Every crack a story told,  
+Every break, a heart made bold.  
+
+The ground rushes up to meet,  
+A crashing sound, a painful beat,  
+But in the rubble, light still gleams,  
+A spark alive inside my dreams.  
+
+Breaking down is not defeat,  
+It’s just the rhythm of retreat,  
+A quiet pause before the rise,  
+The phoenix spread its fiery skies.  
+
+Each fall teaches how to stand,  
+How to hold with trembling hand,  
+The fragile strength within the soul,  
+That makes the broken pieces whole.  
+
+Rebuilding is a sacred art,  
+A dance of healing, piece by part,  
+With every tear and every scar,  
+I learn how strong my heart can are.  
+
+Falling hard is how we grow,  
+Through storms that rage and winds that blow,  
+But standing strong is where we find,  
+The power rooted deep in mind.  
+
+So when the world feels cold and wrong,  
+Remember this eternal song,  
+That falling hard and standing strong,  
+Are just the steps where we belong.  
+
+I dance this dance with open eyes,  
+Embracing pain, refusing lies,  
+For in each fall, I’m more alive,  
+In every rise, I choose to thrive.  
+  </pre>
+  <button onclick="togglePoem('poem-text-407', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem407" title="Like this poem">❤️</button>
+    <span id="like-count-poem407">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem407">
+    <h3>Comments</h3>
+    <div id="comments-list-poem407"></div>
+    <form id="comment-form-poem407">
+      <input type="text" id="name-poem407" placeholder="Your name" required />
+      <textarea id="comment-text-poem407" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Love in the Midst of Confusion</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: conflicted, hopeful, tender, determined
+</div>
+
+<div class="poem-container poem-section" id="poem408-container">
+  <pre id="poem-text-408">
+When I don’t understand the maze we walk,  
+The silent rooms where we don’t talk,  
+When every glance feels like a test,  
+And every moment steals my rest.  
+
+Love feels tangled, wrapped in doubt,  
+A storm that rages, fierce and stout,  
+Confusion clouds the path ahead,  
+Yet still my heart refuses dread.  
+
+I want to hold, to hold you close,  
+Though questions rise like waves that boast,  
+The space between what’s said and done,  
+A battlefield that’s never won.  
+
+But in the chaos, something’s true,  
+A thread that binds me close to you,  
+Despite the fog, the hurt, the pain,  
+I want to try and love again.  
+
+For love is not a clear-cut road,  
+It bends and breaks beneath the load,  
+Yet in its twists, I find my way,  
+To fight, to stay, to choose to stay.  
+
+So even when I don’t know why,  
+I’ll keep my heart both bold and shy,  
+Because in all this confusion’s strife,  
+I’m holding on to love and life.  
+
+And if the map is lost or torn,  
+If words confuse or hearts get worn,  
+I’ll walk this path with trembling feet,  
+For love, imperfect, still feels sweet.  
+  </pre>
+  <button onclick="togglePoem('poem-text-408', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem408" title="Like this poem">❤️</button>
+    <span id="like-count-poem408">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem408">
+    <h3>Comments</h3>
+    <div id="comments-list-poem408"></div>
+    <form id="comment-form-poem408">
+      <input type="text" id="name-poem408" placeholder="Your name" required />
+      <textarea id="comment-text-poem408" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Jealous Heart’s Lullaby</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: tender, vulnerable, conflicted, soulful
+</div>
+
+<div class="poem-container poem-section" id="poem409-container">
+  <pre id="poem-text-409">
+In quiet nights when stars align,  
+A jealous heart begins to whine,  
+Soft whispers hum a tender tune,  
+A lullaby beneath the moon.  
+
+It sings of fears that shadows cast,  
+Of moments stolen, echoes past,  
+Of love that trembles, wavering,  
+Caught in the web of wondering.  
+
+The lullaby, both sweet and sad,  
+Speaks truths the heart wishes it never had,  
+Of eyes that wander, thoughts that stray,  
+Of dreams that fade then slip away.  
+
+Yet in the trembling, there is care,  
+A love so fierce, it feels unfair,  
+To guard what’s precious, hold it tight,  
+Through restless days and lonely nights.  
+
+The jealous heart, though bruised and torn,  
+Still hums its song from dusk to dawn,  
+A melody of hope and pain,  
+Of wanting love, and fearing loss again.  
+
+It cradles doubt with velvet hands,  
+Trying hard to understand,  
+That love’s not always safe and sure,  
+But wild and fragile, deep and pure.  
+
+So listen close to this soft cry,  
+A lullaby beneath the sky,  
+A jealous heart that sings to you,  
+In every fear, love rings true.  
+
+It’s not a shout, nor angry roar,  
+But gentle whispers at love’s core,  
+A fragile song that wants to stay,  
+To guard the love that won’t decay.  
+
+And though the jealous heart may ache,  
+It beats for love’s unbreakable sake,  
+Singing softly through the night,  
+A lullaby of fierce delight.  
+  </pre>
+  <button onclick="togglePoem('poem-text-409', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem409" title="Like this poem">❤️</button>
+    <span id="like-count-poem409">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem409">
+    <h3>Comments</h3>
+    <div id="comments-list-poem409"></div>
+    <form id="comment-form-poem409">
+      <input type="text" id="name-poem409" placeholder="Your name" required />
+      <textarea id="comment-text-poem409" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Unsteady Ground, Steady Heart</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: determined, hopeful, resilient, steady
+</div>
+
+<div class="poem-container poem-section" id="poem410-container">
+  <pre id="poem-text-410">
+The ground beneath me starts to shake,  
+A trembling world begins to break,  
+Unsteady footing, shadows fall,  
+Yet still, I stand and hear love’s call.  
+
+The winds may roar, the skies may bend,  
+But steadfast heart will not pretend,  
+To crumble like the fragile dust,  
+For in my soul resides deep trust.  
+
+Though chaos swirls and doubts invade,  
+My heart’s foundation will not fade,  
+It beats with quiet, steady grace,  
+A refuge in this shifting place.  
+
+I walk through storms with open eyes,  
+Refusing fear’s consuming lies,  
+Each step a promise, soft but strong,  
+That in this tempest, I belong.  
+
+The earth may quake, the world may spin,  
+But love’s steady flame burns deep within,  
+It holds me close, it keeps me whole,  
+A beacon shining through the soul.  
+
+When everything around me shakes,  
+And all my courage slowly breaks,  
+I find my strength in steady heart,  
+That refuses ever to depart.  
+
+Unsteady ground may test my will,  
+But steady heart is stronger still,  
+And though the road is rough and long,  
+I stand in love, unshaken, strong.  
+
+So let the world around me shift,  
+I carry love’s unbreakable gift,  
+A steady heart, a fearless beat,  
+That makes my soul and life complete.  
+  </pre>
+  <button onclick="togglePoem('poem-text-410', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem410" title="Like this poem">❤️</button>
+    <span id="like-count-poem410">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem410">
+    <h3>Comments</h3>
+    <div id="comments-list-poem410"></div>
+    <form id="comment-form-poem410">
+      <input type="text" id="name-poem410" placeholder="Your name" required />
+      <textarea id="comment-text-poem410" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Space Between Arguments</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: reflective, emotional, tender, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem411-container">
+  <pre id="poem-text-411">
+Between the words we never say,  
+Lies a quiet, fragile way,  
+Where silence hums a deeper tune,  
+Beneath the storm and rising moon.  
+
+The space between our fights and cries,  
+Is where the truth often hides,  
+A breath, a pause, a moment’s grace,  
+Where anger fades and softens space.  
+
+When voices clash and tempers flare,  
+And love feels lost in heavy air,  
+The silence speaks what words can’t show,  
+A place where tender feelings grow.  
+
+It whispers secrets, soft and slow,  
+Of aching hearts that need to know,  
+That even in the loudest storm,  
+A calmer love can still transform.  
+
+The space between our arguments,  
+Is filled with hopes and sweet laments,  
+It holds the weight of broken trust,  
+And cushions falls with patient dust.  
+
+Within this quiet, healing space,  
+I find the contours of your face,  
+Not in words or shouts that break,  
+But in the silence that we make.  
+
+So when the storms begin to rise,  
+And fury blinds our weary eyes,  
+Remember love still softly calls,  
+In that space where silence falls.  
+
+For peace is found not in the fight,  
+But in the quiet of the night,  
+The space between our broken parts,  
+Where healing lives within our hearts.  
+  </pre>
+  <button onclick="togglePoem('poem-text-411', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem411" title="Like this poem">❤️</button>
+    <span id="like-count-poem411">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem411">
+    <h3>Comments</h3>
+    <div id="comments-list-poem411"></div>
+    <form id="comment-form-poem411">
+      <input type="text" id="name-poem411" placeholder="Your name" required />
+      <textarea id="comment-text-poem411" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Crazy, Beautiful Us</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: passionate, wild, tender, fierce
+</div>
+
+<div class="poem-container poem-section" id="poem412-container">
+  <pre id="poem-text-412">
+We are a storm wrapped in a sigh,  
+A wildfire blazing in the sky,  
+Crazy and beautiful, wild and free,  
+The chaos and calm that live in me.  
+
+Your touch is lightning, fierce and fast,  
+A thunderstorm I want to last,  
+But in your eyes, a quiet sea,  
+Where waves roll soft, and set me free.  
+
+We clash like winds that never tire,  
+Yet in the fight, we spark a fire,  
+A burning love that twists and turns,  
+A dance of passion that always yearns.  
+
+You’re the thunder, I’m the rain,  
+Together, we feel pleasure and pain,  
+The rush of highs, the ache of lows,  
+But through it all, our love still grows.  
+
+Crazy moments, wild and loud,  
+Yet in the silence, soft and proud,  
+We find the calm within the storm,  
+A fragile place where hearts keep warm.  
+
+We’re broken pieces, fit as one,  
+A puzzle framed beneath the sun,  
+Beautiful in every scar,  
+Perfect exactly as we are.  
+
+So here we stand, hand in hand,  
+A crazy, beautiful, wild band,  
+Two souls that burn, two hearts that trust,  
+In this messy, magical, beautiful us.  
+  </pre>
+  <button onclick="togglePoem('poem-text-412', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem412" title="Like this poem">❤️</button>
+    <span id="like-count-poem412">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem412">
+    <h3>Comments</h3>
+    <div id="comments-list-poem412"></div>
+    <form id="comment-form-poem412">
+      <input type="text" id="name-poem412" placeholder="Your name" required />
+      <textarea id="comment-text-poem412" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Fragile Promises, Fierce Hope</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: hopeful, tender, resilient, emotional
+</div>
+
+<div class="poem-container poem-section" id="poem413-container">
+  <pre id="poem-text-413">
+Fragile promises, like glass they gleam,  
+Held tight within a restless dream,  
+Whispers soft in uncertain air,  
+Vows spoken gently, tender and rare.  
+
+Through storms that threaten to undo,  
+These fragile words, they still hold true,  
+In every crack, in every break,  
+A fierceness lives for love’s own sake.  
+
+Unsteady hands may tremble near,  
+But fierce hope burns bright and clear,  
+A flame that dances through the night,  
+Guiding us by its steady light.  
+
+When doubt’s cold shadow tries to creep,  
+And silence makes the heart to weep,  
+The promises, though frail and small,  
+Stand like pillars, proud and tall.  
+
+For love is not just strength and might,  
+But fragile vows held tight in night,  
+In every tear, in every sigh,  
+Fierce hope lifts us up to try.  
+
+So here we stand, on shifting ground,  
+With fragile promises all around,  
+But in our hearts, a fire glows,  
+A love that only stronger grows.  
+
+Through every fear and every test,  
+We hold on tight, we give our best,  
+Fragile promises, fierce hope combined,  
+The threads of love that bind and bind.  
+
+And though the world may shake and sway,  
+Our vows will never fade away,  
+For fierce hope fuels this fragile trust,  
+A love that’s built to rise from dust.  
+  </pre>
+  <button onclick="togglePoem('poem-text-413', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem413" title="Like this poem">❤️</button>
+    <span id="like-count-poem413">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem413">
+    <h3>Comments</h3>
+    <div id="comments-list-poem413"></div>
+    <form id="comment-form-poem413">
+      <input type="text" id="name-poem413" placeholder="Your name" required />
+      <textarea id="comment-text-poem413" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Heartbeats Over Headaches</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: passionate, conflicted, loving, determined
+</div>
+
+<div class="poem-container poem-section" id="poem414-container">
+  <pre id="poem-text-414">
+When logic rumbles like a storm inside,  
+And reason shouts, “You must decide,”  
+My heartbeats rise above the noise,  
+Choosing love, its daring voice.  
+
+Headaches pound with doubt and fear,  
+Whispers telling me to steer clear,  
+But in the thrum of every beat,  
+I find a rhythm fierce and sweet.  
+
+The mind debates in cold, sharp lines,  
+Weighing futures, drawing signs,  
+But heartbeats drum a wilder song,  
+A call to where I truly belong.  
+
+I stumble through the tangled thoughts,  
+Caught between what’s lost and sought,  
+Yet love’s pulse, steady and bright,  
+Pulls me toward the glowing light.  
+
+Each heartbeat says, “Take the chance,”  
+To break free from caution’s stance,  
+To live in moments raw and true,  
+Where logic falters, love breaks through.  
+
+Though headaches try to cloud my way,  
+My heart insists on here to stay,  
+For feelings roar beyond the pain,  
+Like sun emerging after rain.  
+
+I’m choosing passion over fear,  
+Even when the path’s unclear,  
+For heartbeats echo what I know,  
+That love is worth the overflow.  
+
+So when the headaches come and go,  
+And reason’s voice is quiet and low,  
+My heart will lead with steady flame,  
+And I’ll choose love, again, again.  
+  </pre>
+  <button onclick="togglePoem('poem-text-414', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem414" title="Like this poem">❤️</button>
+    <span id="like-count-poem414">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem414">
+    <h3>Comments</h3>
+    <div id="comments-list-poem414"></div>
+    <form id="comment-form-poem414">
+      <input type="text" id="name-poem414" placeholder="Your name" required />
+      <textarea id="comment-text-poem414" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Tangled Emotions</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: intense, emotional, passionate, reflective
+</div>
+
+<div class="poem-container poem-section" id="poem415-container">
+  <pre id="poem-text-415">
+Love’s tangled web, so wild and deep,  
+A maze of feelings I want to keep,  
+Knots and twists that bind my soul,  
+Messy threads that make me whole.  
+
+In every loop, a memory lies,  
+A spark of joy, a flood of sighs,  
+Tangled emotions, fierce and true,  
+A complex dance of me and you.  
+
+I try to sort, to pull apart,  
+But every thread is tied to heart,  
+Unraveling feels like losing ground,  
+In chaos, a strange peace is found.  
+
+The anger and the sweetest kiss,  
+The bitter pain, the tender bliss,  
+All woven tight in love’s design,  
+A perfect mess that feels divine.  
+
+No map to guide, no simple way,  
+Through the storms and bright sunray,  
+I hold the chaos close, not stray,  
+For tangled love is here to stay.  
+
+It’s messy, yes, but it’s alive,  
+A fire that makes my spirit thrive,  
+Through twisted paths and wild turns,  
+A love so fierce, my heart still burns.  
+
+So I embrace the fray and fight,  
+The tangled web, my heart’s delight,  
+For in this chaos, raw and true,  
+I find myself, I find you too.  
+  </pre>
+  <button onclick="togglePoem('poem-text-415', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem415" title="Like this poem">❤️</button>
+    <span id="like-count-poem415">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem415">
+    <h3>Comments</h3>
+    <div id="comments-list-poem415"></div>
+    <form id="comment-form-poem415">
+      <input type="text" id="name-poem415" placeholder="Your name" required />
+      <textarea id="comment-text-poem415" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Whispers of Us</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: tender, emotional, longing, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem416-container">
+  <pre id="poem-text-416">
+In the quiet space where storms subside,  
+Between the chaos and the tide,  
+There lie the whispers soft and true,  
+The gentle moments, me and you.  
+
+When thunder rumbles fierce and loud,  
+And shadows gather like a shroud,  
+It’s in those breaths, so calm, so small,  
+I hear the whispers that outlast all.  
+
+A touch, a glance, a fleeting smile,  
+That pulls me back across the miles,  
+Soft moments stitched with fragile thread,  
+Where love speaks loudest without words said.  
+
+The storms may rage and winds may roar,  
+But whispers call me back for more,  
+For in their hush, I find my way,  
+To you, to hope, to light of day.  
+
+It’s not the fire that keeps me near,  
+But whispered truths I hold so dear,  
+The silent promises we share,  
+That bloom despite the wild despair.  
+
+These whispers breathe through every fight,  
+A beacon in the darkest night,  
+They wrap around my aching heart,  
+Reminding me we’re never apart.  
+
+So though the storms may twist and turn,  
+And lessons harsh we’ve had to learn,  
+I come back to those whispered vows,  
+The softest grace that love allows.  
+
+Whispers of us, both fierce and sweet,  
+The quiet pulse beneath defeat,  
+They hold me close, they keep me true,  
+Soft moments between storms and you.  
+  </pre>
+  <button onclick="togglePoem('poem-text-416', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem416" title="Like this poem">❤️</button>
+    <span id="like-count-poem416">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem416">
+    <h3>Comments</h3>
+    <div id="comments-list-poem416"></div>
+    <form id="comment-form-poem416">
+      <input type="text" id="name-poem416" placeholder="Your name" required />
+      <textarea id="comment-text-poem416" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>When Words Wound, Heart Heals</h1>
+<div class="meta">
+  Date: Hidden <br>
+  Mood: raw, emotional, hopeful, resilient
+</div>
+
+<div class="poem-container poem-section" id="poem417-container">
+  <pre id="poem-text-417">
+When words cut sharp like winter’s chill,  
+And silence fills the space until  
+The wounds run deep beneath the skin,  
+That’s where the healing starts within.  
+
+We fight with voices loud and raw,  
+Exposing cracks, each hidden flaw,  
+But in the clash, a truth reveals,  
+That love remains when hurt congeals.  
+
+The battles rage, the tears may fall,  
+But still I answer to love’s call,  
+For even when the storms feel real,  
+My heart holds tight, begins to heal.  
+
+Every angry word you say,  
+Carves a scar, then fades away,  
+And in that space, new light will gleam,  
+Where broken pieces learn to dream.  
+
+We bruise, we break, we bend, we mend,  
+A fragile dance that doesn’t end,  
+Because beneath the pain and strife,  
+Beats the steady pulse of life.  
+
+I see you hurting just like me,  
+Lost in love’s complexity,  
+But still I trust in what is true,  
+Even when I’m bruised by you.  
+
+For wounds remind us we have felt,  
+The depth of love that will not melt,  
+And in the silence after fight,  
+Our hearts find space to make things right.  
+
+So when words wound, and nights are cold,  
+Remember love is brave and bold,  
+It fights, it falters, yet it stays,  
+A flame that warms through darkest days.  
+
+I hold on tight through every pain,  
+Because with you, there’s so much gain,  
+In fighting, falling, rising still—  
+Our love’s the strongest iron will.  
+  </pre>
+  <button onclick="togglePoem('poem-text-417', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem417" title="Like this poem">❤️</button>
+    <span id="like-count-poem417">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem417">
+    <h3>Comments</h3>
+    <div id="comments-list-poem417"></div>
+    <form id="comment-form-poem417">
+      <input type="text" id="name-poem417" placeholder="Your name" required />
+      <textarea id="comment-text-poem417" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Doubt’s Shadow, Heart’s Light</h1>
+<div class="meta">
+  Date: 2024-11-16 <br>
+  Mood: courageous, emotional, hopeful, reflective
+</div>
+
+<div class="poem-container poem-section" id="poem418-container">
+  <pre id="poem-text-418">
+In the shadowed corners where doubt resides,  
+Where fear whispers softly and hope sometimes hides,  
+I walk the tightrope between dark and bright,  
+Guided by love, my heart’s shining light.  
+
+The weight of uncertainty pulls at my feet,  
+Questions like storms that won’t see retreat,  
+But beneath the clouds, a flame still burns,  
+A quiet voice that endlessly yearns.  
+
+I stumble through moments when courage feels thin,  
+When the world’s loud noise drowns the strength within,  
+Yet love calls me forward, gentle and clear,  
+A beacon of hope that quells all fear.  
+
+Though shadows stretch long and night seems vast,  
+I choose to believe, I choose to last,  
+For even when darkness tries to confine,  
+The heart’s light flickers, defiantly divine.  
+
+I carry the scars that doubt once made,  
+Each one a lesson that will not fade,  
+They tell a story of battles fought,  
+Of love’s fierce grace that can’t be bought.  
+
+So I walk on, through shadow and flame,  
+Not perfect, but true, in love’s name,  
+Knowing the journey may twist and wind,  
+But heart’s light will always find.  
+
+It finds the strength in every tear,  
+Turns trembling steps into strides sincere,  
+And even when the path feels unclear,  
+Love’s light will guide me, year after year.  
+
+Doubt’s shadow may darken the way,  
+But heart’s light will never stray,  
+For in this dance of fear and trust,  
+I walk with love, I rise, I must.  
+  </pre>
+  <button onclick="togglePoem('poem-text-418', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem418" title="Like this poem">❤️</button>
+    <span id="like-count-poem418">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem418">
+    <h3>Comments</h3>
+    <div id="comments-list-poem418"></div>
+    <form id="comment-form-poem418">
+      <input type="text" id="name-poem418" placeholder="Your name" required />
+      <textarea id="comment-text-poem418" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Jealousy’s Quiet Roar</h1>
+<div class="meta">
+  Date: 2024-11-05 <br>
+  Mood: intense, vulnerable, emotional, powerful
+</div>
+
+<div class="poem-container poem-section" id="poem419-container">
+  <pre id="poem-text-419">
+Jealousy’s a whisper cloaked in night,  
+A silent shadow stealing light,  
+It creeps inside with softest tread,  
+A quiet roar inside my head.  
+
+It’s not the thunder, wild and loud,  
+But a subtle wave beneath the cloud,  
+A trembling heart, a cautious glance,  
+A fear that love might lose its chance.  
+
+It doesn’t scream or break the glass,  
+It hides in moments as they pass,  
+In stolen thoughts, in longing eyes,  
+In silent storms and whispered sighs.  
+
+The green-eyed monster, patient, waits,  
+Knocking softly on love’s gates,  
+Asking why, asking when,  
+Why can’t I be your only then?  
+
+It’s tangled knots of fear and need,  
+A hunger born from love’s own seed,  
+A fragile thing, this jealous heart,  
+That aches when we are pulled apart.  
+
+Yet in its roar, there lies a plea,  
+A longing for what used to be,  
+A hope to hold, to keep, to stay,  
+To chase the doubts and fears away.  
+
+I wrestle with this quiet roar,  
+Wanting to love, but wanting more,  
+To trust the bond, to heal the pain,  
+To find the peace beyond the strain.  
+
+Jealousy’s roar is fierce but shy,  
+A truth I can no longer deny,  
+It’s part of love, both curse and gift,  
+A storm within that makes hearts shift.  
+
+So I’ll listen close, not turn away,  
+Embrace the night, embrace the day,  
+For even in jealousy’s hold,  
+Love’s story is still being told.  
+  </pre>
+  <button onclick="togglePoem('poem-text-419', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem419" title="Like this poem">❤️</button>
+    <span id="like-count-poem419">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem419">
+    <h3>Comments</h3>
+    <div id="comments-list-poem419"></div>
+    <form id="comment-form-poem419">
+      <input type="text" id="name-poem419" placeholder="Your name" required />
+      <textarea id="comment-text-poem419" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>First Fight, Fierce Love</h1>
+<div class="meta">
+  Date: 2024-10-29 <br>
+  Mood: intense, emotional, raw, hopeful
+</div>
+
+<div class="poem-container poem-section" id="poem420-container">
+  <pre id="poem-text-420">
+The first fight came like thunder’s strike,  
+Words clashed sharp, emotions alike,  
+Our voices rose, the silence broke,  
+A fierce storm from love’s first stroke.  
+
+We stood on edges, raw and bare,  
+Unveiling wounds we both did wear,  
+In that chaos, truth was found,  
+A deeper love beneath the sound.  
+
+Anger burned with fiery light,  
+Yet in the fire, bloomed our fight,  
+Not to break, but to defend,  
+A bond that time could never bend.  
+
+We grappled with our hopes and fears,  
+Shared the weight of unshed tears,  
+In every clash, a fragile thread,  
+Binding hearts that love had led.  
+
+It wasn’t perfect, it wasn’t neat,  
+But in the struggle, we found heat,  
+A passion fierce, a will to grow,  
+In first fight’s blaze, our love did glow.  
+
+We learned to listen through the pain,  
+To hold through loss, to heal through strain,  
+For every battle made us whole,  
+Forging strength within our soul.  
+
+Now when storms try to divide,  
+We face them with hearts open wide,  
+Remembering that very night,  
+When first fight birthed our fierce light.  
+
+So bring the battles, bring the scars,  
+They mark us as we reach the stars,  
+Because in fighting, loving true,  
+Our fiercest love was born anew.  
+  </pre>
+  <button onclick="togglePoem('poem-text-420', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem420" title="Like this poem">❤️</button>
+    <span id="like-count-poem420">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem420">
+    <h3>Comments</h3>
+    <div id="comments-list-poem420"></div>
+    <form id="comment-form-poem420">
+      <input type="text" id="name-poem420" placeholder="Your name" required />
+      <textarea id="comment-text-poem420" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>The Weight of Us</h1>
+<div class="meta">
+  Date: 2024-10-06 <br>
+  Mood: heavy, emotional, loving, powerful
+</div>
+
+<div class="poem-container poem-section" id="poem421-container">
+  <pre id="poem-text-421">
+The weight of us, it presses deep,  
+A burden carried when we sleep,  
+Not chains of sorrow, but love’s own hold,  
+A story fierce, yet gently told.  
+
+It’s in the silence, in the sigh,  
+In every tear we dare not cry,  
+The moments when the world feels tough,  
+But still we choose to carry us.  
+
+This love is heavy, not with pain,  
+But with the hope that will remain,  
+A steadfast anchor in the storm,  
+The place where weary hearts stay warm.  
+
+Each step we take beneath this load,  
+Is proof of how our hearts have growed,  
+Through trials harsh and battles fought,  
+In every scar, a lesson taught.  
+
+We stumble, yes, but still we stand,  
+Holding tightly, hand in hand,  
+For every weight, a promise made,  
+That love will never let us fade.  
+
+The weight of us, a sacred thing,  
+A song of hurt and healing’s ring,  
+And though it’s heavy, love is strong,  
+It carries us, it holds us long.  
+
+So when the days feel rough and cold,  
+Remember what our hearts have told,  
+That love, though heavy, is our trust,  
+Together bearing all the weight of us.  
+  </pre>
+  <button onclick="togglePoem('poem-text-421', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem421" title="Like this poem">❤️</button>
+    <span id="like-count-poem421">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem421">
+    <h3>Comments</h3>
+    <div id="comments-list-poem421"></div>
+    <form id="comment-form-poem421">
+      <input type="text" id="name-poem421" placeholder="Your name" required />
+      <textarea id="comment-text-poem421" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+<h1>Mind Says Run, Heart Says Stay</h1>
+<div class="meta">
+  Date: 2024-09-15 <br>
+  Mood: conflicted, emotional, loving, intense
+</div>
+
+<div class="poem-container poem-section" id="poem422-container">
+  <pre id="poem-text-422">
+My mind shouts run, a siren loud,  
+Warning bells behind each cloud,  
+Logic’s voice, sharp and clear,  
+Telling me to disappear.  
+
+But my heart, it beats so loud,  
+A stubborn drum beneath the shroud,  
+It holds on tight, it won’t let go,  
+Even when the cold winds blow.  
+
+Mind says flee from all the pain,  
+Escape the heartbreak, dodge the rain,  
+But heart insists on staying near,  
+Clutching love despite the fear.  
+
+Between the two, a war inside,  
+Where reason and desire collide,  
+A battlefield of hope and doubt,  
+Where silence screams and tears pour out.  
+
+Mind builds walls to keep me safe,  
+Protecting from a bitter fate,  
+But heart breaks through with tender fire,  
+Fueled by dreams and deep desire.  
+
+I’m caught in this relentless dance,  
+Between the fear and second chance,  
+Wrestling logic, loving blind,  
+Trying to untangle what’s entwined.  
+
+And though the road ahead is tough,  
+And sometimes love feels not enough,  
+I choose to stay, to fight, to feel,  
+Because the heart’s wounds also heal.  
+
+Mind may say run, but I will stay,  
+Holding love in my own way,  
+For sometimes courage is to remain,  
+To love despite the ache and pain.  
+  </pre>
+  <button onclick="togglePoem('poem-text-422', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem422" title="Like this poem">❤️</button>
+    <span id="like-count-poem422">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem422">
+    <h3>Comments</h3>
+    <div id="comments-list-poem422"></div>
+    <form id="comment-form-poem422">
+      <input type="text" id="name-poem422" placeholder="Your name" required />
+      <textarea id="comment-text-poem422" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+
+  <a href="categories.html" class="back-button">Back to the Bleeding Pages</a>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+  <script>
+    // Your Firebase config from earlier:
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
+      authDomain: "pretty-wreckage-9c673.firebaseapp.com",
+      projectId: "pretty-wreckage-9c673",
+      storageBucket: "pretty-wreckage-9c673.firebasestorage.app",
+      messagingSenderId: "983710612507",
+      appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
+      measurementId: "G-EBH6K5923F"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    // Toggle poem read more/collapse
+    function togglePoem(id, button) {
+      const poem = document.getElementById(id);
+      const expanded = poem.style.maxHeight === '1000em';
+      poem.style.maxHeight = expanded ? '10em' : '1000em';
+      button.textContent = expanded ? 'Read More' : 'Collapse';
+    }
+
+    // --- LIKES LOGIC ---
+    function updateLikeCount(poemId, count) {
+      document.getElementById('like-count-' + poemId).textContent = count;
+    }
+
+    // Listen for likes changes and update UI
+    function listenForLikes(poemId) {
+      db.collection('likes').doc(poemId).onSnapshot(doc => {
+        if(doc.exists) {
+          updateLikeCount(poemId, doc.data().count);
+        } else {
+          // If doc doesn't exist, create it with 0 likes
+          db.collection('likes').doc(poemId).set({count: 0});
+          updateLikeCount(poemId, 0);
+        }
+      });
+    }
+
+    // Increment like count on click
+    function likePoem(poemId) {
+      const likeRef = db.collection('likes').doc(poemId);
+      db.runTransaction(transaction => {
+        return transaction.get(likeRef).then(doc => {
+          if(!doc.exists) {
+            transaction.set(likeRef, {count: 1});
+            return 1;
+          }
+          const newCount = (doc.data().count || 0) + 1;
+          transaction.update(likeRef, {count: newCount});
+          return newCount;
+        });
+      }).catch(err => {
+        console.error("Failed to increment like: ", err);
+      });
+    }
+
+    // Attach like button listeners
+    document.querySelectorAll('.like-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const poemId = btn.getAttribute('data-poem');
+        likePoem(poemId);
+      });
+    });
+
+    // Listen for likes on all poems
+    listenForLikes('poem383');
+    listenForLikes('poem384');
+    listenForLikes('poem385');
+    listenForLikes('poem386');
+    listenForLikes('poem387');
+    listenForLikes('poem388');
+    listenForLikes('poem389');
+    listenForLikes('poem390');
+    listenForLikes('poem391');
+    listenForLikes('poem392');
+    listenForLikes('poem393');
+    listenForLikes('poem394');
+    listenForLikes('poem395');
+    listenForLikes('poem396');
+    listenForLikes('poem397');
+    listenForLikes('poem398');
+    listenForLikes('poem399');
+    listenForLikes('poem400');
+    listenForLikes('poem401');
+    listenForLikes('poem402');
+    listenForLikes('poem403');
+    listenForLikes('poem404');
+    listenForLikes('poem405');
+    listenForLikes('poem406');
+    listenForLikes('poem407');
+    listenForLikes('poem408');
+    listenForLikes('poem409');
+    listenForLikes('poem410');
+    listenForLikes('poem411');
+    listenForLikes('poem412');
+    listenForLikes('poem413');
+    listenForLikes('poem414');
+    listenForLikes('poem415');
+    listenForLikes('poem416');
+    listenForLikes('poem417');
+    listenForLikes('poem418');
+    listenForLikes('poem419');
+    listenForLikes('poem420');
+    listenForLikes('poem421');
+    listenForLikes('poem422');
+
+
+    
+    // --- COMMENTS LOGIC ---
+    function renderComments(poemId, comments) {
+      const list = document.getElementById('comments-list-' + poemId);
+      list.innerHTML = '';
+      if (comments.length === 0) {
+        list.textContent = 'No comments yet. Be the first to comment!';
+        return;
+      }
+      comments.forEach(comment => {
+        const div = document.createElement('div');
+        div.classList.add('comment');
+        div.innerHTML = `<span class="name">${escapeHTML(comment.name)}</span>: <span class="text">${escapeHTML(comment.text)}</span>`;
+        list.appendChild(div);
+      });
+    }
+
+    // Escape HTML to prevent XSS
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
+    }
+
+    // Listen for comments real-time updates
+    function listenForComments(poemId) {
+      db.collection('comments')
+        .where('poemId', '==', poemId)
+        .orderBy('timestamp', 'asc')
+        .onSnapshot(snapshot => {
+          const comments = [];
+          snapshot.forEach(doc => {
+            comments.push(doc.data());
+          });
+          renderComments(poemId, comments);
+        });
+    }
+
+    // Add new comment
+    function addComment(poemId, name, text) {
+      return db.collection('comments').add({
+        poemId: poemId,
+        name: name,
+        text: text,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+    }
+
+    // Setup form submit handlers
+    ['poem383', 'poem384', 'poem385', 'poem386', 'poem387', 'poem388', 'poem389', 'poem390', 'poem391', 'poem392', 'poem393', 'poem394', 'poem395', 'poem396', 'poem397', 'poem398', 'poem399', 'poem400', 'poem401', 'poem402', 'poem403', 'poem404', 'poem405', 'poem406', 'poem407', 'poem408', 'poem409', 'poem410', 'poem411', 'poem412', 'poem413', 'poem414', 'poem415', 'poem416', 'poem417', 'poem418', 'poem419', 'poem420', 'poem421', 'poem422'].forEach(poemId => {
+      const form = document.getElementById('comment-form-' + poemId);
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const nameInput = document.getElementById('name-' + poemId);
+        const commentInput = document.getElementById('comment-text-' + poemId);
+        const name = nameInput.value.trim();
+        const comment = commentInput.value.trim();
+        if(name && comment) {
+          addComment(poemId, name, comment).then(() => {
+            nameInput.value = '';
+            commentInput.value = '';
+          }).catch(err => {
+            alert('Error posting comment: ' + err.message);
+          });
+        }
+      });
+      listenForComments(poemId);
+    });
+
+  </script>
+</body>
+</html>
+
