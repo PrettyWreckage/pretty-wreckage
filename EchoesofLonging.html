@@ -2810,6 +2810,19 @@ There, and only there, I find you.
       listenForComments(poemId);
     });
 
-  </script>
+  <script>
+  function togglePoem(id, button) {
+    const poem = document.getElementById(id);
+
+    // Toggle max-height to show/hide poem
+    if (poem.style.maxHeight && poem.style.maxHeight !== '10em') {
+      poem.style.maxHeight = '10em';
+      button.textContent = 'Read More';
+    } else {
+      poem.style.maxHeight = '1000em'; // Big value to show full poem
+      button.textContent = 'Read Less';
+    }
+  }
+</script>
 </body>
 </html>
