@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Request a Poem | Pretty Wreckage</title>
   <style>
-    /* Body & page setup */
     body {
       margin: 0;
       padding: 3rem 1rem;
@@ -16,31 +15,44 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: flex-start; /* top align so content starts at top */
-      overflow-y: auto; /* allow vertical scrolling */
+      align-items: flex-start;
+      overflow-y: auto;
     }
 
-    /* Container with butterflies on form */
     .form-container {
       position: relative;
-      background: rgba(255, 255, 255, 0.88) url('butterflies-transparent.png') no-repeat center top;
-      background-size: contain;
-      padding: 2.5rem 2rem 3.5rem; /* more bottom padding for scrolling */
-      border-radius: 20px;
-      box-shadow: 0 0 25px rgba(255, 120, 160, 0.3);
       max-width: 700px;
       width: 100%;
+      padding: 2.5rem 2rem 3.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 120, 160, 0.3);
       backdrop-filter: blur(5px);
-      z-index: 1;
       box-sizing: border-box;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.9);
+      z-index: 1;
     }
 
-    /* Title and intro */
+    /* Butterflies overlay */
+    .form-container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('butterflies-transparent.png') no-repeat center center;
+      background-size: cover;
+      opacity: 0.25; /* adjust transparency */
+      pointer-events: none; /* so clicks go through */
+      border-radius: 20px;
+      z-index: -1;
+    }
+
     h1 {
       text-align: center;
       color: #b30059;
       font-size: 2.5rem;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
     }
 
     p.intro {
@@ -48,13 +60,16 @@
       font-size: 1rem;
       color: #6d4c57;
       margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
     }
 
-    /* Form style */
     form {
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      position: relative;
+      z-index: 2;
     }
 
     label {
@@ -68,7 +83,7 @@
       border: 1px solid #d3a6b6;
       font-size: 1rem;
       font-family: 'Georgia', serif;
-      background-color: rgba(255, 255, 255, 0.9);
+      background-color: rgba(255, 255, 255, 0.95);
       box-sizing: border-box;
     }
 
@@ -77,7 +92,6 @@
       min-height: 120px;
     }
 
-    /* Submit button */
     button {
       background-color: #ff7cae;
       color: white;
@@ -89,13 +103,14 @@
       transition: background-color 0.3s ease;
       align-self: center;
       margin-top: 1rem;
+      position: relative;
+      z-index: 2;
     }
 
     button:hover {
       background-color: #ff4a85;
     }
 
-    /* Responsive tweaks */
     @media (max-width: 480px) {
       body {
         padding: 2rem 1rem;
