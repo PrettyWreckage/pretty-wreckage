@@ -6,103 +6,146 @@
   <title>Tip Jar of Dreams | Pretty Wreckage</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 2rem;
       font-family: 'Georgia', serif;
-      background: url('tip-jar-background.jpg') no-repeat center center fixed;
+      background: url('tipjar-background.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #f4d9e3;
-      position: relative;
+      color: #4d3c42;
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      text-align: center;
-      padding: 2rem;
+      justify-content: center;
+      gap: 2rem;
     }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
     .container {
+      background: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      width: 90%;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 0 30px rgba(255, 120, 160, 0.4);
+      backdrop-filter: blur(5px);
+      text-align: center;
       position: relative;
-      z-index: 1;
-      max-width: 600px;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 2.5rem 3rem;
-      border-radius: 18px;
-      box-shadow: 0 0 20px rgba(255, 120, 160, 0.4);
     }
-
     h1 {
-      font-size: 2.8rem;
-      color: #ffa3c0;
-      margin-bottom: 1rem;
-      font-weight: normal;
+      color: #b30059;
+      margin-bottom: 0.5rem;
+      font-size: 2.5rem;
     }
-
-    .message {
+    p {
       font-size: 1.15rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
       font-style: italic;
-      line-height: 1.6;
-      color: #fbd6e0;
-      margin-bottom: 2rem;
-      white-space: pre-line;
+      color: #6d4c57;
     }
-
-    .butterfly-rose {
-      margin: 1rem auto 2rem;
-      max-width: 200px;
-      opacity: 0.7;
-      transition: opacity 0.3s ease-in-out;
+    /* Roses and butterflies decorations */
+    .decor {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      opacity: 0.3;
+      pointer-events: none;
+      user-select: none;
+      animation: flutter 5s ease-in-out infinite;
     }
-
-    .butterfly-rose:hover {
-      opacity: 1;
-      transform: scale(1.05);
+    @keyframes flutter {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(10deg); }
     }
-
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      font-weight: normal;
+      color: #5a3e4d;
+    }
+    label {
+      font-weight: bold;
+      text-align: left;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      border-radius: 10px;
+      border: 1px solid #d3a6b6;
+      padding: 0.8rem;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      color: #4d3c42;
+    }
+    input[type="email"], input[type="text"] {
+      padding: 0.8rem;
+      border-radius: 10px;
+      border: 1px solid #d3a6b6;
+      font-size: 1rem;
+      font-family: 'Georgia', serif;
+      color: #4d3c42;
+    }
+    button {
+      background-color: #ff7cae;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: fit-content;
+      margin: 0 auto;
+    }
+    button:hover {
+      background-color: #ff4a85;
+    }
     /* PayPal button container */
-    .paypal-button-container {
-      margin-top: 2rem;
+    .paypal-tip {
+      margin-bottom: 2rem;
+    }
+    .tip-instructions {
+      font-style: italic;
+      margin-bottom: 1rem;
+      color: #b30059;
     }
   </style>
 </head>
 <body>
 
-  <div class="container" role="main" aria-label="Tip Jar of Dreams">
+  <div class="container">
+    <img src="roses-butterflies.png" alt="Decorative roses and butterflies" class="decor" />
 
-    <h1>Tip Jar of Dreams 🌹🦋</h1>
-
-    <img src="butterflies-and-roses.png" alt="Butterflies and roses" class="butterfly-rose" />
-
-    <p class="message">
-      Thank you from the deepest corners of my heart for visiting Pretty Wreckage.<br><br>
-      Your presence here, your time, your love — it means the world to me.<br><br>
+    <h1>Tip Jar of Dreams</h1>
+    <p>Thank you from the deepest corners of my heart for visiting Pretty Wreckage.<br><br>
+      Your presence here, your time, your love, it means the world to me.<br><br>
       If you feel inspired to support my dreams, no matter how big or small your tip,<br>
       I appreciate it beyond words.<br><br>
       Every rose and butterfly fluttering here carries your kindness.<br>
-      Thank you for being part of this journey. 💖
-    </p>
+      Thank you for being part of this journey. 💖 if you'd like, leave me a message below.</p>
 
-    <div class="paypal-button-container">
-      <!-- PayPal donation form -->
-      <form action="https://www.paypal.com/donate" method="post" target="_top" aria-label="Donate with PayPal">
-        <input type="hidden" name="business" value="prettywrekage@gmail.com" />
-        <input type="hidden" name="no_recurring" value="0" />
-        <input type="hidden" name="item_name" value="Support Pretty Wreckage and my dreams" />
+    <div class="paypal-tip">
+      <!-- PayPal donate button -->
+      <form action="https://www.paypal.com/donate" method="post" target="_blank" novalidate>
+        <input type="hidden" name="business" value="prettywreckage@gmail.com" />
         <input type="hidden" name="currency_code" value="USD" />
-        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" 
-               border="0" name="submit" title="Donate with PayPal" alt="Donate with PayPal button" />
-        <img alt="" border="0" width="1" height="1" 
-             src="https://www.paypal.com/en_US/i/scr/pixel.gif" />
+        <button type="submit">Send a Tip with PayPal</button>
       </form>
+      <p class="tip-instructions">You will be redirected to PayPal to complete your tip securely.</p>
     </div>
+
+    <form action="https://formspree.io/f/xdkzlgrj" method="POST">
+      <label for="name">Your Name (optional)</label>
+      <input type="text" id="name" name="name" placeholder="You can remain anonymous" />
+
+      <label for="email">Your Email (optional)</label>
+      <input type="email" id="email" name="email" placeholder="If you'd like me to reply" />
+
+      <label for="message">Your Message (optional)</label>
+      <textarea id="message" name="message" placeholder="A note, a love, a dream..."></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
 
   </div>
 
