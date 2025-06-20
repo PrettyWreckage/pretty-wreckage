@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tip Jar of Dreams | Pretty Wreckage</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: url('tip-jar-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #f4d9e3;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2.5rem 3rem;
+      border-radius: 18px;
+      box-shadow: 0 0 20px rgba(255, 120, 160, 0.4);
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      color: #ffa3c0;
+      margin-bottom: 1rem;
+      font-weight: normal;
+    }
+
+    .message {
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.6;
+      color: #fbd6e0;
+      margin-bottom: 2rem;
+      white-space: pre-line;
+    }
+
+    .butterfly-rose {
+      margin: 1rem auto 2rem;
+      max-width: 200px;
+      opacity: 0.7;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .butterfly-rose:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* PayPal button container */
+    .paypal-button-container {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" role="main" aria-label="Tip Jar of Dreams">
+
+    <h1>Tip Jar of Dreams 🌹🦋</h1>
+
+    <img src="butterflies-and-roses.png" alt="Butterflies and roses" class="butterfly-rose" />
+
+    <p class="message">
+      Thank you from the deepest corners of my heart for visiting Pretty Wreckage.<br><br>
+      Your presence here, your time, your love — it means the world to me.<br><br>
+      If you feel inspired to support my dreams, no matter how big or small your tip,<br>
+      I appreciate it beyond words.<br><br>
+      Every rose and butterfly fluttering here carries your kindness.<br>
+      Thank you for being part of this journey. 💖
+    </p>
+
+    <div class="paypal-button-container">
+      <!-- PayPal donation form -->
+      <form action="https://www.paypal.com/donate" method="post" target="_top" aria-label="Donate with PayPal">
+        <input type="hidden" name="business" value="prettywrekage@gmail.com" />
+        <input type="hidden" name="no_recurring" value="0" />
+        <input type="hidden" name="item_name" value="Support Pretty Wreckage and my dreams" />
+        <input type="hidden" name="currency_code" value="USD" />
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" 
+               border="0" name="submit" title="Donate with PayPal" alt="Donate with PayPal button" />
+        <img alt="" border="0" width="1" height="1" 
+             src="https://www.paypal.com/en_US/i/scr/pixel.gif" />
+      </form>
+    </div>
+
+  </div>
+
+</body>
+</html>
