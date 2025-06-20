@@ -29,10 +29,12 @@
       font-family: 'Georgia', serif;
       color: #5a3e4d;
       backdrop-filter: blur(3px);
+
+      /* Butterfly background filling the whole container */
       background-image: url('butterflies-transparent.png');
-      background-repeat: no-repeat;
-      background-position: top right;
-      background-size: 120px auto;
+      background-repeat: repeat; /* tiles the butterflies */
+      background-position: center;
+      background-size: cover; /* covers entire form */
     }
 
     h1 {
