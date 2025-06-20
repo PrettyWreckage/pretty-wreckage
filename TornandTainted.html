@@ -68,7 +68,9 @@
     #poem-text-487,
     #poem-text-488,
     #poem-text-489,
-    #poem-text-490 {
+    #poem-text-490,
+    #poem-text-491,
+    #poem-text-492 {
       max-height: 10em;
       overflow: hidden;
       transition: max-height 0.4s ease;
@@ -345,90 +347,6 @@ And I reclaim my light today.
     <form id="comment-form-poem471">
       <input type="text" id="name-poem471" placeholder="Your name" required />
       <textarea id="comment-text-poem471" placeholder="Your comment" required></textarea>
-      <button type="submit">Post Comment</button>
-    </form>
-    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
-      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
-    </p>
-  </div>
-</div>
-
-<h1>Tainted Love Song</h1>
-<div class="meta">
-  Date: Hidden <br>
-  Mood: ...
-</div>
-
-<div class="poem-container poem-section" id="poem472-container">
-  <pre id="poem-text-472">
-This is no lullaby, no sweet serenade,  
-It’s a jagged scream, a blade unswayed.  
-A melody drenched in bitter red,  
-A love once alive, now twisted and dead.  
-
-Tainted notes drip from broken strings,  
-Poison poured in the song that pain sings.  
-Every word a wound, every verse a scar,  
-Echoes of betrayal that haunt from afar.  
-
-I sang you my heart, raw and bare,  
-You ripped it apart with ruthless care.  
-The tune turned sour, the rhythm fell,  
-In the dark abyss where heartbreak dwells.  
-
-Anger claws beneath my skin,  
-A furious fire that burns within.  
-You promised stars, but gave me chains,  
-Left me drowning in relentless rains.  
-
-This love was a battlefield, a warzone deep,  
-Where trust was shattered and promises sleep.  
-Each lie you whispered, a venomous dart,  
-Piercing straight through my shattered heart.  
-
-I scream in silence, howl in the night,  
-A shattered soul lost its fight.  
-The music once sweet, now twisted and vile,  
-A bitter refrain that won’t reconcile.  
-
-I hold the shards of a shattered dream,  
-Drenched in rage, I begin to scream.  
-No more the victim, no more the fool,  
-I’m rising fierce, rewriting the rule.  
-
-Tainted love, you poison my veins,  
-But from your ashes, I’ll break the chains.  
-The song of pain may haunt the past,  
-But I’ll sing of freedom, strong and vast.  
-
-Your lies won’t drown the fire in me,  
-I’ll reclaim my voice, set my heart free.  
-This tainted love, a lesson learned,  
-From darkest nights, the brightest burned.  
-
-So take your bitterness, your cruel disguise,  
-I’ll rise above with open eyes.  
-A twisted song may echo still,  
-But I choose healing, I choose will.  
-
-No more chains, no more deceit,  
-I’ll dance alone, but strong, complete.  
-Tainted love, your reign is done,  
-My soul, reborn — a rising sun.  
-  </pre>
-  <button onclick="togglePoem('poem-text-472', this)">Read More</button>
-
-  <div class="like-section">
-    <button class="like-button" data-poem="poem472" title="Like this poem">❤️</button>
-    <span id="like-count-poem472">0</span> Likes
-  </div>
-
-  <div class="comments-section" id="comments-poem472">
-    <h3>Comments</h3>
-    <div id="comments-list-poem472"></div>
-    <form id="comment-form-poem472">
-      <input type="text" id="name-poem472" placeholder="Your name" required />
-      <textarea id="comment-text-poem472" placeholder="Your comment" required></textarea>
       <button type="submit">Post Comment</button>
     </form>
     <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
@@ -1753,6 +1671,8 @@ And find again a kinder place.
     listenForLikes('poem488');
     listenForLikes('poem489');
     listenForLikes('poem490');
+    listenForLikes('poem491');
+    listenForLikes('poem492');
 
 
     
@@ -1810,7 +1730,7 @@ And find again a kinder place.
     }
 
     // Setup form submit handlers
-    ['poem470', 'poem471', 'poem472', 'poem473', 'poem474', 'poem475', 'poem476', 'poem477', 'poem478', 'poem479','poem480', 'poem481', 'poem482', 'poem483', 'poem484', 'poem485', 'poem486', 'poem487', 'poem488', 'poem489', 'poem490'].forEach(poemId => {
+    ['poem470', 'poem471', 'poem472', 'poem473', 'poem474', 'poem475', 'poem476', 'poem477', 'poem478', 'poem479','poem480', 'poem481', 'poem482', 'poem483', 'poem484', 'poem485', 'poem486', 'poem487', 'poem488', 'poem489', 'poem490', 'poem491', 'poem492'].forEach(poemId => {
       const form = document.getElementById('comment-form-' + poemId);
       form.addEventListener('submit', e => {
         e.preventDefault();
