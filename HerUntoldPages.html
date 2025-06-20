@@ -71,12 +71,29 @@
     .toggle-btn:hover {
       background-color: #ff4a85;
     }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 2rem;
+      background-color: #ffb6c1;
+      color: #fff;
+      padding: 0.7rem 1.4rem;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #ff699e;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="intro-warning">
-      These are the pages I never meant to write, the ones I buried deep.
+      These are the pages I never meant to write, the ones I buried deep.<br>
       What you read here may feel heavy. There are no hearts to like, no space to comment. Only silence. Only truth.
       <br><br>
       Please take care while reading. With all my love, xoxo Pretty Wreckage
@@ -2114,8 +2131,11 @@ And mean it.
   <button class="toggle-btn" onclick="toggleStory('story15')">Read More</button>
    </div>
   </div>
-<a href="index.html" class="back-button">Home</a>
   
+<!-- Back Button -->
+    <a href="index.html" class="back-button">← Back to Home</a>
+  </div>
+
   <script>
     function toggleStory(id) {
       const story = document.getElementById(id);
