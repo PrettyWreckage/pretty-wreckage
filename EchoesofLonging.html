@@ -2788,11 +2788,10 @@ There, and only there, I find you.
       });
     }
 
-    // Setup form submit handlers
-    ['poem354',  'poem344', 'poem345', 'poem346', 'poem347', 'poem348', 'poem349', 'poem350', 'poem351', 'poem352', 'poem353', 'poem355', 'poem356', 'poem357', 'poem358', 'poem359', 'poem360', 'poem361', 'poem362', 'poem363', 'poem364', 'poem365', 'poem366', 'poem367', 'poem368', 'poem369', 'poem370', 'poem371', 'poem372', 'poem373', 
+    ['poem354', 'poem344', 'poem345', 'poem346', 'poem347', 'poem348', 'poem349', 'poem350', 'poem351', 'poem352', 'poem353', 'poem355', 'poem356', 'poem357', 'poem358', 'poem359', 'poem360', 'poem361', 'poem362', 'poem363', 'poem364', 'poem365', 'poem366', 'poem367', 'poem368', 'poem369', 'poem370', 'poem371', 'poem372', 'poem373', 
   'poem374', 'poem375', 'poem376', 'poem377', 'poem378', 'poem379', 'poem380', 'poem381', 'poem382'].forEach(poemId => {
       const form = document.getElementById('comment-form-' + poemId);
-      form.addEventListener('submit', e => {
+      form?.addEventListener('submit', e => {
         e.preventDefault();
         const nameInput = document.getElementById('name-' + poemId);
         const commentInput = document.getElementById('comment-text-' + poemId);
@@ -2809,19 +2808,6 @@ There, and only there, I find you.
       });
       listenForComments(poemId);
     });
-
-  <script>
-  function togglePoem(id, button) {
-    const poem = document.getElementById(id);
-
-    // Toggle max-height to show/hide poem
-    if (poem.style.maxHeight && poem.style.maxHeight !== '10em') {
-      poem.style.maxHeight = '10em';
-      button.textContent = 'Read More';
-    } else {
-      poem.style.maxHeight = '1000em'; // Big value to show full poem
-      button.textContent = 'Read Less';
-    }
   }
 </script>
 </body>
