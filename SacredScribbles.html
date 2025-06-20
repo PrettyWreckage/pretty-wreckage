@@ -38,8 +38,38 @@
       color: #5f3b4c;
     }
 
+    .scribble-form {
+      margin-bottom: 2rem;
+    }
+
+    .scribble-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      resize: vertical;
+      height: 120px;
+    }
+
+    .scribble-form button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.4rem;
+      background-color: #d673a2;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .scribble-form button:hover {
+      background-color: #b65385;
+    }
+
     .scribble-box {
-      background: url('paper-texture.png') center center/cover no-repeat;
+      background: url('papertexture.jpg') center center/cover no-repeat;
       padding: 1.5rem;
       margin: 1rem 0;
       border-radius: 18px;
@@ -81,6 +111,11 @@
       Every scribble matters. Every whisper is safe here. You are not alone.
     </p>
 
+    <form class="scribble-form" onsubmit="submitScribble(event)">
+      <textarea id="scribbleInput" placeholder="Type your sacred scribble here..." required></textarea>
+      <button type="submit">Release it</button>
+    </form>
+
     <div id="scribbleList">
       <!-- Posts will load here -->
     </div>
@@ -114,6 +149,20 @@
         scribbleList.appendChild(div);
       });
     });
+
+    function submitScribble(e) {
+      e.preventDefault();
+      const input = document.getElementById("scribbleInput");
+      const text = input.value.trim();
+      if (text) {
+        db.collection("scribbles").add({
+          text,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(() => {
+          input.value = "";
+        });
+      }
+    }
   </script>
 </body>
 </html>
