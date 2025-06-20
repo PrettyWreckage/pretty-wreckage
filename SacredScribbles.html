@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sacred Scribbles | Pretty Wreckage</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: url('soft-scribble-bg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #3b2c35;
+    }
+
+    .scribble-container {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .scribble-container h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #8b3a62;
+    }
+
+    .intro {
+      font-style: italic;
+      margin-bottom: 2rem;
+      background-color: #fff4f9;
+      padding: 1.2rem;
+      border-left: 6px solid #d673a2;
+      border-radius: 12px;
+      color: #5f3b4c;
+    }
+
+    .scribble-box {
+      background: url('paper-texture.png') center center/cover no-repeat;
+      padding: 1.5rem;
+      margin: 1rem 0;
+      border-radius: 18px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      font-size: 1.1rem;
+      line-height: 1.7;
+      white-space: pre-line;
+      color: #4d3c42;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      background-color: #d673a2;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #b65385;
+    }
+  </style>
+  <!-- Firebase Scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore-compat.js"></script>
+</head>
+<body>
+  <div class="scribble-container">
+    <h1>Sacred Scribbles</h1>
+    <p class="intro">
+      Welcome to Sacred Scribbles — a sanctuary where your words are free. 
+      Here, you can release your thoughts anonymously without fear, judgment, or shame.
+      There are no comments. No names. Just you, your truth, and the peace that comes with letting it go.
+      <br><br>
+      Every scribble matters. Every whisper is safe here. You are not alone.
+    </p>
+
+    <div id="scribbleList">
+      <!-- Posts will load here -->
+    </div>
+
+    <a href="index.html" class="back-button">Back to Home</a>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
+      authDomain: "pretty-wreckage-9c673.firebaseapp.com",
+      projectId: "pretty-wreckage-9c673",
+      storageBucket: "pretty-wreckage-9c673.appspot.com",
+      messagingSenderId: "983710612507",
+      appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
+      measurementId: "G-EBH6K5923F"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const scribbleList = document.getElementById("scribbleList");
+
+    db.collection("scribbles").orderBy("createdAt", "desc").onSnapshot((snapshot) => {
+      scribbleList.innerHTML = "";
+      snapshot.forEach((doc) => {
+        const data = doc.data();
+        const div = document.createElement("div");
+        div.className = "scribble-box";
+        div.textContent = data.text;
+        scribbleList.appendChild(div);
+      });
+    });
+  </script>
+</body>
+</html>
