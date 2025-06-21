@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scattered Poetry Pages | Pretty Wreckage</title>
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: url('scattered-pages-background.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #3a2b2e;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .intro {
+      background-color: #fbeaec;
+      padding: 1.5rem;
+      border-radius: 12px;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #693f4c;
+      margin-bottom: 2rem;
+    }
+
+    .poem-box {
+      background: url('lined-paper.png');
+      background-size: cover;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
+    .poem-content {
+      font-family: 'Georgia', serif;
+      font-size: 1.1rem;
+      color: #3e2e2e;
+      position: relative;
+    }
+
+    .timestamp {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #7b6e66;
+    }
+
+    .coffee-ring {
+      background: url('coffee-ring.png') no-repeat;
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      opacity: 0.5;
+    }
+
+    .comment-form {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .comment-form textarea {
+      padding: 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-family: 'Courier New', monospace;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .comment-form button {
+      background-color: #a179a5;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.6rem 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .pen-icon {
+      width: 18px;
+      margin-right: 8px;
+    }
+
+    .single-comment {
+      background-color: #fff7fb;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-left: 4px solid #db86aa;
+      border-radius: 8px;
+    }
+
+    .single-comment small {
+      display: block;
+      color: #888;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    .back-button {
+      display: block;
+      margin-top: 2rem;
+      text-align: center;
+      color: #914d67;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="intro">
+      Welcome to <strong>Scattered Poetry Pages</strong>, a quiet corner for my 2AM poetry, the ones I never finished.<br>
+      Half-thoughts. Ghost lines. Lost rhymes. Maybe you'll help me finish them, maybe you'll just read and relate.<br><br>
+      This is not a place for perfection. It's a place for honesty.<br>
+      Scribble something down. Say what’s on your mind. All I ask is that you speak with kindness. 💬
+    </div>
+
+    <div class="poem-box">
+      <div class="poem-content">
+        <p>
+          I wrote this while staring at a ceiling full of cracks,
+          Like the pieces of me I never got to put back.
+          I don’t know where this poem ends,
+          Or if it ever truly began.
+
+          But the silence… oh, it still rhymes,
+          Whispering secrets through fractured times.
+          Each crack a story I hide away,
+          In shadows where my fears still stay.
+
+          The ceiling’s scars mirror mine,
+          Broken lines that never align.
+          Yet in this quiet, broken space,
+          I find a rhythm, a fragile grace.
+
+          So here I sit, lost in the cracks,
+        </p>
+        <small class="timestamp">2:14 AM</small>
+        <div class="coffee-ring"></div>
+      </div>
+
+      <form class="comment-form" onsubmit="submitComment(event)">
+        <textarea id="comment" placeholder="Type your scribbled thoughts..." required></textarea>
+        <button type="submit">
+          <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
+        </button>
+      </form>
+
+      <div id="comments-container"></div>
+    </div>
+
+    <a href="index.html" class="back-button">← Back to Home</a>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
+      authDomain: "pretty-wreckage-9c673.firebaseapp.com",
+      projectId: "pretty-wreckage-9c673",
+      storageBucket: "pretty-wreckage-9c673.firebasestorage.app",
+      messagingSenderId: "983710612507",
+      appId: "1:983710612507:web:ab92b689d2c823b108ccbe",
+      measurementId: "G-EBH6K5923F"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    function submitComment(e) {
+      e.preventDefault();
+      const commentText = document.getElementById("comment").value;
+      if (!commentText.trim()) return;
+
+      db.collection("archive-comments").add({
+        text: commentText,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        document.getElementById("comment").value = "";
+        loadComments();
+      });
+    }
+
+    function loadComments() {
+      const container = document.getElementById("comments-container");
+      container.innerHTML = "";
+
+      db.collection("archive-comments")
+        .orderBy("timestamp", "desc")
+        .get()
+        .then(snapshot => {
+          snapshot.forEach(doc => {
+            const comment = doc.data();
+            const div = document.createElement("div");
+            div.classList.add("single-comment");
+            div.innerHTML = `
+              <p>${comment.text}</p>
+              <small>${comment.timestamp?.toDate().toLocaleString() || ''}</small>
+            `;
+            container.appendChild(div);
+          });
+        });
+    }
+
+    window.onload = loadComments;
+  </script>
+
+</body>
+</html>
