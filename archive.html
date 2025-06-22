@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scattered Poetry Pages | Pretty Wreckage</title>
-  
+
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
@@ -23,9 +23,10 @@
       max-width: 900px;
       margin: 4rem auto;
       padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.85);
+      background: url('lined-paper.png') repeat-y center top;
+      background-size: contain;
       border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
 
     .intro {
@@ -39,11 +40,8 @@
     }
 
     .poem-box {
-      background: url('lined-paper.png');
-      background-size: cover;
       padding: 2rem;
       border-radius: 20px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
       position: relative;
       margin-bottom: 3rem;
     }
@@ -137,7 +135,6 @@
   </style>
 </head>
 <body>
-
   <div class="container">
     <div class="intro">
       Welcome to <strong>Scattered Poetry Pages</strong>, a quiet corner for my 2AM poetry, the ones I never finished.<br>
@@ -149,20 +146,20 @@
     <div class="poem-box">
       <div class="poem-content">
         <p>
-          I wrote this while staring at a ceiling full of cracks,
-          Like the pieces of me I never got to put back.
-          I don’t know where this poem ends,
-          Or if it ever truly began.
+          I wrote this while staring at a ceiling full of cracks,<br>
+          Like the pieces of me I never got to put back.<br>
+          I don’t know where this poem ends,<br>
+          Or if it ever truly began.<br><br>
 
-          But the silence… oh, it still rhymes,
-          Whispering secrets through fractured times.
-          Each crack a story I hide away,
-          In shadows where my fears still stay.
+          But the silence… oh, it still rhymes,<br>
+          Whispering secrets through fractured times.<br>
+          Each crack a story I hide away,<br>
+          In shadows where my fears still stay.<br><br>
 
-          The ceiling’s scars mirror mine,
-          Broken lines that never align.
-          Yet in this quiet, broken space,
-          I find a rhythm, a fragile grace.
+          The ceiling’s scars mirror mine,<br>
+          Broken lines that never align.<br>
+          Yet in this quiet, broken space,<br>
+          I find a rhythm, a fragile grace.<br><br>
 
           So here I sit, lost in the cracks,
         </p>
@@ -180,7 +177,7 @@
       <div id="comments-container"></div>
     </div>
 
-    <a href="index.html" class="back-button">← Back to Home</a>
+    <a href="index.html" class="back-button">&larr; Back to Home</a>
   </div>
 
   <script>
@@ -198,19 +195,18 @@
     const db = firebase.firestore();
 
     function submitComment(e) {
-  e.preventDefault();
-  const commentText = document.getElementById("comment").value;
-  if (!commentText.trim()) return;
+      e.preventDefault();
+      const commentText = document.getElementById("comment").value;
+      if (!commentText.trim()) return;
 
-  db.collection("archive-comments").add({
-    text: commentText,
-    createdAt: firebase.firestore.FieldValue.serverTimestamp() // FIXED FIELD NAME
-  }).then(() => {
-    document.getElementById("comment").value = "";
-    loadComments();
-  });
-}
-
+      db.collection("archive-comments").add({
+        text: commentText,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        document.getElementById("comment").value = "";
+        loadComments();
+      });
+    }
 
     function loadComments() {
       const container = document.getElementById("comments-container");
@@ -235,6 +231,5 @@
 
     window.onload = loadComments;
   </script>
-
 </body>
 </html>
