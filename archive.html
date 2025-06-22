@@ -198,25 +198,26 @@
     const db = firebase.firestore();
 
     function submitComment(e) {
-      e.preventDefault();
-      const commentText = document.getElementById("comment").value;
-      if (!commentText.trim()) return;
+  e.preventDefault();
+  const commentText = document.getElementById("comment").value;
+  if (!commentText.trim()) return;
 
-      db.collection("archive-comments").add({
-        text: commentText,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).then(() => {
-        document.getElementById("comment").value = "";
-        loadComments();
-      });
-    }
+  db.collection("archive-comments").add({
+    text: commentText,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp() // FIXED FIELD NAME
+  }).then(() => {
+    document.getElementById("comment").value = "";
+    loadComments();
+  });
+}
+
 
     function loadComments() {
       const container = document.getElementById("comments-container");
       container.innerHTML = "";
 
       db.collection("archive-comments")
-        .orderBy("timestamp", "desc")
+        .orderBy("createdAt", "desc")
         .get()
         .then(snapshot => {
           snapshot.forEach(doc => {
@@ -225,7 +226,7 @@
             div.classList.add("single-comment");
             div.innerHTML = `
               <p>${comment.text}</p>
-              <small>${comment.timestamp?.toDate().toLocaleString() || ''}</small>
+              <small>${comment.createdAt?.toDate().toLocaleString() || ''}</small>
             `;
             container.appendChild(div);
           });
