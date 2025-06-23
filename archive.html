@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scattered Poetry Pages | Pretty Wreckage</title>
 
   <!-- Firebase SDK -->
@@ -23,26 +23,10 @@
       max-width: 900px;
       margin: 4rem auto;
       padding: 2rem;
-    }
-
-    /* Remove paper texture from poem box */
-    .poem-box {
-      position: relative;
-      margin-bottom: 3rem;
+      background: url('lined-paper.png') center center/cover no-repeat;
+      background-size: cover;
       border-radius: 20px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-      overflow: hidden;
-      padding: 0;
-      /* no background image here */
-    }
-
-    /* Cream semi-transparent overlay inside poem-box */
-    .poem-box > .overlay {
-      background-color: rgba(255, 250, 240, 0.85); /* cream transparent */
-      padding: 2rem;
-      border-radius: 20px;
-      position: relative;
-      z-index: 2;
     }
 
     .intro {
@@ -55,12 +39,29 @@
       margin-bottom: 2rem;
     }
 
+    .poem-box {
+      padding: 2rem;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.9);
+      position: relative;
+      margin-bottom: 3rem;
+    }
+
     .poem-content {
       font-family: 'Georgia', serif;
       font-size: 1.1rem;
       color: #3e2e2e;
       position: relative;
-      margin-bottom: 1.5rem;
+    }
+
+    .coffee-ring {
+      background: url('coffee-ring.png') no-repeat;
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      opacity: 0.5;
     }
 
     .comment-form {
@@ -69,20 +70,11 @@
       flex-direction: column;
     }
 
-    .comment-form input[type="text"] {
-      padding: 0.8rem;
-      border-radius: 10px;
-      border: 1px solid #ccc;
-      font-family: 'Courier New', monospace;
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
-    }
-
+    .comment-form input,
     .comment-form textarea {
       padding: 1rem;
       border-radius: 10px;
       border: 1px solid #ccc;
-      resize: vertical;
       font-family: 'Courier New', monospace;
       margin-bottom: 0.5rem;
       font-size: 1rem;
@@ -98,7 +90,6 @@
       cursor: pointer;
       display: flex;
       align-items: center;
-      width: fit-content;
     }
 
     .pen-icon {
@@ -112,8 +103,11 @@
       margin-top: 1rem;
       border-left: 4px solid #db86aa;
       border-radius: 8px;
-      font-family: 'Georgia', serif;
-      color: #4a3a3d;
+    }
+
+    .reaction {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
     }
 
     .back-button {
@@ -140,45 +134,43 @@
     </div>
 
     <div class="poem-box">
-      <div class="overlay">
-        <div class="poem-content">
-          <p>
-            I wrote this while staring at a ceiling full of cracks,<br>
-            Like the pieces of me I never got to put back.<br>
-            I don’t know where this poem ends,<br>
-            Or if it ever truly began.<br><br>
+      <div class="poem-content">
+        <p>
+          I wrote this while staring at a ceiling full of cracks,<br>
+          Like the pieces of me I never got to put back.<br>
+          I don’t know where this poem ends,<br>
+          Or if it ever truly began.<br><br>
 
-            But the silence… oh, it still rhymes,<br>
-            Whispering secrets through fractured times.<br>
-            Each crack a story I hide away,<br>
-            In shadows where my fears still stay.<br><br>
+          But the silence… oh, it still rhymes,<br>
+          Whispering secrets through fractured times.<br>
+          Each crack a story I hide away,<br>
+          In shadows where my fears still stay.<br><br>
 
-            The ceiling’s scars mirror mine,<br>
-            Broken lines that never align.<br>
-            Yet in this quiet, broken space,<br>
-            I find a rhythm, a fragile grace.<br><br>
+          The ceiling’s scars mirror mine,<br>
+          Broken lines that never align.<br>
+          Yet in this quiet, broken space,<br>
+          I find a rhythm, a fragile grace.<br><br>
 
-            So here I sit, lost in the cracks,
-          </p>
-        </div>
-
-        <form class="comment-form" onsubmit="submitComment(event)">
-          <input type="text" id="name" placeholder="Your name" required />
-          <textarea id="comment" placeholder="Type your scribbled thoughts..." required></textarea>
-          <button type="submit">
-            <img src="pen-icon.png" alt="pen" class="pen-icon" /> Post
-          </button>
-        </form>
-
-        <div id="comments-container"></div>
+          So here I sit, lost in the cracks,
+        </p>
+        <div class="coffee-ring"></div>
       </div>
+
+      <form class="comment-form" onsubmit="submitComment(event)">
+        <input type="text" id="commenter" placeholder="Your name (or anonymous)" required>
+        <textarea id="comment" placeholder="Type your scribbled thoughts..." required></textarea>
+        <button type="submit">
+          <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
+        </button>
+      </form>
+
+      <div id="comments-container"></div>
     </div>
 
     <a href="index.html" class="back-button">&larr; Back to Home</a>
   </div>
 
   <script>
-    // Your Firebase config
     const firebaseConfig = {
       apiKey: "AIzaSyAsQTtktHfCVbOGgzL4xs8Q6pkICdRDpnw",
       authDomain: "pretty-wreckage-9c673.firebaseapp.com",
@@ -194,24 +186,18 @@
 
     function submitComment(e) {
       e.preventDefault();
-      const nameInput = document.getElementById("name");
-      const commentInput = document.getElementById("comment");
-
-      const name = nameInput.value.trim();
-      const text = commentInput.value.trim();
-
-      if (!name || !text) return;
+      const commentText = document.getElementById("comment").value;
+      const commenter = document.getElementById("commenter").value;
+      if (!commentText.trim()) return;
 
       db.collection("archive-comments").add({
-        name: name,
-        text: text,
+        name: commenter.trim(),
+        text: commentText.trim(),
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
-        nameInput.value = "";
-        commentInput.value = "";
+        document.getElementById("comment").value = "";
+        document.getElementById("commenter").value = "";
         loadComments();
-      }).catch((error) => {
-        console.error("Error adding comment: ", error);
       });
     }
 
@@ -225,32 +211,15 @@
         .then(snapshot => {
           snapshot.forEach(doc => {
             const comment = doc.data();
-
-            // Show name and text only, no date
             const div = document.createElement("div");
             div.classList.add("single-comment");
             div.innerHTML = `
-              <strong>${escapeHTML(comment.name)}</strong>
-              <p>${escapeHTML(comment.text)}</p>
+              <p>${comment.text}</p>
+              <div class="reaction">– ${comment.name || "Anonymous"}</div>
             `;
             container.appendChild(div);
           });
-        }).catch(error => {
-          console.error("Error loading comments: ", error);
         });
-    }
-
-    // Simple HTML escape to avoid injection
-    function escapeHTML(text) {
-      return text.replace(/[&<>"']/g, function (m) {
-        return {
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#39;'
-        }[m];
-      });
     }
 
     window.onload = loadComments;
