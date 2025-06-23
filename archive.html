@@ -254,25 +254,25 @@
     }
 
     function loadComments(poemId) {
-      const container = document.getElementById("comments-container-" + poemId);
-      if (!container) return;
-      container.innerHTML = "";
+  const container = document.getElementById("comments-container-" + poemId);
+  container.innerHTML = "";
 
-      db.collection("archive-comments")
-        .where("poemId", "==", poemId)
-        .orderBy("createdAt", "desc")
-        .get()
-        .then(snapshot => {
-          commentsData[poemId].comments = [];
-          snapshot.forEach(doc => {
-            commentsData[poemId].comments.push(doc.data());
-          });
-          renderComments(poemId);
-        }).catch(err => {
-          console.error("Error loading comments:", err);
-          container.innerHTML = "<p>Error loading comments.</p>";
-        });
-    }
+  db.collection("archive-comments")
+    .where("poemId", "==", poemId)
+    .orderBy("createdAt", "desc")
+    .get()
+    .then(snapshot => {
+      commentsData[poemId].comments = [];
+      snapshot.forEach(doc => {
+        commentsData[poemId].comments.push(doc.data());
+      });
+      renderComments(poemId);
+    })
+    .catch(err => {
+      console.error("Error loading comments:", err);
+      container.innerHTML = `<p style="color:red;">Error loading comments: ${err.message}</p>`;
+    });
+}
 
     function renderComments(poemId) {
       const container = document.getElementById("comments-container-" + poemId);
