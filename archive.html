@@ -49,7 +49,7 @@
       font-family: 'Georgia', serif;
       font-size: 1.1rem;
       color: #3e2e2e;
-      white-space: pre-line; /* show line breaks */
+      white-space: pre-line;
       margin-bottom: 1rem;
     }
 
@@ -87,40 +87,14 @@
       margin-right: 8px;
     }
 
-    .comments-wrapper {
-      max-height: 1000px;
-      overflow: hidden;
-      transition: max-height 0.5s ease;
-    }
-
-    .comments-wrapper.collapsed {
-      max-height: 300px; /* show about 3 comments */
-      overflow: hidden;
-    }
-
-    .single-comment {
-      background-color: #fff7fb;
-      padding: 1rem;
+    .comments-note {
       margin-top: 1rem;
-      border-left: 4px solid #db86aa;
-      border-radius: 8px;
-    }
-
-    .reaction {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-    }
-
-    .toggle-comments-btn {
-      margin-top: 0.7rem;
-      background: none;
-      border: none;
-      color: #914d67;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1rem;
-      text-align: left;
-      padding: 0;
+      font-size: 0.95rem;
+      color: #5a3c4d;
+      background-color: #fdf2f8;
+      padding: 0.7rem 1rem;
+      border-left: 4px solid #c28aaa;
+      border-radius: 10px;
     }
 
     .back-button {
@@ -162,7 +136,6 @@
         Like the pieces of me I never got to put back.<br>
         I don’t know where this poem ends,<br>
         Or if it ever truly began.<br><br>
-
         But the silence… oh, it still rhymes,<br>
         Whispering secrets through fractured times.<br>
         Each crack a story I hide away,<br>
@@ -175,10 +148,9 @@
           <img src="pen-icon.png" alt="pen" class="pen-icon" /> Post
         </button>
       </form>
-      <div class="comments-wrapper collapsed" id="comments-wrapper-poem1">
-        <div id="comments-container-poem1"></div>
+      <div class="comments-note">
+        <em>They couldn’t handle the fire 🔥so I dimmed the lights. Comments are hidden from others, but I still read them all. Every Word 💌</em>
       </div>
-      <button class="toggle-comments-btn" data-poem="poem1">Show more comments</button>
     </div>
 
     <!-- Poem 2 -->
@@ -188,7 +160,6 @@
         In the hush between goodbyes and sleepless nights.<br>
         I didn’t edit or erase or plan,<br>
         I just wrote down the truth as fast as I can.<br><br>
-
         Maybe it’s messy, maybe it’s raw,<br>
         But pain never asked for a single applause.<br>
         So read it slow, or not at all,<br>
@@ -201,10 +172,9 @@
           <img src="pen-icon.png" alt="pen" class="pen-icon" /> Post
         </button>
       </form>
-      <div class="comments-wrapper collapsed" id="comments-wrapper-poem2">
-        <div id="comments-container-poem2"></div>
+      <div class="comments-note">
+        <em>They couldn’t handle the fire 🔥so I dimmed the lights. Comments are hidden from others, but I still read them all. Every Word.. 💌</em>
       </div>
-      <button class="toggle-comments-btn" data-poem="poem2">Show more comments</button>
     </div>
 
     <a href="index.html" class="back-button">&larr; Back to Home</a>
@@ -224,15 +194,11 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    const commentsData = {
-      poem1: { comments: [], collapsed: true },
-      poem2: { comments: [], collapsed: true }
-    };
-
     function submitComment(e, poemId) {
       e.preventDefault();
       const commentText = document.getElementById("comment-" + poemId).value;
       const commenter = document.getElementById("commenter-" + poemId).value;
+
       if (!commentText.trim()) {
         alert("Please enter a comment!");
         return;
@@ -246,83 +212,12 @@
       }).then(() => {
         document.getElementById("comment-" + poemId).value = "";
         document.getElementById("commenter-" + poemId).value = "";
-        loadComments(poemId);
+        alert("Thank you for sharing your thoughts 💌");
       }).catch(err => {
         console.error("Error adding comment:", err);
         alert("Failed to add comment. Please try again.");
       });
     }
-
-    function loadComments(poemId) {
-  const container = document.getElementById("comments-container-" + poemId);
-  container.innerHTML = "";
-
-  db.collection("archive-comments")
-    .where("poemId", "==", poemId)
-    .orderBy("createdAt", "desc")
-    .get()
-    .then(snapshot => {
-      commentsData[poemId].comments = [];
-      snapshot.forEach(doc => {
-        commentsData[poemId].comments.push(doc.data());
-      });
-      renderComments(poemId);
-    })
-    .catch(err => {
-      console.error("Error loading comments:", err);
-      container.innerHTML = `<p style="color:red;">Error loading comments: ${err.message}</p>`;
-    });
-}
-
-    function renderComments(poemId) {
-      const container = document.getElementById("comments-container-" + poemId);
-      if (!container) return;
-      container.innerHTML = "";
-      const comments = commentsData[poemId].comments;
-      const collapsed = commentsData[poemId].collapsed;
-
-      const toShow = collapsed ? comments.slice(0, 3) : comments;
-
-      toShow.forEach(comment => {
-        const div = document.createElement("div");
-        div.classList.add("single-comment");
-        div.innerHTML = `
-          <p>${comment.text}</p>
-          <div class="reaction">&ndash; ${comment.name || "Anonymous"}</div>
-        `;
-        container.appendChild(div);
-      });
-
-      const toggleBtn = document.querySelector(`button.toggle-comments-btn[data-poem="${poemId}"]`);
-      if (!toggleBtn) return;
-
-      if (comments.length <= 3) {
-        toggleBtn.style.display = 'none';
-      } else {
-        toggleBtn.style.display = 'block';
-        toggleBtn.textContent = collapsed ? `Show more comments (${comments.length - 3} more)` : "Show less comments";
-      }
-
-      const wrapper = document.getElementById(`comments-wrapper-${poemId}`);
-      if (collapsed) {
-        wrapper.classList.add("collapsed");
-      } else {
-        wrapper.classList.remove("collapsed");
-      }
-    }
-
-    document.querySelectorAll(".toggle-comments-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const poemId = btn.getAttribute("data-poem");
-        commentsData[poemId].collapsed = !commentsData[poemId].collapsed;
-        renderComments(poemId);
-      });
-    });
-
-    window.onload = () => {
-      loadComments("poem1");
-      loadComments("poem2");
-    };
   </script>
 </body>
 </html>
