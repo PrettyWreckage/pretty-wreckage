@@ -1,142 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Unsent Letters - Envelope Reveal</title>
-<style>
-  body {
-    font-family: 'Georgia', serif;
-    background: url('unsentletters.jpg') no-repeat center center fixed;
-    background-size: cover;
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    align-items: center;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unsent Letters</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: url('unsentletters.jpg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 2rem;
+      color: #3e2d2b;
+    }
 
-  .envelope {
-    width: 300px;
-    height: 180px;
-    position: relative;
-    cursor: pointer;
-    perspective: 1000px;
-  }
+    .page-intro {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      background-color: rgba(255, 248, 240, 0.9);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
 
-  /* Envelope base */
-  .envelope .base {
-    width: 100%;
-    height: 100%;
-    background: #d9cfc1;
-    border: 2px solid #a98b78;
-    border-radius: 10px 10px 6px 6px;
-    position: relative;
-    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
-    overflow: hidden;
-  }
+    .page-intro h1 {
+      margin-top: 0;
+      font-size: 2.3rem;
+      color: #5a3d3b;
+    }
 
-  /* Flap */
-  .envelope .flap {
-    width: 100%;
-    height: 80px;
-    background: #b69f87;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 2px solid #a98b78;
-    transform-origin: top center;
-    transition: transform 0.5s ease;
-    box-shadow: inset 0 4px 6px rgba(255,255,255,0.3);
-  }
+    .page-intro p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+    }
 
-  /* Flap open state */
-  .envelope.open .flap {
-    transform: rotateX(-140deg);
-    box-shadow: none;
-  }
+    .envelope {
+      width: 500px;
+      height: 260px;
+      position: relative;
+      cursor: pointer;
+      perspective: 1200px;
+      margin: 2rem auto;
+    }
 
-  /* Paper inside envelope */
-  .envelope .paper {
-    position: absolute;
-    top: 80px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    background: #fff;
-    border-radius: 4px;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    padding: 1rem 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    color: #4a3c31;
-    overflow-y: auto;
-    max-height: 90%;
-    transform: translateY(100%);
-    transition: transform 0.5s ease;
-  }
+    .envelope .base {
+      width: 100%;
+      height: 100%;
+      background: #f5ebe2;
+      border: 2px solid #b99b85;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+    }
 
-  /* Paper shown when open */
-  .envelope.open .paper {
-    transform: translateY(0);
-  }
+    .envelope .flap {
+      width: 100%;
+      height: 120px;
+      background: #c3a993;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 10px 10px 0 0;
+      border-bottom: 2px solid #b99b85;
+      transform-origin: top center;
+      transition: transform 0.5s ease;
+      z-index: 2;
+    }
 
-  .envelope-title {
-    text-align: center;
-    margin-top: 0.5rem;
-    font-weight: bold;
-    color: #5d4a3a;
-  }
-</style>
+    .envelope.open .flap {
+      transform: rotateX(-140deg);
+    }
+
+    .envelope .paper {
+      position: absolute;
+      top: 120px;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      background: #fffdfc;
+      border-radius: 6px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      padding: 1.3rem 1.5rem 3rem;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #4a3c31;
+      overflow-y: auto;
+      transform: translateY(100%);
+      transition: transform 0.5s ease;
+    }
+
+    .envelope.open .paper {
+      transform: translateY(0%);
+    }
+
+    .collapse-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      background: #e7c3b3;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      color: #5a3d3b;
+    }
+
+    .collapse-btn:hover {
+      background-color: #e1a89d;
+    }
+
+    .envelope-title {
+      text-align: center;
+      margin-top: 0.6rem;
+      font-weight: bold;
+      color: #5d4a3a;
+      font-size: 1.1rem;
+    }
+
+    .back-button {
+      display: block;
+      margin: 4rem auto 1rem;
+      text-align: center;
+      background-color: #e4cbc0;
+      border: 1px solid #cfae9c;
+      padding: 0.7rem 1.4rem;
+      border-radius: 10px;
+      color: #5a3d3b;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: #e7bfb4;
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
-<div class="envelope" onclick="toggleEnvelope(this)">
-  <div class="base">
-    <div class="flap"></div>
-    <div class="paper">
-      <p>
-        Dear You,<br><br>
-        Sometimes words stay unsent because they are too fragile.<br>
-        But here I am, finally opening this letter for you to see.<br>
-        Hope you feel my heart in every line.<br><br>
-        — Yours truly
-      </p>
-    </div>
+  <div class="page-intro">
+    <h1>Unsent Letters</h1>
+    <p><strong>These are the letters I never sent</strong>—the confessions, the closure, the honesty I only dared to whisper into paper.</p>
+    <p>Each one holds a piece of my heart, folded between the lines. I wrote them for healing, remembering, and finally letting go.</p>
+    <p>Some are for people I miss. Some are for those who never truly saw me. And some... are just for me.</p>
+    <p>Read gently. These letters were never supposed to be found—but maybe, just maybe, they were meant for you after all.</p>
   </div>
-  <div class="envelope-title">Unsent Letter #1</div>
-</div>
 
-<div class="envelope" onclick="toggleEnvelope(this)">
-  <div class="base">
-    <div class="flap"></div>
-    <div class="paper">
-      <p>
-        To whoever finds this,<br><br>
-        I never had the courage to say it out loud.<br>
-        Maybe this letter will be the bridge I needed.<br>
-        Until then, it waits quietly in this envelope.<br><br>
-        — Silent thoughts
-      </p>
+  <!-- Envelope 1 -->
+  <div class="envelope" onclick="toggleEnvelope(this)">
+    <div class="base">
+      <div class="flap"></div>
+      <div class="paper">
+        <p>
+          Dear You,<br><br>
+          I had so much to say that night, but the words stayed tangled behind my teeth.<br>
+          This letter carries what I couldn't say out loud.<br><br>
+          — Yours in silence
+        </p>
+        <button class="collapse-btn" onclick="collapseEnvelope(event, this)">Collapse</button>
+      </div>
     </div>
+    <div class="envelope-title">Unsent Letter #1</div>
   </div>
-  <div class="envelope-title">Unsent Letter #2</div>
-</div>
 
-<script>
-  function toggleEnvelope(selectedEnvelope) {
-    // Close all envelopes except the one clicked
-    document.querySelectorAll('.envelope').forEach(env => {
-      if(env !== selectedEnvelope) {
-        env.classList.remove('open');
-      }
-    });
+  <!-- Envelope 2 -->
+  <div class="envelope" onclick="toggleEnvelope(this)">
+    <div class="base">
+      <div class="flap"></div>
+      <div class="paper">
+        <p>
+          To the one who never stayed,<br><br>
+          I still think about your goodbye more than your hello.<br>
+          Maybe this letter is how I stop writing about you.<br><br>
+          — Someone learning to let go
+        </p>
+        <button class="collapse-btn" onclick="collapseEnvelope(event, this)">Collapse</button>
+      </div>
+    </div>
+    <div class="envelope-title">Unsent Letter #2</div>
+  </div>
 
-    // Toggle clicked envelope open/close
-    selectedEnvelope.classList.toggle('open');
-  }
-</script>
+  <a href="index.html" class="back-button">&larr; Back to Home</a>
+
+  <script>
+    function toggleEnvelope(selectedEnvelope) {
+      document.querySelectorAll('.envelope').forEach(env => {
+        if (env !== selectedEnvelope) env.classList.remove('open');
+      });
+      selectedEnvelope.classList.toggle('open');
+    }
+
+    function collapseEnvelope(e, btn) {
+      e.stopPropagation(); // prevent triggering parent click
+      const envelope = btn.closest('.envelope');
+      envelope.classList.remove('open');
+    }
+  </script>
 
 </body>
 </html>
