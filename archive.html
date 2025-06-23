@@ -23,8 +23,6 @@
       max-width: 900px;
       margin: 4rem auto;
       padding: 2rem;
-      /* Paper background removed here */
-      /* background: url('lined-paper.png') center center/cover no-repeat; */
       border-radius: 20px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
@@ -42,7 +40,7 @@
     .poem-box {
       padding: 2rem;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 248, 235, 0.85);
       position: relative;
       margin-bottom: 3rem;
     }
@@ -51,17 +49,6 @@
       font-family: 'Georgia', serif;
       font-size: 1.1rem;
       color: #3e2e2e;
-      position: relative;
-    }
-
-    .coffee-ring {
-      background: url('coffee-ring.png') no-repeat;
-      width: 80px;
-      height: 80px;
-      position: absolute;
-      bottom: -10px;
-      left: -10px;
-      opacity: 0.5;
     }
 
     .comment-form {
@@ -133,7 +120,8 @@
       Scribble something down. Say what’s on your mind. All I ask is that you speak with kindness. 💬
     </div>
 
-    <div class="poem-box">
+    <!-- Poem 1 -->
+    <div class="poem-box" id="poem1">
       <div class="poem-content">
         <p>
           I wrote this while staring at a ceiling full of cracks,<br>
@@ -144,27 +132,42 @@
           But the silence… oh, it still rhymes,<br>
           Whispering secrets through fractured times.<br>
           Each crack a story I hide away,<br>
-          In shadows where my fears still stay.<br><br>
-
-          The ceiling’s scars mirror mine,<br>
-          Broken lines that never align.<br>
-          Yet in this quiet, broken space,<br>
-          I find a rhythm, a fragile grace.<br><br>
-
-          So here I sit, lost in the cracks,
+          In shadows where my fears still stay.
         </p>
-        <div class="coffee-ring"></div>
       </div>
-
-      <form class="comment-form" onsubmit="submitComment(event)">
-        <input type="text" id="commenter" placeholder="Your name (or anonymous)" required>
-        <textarea id="comment" placeholder="Type your scribbled thoughts..." required></textarea>
+      <form class="comment-form" onsubmit="submitComment(event, 'poem1')">
+        <input type="text" id="commenter-poem1" placeholder="Your name (or anonymous)" required>
+        <textarea id="comment-poem1" placeholder="Type your scribbled thoughts..." required></textarea>
         <button type="submit">
           <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
         </button>
       </form>
+      <div id="comments-container-poem1"></div>
+    </div>
 
-      <div id="comments-container"></div>
+    <!-- Poem 2 -->
+    <div class="poem-box" id="poem2">
+      <div class="poem-content">
+        <p>
+          This one came to me between blinking lights,<br>
+          In the hush between goodbyes and sleepless nights.<br>
+          I didn’t edit or erase or plan,<br>
+          I just wrote down the truth as fast as I can.<br><br>
+
+          Maybe it’s messy, maybe it’s raw,<br>
+          But pain never asked for a single applause.<br>
+          So read it slow, or not at all,<br>
+          These lines were never scared to fall.
+        </p>
+      </div>
+      <form class="comment-form" onsubmit="submitComment(event, 'poem2')">
+        <input type="text" id="commenter-poem2" placeholder="Your name (or anonymous)" required>
+        <textarea id="comment-poem2" placeholder="Type your scribbled thoughts..." required></textarea>
+        <button type="submit">
+          <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
+        </button>
+      </form>
+      <div id="comments-container-poem2"></div>
     </div>
 
     <a href="index.html" class="back-button">&larr; Back to Home</a>
@@ -184,28 +187,30 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
-    function submitComment(e) {
+    function submitComment(e, poemId) {
       e.preventDefault();
-      const commentText = document.getElementById("comment").value;
-      const commenter = document.getElementById("commenter").value;
+      const commentText = document.getElementById("comment-" + poemId).value;
+      const commenter = document.getElementById("commenter-" + poemId).value;
       if (!commentText.trim()) return;
 
       db.collection("archive-comments").add({
         name: commenter.trim(),
         text: commentText.trim(),
+        poemId: poemId,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
-        document.getElementById("comment").value = "";
-        document.getElementById("commenter").value = "";
-        loadComments();
+        document.getElementById("comment-" + poemId).value = "";
+        document.getElementById("commenter-" + poemId).value = "";
+        loadComments(poemId);
       });
     }
 
-    function loadComments() {
-      const container = document.getElementById("comments-container");
+    function loadComments(poemId) {
+      const container = document.getElementById("comments-container-" + poemId);
       container.innerHTML = "";
 
       db.collection("archive-comments")
+        .where("poemId", "==", poemId)
         .orderBy("createdAt", "desc")
         .get()
         .then(snapshot => {
@@ -215,14 +220,17 @@
             div.classList.add("single-comment");
             div.innerHTML = `
               <p>${comment.text}</p>
-              <div class="reaction">– ${comment.name || "Anonymous"}</div>
+              <div class="reaction">&ndash; ${comment.name || "Anonymous"}</div>
             `;
             container.appendChild(div);
           });
         });
     }
 
-    window.onload = loadComments;
+    window.onload = () => {
+      loadComments("poem1");
+      loadComments("poem2");
+    };
   </script>
 </body>
 </html>
