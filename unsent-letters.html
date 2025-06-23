@@ -2,245 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unsent Letters</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unsent Letters | Pretty Wreckage</title>
+
+  <!-- Handwritten Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Georgia', serif;
       background: url('unsentletters.jpg') no-repeat center center fixed;
       background-size: cover;
-      margin: 0;
-      padding: 2rem;
-      color: #2e1f1c;
+      color: #2c1a1e;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 3rem 1rem;
     }
 
     .page-intro {
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      background-color: rgba(255, 248, 240, 0.95);
+      background-color: rgba(255, 248, 248, 0.9);
       padding: 2rem;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-align: center;
+      border-radius: 20px;
+      margin-bottom: 3rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
     }
 
     .page-intro h1 {
-      margin-top: 0;
-      font-size: 2.4rem;
-      color: #4d312c;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #592c3c;
     }
 
     .page-intro p {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       line-height: 1.6;
-      margin-bottom: 0.8rem;
     }
 
     .envelope {
-      width: 600px;
-      height: 320px;
       position: relative;
-      cursor: pointer;
-      perspective: 1200px;
+      width: 90%;
+      max-width: 700px;
+      height: 250px;
+      background: #f5e4d7;
       margin: 2rem auto;
-    }
-
-    .envelope .base {
-      width: 100%;
-      height: 100%;
-      background: #f5ebe2;
-      border: 2px solid #b99b85;
-      border-radius: 10px;
-      position: relative;
+      border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-      transition: all 0.4s ease;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: height 0.4s ease;
     }
 
-    .envelope .flap {
-      width: 100%;
-      height: 140px;
-      background: #c3a993;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border-radius: 10px 10px 0 0;
-      border-bottom: 2px solid #b99b85;
-      transform-origin: top center;
-      transition: transform 0.5s ease;
-      z-index: 2;
+    .envelope.open {
+      height: auto;
     }
 
-    .envelope.open .flap {
-      transform: rotateX(-140deg);
-    }
-
-    .envelope .paper {
-      position: absolute;
-      top: 140px;
-      left: 10px;
-      right: 10px;
-      bottom: 10px;
-      background: #fffefc;
-      border-radius: 6px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      padding: 1.5rem;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: #2e1f1c;
-      overflow-y: auto;
-      transform: translateY(100%);
-      transition: transform 0.5s ease;
-    }
-
-    .envelope.open .paper {
-      transform: translateY(0%);
-    }
-
-    .envelope-title {
-      font-weight: bold;
-      color: #3e2a23;
-      font-size: 1.2rem;
+    .flap {
+      position: relative;
+      background: #e3c3b0;
+      height: 60px;
       text-align: center;
-      margin-bottom: 1rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .flap-title {
+      font-family: 'Zeyada', cursive;
+      font-size: 2rem;
+      color: #4e2a1e;
+      opacity: 0.95;
+      pointer-events: none;
+      width: 100%;
+    }
+
+    .letter-content {
+      padding: 2rem;
+      display: none;
+      background: rgba(255, 255, 255, 0.95);
+      font-size: 1.1rem;
+      color: #3a2a2c;
+    }
+
+    .envelope.open .letter-content {
+      display: block;
     }
 
     .back-button {
       display: block;
-      margin: 4rem auto 1rem;
       text-align: center;
-      background-color: #e4cbc0;
-      border: 1px solid #cfae9c;
-      padding: 0.7rem 1.4rem;
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
       border-radius: 10px;
-      color: #5a3d3b;
+      background-color: #f7d4db;
+      color: #5b2c3a;
       text-decoration: none;
       font-weight: bold;
       width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid #e4b7c4;
       transition: background-color 0.3s ease;
     }
 
     .back-button:hover {
-      background-color: #e7bfb4;
-      text-decoration: underline;
+      background-color: #f9c6d3;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="page-intro">
+      <h1>Unsent Letters</h1>
+      <p>
+        These letters were never sent—but they carry every word I wish I could say. Each one was written with trembling hands, in quiet moments, and hidden tears. <br><br>
+        Some are meant for people who will never read them. Others are meant for the version of me I used to be. <br>
+        Thank you for opening them gently. ❤️
+      </p>
+    </div>
 
-  <div class="page-intro">
-    <h1>Unsent Letters</h1>
-    <p><strong>These are the letters I never sent</strong>—the confessions, the closure, the honesty I only dared to whisper into paper.</p>
-    <p>Each one holds a piece of my heart, folded between the lines. I wrote them for healing, remembering, and finally letting go.</p>
-    <p>Some are for people I miss. Some are for those who never truly saw me. And some... are just for me.</p>
-    <p>Read gently. These letters were never supposed to be found—but maybe, just maybe, they were meant for you after all.</p>
-  </div>
-
-  <!-- Envelope 1 -->
-  <div class="envelope" onclick="toggleEnvelope(this)">
-    <div class="base">
-      <div class="flap"></div>
-      <div class="paper">
-        <div class="envelope-title">To the Monster Who Stole My Childhood</div>
-        <p>
-          Dear Monsters,<br><br>
-          There are some wounds that never close.
-They just learn to bleed quietly.
-
-Today, I find myself writing to you — not because you deserve my words, but because the silence has grown too loud inside me. Maybe it’s time I bleed it out onto paper. Maybe it’s time I stop carrying the weight of your sins in my chest. You may never read this, you may never care — but I need to say it, for me.
-
-I was eight.
-
-Just eight.
-
-A child with scraped knees and bedtime stories. A little girl who still believed that “family” meant safe arms and lullabies. You ruined that. You turned my world into something dark and twisted. You didn’t just take my innocence — you set fire to it and made me watch. You turned love into fear. You turned trust into a weapon. And you did it while wearing the face of someone I was told to love.
-
-You didn’t just break me.
-You *unmade* me.
-
-Five years.
-Five years of stolen nights and shattered boundaries. Of flinches I learned to hide, of screams I buried under my pillow. Five years of confusion, of shame that never belonged to me, of trying to survive a war no one else could see. You carved yourself into my childhood like a curse I couldn't lift.
-
-To this day, I still feel your hands on my skin when no one is there. I still triple-check locks. I still sleep with a knife in the drawer. I still lose my breath when someone walks behind me. Your presence haunts the quiet moments — the ones that should’ve brought peace. You linger like smoke in a room I can’t air out.
-
-What were you thinking?
-
-Did you see how small I was?
-Did you hear me begging with my eyes?
-Was it power you wanted? Control? Or were you just that hollow?
-
-I was quiet. I was soft. I didn’t know how to scream.
-But silence was never a yes.
-I never wanted you. I never asked for this.
-I was a child — and you were a monster with a familiar name.
-
-You wore the mask of safety, of family, of protector.
-But underneath, you were rot.
-You were the thing in the dark I was supposed to be safe *from.*
-
-And now I carry what you left behind — the panic attacks. The guilt that doesn’t belong to me. The self-hate. The touch I flinch from, even when it's gentle. The trust I can’t give. The love I don’t think I deserve. You left me with pieces, and I’ve spent years trying to make something whole from them.
-
-But let me be clear:
-
-I will never forgive you.
-
-Not out of vengeance.
-Not out of spite.
-But because some things are too cruel for forgiveness. Some wounds too deep to heal clean.
-What you did doesn’t get to be erased. Not with time. Not with repentance. Not with tears you’ll never cry.
-
-And God… I pray you never touch your daughter the way you touched me. I pray she never sees the monster behind your smile. I’ve stayed silent not to protect you — but to protect *her.* Because no child deserves to carry what I carried. I took that weight so she wouldn’t have to.
-
-Maybe you pretend now — play the role of a man. But I know what you really are.
-I know the rot beneath your skin.
-And if there is justice — in this life or the next — may your soul rot for every breath you stole from me.
-
-You left a grave in me.
-But I climbed out.
-
-I am still broken. Still healing. Still angry.
-But I am here.
-
-And you don’t get to take *that* from me.
-
-So from the child you shattered, from the girl who cried herself to sleep for years:
-
-I hate you.
-I will never forgive you.
-And I hope one day, you feel even a fraction of the hell you put me through.
-
-— The girl you tried to destroy. But failed.
-        </p>
+    <div class="envelope" onclick="toggleLetter(this)">
+      <div class="flap">
+        <div class="flap-title">Unsent Letter #1</div>
+      </div>
+      <div class="letter-content">
+        I hope you're doing okay. I keep rewriting this letter hoping the words will land softer than they used to. Maybe one day, it won’t ache like this. But today it still does.
       </div>
     </div>
-  </div>
 
-  <!-- Envelope 2 -->
-  <div class="envelope" onclick="toggleEnvelope(this)">
-    <div class="base">
-      <div class="flap"></div>
-      <div class="paper">
-        <div class="envelope-title">Unsent Letter #2</div>
-        <p>
-          To the one who never stayed,<br><br>
-          I still think about your goodbye more than your hello.<br>
-          Maybe this letter is how I stop writing about you.<br><br>
-          — Someone learning to let go
-        </p>
+    <div class="envelope" onclick="toggleLetter(this)">
+      <div class="flap">
+        <div class="flap-title">Unsent Letter #2</div>
+      </div>
+      <div class="letter-content">
+        I wanted to say I’m sorry. For the things I said, and for the things I didn’t. For how I held on too long—and also for letting go the way I did.
       </div>
     </div>
-  </div>
 
-  <a href="index.html" class="back-button">&larr; Back to Home</a>
+    <a href="index.html" class="back-button">&larr; Back to Home</a>
+  </div>
 
   <script>
-    function toggleEnvelope(selectedEnvelope) {
-      document.querySelectorAll('.envelope').forEach(env => {
-        if (env !== selectedEnvelope) env.classList.remove('open');
+    function toggleLetter(envelope) {
+      // Close all others
+      document.querySelectorAll('.envelope').forEach(el => {
+        if (el !== envelope) {
+          el.classList.remove('open');
+        }
       });
-      selectedEnvelope.classList.toggle('open');
+      // Toggle this one
+      envelope.classList.toggle('open');
     }
   </script>
-
 </body>
 </html>
