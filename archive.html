@@ -24,7 +24,7 @@
       margin: 4rem auto;
       padding: 2rem;
       background: url('lined-paper.png') center center/cover no-repeat;
-      background-size: cover;
+      background-size: contain;
       border-radius: 20px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
@@ -42,7 +42,6 @@
     .poem-box {
       padding: 2rem;
       border-radius: 20px;
-      background: rgba(255, 255, 255, 0.9);
       position: relative;
       margin-bottom: 3rem;
     }
@@ -52,6 +51,15 @@
       font-size: 1.1rem;
       color: #3e2e2e;
       position: relative;
+    }
+
+    .timestamp {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #7b6e66;
     }
 
     .coffee-ring {
@@ -70,18 +78,20 @@
       flex-direction: column;
     }
 
-    .comment-form input,
     .comment-form textarea {
       padding: 1rem;
       border-radius: 10px;
-      border: 1px solid #ccc;
+      border: 1px solid #d7c8b0;
+      resize: vertical;
       font-family: 'Courier New', monospace;
       margin-bottom: 0.5rem;
       font-size: 1rem;
+      background-color: rgba(255, 248, 220, 0.4); /* lighter transparent cream */
+      color: #5a4a3e;
     }
 
     .comment-form button {
-      background-color: #a179a5;
+      background-color: rgba(161, 121, 165, 0.85);
       color: white;
       border: none;
       border-radius: 8px;
@@ -98,16 +108,19 @@
     }
 
     .single-comment {
-      background-color: #fff7fb;
+      background-color: rgba(255, 248, 220, 0.6); /* cream, transparent */
+      color: #5a4a3e;
+      border-left: 4px solid #db86aa;
       padding: 1rem;
       margin-top: 1rem;
-      border-left: 4px solid #db86aa;
       border-radius: 8px;
     }
 
-    .reaction {
-      font-size: 1.2rem;
+    .single-comment small {
+      display: block;
+      color: #888;
       margin-top: 0.5rem;
+      font-size: 0.8rem;
     }
 
     .back-button {
@@ -153,11 +166,11 @@
 
           So here I sit, lost in the cracks,
         </p>
+        <small class="timestamp">2:14 AM</small>
         <div class="coffee-ring"></div>
       </div>
 
       <form class="comment-form" onsubmit="submitComment(event)">
-        <input type="text" id="commenter" placeholder="Your name (or anonymous)" required>
         <textarea id="comment" placeholder="Type your scribbled thoughts..." required></textarea>
         <button type="submit">
           <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
@@ -187,16 +200,13 @@
     function submitComment(e) {
       e.preventDefault();
       const commentText = document.getElementById("comment").value;
-      const commenter = document.getElementById("commenter").value;
       if (!commentText.trim()) return;
 
       db.collection("archive-comments").add({
-        name: commenter.trim(),
-        text: commentText.trim(),
+        text: commentText,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
         document.getElementById("comment").value = "";
-        document.getElementById("commenter").value = "";
         loadComments();
       });
     }
@@ -215,7 +225,7 @@
             div.classList.add("single-comment");
             div.innerHTML = `
               <p>${comment.text}</p>
-              <div class="reaction">– ${comment.name || "Anonymous"}</div>
+              <small>${comment.createdAt?.toDate().toLocaleString() || ''}</small>
             `;
             container.appendChild(div);
           });
