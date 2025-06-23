@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Scattered Poetry Pages | Pretty Wreckage</title>
 
   <!-- Firebase SDK -->
@@ -77,11 +77,23 @@
       cursor: pointer;
       display: flex;
       align-items: center;
+      width: fit-content;
     }
 
     .pen-icon {
       width: 18px;
       margin-right: 8px;
+    }
+
+    .comments-wrapper {
+      max-height: 1000px;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .comments-wrapper.collapsed {
+      max-height: 300px; /* Show approx 3 comments height */
+      overflow: hidden;
     }
 
     .single-comment {
@@ -95,6 +107,18 @@
     .reaction {
       font-size: 1.2rem;
       margin-top: 0.5rem;
+    }
+
+    .toggle-comments-btn {
+      margin-top: 0.7rem;
+      background: none;
+      border: none;
+      color: #914d67;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      text-align: left;
+      padding: 0;
     }
 
     .back-button {
@@ -111,9 +135,11 @@
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
+      transition: background-color 0.3s ease;
     }
 
     .back-button:hover {
+      background-color: #f9c6d3;
       text-decoration: underline;
     }
   </style>
@@ -149,7 +175,10 @@
           <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
         </button>
       </form>
-      <div id="comments-container-poem1"></div>
+      <div class="comments-wrapper collapsed" id="comments-wrapper-poem1">
+        <div id="comments-container-poem1"></div>
+      </div>
+      <button class="toggle-comments-btn" data-poem="poem1">Show more comments</button>
     </div>
 
     <!-- Poem 2 -->
@@ -174,7 +203,10 @@
           <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
         </button>
       </form>
-      <div id="comments-container-poem2"></div>
+      <div class="comments-wrapper collapsed" id="comments-wrapper-poem2">
+        <div id="comments-container-poem2"></div>
+      </div>
+      <button class="toggle-comments-btn" data-poem="poem2">Show more comments</button>
     </div>
 
     <a href="index.html" class="back-button">&larr; Back to Home</a>
@@ -212,6 +244,12 @@
       });
     }
 
+    // Load comments and store count
+    const commentsData = {
+      poem1: { comments: [], collapsed: true },
+      poem2: { comments: [], collapsed: true },
+    };
+
     function loadComments(poemId) {
       const container = document.getElementById("comments-container-" + poemId);
       container.innerHTML = "";
@@ -221,18 +259,60 @@
         .orderBy("createdAt", "desc")
         .get()
         .then(snapshot => {
+          commentsData[poemId].comments = [];
           snapshot.forEach(doc => {
-            const comment = doc.data();
-            const div = document.createElement("div");
-            div.classList.add("single-comment");
-            div.innerHTML = `
-              <p>${comment.text}</p>
-              <div class="reaction">&ndash; ${comment.name || "Anonymous"}</div>
-            `;
-            container.appendChild(div);
+            commentsData[poemId].comments.push(doc.data());
           });
+          renderComments(poemId);
         });
     }
+
+    function renderComments(poemId) {
+      const container = document.getElementById("comments-container-" + poemId);
+      container.innerHTML = "";
+      const comments = commentsData[poemId].comments;
+      const collapsed = commentsData[poemId].collapsed;
+
+      // Show only first 3 if collapsed, else all
+      const toShow = collapsed ? comments.slice(0, 3) : comments;
+
+      toShow.forEach(comment => {
+        const div = document.createElement("div");
+        div.classList.add("single-comment");
+        div.innerHTML = `
+          <p>${comment.text}</p>
+          <div class="reaction">&ndash; ${comment.name || "Anonymous"}</div>
+        `;
+        container.appendChild(div);
+      });
+
+      // Update toggle button text
+      const toggleBtn = document.querySelector(`button.toggle-comments-btn[data-poem="${poemId}"]`);
+      if (!toggleBtn) return;
+      if (comments.length <= 3) {
+        toggleBtn.style.display = 'none'; // Hide button if 3 or fewer comments
+      } else {
+        toggleBtn.style.display = 'block';
+        toggleBtn.textContent = collapsed ? `Show more comments (${comments.length - 3} more)` : "Show less comments";
+      }
+
+      // Adjust max-height based on collapsed state for animation
+      const wrapper = document.getElementById(`comments-wrapper-${poemId}`);
+      if (collapsed) {
+        wrapper.classList.add("collapsed");
+      } else {
+        wrapper.classList.remove("collapsed");
+      }
+    }
+
+    // Toggle button handler
+    document.querySelectorAll(".toggle-comments-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const poemId = btn.getAttribute("data-poem");
+        commentsData[poemId].collapsed = !commentsData[poemId].collapsed;
+        renderComments(poemId);
+      });
+    });
 
     window.onload = () => {
       loadComments("poem1");
