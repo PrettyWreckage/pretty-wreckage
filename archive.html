@@ -24,7 +24,7 @@
       margin: 4rem auto;
       padding: 2rem;
       background: url('lined-paper.png') center center/cover no-repeat;
-      background-size: contain;
+      background-size: cover;
       border-radius: 20px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     }
@@ -42,6 +42,7 @@
     .poem-box {
       padding: 2rem;
       border-radius: 20px;
+      background: rgba(255, 255, 255, 0.9);
       position: relative;
       margin-bottom: 3rem;
     }
@@ -51,15 +52,6 @@
       font-size: 1.1rem;
       color: #3e2e2e;
       position: relative;
-    }
-
-    .timestamp {
-      position: absolute;
-      top: -10px;
-      right: 20px;
-      font-size: 0.8rem;
-      font-style: italic;
-      color: #7b6e66;
     }
 
     .coffee-ring {
@@ -78,11 +70,11 @@
       flex-direction: column;
     }
 
+    .comment-form input,
     .comment-form textarea {
       padding: 1rem;
       border-radius: 10px;
       border: 1px solid #ccc;
-      resize: vertical;
       font-family: 'Courier New', monospace;
       margin-bottom: 0.5rem;
       font-size: 1rem;
@@ -113,11 +105,9 @@
       border-radius: 8px;
     }
 
-    .single-comment small {
-      display: block;
-      color: #888;
+    .reaction {
+      font-size: 1.2rem;
       margin-top: 0.5rem;
-      font-size: 0.8rem;
     }
 
     .back-button {
@@ -163,11 +153,11 @@
 
           So here I sit, lost in the cracks,
         </p>
-        <small class="timestamp">2:14 AM</small>
         <div class="coffee-ring"></div>
       </div>
 
       <form class="comment-form" onsubmit="submitComment(event)">
+        <input type="text" id="commenter" placeholder="Your name (or anonymous)" required>
         <textarea id="comment" placeholder="Type your scribbled thoughts..." required></textarea>
         <button type="submit">
           <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
@@ -197,13 +187,16 @@
     function submitComment(e) {
       e.preventDefault();
       const commentText = document.getElementById("comment").value;
+      const commenter = document.getElementById("commenter").value;
       if (!commentText.trim()) return;
 
       db.collection("archive-comments").add({
-        text: commentText,
+        name: commenter.trim(),
+        text: commentText.trim(),
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
         document.getElementById("comment").value = "";
+        document.getElementById("commenter").value = "";
         loadComments();
       });
     }
@@ -222,7 +215,7 @@
             div.classList.add("single-comment");
             div.innerHTML = `
               <p>${comment.text}</p>
-              <small>${comment.createdAt?.toDate().toLocaleString() || ''}</small>
+              <div class="reaction">– ${comment.name || "Anonymous"}</div>
             `;
             container.appendChild(div);
           });
