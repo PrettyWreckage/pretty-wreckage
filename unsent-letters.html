@@ -11,13 +11,13 @@
       background-size: cover;
       margin: 0;
       padding: 2rem;
-      color: #3e2d2b;
+      color: #2e1f1c;
     }
 
     .page-intro {
       max-width: 800px;
       margin: 0 auto 3rem;
-      background-color: rgba(255, 248, 240, 0.9);
+      background-color: rgba(255, 248, 240, 0.95);
       padding: 2rem;
       border-radius: 16px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -26,19 +26,19 @@
 
     .page-intro h1 {
       margin-top: 0;
-      font-size: 2.3rem;
-      color: #5a3d3b;
+      font-size: 2.4rem;
+      color: #4d312c;
     }
 
     .page-intro p {
-      font-size: 1rem;
+      font-size: 1.05rem;
       line-height: 1.6;
       margin-bottom: 0.8rem;
     }
 
     .envelope {
-      width: 500px;
-      height: 260px;
+      width: 600px;
+      height: 320px;
       position: relative;
       cursor: pointer;
       perspective: 1200px;
@@ -59,7 +59,7 @@
 
     .envelope .flap {
       width: 100%;
-      height: 120px;
+      height: 140px;
       background: #c3a993;
       position: absolute;
       top: 0;
@@ -77,17 +77,17 @@
 
     .envelope .paper {
       position: absolute;
-      top: 120px;
+      top: 140px;
       left: 10px;
       right: 10px;
       bottom: 10px;
-      background: #fffdfc;
+      background: #fffefc;
       border-radius: 6px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-      padding: 1.3rem 1.5rem 3rem;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: #4a3c31;
+      padding: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: #2e1f1c;
       overflow-y: auto;
       transform: translateY(100%);
       transition: transform 0.5s ease;
@@ -97,30 +97,12 @@
       transform: translateY(0%);
     }
 
-    .collapse-btn {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      background: #e7c3b3;
-      border: none;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.9rem;
-      font-weight: bold;
-      border-radius: 6px;
-      cursor: pointer;
-      color: #5a3d3b;
-    }
-
-    .collapse-btn:hover {
-      background-color: #e1a89d;
-    }
-
     .envelope-title {
-      text-align: center;
-      margin-top: 0.6rem;
       font-weight: bold;
-      color: #5d4a3a;
-      font-size: 1.1rem;
+      color: #3e2a23;
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 1rem;
     }
 
     .back-button {
@@ -159,16 +141,15 @@
     <div class="base">
       <div class="flap"></div>
       <div class="paper">
+        <div class="envelope-title">Unsent Letter #1</div>
         <p>
           Dear You,<br><br>
           I had so much to say that night, but the words stayed tangled behind my teeth.<br>
           This letter carries what I couldn't say out loud.<br><br>
           — Yours in silence
         </p>
-        <button class="collapse-btn" onclick="collapseEnvelope(event, this)">Collapse</button>
       </div>
     </div>
-    <div class="envelope-title">Unsent Letter #1</div>
   </div>
 
   <!-- Envelope 2 -->
@@ -176,16 +157,15 @@
     <div class="base">
       <div class="flap"></div>
       <div class="paper">
+        <div class="envelope-title">Unsent Letter #2</div>
         <p>
           To the one who never stayed,<br><br>
           I still think about your goodbye more than your hello.<br>
           Maybe this letter is how I stop writing about you.<br><br>
           — Someone learning to let go
         </p>
-        <button class="collapse-btn" onclick="collapseEnvelope(event, this)">Collapse</button>
       </div>
     </div>
-    <div class="envelope-title">Unsent Letter #2</div>
   </div>
 
   <a href="index.html" class="back-button">&larr; Back to Home</a>
@@ -196,12 +176,6 @@
         if (env !== selectedEnvelope) env.classList.remove('open');
       });
       selectedEnvelope.classList.toggle('open');
-    }
-
-    function collapseEnvelope(e, btn) {
-      e.stopPropagation(); // prevent triggering parent click
-      const envelope = btn.closest('.envelope');
-      envelope.classList.remove('open');
     }
   </script>
 
