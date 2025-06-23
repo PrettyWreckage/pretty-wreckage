@@ -49,6 +49,8 @@
       font-family: 'Georgia', serif;
       font-size: 1.1rem;
       color: #3e2e2e;
+      white-space: pre-line; /* show line breaks */
+      margin-bottom: 1rem;
     }
 
     .comment-form {
@@ -92,7 +94,7 @@
     }
 
     .comments-wrapper.collapsed {
-      max-height: 300px; /* Show approx 3 comments height */
+      max-height: 300px; /* show about 3 comments */
       overflow: hidden;
     }
 
@@ -156,23 +158,21 @@
     <!-- Poem 1 -->
     <div class="poem-box" id="poem1">
       <div class="poem-content">
-        <p>
-          I wrote this while staring at a ceiling full of cracks,<br>
-          Like the pieces of me I never got to put back.<br>
-          I don’t know where this poem ends,<br>
-          Or if it ever truly began.<br><br>
+        I wrote this while staring at a ceiling full of cracks,<br>
+        Like the pieces of me I never got to put back.<br>
+        I don’t know where this poem ends,<br>
+        Or if it ever truly began.<br><br>
 
-          But the silence… oh, it still rhymes,<br>
-          Whispering secrets through fractured times.<br>
-          Each crack a story I hide away,<br>
-          In shadows where my fears still stay.
-        </p>
+        But the silence… oh, it still rhymes,<br>
+        Whispering secrets through fractured times.<br>
+        Each crack a story I hide away,<br>
+        In shadows where my fears still stay.
       </div>
       <form class="comment-form" onsubmit="submitComment(event, 'poem1')">
-        <input type="text" id="commenter-poem1" placeholder="Your name (or anonymous)" required>
+        <input type="text" id="commenter-poem1" placeholder="Your name (or anonymous)" />
         <textarea id="comment-poem1" placeholder="Type your scribbled thoughts..." required></textarea>
         <button type="submit">
-          <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
+          <img src="pen-icon.png" alt="pen" class="pen-icon" /> Post
         </button>
       </form>
       <div class="comments-wrapper collapsed" id="comments-wrapper-poem1">
@@ -184,23 +184,21 @@
     <!-- Poem 2 -->
     <div class="poem-box" id="poem2">
       <div class="poem-content">
-        <p>
-          This one came to me between blinking lights,<br>
-          In the hush between goodbyes and sleepless nights.<br>
-          I didn’t edit or erase or plan,<br>
-          I just wrote down the truth as fast as I can.<br><br>
+        This one came to me between blinking lights,<br>
+        In the hush between goodbyes and sleepless nights.<br>
+        I didn’t edit or erase or plan,<br>
+        I just wrote down the truth as fast as I can.<br><br>
 
-          Maybe it’s messy, maybe it’s raw,<br>
-          But pain never asked for a single applause.<br>
-          So read it slow, or not at all,<br>
-          These lines were never scared to fall.
-        </p>
+        Maybe it’s messy, maybe it’s raw,<br>
+        But pain never asked for a single applause.<br>
+        So read it slow, or not at all,<br>
+        These lines were never scared to fall.
       </div>
       <form class="comment-form" onsubmit="submitComment(event, 'poem2')">
-        <input type="text" id="commenter-poem2" placeholder="Your name (or anonymous)" required>
+        <input type="text" id="commenter-poem2" placeholder="Your name (or anonymous)" />
         <textarea id="comment-poem2" placeholder="Type your scribbled thoughts..." required></textarea>
         <button type="submit">
-          <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
+          <img src="pen-icon.png" alt="pen" class="pen-icon" /> Post
         </button>
       </form>
       <div class="comments-wrapper collapsed" id="comments-wrapper-poem2">
@@ -226,14 +224,22 @@
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
 
+    const commentsData = {
+      poem1: { comments: [], collapsed: true },
+      poem2: { comments: [], collapsed: true }
+    };
+
     function submitComment(e, poemId) {
       e.preventDefault();
       const commentText = document.getElementById("comment-" + poemId).value;
       const commenter = document.getElementById("commenter-" + poemId).value;
-      if (!commentText.trim()) return;
+      if (!commentText.trim()) {
+        alert("Please enter a comment!");
+        return;
+      }
 
       db.collection("archive-comments").add({
-        name: commenter.trim(),
+        name: commenter.trim() || "Anonymous",
         text: commentText.trim(),
         poemId: poemId,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
@@ -241,17 +247,15 @@
         document.getElementById("comment-" + poemId).value = "";
         document.getElementById("commenter-" + poemId).value = "";
         loadComments(poemId);
+      }).catch(err => {
+        console.error("Error adding comment:", err);
+        alert("Failed to add comment. Please try again.");
       });
     }
 
-    // Load comments and store count
-    const commentsData = {
-      poem1: { comments: [], collapsed: true },
-      poem2: { comments: [], collapsed: true },
-    };
-
     function loadComments(poemId) {
       const container = document.getElementById("comments-container-" + poemId);
+      if (!container) return;
       container.innerHTML = "";
 
       db.collection("archive-comments")
@@ -264,16 +268,19 @@
             commentsData[poemId].comments.push(doc.data());
           });
           renderComments(poemId);
+        }).catch(err => {
+          console.error("Error loading comments:", err);
+          container.innerHTML = "<p>Error loading comments.</p>";
         });
     }
 
     function renderComments(poemId) {
       const container = document.getElementById("comments-container-" + poemId);
+      if (!container) return;
       container.innerHTML = "";
       const comments = commentsData[poemId].comments;
       const collapsed = commentsData[poemId].collapsed;
 
-      // Show only first 3 if collapsed, else all
       const toShow = collapsed ? comments.slice(0, 3) : comments;
 
       toShow.forEach(comment => {
@@ -286,17 +293,16 @@
         container.appendChild(div);
       });
 
-      // Update toggle button text
       const toggleBtn = document.querySelector(`button.toggle-comments-btn[data-poem="${poemId}"]`);
       if (!toggleBtn) return;
+
       if (comments.length <= 3) {
-        toggleBtn.style.display = 'none'; // Hide button if 3 or fewer comments
+        toggleBtn.style.display = 'none';
       } else {
         toggleBtn.style.display = 'block';
         toggleBtn.textContent = collapsed ? `Show more comments (${comments.length - 3} more)` : "Show less comments";
       }
 
-      // Adjust max-height based on collapsed state for animation
       const wrapper = document.getElementById(`comments-wrapper-${poemId}`);
       if (collapsed) {
         wrapper.classList.add("collapsed");
@@ -305,7 +311,6 @@
       }
     }
 
-    // Toggle button handler
     document.querySelectorAll(".toggle-comments-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const poemId = btn.getAttribute("data-poem");
