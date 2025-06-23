@@ -14,8 +14,10 @@
       margin: 0;
       padding: 0;
       font-family: 'Georgia', serif;
-      background: url('scattered-pages-background.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background:
+        url('lined-paper.png') repeat-y center top,
+        #fbeaec; /* warm paper cream base */
+      background-size: contain;
       color: #3a2b2e;
     }
 
@@ -23,28 +25,26 @@
       max-width: 900px;
       margin: 4rem auto;
       padding: 2rem;
-      background: url('lined-paper.png') center center/cover no-repeat;
-      background-size: cover;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      background: none; /* removed white block */
+      border-radius: 0;
+      box-shadow: none;
+      text-align: left;
     }
 
     .intro {
-      background-color: #fbeaec;
-      padding: 1.5rem;
-      border-radius: 12px;
       font-style: italic;
       font-size: 1.1rem;
       color: #693f4c;
       margin-bottom: 2rem;
+      padding-left: 2px;
+      text-align: center;
     }
 
     .poem-box {
-      padding: 2rem;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.9);
+      padding: 2rem 0 3rem 0;
       position: relative;
       margin-bottom: 3rem;
+      /* no background, so poem looks written on paper */
     }
 
     .poem-content {
@@ -52,6 +52,19 @@
       font-size: 1.1rem;
       color: #3e2e2e;
       position: relative;
+      padding-left: 5px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+    }
+
+    .timestamp {
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      font-size: 0.8rem;
+      font-style: italic;
+      color: #7b6e66;
+      user-select: none;
     }
 
     .coffee-ring {
@@ -62,22 +75,48 @@
       bottom: -10px;
       left: -10px;
       opacity: 0.5;
+      pointer-events: none;
+      user-select: none;
     }
 
     .comment-form {
       margin-top: 2rem;
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
     }
 
-    .comment-form input,
+    .comment-form input[type="text"] {
+      flex: 1 1 150px;
+      padding: 0.6rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      color: #3a2b2e;
+    }
+
     .comment-form textarea {
+      flex: 2 1 300px;
       padding: 1rem;
       border-radius: 10px;
       border: 1px solid #ccc;
-      font-family: 'Courier New', monospace;
-      margin-bottom: 0.5rem;
+      resize: vertical;
+      font-family: 'Georgia', serif;
       font-size: 1rem;
+      color: #3a2b2e;
+      min-height: 70px;
+    }
+
+    .comment-form select {
+      flex: 0 0 80px;
+      font-size: 1.3rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      user-select: none;
+      padding-left: 0.3rem;
     }
 
     .comment-form button {
@@ -98,16 +137,28 @@
     }
 
     .single-comment {
-      background-color: #fff7fb;
+      background-color: #fef6e8; /* light warm cream */
       padding: 1rem;
       margin-top: 1rem;
       border-left: 4px solid #db86aa;
       border-radius: 8px;
+      color: #3a2b2e;
+      font-family: 'Georgia', serif;
+      position: relative;
     }
 
-    .reaction {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+    .single-comment .comment-name {
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+      color: #914d67;
+    }
+
+    .single-comment .comment-reaction {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.4rem;
+      user-select: none;
     }
 
     .back-button {
@@ -153,12 +204,22 @@
 
           So here I sit, lost in the cracks,
         </p>
+        <small class="timestamp">2:14 AM</small>
         <div class="coffee-ring"></div>
       </div>
 
       <form class="comment-form" onsubmit="submitComment(event)">
-        <input type="text" id="commenter" placeholder="Your name (or anonymous)" required>
+        <input type="text" id="name" placeholder="Your name" required />
         <textarea id="comment" placeholder="Type your scribbled thoughts..." required></textarea>
+        <select id="reaction" title="Choose your reaction" aria-label="Reaction">
+          <option value="❤️" selected>❤️</option>
+          <option value="✨">✨</option>
+          <option value="💔">💔</option>
+          <option value="🌙">🌙</option>
+          <option value="🔥">🔥</option>
+          <option value="🌸">🌸</option>
+          <option value="🎶">🎶</option>
+        </select>
         <button type="submit">
           <img src="pen-icon.png" alt="pen" class="pen-icon"> Post
         </button>
@@ -186,17 +247,26 @@
 
     function submitComment(e) {
       e.preventDefault();
-      const commentText = document.getElementById("comment").value;
-      const commenter = document.getElementById("commenter").value;
-      if (!commentText.trim()) return;
+
+      const nameInput = document.getElementById("name");
+      const commentInput = document.getElementById("comment");
+      const reactionInput = document.getElementById("reaction");
+
+      const name = nameInput.value.trim();
+      const commentText = commentInput.value.trim();
+      const reaction = reactionInput.value;
+
+      if (!name || !commentText) return;
 
       db.collection("archive-comments").add({
-        name: commenter.trim(),
-        text: commentText.trim(),
+        name,
+        text: commentText,
+        reaction,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
       }).then(() => {
-        document.getElementById("comment").value = "";
-        document.getElementById("commenter").value = "";
+        nameInput.value = "";
+        commentInput.value = "";
+        reactionInput.value = "❤️";
         loadComments();
       });
     }
@@ -214,12 +284,25 @@
             const div = document.createElement("div");
             div.classList.add("single-comment");
             div.innerHTML = `
-              <p>${comment.text}</p>
-              <div class="reaction">– ${comment.name || "Anonymous"}</div>
+              <div class="comment-name">${escapeHTML(comment.name)}</div>
+              <div>${escapeHTML(comment.text)}</div>
+              <div class="comment-reaction">${escapeHTML(comment.reaction || '')}</div>
             `;
             container.appendChild(div);
           });
         });
+    }
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return {
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        }[m];
+      });
     }
 
     window.onload = loadComments;
