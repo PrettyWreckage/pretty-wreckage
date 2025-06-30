@@ -10,7 +10,7 @@
       padding: 0;
       font-family: 'Georgia', serif;
       background: linear-gradient(to bottom right, #2d2d2d, #4a4a4a); /* fallback color */
-      background-image: url('MonthlyWreckagebk.jpg'); /* update with actual image path */
+      background-image: url('MonthlyWreckagebk.jpg'); /* replace with your image path */
       background-size: cover;
       background-position: center;
       color: #f1f1f1;
@@ -95,13 +95,14 @@
   <div class="container">
     <h1>Monthly Wreckage</h1>
     <p>
-      Let’s stay a little closer. <br>
+      Let’s stay a little closer.<br>
       Sign up to receive quiet poems, gentle thoughts, and soft truths—<br>
       shared only with those who feel a little too much.<br><br>
       Once a month. From my soul to yours.
     </p>
     
     <form action="https://formspree.io/f/xkgbyqng" method="POST">
+      <input type="hidden" name="_redirect" value="https://www.prettywreckage.space/thankyousub.html" />
       <input type="email" name="email" placeholder="Your email address" required /><br/>
       <button type="submit">Join the Wreckage</button>
     </form>
