@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monthly Wreckage — From Me to You</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to bottom right, #2d2d2d, #4a4a4a);
+      background-image: url('MonthlyWreckagebk.jpg'); /* Replace with your background image path */
+      background-size: cover;
+      background-position: center;
+      color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      max-width: 500px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2.4rem;
+      color: #dcd6f7;
+      font-weight: normal;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #dcdcdc;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    input[type="email"] {
+      padding: 0.75rem;
+      width: 80%;
+      max-width: 300px;
+      border: none;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      background-color: #333;
+      color: #fff;
+    }
+
+    input::placeholder {
+      color: #aaa;
+    }
+
+    button {
+      background-color: #a29bfe;
+      color: #000;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #6c5ce7;
+      color: #fff;
+    }
+
+    .footer-note {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: #b2bec3;
+      font-style: italic;
+    }
+
+    .signature {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: #e0b0ff;
+      font-family: 'Georgia', cursive;
+      letter-spacing: 0.5px;
+    }
+
+    .thank-you-message {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #dcdcdc;
+      margin-top: 2rem;
+    }
+
+    #back-home {
+      margin-top: 1.5rem;
+      background-color: #a29bfe;
+      color: #000;
+      border: none;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+
+    #back-home:hover {
+      background-color: #6c5ce7;
+      color: #fff;
+    }
+  </style>
+</head>
+<body class="wreckage">
+  <div class="container">
+    <h1>Monthly Wreckage</h1>
+    <p>
+      Let’s stay a little closer.<br />
+      Sign up to receive quiet poems, gentle thoughts, and soft truths<br />
+      shared only with those who feel a little too much.<br /><br />
+      Once a month. From my soul to yours.
+    </p>
+
+    <form id="subscribe-form" action="https://formspree.io/f/xkgbyqng" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required /><br />
+      <button type="submit">Join the Wreckage</button>
+    </form>
+
+    <div class="footer-note">
+      You won’t get noise. Only the kind of words that sit with you in the quiet.
+    </div>
+
+    <div class="signature">
+      xoxox<br />
+      <strong>Pretty Wreckage</strong>
+    </div>
+
+    <div id="thank-you" class="thank-you-message" style="display:none;">
+      <h2>You're In 💌</h2>
+      <p>
+        Thank you for trusting me with a space in your inbox.<br />
+        Soon, you’ll receive pieces of my wreckage, tender poems, whispered thoughts, and healing storms.<br /><br />
+        You belong here, deeply. I'm so glad you stayed.<br />
+        <em>xoxox Pretty Wreckage</em>
+      </p>
+      <button id="back-home" type="button">Back Home</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('subscribe-form');
+    const thankYou = document.getElementById('thank-you');
+    const backHome = document.getElementById('back-home');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          form.style.display = 'none';
+          thankYou.style.display = 'block';
+        } else {
+          response.json().then(data => {
+            alert(data.error || "Oops! There was a problem submitting your form.");
+          });
+        }
+      }).catch(() => {
+        alert("Oops! There was a problem submitting your form.");
+      });
+    });
+
+    backHome.addEventListener('click', () => {
+      window.location.href = 'https://www.prettywreckage.space'; // Change this to your actual homepage URL
+    });
+  </script>
+</body>
+</html>
