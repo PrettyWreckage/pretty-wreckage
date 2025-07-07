@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Her Honest Pages - Diary Entry</title>
+  <title>Her Honest Pages - Diary Entries</title>
   <style>
     /* Reset and basics */
     * {
@@ -12,7 +12,7 @@
     body, html {
       margin: 0;
       padding: 0;
-      height: 100vh;
+      min-height: 100vh;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #eee;
       background-image: url('diarybackground.jpg');
@@ -41,6 +41,9 @@
       padding: 30px 40px;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(0,0,0,0.7);
+      min-height: 600px;
+      display: flex;
+      flex-direction: column;
     }
     h1 {
       margin-top: 0;
@@ -71,6 +74,8 @@
       white-space: pre-wrap;
       font-size: 1.1rem;
       color: #eee;
+      flex-grow: 1;
+      overflow-y: auto;
     }
     /* Buttons */
     .buttons {
@@ -91,9 +96,14 @@
       user-select: none;
       box-shadow: 0 3px 8px rgba(255, 141, 161, 0.5);
     }
-    .btn:hover {
+    .btn:hover:not(:disabled) {
       background-color: #ff6f87;
       box-shadow: 0 5px 15px rgba(255, 111, 135, 0.7);
+    }
+    .btn:disabled {
+      background-color: #aa7d87;
+      cursor: not-allowed;
+      box-shadow: none;
     }
   </style>
 </head>
@@ -101,18 +111,34 @@
   <div class="container">
     <h1>Her Honest Pages</h1>
     <p class="intro">
-     These are the pieces I never meant to share... but always needed to.”
-
-     Welcome to the quietest corners of my heart.
-     This space holds pages from years of silent storms, secret screams, and raw truths I wrote when no one was watching.
-     They weren’t written for likes or applause... just survival.
-     Here, you’ll find diary entries, late night confessions, and fragments of the girl I was, the woman I’m becoming, and the ache that shaped me.
-     If you're reading this, maybe you’ve been there too. Maybe you're there now.
-     Either way, you’re not alone anymore.
+      “These are the pieces I never meant to share... but always needed to.<br><br>
+      Welcome to the quietest corners of my heart.<br>
+      This space holds pages from years of silent storms, secret screams, and raw truths I wrote when no one was watching.<br>
+      They weren’t written for likes or applause... just survival.<br>
+      Here, you’ll find diary entries, late night confessions, and fragments of the girl I was, the woman I’m becoming, and the ache that shaped me.<br>
+      If you're reading this, maybe you’ve been there too. Maybe you're there now.<br>
+      Either way, you’re not alone anymore.
     </p>
-    <div class="entry-date">Date: 2019/01/05 &nbsp;&nbsp;|&nbsp;&nbsp; Time: 02:15 AM</div>
-    <div class="entry-text">
-It’s the middle of the night, and my mind feels like a storm that won’t let up. Everything inside me is screaming, screaming to be let out, but I can’t make a sound. Not out loud. Not in this house. So instead, I’m writing it here. My quiet scream.
+
+    <div class="entry-date" id="entryDate">Date: 2019/01/05 &nbsp;&nbsp;|&nbsp;&nbsp; Time: 02:15 AM</div>
+    <div class="entry-text" id="entryText">
+      <!-- Entry text will appear here -->
+    </div>
+
+    <div class="buttons">
+      <a href="index.html" class="btn">← Back Home</a>
+      <button id="prevBtn" class="btn" disabled>← Previous Entry</button>
+      <button id="nextBtn" class="btn">Next Entry →</button>
+    </div>
+  </div>
+
+  <script>
+    // Your diary entries go here
+    const entries = [
+      {
+        date: "2019/01/05",
+        time: "02:15 AM",
+        text: `It’s the middle of the night, and my mind feels like a storm that won’t let up. Everything inside me is screaming, screaming to be let out, but I can’t make a sound. Not out loud. Not in this house. So instead, I’m writing it here. My quiet scream.
 
 A few months ago, something happened, something I never imagined would become part of my story. One of his closest friends, who had also become mine, someone I trusted, someone I laughed with, someone I considered family... he raped me. He assaulted me. And what tears me apart is how familiar the aftermath felt, how easily my body slid into numbness like it had done so many times before. I’m so used to being mistreated, so used to pain being folded into the background of my life, that I almost accepted it like muscle memory.
 
@@ -144,13 +170,51 @@ I am struggling. God, I am struggling.
 
 But I’m still here. I’m still surviving. And right now… that’s enough.
 
-If by any chance someone out there reads this, and you're holding a secret that’s killing you from the inside out, know that I see you. I get it. If you need someone to listen without judgment, without a name, without fear… I’m here. Just a human heart on the other side of the screen. Open. Honest. And aching just like you.
-    </div>
+If by any chance someone out there reads this, and you're holding a secret that’s killing you from the inside out, know that I see you. I get it. If you need someone to listen without judgment, without a name, without fear… I’m here. Just a human heart on the other side of the screen. Open. Honest. And aching just like you.`
+      },
 
-    <div class="buttons">
-      <a href="index.html" class="btn">← Back Home</a>
-      <a href="entry2.html" class="btn">Next Entry →</a>
-    </div>
-  </div>
+      // Add more entries here like this:
+      // {
+      //   date: "2019/02/12",
+      //   time: "11:30 PM",
+      //   text: `Your second diary entry text here...`
+      // }
+    ];
+
+    let currentIndex = 0;
+
+    const entryDateElem = document.getElementById('entryDate');
+    const entryTextElem = document.getElementById('entryText');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    function showEntry(index) {
+      const entry = entries[index];
+      entryDateElem.textContent = `Date: ${entry.date}   |   Time: ${entry.time}`;
+      entryTextElem.textContent = entry.text;
+
+      // Disable prev button if at first entry
+      prevBtn.disabled = index === 0;
+      // Disable next button if at last entry
+      nextBtn.disabled = index === entries.length - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showEntry(currentIndex);
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < entries.length - 1) {
+        currentIndex++;
+        showEntry(currentIndex);
+      }
+    });
+
+    // Initialize first entry
+    showEntry(currentIndex);
+  </script>
 </body>
 </html>
