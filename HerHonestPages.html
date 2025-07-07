@@ -1,80 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Her Honest Pages</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Her Honest Pages - Diary Entry</title>
   <style>
-    body {
+    /* Reset and basics */
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
       margin: 0;
       padding: 0;
-      font-family: 'Georgia', serif;
-      background: url('diarybackground.jpg') no-repeat center center fixed;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #eee;
+      background-image: url('diarybackground.jpg');
+      background-repeat: no-repeat;
+      background-position: center center;
       background-size: cover;
-      color: #3a2e2e;
+      background-attachment: fixed;
+      overflow-y: auto;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-
+    /* Overlay for readability */
     body::before {
-      content: '';
+      content: "";
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(255, 255, 255, 0.85);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.7);
       z-index: -1;
     }
-
+    /* Container for content */
     .container {
-      max-width: 800px;
-      margin: 60px auto;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 900px;
+      background: rgba(30, 30, 30, 0.85);
+      margin: 40px auto 60px auto;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
     }
-
     h1 {
+      margin-top: 0;
       text-align: center;
-      font-size: 2.5em;
-      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 2.8rem;
+      letter-spacing: 1.2px;
+      margin-bottom: 15px;
+      color: #ffb6c1;
     }
-
-    .intro {
+    p.intro {
       font-style: italic;
-      text-align: center;
+      font-size: 1.1rem;
       margin-bottom: 30px;
-      font-size: 1.1em;
-      color: #5c4b4b;
+      text-align: center;
+      color: #ddd;
+      border-bottom: 1px solid #555;
+      padding-bottom: 20px;
     }
-
-    .meta {
-      font-size: 0.9em;
-      color: #6b5c5c;
+    .entry-date {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ff8da1;
       margin-bottom: 20px;
+      text-align: center;
     }
-
-    .entry {
+    .entry-text {
       white-space: pre-wrap;
-      font-size: 1.05em;
+      font-size: 1.1rem;
+      color: #eee;
     }
-
+    /* Buttons */
     .buttons {
-      margin-top: 40px;
       display: flex;
       justify-content: space-between;
+      margin-top: 40px;
     }
-
-    .buttons a {
+    .btn {
+      background-color: #ff8da1;
+      border: none;
+      color: #fff;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
       text-decoration: none;
-      padding: 10px 18px;
-      background-color: #a57b77;
-      color: white;
-      border-radius: 5px;
       transition: background-color 0.3s ease;
+      user-select: none;
+      box-shadow: 0 3px 8px rgba(255, 141, 161, 0.5);
     }
-
-    .buttons a:hover {
-      background-color: #8a605d;
+    .btn:hover {
+      background-color: #ff6f87;
+      box-shadow: 0 5px 15px rgba(255, 111, 135, 0.7);
     }
   </style>
 </head>
@@ -82,47 +101,48 @@
   <div class="container">
     <h1>Her Honest Pages</h1>
     <p class="intro">
-      A quiet corner of my heart, untouched by edits or filters. These are my rawest thoughts—messy, emotional, real.
-      You’ve just opened a page from my past. Be gentle with it.
+      Welcome to the raw and unfiltered thoughts collected over the years — a safe space for my quiet screams, my secret survival, and my hope for healing. Here, I write honestly about the storms inside me, the moments that shaped my soul, and the strength it takes to keep standing.
     </p>
+    <div class="entry-date">Date: 2019/01/05 &nbsp;&nbsp;|&nbsp;&nbsp; Time: 02:15 AM</div>
+    <div class="entry-text">
+It’s the middle of the night, and my mind feels like a storm that won’t let up. Everything inside me is screaming, screaming to be let out, but I can’t make a sound. Not out loud. Not in this house. So instead, I’m writing it here. My quiet scream.
 
-    <p class="meta"><strong>Date:</strong> 2019/01/05 &nbsp; | &nbsp; <strong>Time:</strong> 02:15 AM</p>
+A few months ago, something happened, something I never imagined would become part of my story. One of his closest friends, who had also become mine, someone I trusted, someone I laughed with, someone I considered family... he raped me. He assaulted me. And what tears me apart is how familiar the aftermath felt, how easily my body slid into numbness like it had done so many times before. I’m so used to being mistreated, so used to pain being folded into the background of my life, that I almost accepted it like muscle memory.
 
-    <div class="entry">
-      It’s the middle of the night, and my mind feels like a storm that won’t let up. Everything inside me is screaming, screaming to be let out, but I can’t make a sound. Not out loud. Not in this house. So instead, I’m writing it here. My quiet scream.
+But please don’t think I didn’t fight. I fought with everything I had. But I guess I wasn’t strong enough, not physically. That part of me always feels too small, too powerless.
 
-      A few months ago, something happened, something I never imagined would become part of my story. One of his closest friends, who had also become mine, someone I trusted, someone I laughed with, someone I considered family... he raped me. He assaulted me. And what tears me apart is how familiar the aftermath felt, how easily my body slid into numbness like it had done so many times before. I’m so used to being mistreated, so used to pain being folded into the background of my life, that I almost accepted it like muscle memory.
+Emotionally though… I’ve become a master at survival. At burying the unspoken. At locking it away so deep that even I can pretend it never happened. I have to. Because telling the truth would mean losing one of the only people I have left.
 
-      But please don’t think I didn’t fight. I fought with everything I had. But I guess I wasn’t strong enough, not physically. That part of me always feels too small, too powerless.
+His wife… she’s my best friend. My only friend. The first real connection I’ve had since Kayla died in 2015. After her, everything went silent. I stopped letting people in. I became too quiet, too shy, too emotional, or maybe just too… me. And yet, somehow, she saw past all that and chose me anyway. I can't risk losing her. I won’t.
 
-      Emotionally though… I’ve become a master at survival. At burying the unspoken. At locking it away so deep that even I can pretend it never happened. I have to. Because telling the truth would mean losing one of the only people I have left.
+But it’s hard. So fucking hard.
 
-      His wife… she’s my best friend. My only friend. The first real connection I’ve had since Kayla died in 2015. After her, everything went silent. I stopped letting people in. I became too quiet, too shy, too emotional, or maybe just too… me. And yet, somehow, she saw past all that and chose me anyway. I can't risk losing her. I won’t.
+We all live under the same roof. Every day I see his face. Every day he walks around like nothing ever happened. He laughs. He jokes. He eats dinner at the same table. And I have to pretend, pretend I’m okay, pretend I’m not shaking inside, pretend that my skin doesn’t crawl every time he gets too close.
 
-      But it’s hard. So fucking hard.
+I don’t know how to act around him. Do I keep pretending, keep smiling like I don’t remember? Or do I shut him out, avoid him completely, and risk people asking questions? My husband would notice in a second. He knows the dynamics of this house, he knows how we all interact. If I change, he’ll see it. And then… I’ll have to tell him.
 
-      We all live under the same roof. Every day I see his face. Every day he walks around like nothing ever happened. He laughs. He jokes. He eats dinner at the same table. And I have to pretend, pretend I’m okay, pretend I’m not shaking inside, pretend that my skin doesn’t crawl every time he gets too close.
+But what would I even say? "He raped me."
 
-      I don’t know how to act around him. Do I keep pretending, keep smiling like I don’t remember? Or do I shut him out, avoid him completely, and risk people asking questions? My husband would notice in a second. He knows the dynamics of this house, he knows how we all interact. If I change, he’ll see it. And then… I’ll have to tell him.
+Will he believe me?
 
-      But what would I even say? "He raped me."
-      Will he believe me?
-      Doubt seeps in like poison because I have no proof. No bruises that still show. No photos. No witnesses. Just my word against his.
-      And hasn’t my word always fallen short?
+Doubt seeps in like poison because I have no proof. No bruises that still show. No photos. No witnesses. Just my word against his.
 
-      That’s what eats at me most, not just what happened, but how alone I feel in holding it. I can’t write this on paper; he might find it. I can’t type it in my phone; my husband checks it sometimes. But here… here feels safe. This digital corner of the universe where no one knows my name, where I can scream without sound, cry without consequence.
+And hasn’t my word always fallen short?
 
-      Maybe one day, my future self will stumble across this entry and remember not the pain, but the power it took to live through it. To keep breathing. To carry this weight in silence, but still stand. Still fight. Still love.
+That’s what eats at me most, not just what happened, but how alone I feel in holding it. I can’t write this on paper; he might find it. I can’t type it in my phone; my husband checks it sometimes. But here… here feels safe. This digital corner of the universe where no one knows my name, where I can scream without sound, cry without consequence.
 
-      I am struggling. God, I am struggling.
-      But I’m still here. I’m still surviving. And right now… that’s enough.
+Maybe one day, my future self will stumble across this entry and remember not the pain, but the power it took to live through it. To keep breathing. To carry this weight in silence, but still stand. Still fight. Still love.
 
-      If by any chance someone out there reads this, and you're holding a secret that’s killing you from the inside out, know that I see you. I get it. If you need someone to listen without judgment, without a name, without fear… I’m here. Just a human heart on the other side of the screen. Open. Honest. And aching just like you.
+I am struggling. God, I am struggling.
+
+But I’m still here. I’m still surviving. And right now… that’s enough.
+
+If by any chance someone out there reads this, and you're holding a secret that’s killing you from the inside out, know that I see you. I get it. If you need someone to listen without judgment, without a name, without fear… I’m here. Just a human heart on the other side of the screen. Open. Honest. And aching just like you.
     </div>
 
     <div class="buttons">
-      <a href="index.html">← Back Home</a>
-      <a href="entry2.html">Next Entry →</a>
+      <a href="index.html" class="btn">← Back Home</a>
+      <a href="entry2.html" class="btn">Next Entry →</a>
     </div>
   </div>
 </body>
