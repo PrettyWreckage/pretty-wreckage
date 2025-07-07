@@ -1,101 +1,332 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Soundtrack</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #1f1f1f;
-      color: #fff;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 10px;
-      font-size: 2.5em;
-      color: #fcb045;
-    }
-    p.quote {
-      text-align: center;
-      font-style: italic;
-      color: #ccc;
-      margin-bottom: 40px;
-    }
-    section {
-      margin-bottom: 50px;
-    }
-    h2 {
-      border-bottom: 2px solid #fcb045;
-      padding-bottom: 5px;
-      color: #fcb045;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Soundtrack</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('musick.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    margin: 0; padding: 0;
+  }
+  .container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 2.5em;
+    color: #fcb045;
+  }
+  p.quote {
+    text-align: center;
+    font-style: italic;
+    color: #ccc;
+    margin-bottom: 40px;
+  }
+  section {
+    margin-bottom: 50px;
+  }
+  h2 {
+    border-bottom: 2px solid #fcb045;
+    padding-bottom: 5px;
+    color: #fcb045;
+  }
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  iframe {
+    width: 100%;
+    height: 315px;
+    border-radius: 10px;
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  iframe:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #fcb045;
+  }
+  .hidden-videos {
+    display: none;
+    margin-top: 20px;
+    grid-template-columns: 1fr;
+  }
+  .toggle-button {
+    background: #fcb045;
+    border: none;
+    padding: 12px 25px;
+    color: #1f1f1f;
+    font-weight: 700;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto 0 auto;
+    width: fit-content;
+    transition: background 0.3s ease;
+  }
+  .toggle-button:hover {
+    background: #ffcc66;
+  }
+  #back-home {
+    display: inline-block;
+    text-decoration: none;
+    color: #fcb045;
+    font-weight: 700;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    padding: 10px 20px;
+    border: 2px solid #fcb045;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  #back-home:hover {
+    background: #fcb045;
+    color: #1f1f1f;
+  }
+  @media (min-width: 600px) {
     .video-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
+      grid-template-columns: 1fr 1fr;
     }
-    iframe {
-      width: 100%;
-      height: 315px;
-      border-radius: 10px;
-      border: none;
+    .hidden-videos {
+      grid-template-columns: 1fr 1fr;
     }
-    @media (min-width: 600px) {
-      .video-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <div class="container">
     <h1>My Soundtrack</h1>
     <p class="quote">Play these when your heart forgets how to beat.</p>
 
-    <section>
+    <!-- When I'm Writing Section -->
+    <section id="writing-section">
       <h2>When I'm Writing</h2>
       <div class="video-grid">
+        <!-- first 6 -->
         <iframe src="https://www.youtube.com/embed/gXcLuhXj4LU" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/aseNWyBrG9A" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/1K4KwuV2l4s" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/M4zigrgH-_k" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/iWy4W5JLcNo" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/ltC54Lcnn0E" allowfullscreen></iframe>
-        <!-- Add more from your list here -->
       </div>
+      <div class="video-grid hidden-videos">
+        <!-- rest of the "When I'm Writing" videos -->
+        <iframe src="https://www.youtube.com/embed/IGZ23V9t-_w" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/mhrqoPu4BFQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SBRu7KlyYpA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/mjF1rmSV1dM" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/YqZTm5n9xHw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/S_w9RTYlsT4" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/LLKvSFs5bZw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/qiUZ-FzbZEo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/CdhqVtpR2ts" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/MhjkkPvjbug" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ZhbehC5XIDI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/97Mj6pXYMd8" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/7t4OKkMCQ_E" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/jeOvNAMdtWQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/u3dkVk3F57c" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/YPsjSWxm-LE" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/dO474lpP-H8" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/4Kvd-uquuhI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wrDHps7ELYI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/v-BaHzNyio0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SoB3VizFC7I" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/RUHGEQ7Lwrw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/H-3rxh8kZHE" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/xtk8ro_eJZE" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/9T6PXX7X2ro" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/5rOiW_xY-kc" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/o_l4Ab5FRwM" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/MWWahIlLImw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/kivUsDGWojU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/1trifshoIw0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Jrgbjk45lFA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/68fAjd29pR0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/04F4xlWSFh0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/PT2_F-1esPk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/YaEBglkCFVc" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/kkqwtXJ9_nU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/N7UJYxzOJRc" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/yzrQkCfRGxQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/JybV1mL6EMA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/fN2t1cktdqM" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/RtDVlpEfKlI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/R1sBiSIaiBk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/oWAgfid0izA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/cDlGFbBipCo" allowfullscreen></iframe>
+      </div>
+      <button class="toggle-button" data-target="writing-section">Listen to More</button>
     </section>
 
-    <section>
+    <!-- When I'm Falling Apart Section -->
+    <section id="falling-section">
       <h2>When I'm Falling Apart</h2>
       <div class="video-grid">
+        <!-- first 6 -->
         <iframe src="https://www.youtube.com/embed/5anLPw0Efmo" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/icQzR3PfDcU" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/wcTjg764nRo" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/9sTQ0QdkN3Q" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/5CeRwCJTzcI" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/3YxaaGgTQYM" allowfullscreen></iframe>
-        <!-- Add more from your list here -->
       </div>
+      <div class="video-grid hidden-videos">
+        <!-- rest of the "When I'm Falling Apart" videos -->
+        <iframe src="https://youtu.be/UxANRMspilI?list=RDk5ZtZEtDEGo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/mlL1ILjyaCI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/aqYnMSUTFGU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/X1Fqn9du7xo" allowfullscreen></iframe>
+        <iframe src="https://youtu.be/jPDwH1XEaSQ?list=RDk5ZtZEtDEGo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/tsteQPvBT-Q" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/PJGpsL_XYQI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/yGOIHrrg_kQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/oAdjtchLlCA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/olnskMh9PUA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ju_inUnrLc4" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/KUbU2blS0ZY" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/z6cKf9fhfgc" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/HQitbbtPZz8" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/eVTXPUF4Oz4" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SIHDpxLA-kE" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/OVbE0_ToRnU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/xwjlzJrvmNc" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/n7x6CMzCr8U" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/YipOPPRksGY" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/GLgzgFAc2Hw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/kCNNRd7OoiI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Eyy-X1J0ehk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Ul9vuBhcRwU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/nQscbB6L28c" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Tm8LGxTLtQk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/SsBNDryJYSs" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/NmJAZqPZqWM" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/kXYiU_JCYtU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/NwbcQNjhEJc" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/jLArXAc_Xcs" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/lB8ZsjMhy5M" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/hwi4uNpD6Yw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/gVILookzrPw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/I6cdPeYJh0s" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/9KBsFHTwmfM" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/GPzGZtJKeHs" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/hCjcgoubkPM" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/r-LzOBlvAbw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/P0N0h_EOS-c" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/H64mtOAMIsw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/_YtzsUdSC_I" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/pm6DHCpmIWg" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/PQTOlQjVldk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/sWBqdWTg3Vs" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/GLgzgFAc2Hw" allowfullscreen></iframe>
+      </div>
+      <button class="toggle-button" data-target="falling-section">Listen to More</button>
     </section>
 
-    <section>
+    <!-- My Love Songs Section -->
+    <section id="love-section">
       <h2>My Love Songs</h2>
       <div class="video-grid">
+        <!-- first 6 -->
         <iframe src="https://www.youtube.com/embed/y4k2h8Qlt_8" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/blFUVDtHI3Y" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/JjTVU3eXBDI" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/4Fj5c2vkIAo" allowfullscreen></iframe>
         <iframe src="https://www.youtube.com/embed/C-HZ_REphf8" allowfullscreen></iframe>
-        <!-- Add more from your list here -->
+        <iframe src="https://www.youtube.com/embed/DaVojCA4FDs" allowfullscreen></iframe>
       </div>
+      <div class="video-grid hidden-videos">
+        <!-- rest of the love songs -->
+        <iframe src="https://www.youtube.com/embed/y0lPXtX1llg" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/715aw2Va48c" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/02LyjPBvUdk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ZkzY29DKHEQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/eYJCjVkOImU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Jtauh8GcxBY" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/rUCX9EddXj8" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/MctDn4Wpwb8" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/_X2Xg0O-V44" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wmXQFwlD7vk" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/gEmEIBjtP9U" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/8Jpk22a8gdo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/mxu78o4UkBQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/kN6VfS_0nXg" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/YNkaOE_z52k" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/BivVdRmuOEY" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/mUy4r7vP1P8" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/c3M9WEgY7UU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/veDjtf8L38M" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/5nnhAfadqFw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Hcv4b3hqaTg" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/y-azT9s8_O0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/rHWkOx6A2qI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/MkMEZBq6vTI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/2Jb5ZCc2T4M" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ly1T98p7toY" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/J5i0I34c8Iw" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/fPswXHHgsYM" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/M5fyjYIITyE" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/LWpMLL4g_Ek" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/hNYTQHXX0qI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/f3hJccMiQsc" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/xHMHhjQ45yI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wEfPXOrImEY" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/XGfNx4TMi2Y" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/DWhtq3os0Xc" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/hcnoTQRZvPs" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/f2mkaqX-B_4" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/CThTtAwMRcM" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/6StRZk4G1RA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ggMRfsJKJe4" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/6mx4nbOaWQU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/0RYFCrDq3Ec" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/Ywiww_7Qp-0" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/22GO_mwP5Pg" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/1RR0WzTPo6k" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/2KN5WlI94ro" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/9Fe3J9bR4tA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/w1x85Khf0y4" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/N83K6EFuYwQ" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/g74TGlwuSmA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/gmtXvLuB-WA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/RYNqZ8FQhbs" allowfullscreen></iframe>
+      </div>
+      <button class="toggle-button" data-target="love-section">Listen to More</button>
     </section>
+
+    <a href="/" id="back-home">Back Home</a>
   </div>
+
+<script>
+  document.querySelectorAll('.toggle-button').forEach(button => {
+    button.addEventListener('click', () => {
+      const section = button.closest('section');
+      const hiddenVideos = section.querySelector('.hidden-videos');
+      if (hiddenVideos.style.display === 'grid') {
+        hiddenVideos.style.display = 'none';
+        button.textContent = 'Listen to More';
+        // Scroll to section top on collapse for better UX
+        section.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        hiddenVideos.style.display = 'grid';
+        button.textContent = 'Show Less';
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
