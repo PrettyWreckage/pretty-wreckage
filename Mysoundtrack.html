@@ -1,158 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>My Soundtrack</title>
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('musick.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    margin: 0; padding: 0;
-  }
-  .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(0,0,0,0.8);
-  }
-  h1 {
-    text-align: center;
-    margin-bottom: 10px;
-    font-size: 2.5em;
-    color: #fcb045;
-  }
-  p.quote {
-    text-align: center;
-    font-style: italic;
-    color: #ccc;
-    margin-bottom: 40px;
-  }
-  section {
-    margin-bottom: 50px;
-  }
-  h2 {
-    border-bottom: 2px solid #fcb045;
-    padding-bottom: 5px;
-    color: #fcb045;
-  }
-  .video-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  iframe {
-    width: 100%;
-    height: 315px;
-    border-radius: 10px;
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  iframe:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #fcb045;
-  }
-  .hidden-videos {
-    display: none;
-    margin-top: 20px;
-    grid-template-columns: 1fr;
-  }
-  .toggle-button {
-    background: #fcb045;
-    border: none;
-    padding: 12px 25px;
-    color: #1f1f1f;
-    font-weight: 700;
-    font-size: 1em;
-    cursor: pointer;
-    border-radius: 8px;
-    display: block;
-    margin: 10px auto 0 auto;
-    width: fit-content;
-    transition: background 0.3s ease;
-  }
-  .toggle-button:hover {
-    background: #ffcc66;
-  }
-  #back-home {
-    display: inline-block;
-    text-decoration: none;
-    color: #fcb045;
-    font-weight: 700;
-    margin: 20px auto 0 auto;
-    text-align: center;
-    padding: 10px 20px;
-    border: 2px solid #fcb045;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  #back-home:hover {
-    background: #fcb045;
-    color: #1f1f1f;
-  }
-  @media (min-width: 600px) {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Soundtrack</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('musick.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      margin: 0; padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.8);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+      color: #fcb045;
+    }
+    p.quote {
+      text-align: center;
+      font-style: italic;
+      color: #ccc;
+      margin-bottom: 40px;
+    }
+    section {
+      margin-bottom: 50px;
+    }
+    h2 {
+      border-bottom: 2px solid #fcb045;
+      padding-bottom: 5px;
+      color: #fcb045;
+    }
     .video-grid {
-      grid-template-columns: 1fr 1fr;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    iframe {
+      width: 100%;
+      height: 315px;
+      border-radius: 10px;
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #fcb045;
     }
     .hidden-videos {
-      grid-template-columns: 1fr 1fr;
+      display: none;
+      margin-top: 20px;
+      grid-template-columns: 1fr;
     }
-  }
-</style>
+    .toggle-button {
+      background: #fcb045;
+      border: none;
+      padding: 12px 25px;
+      color: #1f1f1f;
+      font-weight: 700;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 8px;
+      display: block;
+      margin: 10px auto 0 auto;
+      width: fit-content;
+      transition: background 0.3s ease;
+    }
+    .toggle-button:hover {
+      background: #ffcc66;
+    }
+    #back-home {
+      display: inline-block;
+      text-decoration: none;
+      color: #fcb045;
+      font-weight: 700;
+      margin: 20px auto 0 auto;
+      text-align: center;
+      padding: 10px 20px;
+      border: 2px solid #fcb045;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    #back-home:hover {
+      background: #fcb045;
+      color: #1f1f1f;
+    }
+    @media (min-width: 600px) {
+      .video-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hidden-videos {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>My Soundtrack</h1>
     <p class="quote">Play these when your heart forgets how to beat.</p>
 
-    <!-- When I'm Writing Section -->
     <section id="writing-section">
       <h2>When I'm Writing</h2>
       <div class="video-grid">
-        <!-- first 6 videos -->
-        <iframe src="https://www.youtube.com/embed/gXcLuhXj4LU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/aseNWyBrG9A" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/1K4KwuV2l4s" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/M4zigrgH-_k" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/iWy4W5JLcNo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/ltC54Lcnn0E" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/gXcLuhXj4LU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/aseNWyBrG9A" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/1K4KwuV2l4s" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/M4zigrgH-_k" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/iWy4W5JLcNo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/ltC54Lcnn0E" allowfullscreen></iframe>
       </div>
       <div class="video-grid hidden-videos"></div>
       <button class="toggle-button" data-target="writing-section">Listen to More</button>
     </section>
 
-    <!-- When I'm Falling Apart Section -->
     <section id="falling-section">
       <h2>When I'm Falling Apart</h2>
       <div class="video-grid">
-        <!-- first 6 videos -->
-        <iframe src="https://www.youtube.com/embed/5anLPw0Efmo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/icQzR3PfDcU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/wcTjg764nRo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/9sTQ0QdkN3Q" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/5CeRwCJTzcI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/3YxaaGgTQYM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/5anLPw0Efmo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/icQzR3PfDcU" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/wcTjg764nRo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/9sTQ0QdkN3Q" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/5CeRwCJTzcI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/3YxaaGgTQYM" allowfullscreen></iframe>
       </div>
       <div class="video-grid hidden-videos"></div>
       <button class="toggle-button" data-target="falling-section">Listen to More</button>
     </section>
 
-    <!-- My Love Songs Section -->
     <section id="love-section">
       <h2>My Love Songs</h2>
       <div class="video-grid">
-        <!-- first 6 videos -->
-        <iframe src="https://www.youtube.com/embed/y4k2h8Qlt_8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/blFUVDtHI3Y" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/JjTVU3eXBDI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/4Fj5c2vkIAo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/C-HZ_REphf8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <iframe src="https://www.youtube.com/embed/DaVojCA4FDs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/y4k2h8Qlt_8" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/blFUVDtHI3Y" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/JjTVU3eXBDI" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/4Fj5c2vkIAo" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/C-HZ_REphf8" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/DaVojCA4FDs" allowfullscreen></iframe>
       </div>
       <div class="video-grid hidden-videos"></div>
       <button class="toggle-button" data-target="love-section">Listen to More</button>
@@ -161,77 +155,45 @@
     <a href="/" id="back-home">Back Home</a>
   </div>
 
-<script>
-  // Extra videos IDs for each section (just some example IDs, replace with your full list)
-  const extraVideos = {
-    'writing-section': [
-      'IGZ23V9t-_w', 'mhrqoPu4BFQ', 'SBRu7KlyYpA', 'mjF1rmSV1dM', 'YqZTm5n9xHw', 'S_w9RTYlsT4',
-      'LLKvSFs5bZw', 'qiUZ-FzbZEo', 'CdhqVtpR2ts', 'MhjkkPvjbug', 'ZhbehC5XIDI', '97Mj6pXYMd8',
-      '7t4OKkMCQ_E', 'jeOvNAMdtWQ', 'u3dkVk3F57c', 'YPsjSWxm-LE', 'dO474lpP-H8', '4Kvd-uquuhI',
-      'wrDHps7ELYI', 'v-BaHzNyio0', 'SoB3VizFC7I', 'RUHGEQ7Lwrw', 'H-3rxh8kZHE', 'xtk8ro_eJZE',
-      '9T6PXX7X2ro', '5rOiW_xY-kc', 'o_l4Ab5FRwM', 'MWWahIlLImw', 'kivUsDGWojU', '1trifshoIw0',
-      'Jrgbjk45lFA', '68fAjd29pR0', '04F4xlWSFh0', 'PT2_F-1esPk', 'YaEBglkCFVc', 'kkqwtXJ9_nU',
-      'N7UJYxzOJRc', 'yzrQkCfRGxQ', 'JybV1mL6EMA', 'fN2t1cktdqM', 'RtDVlpEfKlI', 'R1sBiSIaiBk',
-      'oWAgfid0izA', 'cDlGFbBipCo'
-    ],
-    'falling-section': [
-      'UxANRMspilI', 'mlL1ILjyaCI', 'aqYnMSUTFGU', 'X1Fqn9du7xo', 'jPDwH1XEaSQ', 'tsteQPvBT-Q',
-      'PJGpsL_XYQI', 'yGOIHrrg_kQ', 'oAdjtchLlCA', 'olnskMh9PUA', 'ju_inUnrLc4', 'KUbU2blS0ZY',
-      'z6cKf9fhfgc', 'HQitbbtPZz8', 'eVTXPUF4Oz4', 'SIHDpxLA-kE', 'OVbE0_ToRnU', 'xwjlzJrvmNc',
-      'n7x6CMzCr8U', 'YipOPPRksGY', 'GLgzgFAc2Hw', 'kCNNRd7OoiI', 'Eyy-X1J0ehk', 'Ul9vuBhcRwU',
-      'nQscbB6L28c', 'Tm8LGxTLtQk', 'SsBNDryJYSs', 'NmJAZqPZqWM', 'kXYiU_JCYtU', 'NwbcQNjhEJc',
-      'jLArXAc_Xcs', 'lB8ZsjMhy5M', 'hwi4uNpD6Yw', 'gVILookzrPw', 'I6cdPeYJh0s', '9KBsFHTwmfM',
-      'GPzGZtJKeHs', 'hCjcgoubkPM', 'r-LzOBlvAbw', 'P0N0h_EOS-c', 'H64mtOAMIsw', '_YtzsUdSC_I',
-      'pm6DHCpmIWg', 'PQTOlQjVldk', 'sWBqdWTg3Vs', 'GLgzgFAc2Hw'
-    ],
-    'love-section': [
-      'y0lPXtX1llg', '715aw2Va48c', '02LyjPBvUdk', 'ZkzY29DKHEQ', 'eYJCjVkOImU', 'Jtauh8GcxBY',
-      'rUCX9EddXj8', 'MctDn4Wpwb8', '_X2Xg0O-V44', 'wmXQFwlD7vk', 'gEmEIBjtP9U', '8Jpk22a8gdo',
-      'mxu78o4UkBQ', 'kN6VfS_0nXg', 'YNkaOE_z52k', 'BivVdRmuOEY', 'mUy4r7vP1P8', 'c3M9WEgY7UU',
-      'veDjtf8L38M', '5nnhAfadqFw', 'Hcv4b3hqaTg', 'y-azT9s8_O0', 'rHWkOx6A2qI', 'MkMEZBq6vTI',
-      '2Jb5ZCc2T4M', 'ly1T98p7toY', 'J5i0I34c8Iw', 'fPswXHHgsYM', 'M5fyjYIITyE', 'LWpMLL4g_Ek',
-      'hNYTQHXX0qI', 'f3hJccMiQsc', 'xHMHhjQ45yI', 'wEfPXOrImEY', 'XGfNx4TMi2Y', 'DWhtq3os0Xc',
-      'hcnoTQRZvPs', 'f2mkaqX-B_4', 'CThTtAwMRcM', '6StRZk4G1RA', 'ggMRfsJKJe4', '6mx4nbOaWQU',
-      '0RYFCrDq3Ec', 'Ywiww_7Qp-0', '22GO_mwP5Pg', '1RR0WzTPo6k', '2KN5WlI94ro', '9Fe3J9bR4tA',
-      'w1x85Khf0y4', 'N83K6EFuYwQ', 'g74TGlwuSmA', 'gmtXvLuB-WA', 'RYNqZ8FQhbs'
-    ]
-  };
+  <script>
+    const extraVideos = {
+      'writing-section': [
+        'IGZ23V9t-_w','mhrqoPu4BFQ','SBRu7KlyYpA','mjF1rmSV1dM','YqZTm5n9xHw','S_w9RTYlsT4','LLKvSFs5bZw','qiUZ-FzbZEo','CdhqVtpR2ts','MhjkkPvjbug','ZhbehC5XIDI','97Mj6pXYMd8','7t4OKkMCQ_E','jeOvNAMdtWQ','u3dkVk3F57c','YPsjSWxm-LE','dO474lpP-H8','4Kvd-uquuhI','wrDHps7ELYI','v-BaHzNyio0','SoB3VizFC7I','RUHGEQ7Lwrw','H-3rxh8kZHE','xtk8ro_eJZE','9T6PXX7X2ro','5rOiW_xY-kc','o_l4Ab5FRwM','MWWahIlLImw','kivUsDGWojU','1trifshoIw0','Jrgbjk45lFA','68fAjd29pR0','04F4xlWSFh0','PT2_F-1esPk','YaEBglkCFVc','kkqwtXJ9_nU','N7UJYxzOJRc','yzrQkCfRGxQ','JybV1mL6EMA','fN2t1cktdqM','RtDVlpEfKlI','R1sBiSIaiBk','oWAgfid0izA','cDlGFbBipCo'
+      ],
+      'falling-section': [
+        'UxANRMspilI','mlL1ILjyaCI','aqYnMSUTFGU','X1Fqn9du7xo','jPDwH1XEaSQ','tsteQPvBT-Q','PJGpsL_XYQI','yGOIHrrg_kQ','oAdjtchLlCA','olnskMh9PUA','ju_inUnrLc4','KUbU2blS0ZY','z6cKf9fhfgc','HQitbbtPZz8','eVTXPUF4Oz4','SIHDpxLA-kE','OVbE0_ToRnU','xwjlzJrvmNc','n7x6CMzCr8U','YipOPPRksGY','GLgzgFAc2Hw','kCNNRd7OoiI','Eyy-X1J0ehk','Ul9vuBhcRwU','nQscbB6L28c','Tm8LGxTLtQk','SsBNDryJYSs','NmJAZqPZqWM','kXYiU_JCYtU','NwbcQNjhEJc','jLArXAc_Xcs','lB8ZsjMhy5M','hwi4uNpD6Yw','gVILookzrPw','I6cdPeYJh0s','9KBsFHTwmfM','GPzGZtJKeHs','hCjcgoubkPM','r-LzOBlvAbw','P0N0h_EOS-c','H64mtOAMIsw','_YtzsUdSC_I','pm6DHCpmIWg','PQTOlQjVldk','sWBqdWTg3Vs'
+      ],
+      'love-section': [
+        'y0lPXtX1llg','715aw2Va48c','02LyjPBvUdk','ZkzY29DKHEQ','eYJCjVkOImU','Jtauh8GcxBY','rUCX9EddXj8','MctDn4Wpwb8','_X2Xg0O-V44','wmXQFwlD7vk','gEmEIBjtP9U','8Jpk22a8gdo','mxu78o4UkBQ','kN6VfS_0nXg','YNkaOE_z52k','BivVdRmuOEY','mUy4r7vP1P8','c3M9WEgY7UU','veDjtf8L38M','5nnhAfadqFw','Hcv4b3hqaTg','y-azT9s8_O0','rHWkOx6A2qI','MkMEZBq6vTI','2Jb5ZCc2T4M','ly1T98p7toY','J5i0I34c8Iw','fPswXHHgsYM','M5fyjYIITyE','LWpMLL4g_Ek','hNYTQHXX0qI','f3hJccMiQsc','xHMHhjQ45yI','wEfPXOrImEY','XGfNx4TMi2Y','DWhtq3os0Xc','hcnoTQRZvPs','f2mkaqX-B_4','CThTtAwMRcM','6StRZk4G1RA','ggMRfsJKJe4','6mx4nbOaWQU','0RYFCrDq3Ec','Ywiww_7Qp-0','22GO_mwP5Pg','1RR0WzTPo6k','2KN5WlI94ro','9Fe3J9bR4tA','w1x85Khf0y4','N83K6EFuYwQ','g74TGlwuSmA','gmtXvLuB-WA','RYNqZ8FQhbs'
+      ]
+    };
 
-  document.querySelectorAll('.toggle-button').forEach(button => {
-    button.addEventListener('click', () => {
-      const section = button.closest('section');
-      const sectionId = section.id;
-      const hiddenVideos = section.querySelector('.hidden-videos');
+    document.querySelectorAll('.toggle-button').forEach(button => {
+      button.addEventListener('click', () => {
+        const section = button.closest('section');
+        const sectionId = section.id;
+        const hiddenVideos = section.querySelector('.hidden-videos');
 
-      if (hiddenVideos.style.display === 'grid') {
-        // Hide videos and clear iframe elements to reduce load
-        hiddenVideos.style.display = 'none';
-        hiddenVideos.innerHTML = '';
-        button.textContent = 'Listen to More';
-        section.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        // Show hidden videos and lazy-load iframes
-        hiddenVideos.style.display = 'grid';
-
-        // Only add iframes if empty
-        if (!hiddenVideos.hasChildNodes()) {
-          extraVideos[sectionId].forEach(videoId => {
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://www.youtube.com/embed/${videoId}`;
-            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-            iframe.allowFullscreen = true;
-            iframe.style.border = 'none';
-            iframe.style.borderRadius = '10px';
-            iframe.style.width = '100%';
-            iframe.style.height = '315px';
-            hiddenVideos.appendChild(iframe);
-          });
+        if (hiddenVideos.style.display === 'grid') {
+          hiddenVideos.style.display = 'none';
+          hiddenVideos.innerHTML = '';
+          button.textContent = 'Listen to More';
+          section.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          hiddenVideos.style.display = 'grid';
+          if (!hiddenVideos.hasChildNodes()) {
+            extraVideos[sectionId].forEach(videoId => {
+              const iframe = document.createElement('iframe');
+              iframe.src = `https://www.youtube.com/embed/${videoId}`;
+              iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+              iframe.allowFullscreen = true;
+              hiddenVideos.appendChild(iframe);
+            });
+          }
+          button.textContent = 'Show Less';
         }
-        button.textContent = 'Show Less';
-      }
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
