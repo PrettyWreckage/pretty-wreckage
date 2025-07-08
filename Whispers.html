@@ -8,56 +8,65 @@
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background: url('bookshelvebg.jpg') no-repeat center center fixed;
+      background: url('parchment-bg.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
     }
+
     .container {
       max-width: 1100px;
       margin: auto;
       padding: 40px 20px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.85); /* softer transparency */
       border-radius: 20px;
     }
+
     h1 {
       text-align: center;
-      font-size: 3em;
+      font-size: 2.7em;
       margin-bottom: 10px;
       color: #5c3d1b;
     }
+
     p.subtitle {
       text-align: center;
       font-style: italic;
       margin-bottom: 40px;
       color: #7a5a3c;
     }
+
     .story-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 30px;
     }
+
     @media (min-width: 700px) {
       .story-grid {
         grid-template-columns: 1fr 1fr;
       }
     }
+
     .story-card {
-      background: #fff;
+      background: rgba(255, 255, 255, 0.7);
       padding: 25px;
       border-radius: 15px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       transition: transform 0.2s ease;
     }
+
     .story-card:hover {
       transform: translateY(-5px);
     }
+
     .story-title {
-      font-size: 1.5em;
+      font-size: 1.4em;
       margin-bottom: 10px;
       color: #3e2b18;
     }
+
     .story-tag {
-      font-size: 0.9em;
+      font-size: 0.85em;
       padding: 4px 10px;
       background: #e6d5c3;
       color: #5c3d1b;
@@ -65,22 +74,45 @@
       display: inline-block;
       margin-bottom: 15px;
     }
+
     .story-blurb {
       font-size: 1em;
       color: #555;
       margin-bottom: 20px;
     }
+
     .read-more {
       text-decoration: none;
       color: #fff;
       background: #5c3d1b;
-      padding: 10px 18px;
+      padding: 8px 16px;
       border-radius: 8px;
       font-weight: bold;
       transition: background 0.3s ease;
+      display: inline-block;
     }
+
     .read-more:hover {
       background: #7a5a3c;
+    }
+
+    #back-home {
+      display: block;
+      text-align: center;
+      margin: 50px auto 0 auto;
+      text-decoration: none;
+      color: #5c3d1b;
+      font-weight: 700;
+      padding: 12px 24px;
+      border: 2px solid #5c3d1b;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      width: fit-content;
+    }
+
+    #back-home:hover {
+      background: #5c3d1b;
+      color: #fff;
     }
   </style>
 </head>
@@ -90,13 +122,12 @@
     <p class="subtitle">Not every book I start finds an ending, but every word came from something real. This is where I keep them , the raw beginnings, the quiet middles, the almosts.</p>
 
     <div class="story-grid">
-      <!-- Story 1 -->
+      <!-- Story Card Template -->
       <div class="story-card">
         <div class="story-title">The Last Postcard</div>
-        <div class="story-tag">The Last Postcard
-
-
-The news came on a quiet Thursday morning, the kind where nothing feels real until the sun breaks through. Elise hadn’t spoken to her grandfather in almost eleven years. The letter informing her of his death was formal, clinical even. No signature of warmth. Just the facts.
+        <div class="story-tag">Short Story</div>
+        <div class="story-blurb">
+          <span class="preview">The news came on a quiet Thursday morning, the kind where nothing feels real until the sun breaks through. Elise hadn’t spoken to her grandfather in almost eleven years. The letter informing her of his death was formal, clinical even. No signature of warmth. Just the facts.
 
 John Harold Whitmore had passed away.
 She was the sole heir.
@@ -105,8 +136,8 @@ A seaside cottage was now hers.
 The envelope smelled faintly of dust and lemon, the scent of forgotten places. She stared at the paper for what felt like hours. Not because she was grieving, but because she didn’t know how to.
 
 Her grandfather had once been her entire world. A gruff, warm soul who taught her how to tie sailor’s knots, build driftwood forts, and find North using moss on trees. He had stories tucked behind every wrinkle and eyes that always looked like they were searching the horizon for something lost.
-
-But one day, without warning or explanation, he disappeared from her life. One unanswered birthday card turned into two. Then silence. Her mother had simply said, *“He made his choices.”* And Elise had learned not to ask questions with answers that could hurt.
+...</span>
+          <span class="full" style="display: none;"> But one day, without warning or explanation, he disappeared from her life. One unanswered birthday card turned into two. Then silence. Her mother had simply said, *“He made his choices.”* And Elise had learned not to ask questions with answers that could hurt.
 
 Now he was gone, and she was left with the aftermath, a key, a deed, and decades of distance.
 
@@ -277,26 +308,24 @@ She picked up the postcard, walked down to the shore, and set it in the mailbox 
 
 Then she walked back, barefoot in the sand, the night wind catching her hair, and for the first time in years, she felt light.
 
-The ghosts had been given voices. The silence, a song. And the past, finally, had somewhere to go.</div>
-        <div class="story-blurb">A daughter finds a mysterious postcard in her mother’s belongings, unlocking a series of letters never meant to be sent. A story about forgiveness, loss, and truth that arrives too late.</div>
-        <a href="#" class="read-more">Read More</a>
+The ghosts had been given voices. The silence, a song. And the past, finally, had somewhere to go..</span>
+        </div>
+        <a href="#" class="read-more" onclick="toggleReadMore(this); return false;">Read More</a>
       </div>
 
-      <!-- Story 2 -->
+      <!-- Another Story -->
       <div class="story-card">
         <div class="story-title">Beneath the Lavender Sky</div>
-        <div class="story-tag">Beneath the Lavender Sky
-
-
-The lavender field whispered as it swayed beneath the early morning breeze, soft and endless, stretching toward the hills. For most of the town, it was just another Tuesday. But for Evelyn Hart, it was the day he arrived.
+        <div class="story-tag">Short Story</div>
+        <div class="story-blurb">
+          <span class="preview">The lavender field whispered as it swayed beneath the early morning breeze, soft and endless, stretching toward the hills. For most of the town, it was just another Tuesday. But for Evelyn Hart, it was the day he arrived.
 
 The bell above her flower shop door chimed, low, almost hesitant.
 
 She looked up from the bouquet she was binding. Sunlight poured through the glass, framing the stranger like a faded photograph.
 
-Tall. Unshaven. Denim jacket dusted in dirt. His hands were weathered like he’d worked them too hard for too long, and his eyes, storm gray, tired, beautiful, held a sadness she recognized.
-
-“Sorry,” he said, voice low and rough. “Didn’t mean to interrupt.”
+Tall. Unshaven. Denim jacket dusted in dirt. His hands were weathered like he’d worked them too hard for too long, and his eyes, storm gray, tired, beautiful, held a sadness she recognized...</span>
+          <span class="full" style="display: none;"> “Sorry,” he said, voice low and rough. “Didn’t mean to interrupt.”
 
 “You didn’t,” Evelyn said softly, brushing a loose curl behind her ear. “You’re welcome to browse.”
 
@@ -495,13 +524,33 @@ She looked up at him and smiled.
 
 He kissed her forehead gently.
 
-“No,” he said. “We’re finally free.”</div>
-        <div class="story-blurb">She ran to the mountains to forget him. But what she found wasn’t silence, it was another secret waiting to unfold beneath the scent of lavender and storm.</div>
-        <a href="#" class="read-more">Read More</a>
+“No,” he said. “We’re finally free.”</span>
+        </div>
+        <a href="#" class="read-more" onclick="toggleReadMore(this); return false;">Read More</a>
       </div>
 
-      <!-- Add more stories below -->
+      <!-- You can copy and paste this block to add more stories -->
     </div>
+
+    <a href="/" id="back-home">Back Home</a>
   </div>
+
+  <script>
+    function toggleReadMore(btn) {
+      const blurb = btn.previousElementSibling;
+      const preview = blurb.querySelector('.preview');
+      const full = blurb.querySelector('.full');
+
+      if (full.style.display === 'none') {
+        full.style.display = 'inline';
+        preview.style.display = 'none';
+        btn.textContent = 'Show Less';
+      } else {
+        full.style.display = 'none';
+        preview.style.display = 'inline';
+        btn.textContent = 'Read More';
+      }
+    }
+  </script>
 </body>
 </html>
