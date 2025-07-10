@@ -83,7 +83,7 @@
       color: #000;
     }
 
-    /* New Short Novels section */
+    /* Short Novels section (unchanged) */
     .short-novels {
       margin: 3rem 0 4rem;
       background: rgba(255, 124, 174, 0.15);
@@ -121,15 +121,41 @@
       background-color: #ff4a85;
     }
 
+    /* 🌸 Enhanced Trending Emotions Section */
+    section.Trending.Emotions {
+      background: rgba(255, 190, 220, 0.15);
+      padding: 2rem;
+      border: 2px solid #ff7cae;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 124, 174, 0.3);
+      margin: 3rem 0 4rem;
+      text-align: center;
+    }
+
+    section.Trending.Emotions h2 {
+      font-size: 2.4rem;
+      color: #ffa3c0;
+      margin-bottom: 1rem;
+      font-family: 'Georgia', serif;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    }
+
+    /* 🌸 Enhanced Latest Poem Section */
     .poem-preview {
+      background: rgba(255, 190, 220, 0.08);
+      padding: 1.5rem;
+      border: 1px solid #ffb6d1;
+      border-radius: 16px;
+      box-shadow: 0 0 10px rgba(255, 180, 220, 0.2);
       text-align: center;
       margin-top: 3rem;
     }
 
     .poem-preview h2 {
-      font-size: 1.6rem;
-      color: #ffa3c0;
+      font-size: 1.8rem;
+      color: #ff9cbb;
       margin-bottom: 1rem;
+      font-family: 'Georgia', serif;
     }
 
     .poem-line {
@@ -245,7 +271,6 @@
       <a href="archive.html">Archive</a>
     </nav>
 
-    <!-- 🌟 New Poetic Navigation Buttons -->
     <nav class="nav">
       <a href="HerUntoldPages.html">Her Untold Pages</a>
       <a href="SacredScribbles.html">Sacred Scribbles</a>
@@ -258,17 +283,18 @@
       <a href="MonthlyWreckage.html">Monthly Wreckage</a>
     </nav>
 
-    <!-- Short Novels Section -->
+    <!-- 🌟 Trending Emotions Section -->
     <section class="Trending Emotions">
       <h2>Trending Emotions</h2>
       <p>Selected by hearts, not algorithms, these poems spoke the loudest to those who needed them..</p>
       <a href="EchoesofLonging.html" class="button">Read More</a>
     </section>
 
+    <!-- 🌸 Latest Poem Preview -->
     <section class="poem-preview">
       <h2>Latest Poem: “Soft is Still Strong”</h2>
-      <p class="poem-line">They told me strength was built from steel, A hardened heart that doesn't feel,  ...</p>
-      <a class="read-more" href="Latsetspoem.html">Explore Bleeding Pages →</a>
+      <p class="poem-line">They told me strength was built from steel, A hardened heart that doesn't feel, ...</p>
+      <a class="read-more" href="categories.html">Explore Bleeding Pages →</a>
     </section>
 
     <footer>
@@ -279,7 +305,6 @@
   <script>
     let audioUnlocked = false;
 
-    // Unlock audio on first user click anywhere on page
     function unlockAudio() {
       if (!audioUnlocked) {
         const sound = document.getElementById("hoverSound");
@@ -287,7 +312,6 @@
           sound.pause();
           sound.currentTime = 0;
           audioUnlocked = true;
-          console.log("Audio unlocked");
         }).catch((error) => {
           console.warn("Audio unlock failed:", error);
         });
@@ -296,7 +320,6 @@
     }
     document.addEventListener('click', unlockAudio);
 
-    // Play sound on rose click (toggle popup)
     function togglePopup() {
       const popup = document.getElementById('rosePopup');
       popup.classList.toggle('active');
@@ -304,13 +327,10 @@
       const btn = document.querySelector('.secret-rose');
       btn.setAttribute('aria-expanded', popup.classList.contains('active'));
 
-      // Play sound if unlocked
       if (audioUnlocked) {
         const sound = document.getElementById("hoverSound");
         sound.currentTime = 0;
         sound.play();
-      } else {
-        console.log("Audio not unlocked yet.");
       }
     }
   </script>
