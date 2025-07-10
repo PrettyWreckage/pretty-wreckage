@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soft is Still Strong</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: auto;
+    }
+
+    .poem-container {
+      background: rgba(255, 250, 240, 0.92);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      max-width: 800px;
+      margin: 40px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .poem {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      min-height: 400px;
+    }
+
+    .home-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #444;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .home-btn:hover {
+      background-color: #222;
+    }
+
+    @media (max-width: 600px) {
+      .poem-container {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      .poem {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="poem-container">
+    <h1>Soft is Still Strong</h1>
+    <div class="poem" id="poemDisplay"></div>
+    <a href="/index.html" class="home-btn">← Back Home</a>
+  </div>
+
+  <script>
+    const lines = [
+      "They told me strength was built from steel,",
+      "A hardened heart that doesn't feel,",
+      "A sharpened edge, a silent cry,",
+      "A soul too proud to break or try.",
+      "",
+      "But I have learned through tear-stained days,",
+      "That strength lives in the gentlest ways,",
+      "In trembling hands that still reach out,",
+      "In whispered hope that fights self-doubt.",
+      "",
+      "Soft is the voice that shakes and speaks,",
+      "Still rising up through aching weeks,",
+      "Soft is the heart that breaks and mends,",
+      "That offers love and still defends.",
+      "",
+      "You see, I’ve bent but did not break,",
+      "I’ve cried oceans and watched hearts ache,",
+      "But still I rise with steady grace,",
+      "A softness time cannot erase.",
+      "",
+      "My scars are not forged out of stone,",
+      "They’re stitched in love I’ve called my own,",
+      "I’ve held the hurt, the pain, the fear,",
+      "And still I stand, I’m still right here.",
+      "",
+      "You think soft means weak, means small?",
+      "That we don’t get back up when we fall?",
+      "But I have carried storms and flame,",
+      "And wore my tenderness without shame.",
+      "",
+      "I’ve loved too much, I’ve lost my way,",
+      "But found my voice the quiet way,",
+      "Not through fists or sharpened pride,",
+      "But through the tears I didn’t hide.",
+      "",
+      "I am the storm, and I am calm,",
+      "The open wound, the healing balm,",
+      "The lullaby and war drum too,",
+      "The softness that still made it through.",
+      "",
+      "So don’t you ever dare define,",
+      "My power by some colder line,",
+      "For in this chest, this heart, this song,",
+      "I prove that soft is still strong."
+    ];
+
+    const display = document.getElementById("poemDisplay");
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeLine() {
+      if (lineIndex < lines.length) {
+        const line = lines[lineIndex];
+        if (charIndex < line.length) {
+          display.innerHTML += line.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeLine, 30);
+        } else {
+          display.innerHTML += '\n';
+          lineIndex++;
+          charIndex = 0;
+          setTimeout(typeLine, 250);
+        }
+      }
+    }
+
+    window.onload = () => {
+      typeLine();
+    };
+  </script>
+</body>
+</html>
