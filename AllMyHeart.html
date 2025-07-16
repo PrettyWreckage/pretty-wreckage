@@ -48,6 +48,7 @@
       margin-bottom: 2.5rem;
       text-align: left;
     }
+    #poem-text-499,
     #poem-text-423,
     #poem-text-424,
     #poem-text-425,
@@ -227,6 +228,71 @@
       <strong>Pretty Wreckage</strong>
     </p>
   </div>
+
+  <h1>He Calls Me Home?</h1>
+<div class="meta">
+  Date: 2025-07-17<br>
+  Mood: vulnerable, emotional, Grateful, Reassuring, Hopeful & Eternal
+</div>
+
+<div class="poem-container poem-section" id="poem499-container">
+  <pre id="poem-text-499"
+You see the shadows I try to hide,
+The ones I feared would make you run,
+But instead, you held them like sacred stories,
+And called me brave when I came undone.
+
+I used to think my cracks were shameful,
+But you see constellations in every scar.
+You touch the broken pieces gently
+And remind me that they made me who I am, so far.
+
+You say I rescued you from demons,
+But love, it was you who lit my way.
+You kissed my chaos into calmness,
+And made me believe I was worth the stay.
+
+We are not perfect, that’s the truth,
+But in your arms, I’ve never known more peace.
+Together, we’re poetry—soft yet unshaken,
+A masterpiece that will never cease.
+
+So I give you my soul too, every thread,
+Where my love weaves through bone and flame.
+You are the breath that fills my silence,
+And I’ve never loved this deeply, or the same.
+
+Yes, there are days that ache with distance,
+But even then, you’re never far.
+Because I carry you in every heartbeat,
+My safest place, my northern star.
+
+So here I am, open and still learning,
+With every piece of me to give,
+You are my shelter, my once-impossible dream,
+My forever reason to live.  
+  </pre>
+  <button onclick="togglePoem('poem-text-499', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem499" title="Like this poem">❤️</button>
+    <span id="like-count-poem499">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem499">
+    <h3>Comments</h3>
+    <div id="comments-list-poem499"></div>
+    <form id="comment-form-poem499">
+      <input type="text" id="name-poem499" placeholder="Your name" required />
+      <textarea id="comment-text-poem499" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
 
 <h1>Can You?</h1>
 <div class="meta">
@@ -3572,6 +3638,7 @@ Bound by a single look.
     });
 
     // Listen for likes on all poems
+     listenForLikes('poem499');
      listenForLikes('poem423');
      listenForLikes('poem424');
      listenForLikes('poem425');
@@ -3675,7 +3742,7 @@ Bound by a single look.
     }
 
     // Setup form submit handlers
-    ['poem423', 'poem424', 'poem425', 'poem426', 'poem427', 'poem428', 'poem429', 'poem430', 'poem431', 'poem432', 'poem433', 'poem434', 'poem435', 'poem436', 'poem437', 'poem438', 'poem439', 'poem440', 'poem441', 'poem442', 'poem443', 'poem444', 'poem445', 'poem446', 'poem447', 'poem448', 'poem449', 'poem450', 'poem451', 'poem452', 'poem453', 'poem454', 'poem455', 'poem456', 'poem457', 'poem458', 'poem459', 'poem460', 'poem461', 'poem462', 'poem463', 'poem464', 'poem465', 'poem466', 'poem467', 'poem468'].forEach(poemId => {
+    ['poem499', 'poem423', 'poem424', 'poem425', 'poem426', 'poem427', 'poem428', 'poem429', 'poem430', 'poem431', 'poem432', 'poem433', 'poem434', 'poem435', 'poem436', 'poem437', 'poem438', 'poem439', 'poem440', 'poem441', 'poem442', 'poem443', 'poem444', 'poem445', 'poem446', 'poem447', 'poem448', 'poem449', 'poem450', 'poem451', 'poem452', 'poem453', 'poem454', 'poem455', 'poem456', 'poem457', 'poem458', 'poem459', 'poem460', 'poem461', 'poem462', 'poem463', 'poem464', 'poem465', 'poem466', 'poem467', 'poem468'].forEach(poemId => {
       const form = document.getElementById('comment-form-' + poemId);
       form.addEventListener('submit', e => {
         e.preventDefault();
