@@ -48,6 +48,7 @@
       margin-bottom: 2.5rem;
       text-align: left;
     }
+    #poem-text-501,
     #poem-text-499,
     #poem-text-423,
     #poem-text-424,
@@ -228,7 +229,124 @@
       <strong>Pretty Wreckage</strong>
     </p>
   </div>
+  
+ <h1>When I’m In Your Arms Again</h1>
+<div class="meta">
+  Date: 2025-07-18<br>
+  Mood: vulnerable, emotional, Grateful, Reassuring, Hopeful & Eternal
+</div>
 
+<div class="poem-container poem-section" id="poem501-container">
+  <pre id="poem-text-501">
+I’ve spent most of my life
+Feeling like I never quite belonged.
+Like I was walking through rooms
+Where I spoke a language no one else understood.
+Smiling, nodding, fading,
+Invisible in a world that never really saw me.
+
+I’ve searched for signs in the stars,
+Looked for answers in silence,
+Held hands with emptiness
+Just to feel something that felt like home.
+But nothing stayed.
+And even when I was surrounded by people,
+I was still alone.
+
+There’s a kind of ache
+That lives inside a soul that’s never been held right.
+And I carried that ache for years,
+Until you.
+
+You…
+You didn’t just find me.
+You recognized me.
+Like your heart had been waiting
+To echo the sound of mine.
+
+But distance.
+God, this distance.
+It stretches across days and screens and aching hours.
+And sometimes I feel lost again,
+Like maybe I imagined the warmth in your voice,
+The way your arms made the world quiet.
+Maybe I dreamed it.
+Maybe I made you up
+Because I needed something to believe in.
+
+But then,
+I close my eyes,
+And I remember.
+Your hands on my back.
+Your breath against my hair.
+The way the noise in my chest fell silent
+The moment you held me.
+
+And just like that,
+I’m found again.
+
+Because it’s not a place I’ve been searching for,
+It’s you.
+It’s always been you.
+
+I used to ask the universe,
+"What is my purpose?"
+I begged the sky to show me why I’m here,
+Why I was born with this ache, this softness,
+This loneliness.
+
+But the moment I looked into your eyes
+And you didn’t look away,
+The moment you stayed,
+And kept staying,
+I knew.
+You are the answer to every question
+My soul ever dared to ask.
+
+I still don’t have it all figured out.
+Some days, I still feel lost.
+Some days, I still wonder where I belong.
+But when you say my name like a prayer,
+When you hold me like I’m something sacred,
+I remember.
+
+I belong right here.
+In your arms.
+In your life.
+In this love we built between broken pieces.
+
+So if I never find the perfect path,
+If the world never makes sense,
+If I wander for the rest of my life,
+Let me wander with your hand in mine.
+Let me get lost with you,
+Over and over,
+Because somehow,
+In all that lostness…
+You are where I am found.
+  </pre>
+  <button onclick="togglePoem('poem-text-501', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem501" title="Like this poem">❤️</button>
+    <span id="like-count-poem501">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem501">
+    <h3>Comments</h3>
+    <div id="comments-list-poem501"></div>
+    <form id="comment-form-poem501">
+      <input type="text" id="name-poem501" placeholder="Your name" required />
+      <textarea id="comment-text-poem501" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+  
   <h1>He Calls Me Home?</h1>
 <div class="meta">
   Date: 2025-07-17<br>
@@ -3638,6 +3756,7 @@ Bound by a single look.
     });
 
     // Listen for likes on all poems
+     listenForLikes('poem501');
      listenForLikes('poem499');
      listenForLikes('poem423');
      listenForLikes('poem424');
@@ -3742,7 +3861,7 @@ Bound by a single look.
     }
 
     // Setup form submit handlers
-    ['poem499', 'poem423', 'poem424', 'poem425', 'poem426', 'poem427', 'poem428', 'poem429', 'poem430', 'poem431', 'poem432', 'poem433', 'poem434', 'poem435', 'poem436', 'poem437', 'poem438', 'poem439', 'poem440', 'poem441', 'poem442', 'poem443', 'poem444', 'poem445', 'poem446', 'poem447', 'poem448', 'poem449', 'poem450', 'poem451', 'poem452', 'poem453', 'poem454', 'poem455', 'poem456', 'poem457', 'poem458', 'poem459', 'poem460', 'poem461', 'poem462', 'poem463', 'poem464', 'poem465', 'poem466', 'poem467', 'poem468'].forEach(poemId => {
+    ['poem501','poem499', 'poem423', 'poem424', 'poem425', 'poem426', 'poem427', 'poem428', 'poem429', 'poem430', 'poem431', 'poem432', 'poem433', 'poem434', 'poem435', 'poem436', 'poem437', 'poem438', 'poem439', 'poem440', 'poem441', 'poem442', 'poem443', 'poem444', 'poem445', 'poem446', 'poem447', 'poem448', 'poem449', 'poem450', 'poem451', 'poem452', 'poem453', 'poem454', 'poem455', 'poem456', 'poem457', 'poem458', 'poem459', 'poem460', 'poem461', 'poem462', 'poem463', 'poem464', 'poem465', 'poem466', 'poem467', 'poem468'].forEach(poemId => {
       const form = document.getElementById('comment-form-' + poemId);
       form.addEventListener('submit', e => {
         e.preventDefault();
