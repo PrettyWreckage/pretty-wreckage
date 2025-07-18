@@ -48,6 +48,7 @@
       margin-bottom: 2.5rem;
       text-align: left;
     }
+    #poem-text-500,
     #poem-text-186,
     #poem-text-157,
     #poem-text-158,
@@ -209,7 +210,160 @@
       <strong>Pretty Wreckage</strong>
     </p>
   </div>
+<h1>God, I'm Tired</h1>
+<div class="meta">
+  Date: 2025-07-18<br>
+  Mood: Fragile, quiet desperation,
+</div>
 
+<div class="poem-container poem-section" id="poem500-container">
+  <pre id="poem-text-500">
+God.....
+i'm tired.
+not just the kind of tired a nap can fix 
+but bone, deep, soul, worn,
+heart aching tired.
+
+tired of pretending I’m okay
+with empty shampoo bottles
+and 20 rand dreams.
+tired of asking,
+tired of needing,
+tired of saying “i’m sorry to ask again…”
+just for a crumb
+of what should never feel like too much.
+
+why do i always have to beg
+to feel human?
+
+why can't someone just… notice?
+see the cracks in my voice,
+the ache in my silence,
+the hunger in my smile.
+why can’t help come without
+a sermon, a price, a sigh?
+why must my dignity
+be the currency?
+
+i know it’s my fault.
+i carry that.
+every fucking day.
+but does that mean i deserve
+to be punished for it
+in every small way?
+
+i hate money.
+but i can’t breathe without it.
+i hate the way it decides
+who sleeps warm,
+who gets meds,
+who gets to smile in a new dress
+instead of walking past it
+like it never called her name.
+
+i want to say yes
+when my kids need something.
+i want to stop calculating costs
+in tears and shame.
+i want to buy a snack for the table
+and not sit there empty-handed,
+pretending i’m full
+on nothing but sorrow.
+
+and i wish,
+God, i wish ,
+i could get like she does.
+just receive.
+without guilt clawing down my throat.
+without rehearsing how to make myself smaller,
+more pitiful,
+more deserving.
+
+i wish i could be given to
+without becoming a debt.
+without shrinking in gratitude.
+without feeling like a burden.
+
+i wish someone looked at me
+and thought,
+"she needs this,"
+and gave
+just because.
+not because i begged,
+not because i explained,
+not because i earned it
+through humiliation.
+
+i see her,
+how she’s loved out loud,
+how the world just hands her things,
+gifts wrapped in ease,
+as if kindness was her birthright.
+
+and i ache.
+because i know I’ll have to write
+an essay of my pain
+just to be heard.
+and even then,
+they’ll say,
+"you’re strong, you’ll get through it."
+
+i don’t want to be strong.
+i want to rest.
+i want to fall apart
+without the world falling on me.
+i want to be held
+without asking to be.
+i want to feel chosen
+even when I have nothing left to offer.
+
+i want to stop fighting.
+not just the bills,
+the aching body,
+the guilt,
+but the war in my mind
+that whispers,
+"you are too much and never enough."
+
+i’m tired of waking up
+just to survive.
+of scraping joy
+from a world that keeps taking.
+
+i’m tired of crying quietly,
+tired of hiding,
+tired of the mask,
+tired of holding it all in
+so no one feels guilty
+for walking past me.
+
+i’m tired.
+God if you hear me 
+i’m so,
+tired.
+</pre>
+  <button onclick="togglePoem('poem-text-500', this)">Read More</button>
+
+  <div class="like-section">
+    <button class="like-button" data-poem="poem500" title="Like this poem">❤️</button>
+    <span id="like-count-poem500">0</span> Likes
+  </div>
+
+  <div class="comments-section" id="comments-poem186">
+    <h3>Comments</h3>
+    <div id="comments-list-poem500"></div>
+    <form id="comment-form-poem500">
+      <input type="text" id="name-poem500" placeholder="Your name" required />
+      <textarea id="comment-text-poem500" placeholder="Your comment" required></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+    <!-- PRIVACY NOTICE ADDED -->
+    <p style="margin-top: 1rem; font-size: 0.85rem; color: #fbd6e0;">
+      My Beautiful Broken Souls, comments are hidden from public view to protect your privacy and emotional well-being. Only I can see them.
+    </p>
+  </div>
+</div>
+  
 <h1>Held Together by a Thread</h1>
 <div class="meta">
   Date: 2025-05-17<br>
@@ -2228,6 +2382,7 @@ the fiercest truth is I’m still here.
     });
 
     // Listen for likes on all poems
+    listenForLikes('poem500');
     listenForLikes('poem186');
     listenForLikes('poem157');
     listenForLikes('poem158');
@@ -2314,7 +2469,7 @@ the fiercest truth is I’m still here.
     }
 
     // Setup form submit handlers
-    ['poem186', 'poem157', 'poem158', 'poem159', 'poem160', 'poem161', 'poem162', 'poem163', 'poem164', 'poem165', 'poem166', 'poem167', 'poem168', 'poem169', 'poe170', 'poem171', 'poem172', 'poem173', 'poem174', 'poem175', 'poem176', 'poem177', 'poem178', 'poem179', 'poem180', 'poem181', 'poem182', 'poem183', 'poem184',  'poem185'].forEach(poemId => {
+    ['poem500','poem186', 'poem157', 'poem158', 'poem159', 'poem160', 'poem161', 'poem162', 'poem163', 'poem164', 'poem165', 'poem166', 'poem167', 'poem168', 'poem169', 'poe170', 'poem171', 'poem172', 'poem173', 'poem174', 'poem175', 'poem176', 'poem177', 'poem178', 'poem179', 'poem180', 'poem181', 'poem182', 'poem183', 'poem184',  'poem185'].forEach(poemId => {
       const form = document.getElementById('comment-form-' + poemId);
       form.addEventListener('submit', e => {
         e.preventDefault();
