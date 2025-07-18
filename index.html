@@ -238,6 +238,56 @@
     .rose-popup.active {
       display: block;
     }
+
+    /* New popup for latest poem */
+    #latestPoemPopup {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 124, 174, 0.9);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(255, 124, 174, 0.7);
+      z-index: 1000;
+      font-family: 'Georgia', serif;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      max-width: 320px;
+      cursor: default;
+    }
+
+    #latestPoemPopup a {
+      background: white;
+      color: #ff4a85;
+      font-weight: bold;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    #latestPoemPopup a:hover {
+      background-color: #ff7cae;
+      color: white;
+    }
+
+    #latestPoemPopup button {
+      background: transparent;
+      border: none;
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      padding: 0 8px;
+      line-height: 1;
+    }
+
+    #latestPoemPopup button:hover {
+      color: #ff4a85;
+    }
   </style>
 </head>
 <body>
@@ -253,6 +303,12 @@
     wild and free,<br>
     without asking, without permission...
     Because I Love you💖You Love Me
+  </div>
+
+  <!-- New Latest Poem Popup -->
+  <div id="latestPoemPopup" role="alert" aria-live="polite" aria-label="Latest poem notification">
+    <a href="Latsetspoem.html" id="readLatestPoemBtn">Read Latest Poem</a>
+    <button id="closeLatestPoemBtn" aria-label="Close latest poem notification">&times;</button>
   </div>
 
   <audio id="hoverSound" preload="auto">
@@ -340,6 +396,12 @@
         sound.play();
       }
     }
+
+    // Close Latest Poem popup button handler
+    document.getElementById('closeLatestPoemBtn').addEventListener('click', () => {
+      const popup = document.getElementById('latestPoemPopup');
+      popup.style.display = 'none';
+    });
   </script>
 </body>
 </html>
